@@ -1,0 +1,35 @@
+.naav{
+    background-color: #F27222 !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: fixed; */
+    /* z-index: 1; */
+}
+a {
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #64300f;
+}
+.navbar-nav .nav-item.active .nav-link {
+    color: #ffffff; /* Set the active link color to white */
+}
+
+.btn:hover{
+    color:#fff;
+}
+
+.input-text:focus{
+    box-shadow: 0px 0px 0px;
+    border-color:#f8c146;
+    outline: 0px;
+}
+
+.form-control {
+    border: 1px solid #f8c146;
+}
+

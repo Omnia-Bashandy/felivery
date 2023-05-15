@@ -1,0 +1,40 @@
+.how-it-works {
+    background-color: #f8f8f8;
+    padding: 40px 0;
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .steps {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .step {
+    text-align: center;
+  }
+  
+  .step-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #E5491B;
+    font-weight: bold;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #777777;
+    color: #E5491B;
+
+  }
+fa-icon{
+  font-size: 50px;
+}  

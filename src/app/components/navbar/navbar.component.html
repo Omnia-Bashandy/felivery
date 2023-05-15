@@ -1,0 +1,61 @@
+<div class="row naav">
+  <!-- Navbar -->
+  <div class="col-1">
+    <a class="navbar-brand mt-2 mt-lg-0 d-sm-none d-md-none d-lg-block" href="#">
+      <img src="assets/circleLogo2.png" height="70" alt="MDB Logo" loading="lazy" />
+    </a>
+  </div>
+  
+  <div class="col-11 ">
+    <nav class="navbar navbar-expand-lg">
+      <button class="navbar-toggler align-items-end" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- <ul class="navbar-nav mr-auto col-10 align-items-center">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Offers <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">All Restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pastry</a>
+          </li>
+        </ul> -->
+
+        <ul class="navbar-nav mr-auto col-10 align-items-center">
+          <li class="nav-item" [class.active]="isActive('home')">
+            <a class="nav-link" routerLink="/" (click)="setActive('home')">Home</a>
+          </li>
+          <li class="nav-item" [class.active]="isActive('offers')">
+            <a class="nav-link" routerLink="/offers" (click)="setActive('offers')">Offers</a>
+          </li>
+          <li class="nav-item" [class.active]="isActive('restaurants')">
+            <a class="nav-link" routerLink="/restaurants" (click)="setActive('restaurants')">All Restaurants</a>
+          </li>
+          <li class="nav-item" [class.active]="isActive('pastry')">
+            <a class="nav-link" routerLink="/pastry" (click)="setActive('pastry')">Pastry</a>
+          </li>
+          <li class="nav-item" [class.active]="isActive('groceries')">
+            <a class="nav-link" routerLink="/groceries" (click)="setActive('groceries')">Groceries</a>
+          </li>
+        </ul>
+        
+        <div class="input-group w-auto"> <!-- Removed 'd-flex' class -->
+          <input
+            type="search"
+            class="form-control rounded"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="search-addon"
+          />
+          <span class="input-group-text border-0" id="search-addon">
+            <fa-icon [icon]="search"></fa-icon>
+          </span> 
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
