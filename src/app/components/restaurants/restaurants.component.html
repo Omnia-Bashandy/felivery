@@ -1,3 +1,14 @@
-<div>
-    <p>restaurants works!</p>
+<h4 class="alert alert-secondary mt-4">All Restaurants</h4>
+<div class="container-fluid">
+  <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+    <div *ngFor="let Restaurant of Restaurants" class="col d-flex justify-content-center">
+      <div class="card my-4" style="width: 18rem; height: 18rem;">
+        <img class="card-img-top" [src]="Restaurant.image" alt="Image">
+        <div class="card-body">
+          <h5 class="card-title ellipsis" >{{Restaurant.name}}</h5>
+          <p class="card-text ellipsis">{{Restaurant.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
