@@ -16,8 +16,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
-// import { GlossaryComponent } from './components/glossary/glossary.component';
+import { DataTablesModule } from "angular-datatables";
 import { GroceriesComponent } from './components/groceries/groceries.component';
+import { DashBoardComponent } from './components/dash-board/dash-board.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,13 +32,15 @@ import { GroceriesComponent } from './components/groceries/groceries.component';
     HomeComponent,
     StepsComponent,
     LoadingComponent,
-    GroceriesComponent
+    GroceriesComponent,
+    DashBoardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    DataTablesModule
     // NgbCollapseModule
   ],
   providers: [],
