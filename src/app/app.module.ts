@@ -19,6 +19,8 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { DataTablesModule } from "angular-datatables";
 import { GroceriesComponent } from './components/groceries/groceries.component';
 import { DashBoardComponent } from './components/dash-board/dash-board.component';
+import { RegestrationComponent } from './components/regestration/regestration.component';
+import { ErrorComponent } from './components/error/error.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { DashBoardComponent } from './components/dash-board/dash-board.component
     StepsComponent,
     LoadingComponent,
     GroceriesComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    RegestrationComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
