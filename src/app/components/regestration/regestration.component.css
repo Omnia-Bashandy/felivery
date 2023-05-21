@@ -1,0 +1,11 @@
+#container{
+    height: 1000px;
+    background-image:url("/assets/Reg-Bg2.jpg");
+    background-size:cover;
+    display: flex;
+    /* background-blend-mode :darken; */
+    /* filter: brightness(70%); */
+}
+.mb-3,.remain{
+    color: white;
+}

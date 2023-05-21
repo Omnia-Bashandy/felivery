@@ -1,6 +1,7 @@
-/* body{
-    background-color: #F19347;
-} */
+body{
+    /* background-color: #F19347; */
+    overflow-x: hidden;
+}
 .hi{
     background-color: #F5F5F5 !important;
 }

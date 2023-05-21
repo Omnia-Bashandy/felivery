@@ -3,6 +3,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 15px;
+    padding-right: 20px;
     /* position: fixed; */
     /* z-index: 1; */
 }
@@ -33,3 +35,10 @@ a {
     border: 1px solid #f8c146;
 }
 
+img {
+    transition: transform .7s ease-in-out;
+  }
+  
+  img:hover {
+    transform: rotate(360deg);
+  }
