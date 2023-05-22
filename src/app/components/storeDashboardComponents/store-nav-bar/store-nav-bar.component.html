@@ -43,28 +43,25 @@
    <!-- menu items جواها ليستة الitem كلها
         ويقدر يضيف item جديدة -->
 
-
-        <ul class="navbar-nav mr-auto col-5 align-items-end ">
-
-
-
+        <ul class="navbar-nav mr-auto col-5 align-items-end">
           <li class="nav-item">
             <a class="nav-link" routerLink="/store-dashboard">Home</a>
           </li>
-
+        
           <li class="nav-item" [class.active]="isActive('add-items')"> 
-            <a class="nav-link" routerLink="/add-items" (click)="setActive('add-items')">Menu Items</a>
+            <a class="nav-link" routerLink="/store-dashboard/add-items" (click)="setActive('add-items')">Menu Items</a>
           </li>
         
-          <!-- هنا مفروض يبقى في مجموعة الcategories ويقدر يضيف ويعدل -->
-
           <li class="nav-item">
             <a class="nav-link" routerLink="/categories">Categories</a>
           </li>
-
-          <li class="nav-item" [class.active]="isActive('add-items')"> 
-            <a class="nav-link" routerLink="/add-items" (click)="setActive('offer')">offers</a>
+        
+          <li class="nav-item" [class.active]="isActive('offers')"> 
+            <a class="nav-link" routerLink="/store-dashboard/offers" (click)="setActive('offers')">Offers</a>
           </li>
+          <!-- هنا مفروض يبقى في مجموعة الcategories ويقدر يضيف ويعدل -->
+
+
 
           <!-- <li class="nav-item" [class.active]="isActive('settings')">
             <a class="nav-link" routerLink="/edit-store" (click)="setActive('editstore')">settings</a>

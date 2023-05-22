@@ -17,21 +17,27 @@ import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
 import { DataTablesModule } from "angular-datatables";
 import { GroceriesComponent } from './components/groceries/groceries.component';
-import { DashBoardComponent } from './components/dash-board/dash-board.component';
+// import { DashBoardComponent } from './components/dash-board/dash-board.component';
 import { RegestrationComponent } from './components/regestration/regestration.component';
 import { ErrorComponent } from './components/error/error.component';
 import { OfferslideComponent } from './components/offerslide/offerslide.component';
 import { PopularofferComponent } from './components/popularoffer/popularoffer.component';
 import { OfferlistComponent } from './components/offerlist/offerlist.component';
 import { OrderComponent } from './components/order/order.component';
-import { StoreDashboardComponent } from './components/store-dashboard/store-dashboard.component';
-import { EditStoreComponent } from './components/edit-store/edit-store.component';
-import { DeleteStoreComponent } from './components/delete-store/delete-store.component';
-import { AddItemsComponent } from './components/add-items/add-items.component';
-import { StoreNavBarComponent } from './components/store-nav-bar/store-nav-bar.component';
+// import { StoreDashboardComponent } from './components/store-dashboard/store-dashboard.component';
+// import { EditStoreComponent } from './components/edit-store/edit-store.component';
+// import { DeleteStoreComponent } from './components/delete-store/delete-store.component';
+// import { AddItemsComponent } from './components/add-items/add-items.component';
+// import { StoreNavBarComponent } from './components/store-nav-bar/store-nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RestauindivualComponent } from './components/restauindivual/restauindivual.component';
 import { RegistercustomerComponent } from './components/registercustomer/registercustomer.component';
+import { DashBoardComponent } from './components/storeDashboardComponents/dash-board/dash-board.component';
+import { StoreDashboardComponent } from './components/storeDashboardComponents/store-dashboard/store-dashboard.component';
+import { EditStoreComponent } from './components/storeDashboardComponents/edit-store/edit-store.component';
+import { DeleteStoreComponent } from './components/storeDashboardComponents/delete-store/delete-store.component';
+import { AddItemsComponent } from './components/storeDashboardComponents/add-items/add-items.component';
+import { StoreNavBarComponent } from './components/storeDashboardComponents/store-nav-bar/store-nav-bar.component';
 
 @NgModule({
   declarations: [

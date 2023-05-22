@@ -29,14 +29,14 @@
           <li class="nav-item" [class.active]="isActive('groceries')">
             <a class="nav-link" routerLink="/groceries" (click)="setActive('groceries')">Groceries</a>
           </li>
-          <li class="nav-item dropdown" >
+          <li class="nav-item" >
+            <a class="nav-link" routerLink="/store-dashboard" (click)="setActive('store-dashboard')">store-dashboard</a>
+          </li>
+          <!-- <li class="nav-item dropdown" >
             <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               store-dashboard
-            </a>
-            <ul class="dropdown-menu">
-              <li class="nav-item" >
-                <a class="nav-link" routerLink="/store-dashboard" (click)="setActive('store-dashboard')">store-dashboard</a>
-              </li>
+            </a> -->
+            <!-- <ul class="dropdown-menu">
               <li class="nav-item" >
                 <a class="nav-link" routerLink="/add-items" (click)="setActive('add-items')">add items</a>
               </li>
@@ -45,21 +45,13 @@
               </li>
             
             </ul>
-          </li>
-
-          <li class="nav-item" [class.active]="isActive('login')">
-            <a class="nav-link" routerLink="/login" (click)="setActive('login')">Login</a>
-          </li>
-          <li class="nav-item" [class.active]="isActive('registercustomer')">
-            <a class="nav-link" routerLink="/registercustomer" (click)="setActive('registercustomer')">Register</a>
-          </li>
+          </li> -->
           
-        </ul>
-
-        <!-- <ul class="navbar-nav mr-auto col-10 align-items-center" id="dashboard" *ngIf="showDashboardLinks">
-          <li class="nav-item" [class.active]="isActive('dashboard')">
-            <a class="nav-link" routerLink="/dashboard" (click)="setActive('dashboard')">Dashboard</a>
-          </li>
+          
+          <!-- <ul class="navbar-nav mr-auto col-10 align-items-center" id="dashboard" *ngIf="showDashboardLinks">
+            <li class="nav-item" [class.active]="isActive('dashboard')">
+              <a class="nav-link" routerLink="/dashboard" (click)="setActive('dashboard')">Dashboard</a>
+            </li>
           <li class="nav-item" [class.active]="isActive('add-items')">
             <a class="nav-link" routerLink="/add-items" (click)="setActive('add-items')">Add Item</a>
           </li>
@@ -68,18 +60,28 @@
           </li>
         </ul> -->
         
+      </ul>
         <div class="input-group w-auto">
-          <input
+          <ul class="navbar-nav mr-auto col-10 align-items-center" id="main">
+            
+            <li class="nav-item" [class.active]="isActive('login')">
+              <a class="nav-link" routerLink="/login" (click)="setActive('login')">Login</a>
+            </li>
+            <li class="nav-item" [class.active]="isActive('registercustomer')">
+              <a class="nav-link" routerLink="/registercustomer" (click)="setActive('registercustomer')">Register</a>
+            </li>
+          </ul>
+          <!-- <input
             type="search"
             class="form-control rounded"
             placeholder="Search"
             aria-label="Search"
             aria-describedby="search-addon"
-          />
-          <span class="input-group-text border-0" id="search-addon">
-            <fa-icon [icon]="search"></fa-icon>
-          </span> 
-        </div>
+            />
+            <span class="input-group-text border-0" id="search-addon">
+              <fa-icon [icon]="search"></fa-icon>
+            </span>  -->
+          </div>
       </div>
     </nav>
   </div>
