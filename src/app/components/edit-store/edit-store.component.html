@@ -1,0 +1,71 @@
+<!-- <app-store-nav-bar></app-store-nav-bar> -->
+<div class="container mt-3">
+
+    <h1>Edit</h1>
+    
+<h4>Store</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"> Name </label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label">Address</label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MobileNumber" class="control-label">MobileNumber</label>
+                <input asp-for="MobileNumber" class="form-control" />
+                <span asp-validation-for="MobileNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Description</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Password</label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RestaurantImg" class="control-label">Store Image</label>
+                <input type="file" asp-for="RestaurantImg" class="form-control" />
+                <span asp-validation-for="RestaurantImg" class="text-danger"></span>
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary mt-3" />
+            </div>
+        </form>
+    </div>
+
+    <!-- <a asp-action="Index">Back to List</a> -->
+</div>
+<hr>
+<hr>
+<hr>
+<hr>
+
+<div  class="container text-center"  >
+<div class="mb-3" class="nav-item" [class.active]="isActive('delete-store')">
+    <a class="nav-link" class="btn btn-danger " routerLink="/delete-store" (click)="setActive('delete-store')">delete store</a>
+</div>
+<hr>
+<hr>
+<hr>
+<hr>
+</div>
+</div>

@@ -30,4 +30,3 @@ export class SliderComponent implements AfterViewInit {
       }
     }
   }
-

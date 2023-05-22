@@ -13,7 +13,13 @@ a {
     font-size: 20px;
     font-weight: bold;
 }
+img {
+    transition: transform .7s ease-in-out;
+  }
 
+  img:hover {
+    transform: rotate(360deg);
+  }
 .navbar-nav .nav-item .nav-link {
     color: #64300f;
 }
@@ -34,11 +40,3 @@ a {
 .form-control {
     border: 1px solid #f8c146;
 }
-
-img {
-    transition: transform .7s ease-in-out;
-  }
-  
-  img:hover {
-    transform: rotate(360deg);
-  }

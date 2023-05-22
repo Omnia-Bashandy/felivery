@@ -1,0 +1,103 @@
+.imgoffer {
+  width: 100%;
+  /* height: 180px; */
+}
+.tx {
+  text-decoration: line-through;
+}
+.ff {
+  font-size: 25px;
+}
+
+/*third*/
+.bg-img {
+  background-image: url("../../../assets/Healthy.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-trans{
+  backdrop-filter: blur(20px) saturate(105%);
+  -webkit-backdrop-filter: blur(20px) saturate(105%);
+  background-color: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(249, 249, 249, 0.3);
+  margin: 0;
+}
+.bg-offer-transpar{
+  backdrop-filter: blur(20px) saturate(105%);
+  -webkit-backdrop-filter: blur(20px) saturate(105%);
+  background-color: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(249, 249, 249, 0.3);
+  margin: 0;
+}
+.micons{
+  margin: auto;
+  width: 150px;
+}
+.bg {
+  backdrop-filter: blur(20px) saturate(105%);
+  -webkit-backdrop-filter: blur(20px) saturate(105%);
+  background-color: rgba(255, 255, 255, 0.42);
+
+  border: 1px solid rgba(249, 249, 249, 0.3);
+  height: 110vh;
+  margin: 0;
+}
+.bg-order {
+  backdrop-filter: blur(5px) saturate(105%);
+  -webkit-backdrop-filter: blur(5px) saturate(105%);
+  background-color: rgba(167, 164, 164, 0.42);
+  border-radius: 12px;
+  border-bottom-right-radius: 0px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+.logo {
+  font-size: 25px;
+}
+.imgbord{
+  border-radius: 50px;
+  border-bottom-right-radius: 0px;
+  height: 100%;
+  width: 100%;
+}
+.btnn {
+  background-color: rgb(233, 107, 34);
+  color: rgb(251, 250, 247);
+  border-radius: 10px;
+  border-bottom-right-radius: 0px;
+  padding: 10px 15px 10px 15px;
+  margin: 15px;
+  border: 1px solid white;
+  width: 200px;
+  text-decoration: none;
+}
+.btnn:hover{
+  text-decoration: none;
+}
+.fontheader{
+  font-family: 'Abril Fatface', serif;
+  font-size: 50px;  
+}
+.icons{
+  font-size: 30px;
+  width: 200px;
+
+}
+.img-order{
+  width: 100%;
+}
+#details-btn{
+  background-color: rgb(111, 107, 107);
+  color: rgb(251, 250, 247);
+  border-radius: 10px;
+  border-bottom-right-radius: 0px;
+  padding: 6px 10px 6px 10px;
+  cursor: pointer;
+  border: 1px solid white;
+  text-decoration: none;
+  width: 250px;
+}
+
+
+.margin-arrow{
+  margin-top: 150px;
+}
