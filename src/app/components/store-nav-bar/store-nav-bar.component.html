@@ -1,0 +1,87 @@
+<!-- <div class="row naav">
+  <div class="col-11">
+    <nav class="navbar navbar-expand-lg">
+      <button class="navbar-toggler align-items-end" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+       menu items جواها ليستة الitem كلها
+        ويقدر يضيف item جديدة -->
+        <!-- <ul class="navbar-nav mr-auto col-5 align-items-end ">
+          <li class="nav-item" [class.active]="isActive('add-items')"> 
+            <a class="nav-link" routerLink="/add-items" (click)="setActive('add-items')">Menu Items</a>
+          </li>
+        
+           هنا مفروض يبقى في مجموعة الcategories ويقدر يضيف ويعدل -->
+          <!-- <li class="nav-item" [class.active]="isActive('settings')">
+            <a class="nav-link" routerLink="/edit-store" (click)="setActive('editstore')">settings</a>
+          </li> -->
+
+          <!-- بيعدل على الstore 
+             نفسه 
+            سواء هيعدل الصورة او الاسم او يمسحه خالص-->
+          <!-- <li class="nav-item" [class.active]="isActive('settings')">
+            <a class="nav-link" routerLink="/edit-store" (click)="setActive('editstore')">Update Store</a>
+          </li> -->
+
+
+          <!-- يخرج من السيستم -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/logout">LogOut</a>
+          </li>
+        
+        </ul>
+        
+      </div>
+    </nav>
+  </div>
+</div>  -->
+
+<div class="sidenav">
+   <!-- menu items جواها ليستة الitem كلها
+        ويقدر يضيف item جديدة -->
+
+
+        <ul class="navbar-nav mr-auto col-5 align-items-end ">
+
+
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/store-dashboard">Home</a>
+          </li>
+
+          <li class="nav-item" [class.active]="isActive('add-items')"> 
+            <a class="nav-link" routerLink="/add-items" (click)="setActive('add-items')">Menu Items</a>
+          </li>
+        
+          <!-- هنا مفروض يبقى في مجموعة الcategories ويقدر يضيف ويعدل -->
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/categories">Categories</a>
+          </li>
+
+          <li class="nav-item" [class.active]="isActive('add-items')"> 
+            <a class="nav-link" routerLink="/add-items" (click)="setActive('offer')">offers</a>
+          </li>
+
+          <!-- <li class="nav-item" [class.active]="isActive('settings')">
+            <a class="nav-link" routerLink="/edit-store" (click)="setActive('editstore')">settings</a>
+          </li> -->
+
+          <!-- بيعدل على الstore 
+             نفسه 
+            سواء هيعدل الصورة او الاسم او يمسحه خالص-->
+          <!-- <li class="nav-item" [class.active]="isActive('settings')">
+            <a class="nav-link" routerLink="/edit-store" (click)="setActive('editstore')">Update Store</a>
+          </li> -->
+
+
+          <!-- يخرج من السيستم -->
+          <li class="nav-item mt-5">
+            <a class="nav-link" routerLink="/logout">LogOut</a>
+          </li>
+        
+        </ul>
+</div>

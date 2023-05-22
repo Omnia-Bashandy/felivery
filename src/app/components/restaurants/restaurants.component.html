@@ -1,4 +1,4 @@
-<h4 class="alert alert-secondary mt-4">All Restaurants</h4>
+<!-- <h4 class="alert alert-secondary mt-4">All Restaurants</h4>
 <div class="container-fluid">
   <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
     <div *ngFor="let Restaurant of Restaurants" class="col d-flex justify-content-center">
@@ -9,6 +9,68 @@
           <p class="card-text ellipsis">{{Restaurant.description}}</p>
         </div>
       </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="container-fluied bg-img mb-3 font">
+  <div class="row bg-trans">
+    <div class="container justify-content-center mb-3">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-12 p-5">
+          <h1 class="hidding-offer">Choose You Favorite Restaurant!</h1>
+          <p class="font">ABS Are cool But have you tried Our Restaurants Food?</p>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mb-5">
+  <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+    <div *ngFor="let Restaurant of Restaurants" class="col d-flex justify-content-center">
+      <div class="offer-cards">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <img
+            [src]="Restaurant.image" alt="Image"
+              class="imgoffer"
+            />
+          </div>
+        </div>
+        <div class="row justify-content-center h-hidding">
+          <div class="col-12 text-center">
+            <h1 class="ff pt-3 pl-2 pr-2">
+              {{Restaurant.name}}
+            </h1>
+          </div>
+        </div>
+
+        <div class="row justify-content-center h-desc">
+          <div class="col-12 text-center">
+            <p class="pl-3 pr-3">{{Restaurant.description}}</p>
+
+          </div>
+        </div>
+        <div class="row justify-content-center h-rate">
+          <div class="col-3 bg-contain-stars micons">
+            <i class="fa-sharp fa-solid fa-star"></i>
+            <i class="fa-sharp fa-solid fa-star"></i>
+            <i class="fa-sharp fa-solid fa-star"></i>
+            <i class="fa-sharp fa-solid fa-star"></i>
+            <i class="fa-sharp fa-solid fa-star"></i>
+          </div>
+        </div>
+        <div class="row h-btn justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3 mb-2">
+
+          <div class="col-4 bg-btn mt-2">
+          
+                <a routerLink="/restauindivual" class="btnn hvr-bounce-in">Go To Restaurant</a>
+
+
+          </div>
+        </div>
+      </div> 
     </div>
   </div>
 </div>

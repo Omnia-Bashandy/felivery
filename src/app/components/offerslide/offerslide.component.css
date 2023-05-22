@@ -1,0 +1,79 @@
+/* offer slide */
+.hidding-offer{
+  font-family: 'Abril Fatface', serif;
+  font-size: 50px;  
+}
+.font{
+  font-family: 'Libre Baskerville', serif;
+}
+.imgoffer {
+  width: 100%;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+
+}
+.tx {
+  text-decoration: line-through;
+}
+.ff {
+  font-size: 25px;
+}
+.bg-contain-stars {
+  border: 1px solid rgb(206, 205, 202);
+  width: 100%;
+  border-radius: 15px;
+  text-align: center;
+  color: rgb(231, 152, 5);
+  box-shadow: inset;
+}
+.offer-cards {
+  border: 1px solid rgb(232, 151, 1);
+  width: 350px;
+  background-color: rgb(245, 228, 213);
+  border-radius: 15px;
+}
+.btnn {
+  background-color: rgb(233, 107, 34);
+  color: rgb(251, 250, 247);
+  border-radius: 10px;
+  border-bottom-right-radius: 0px;
+  padding: 10px 15px 10px 15px;
+  border: 1px solid white;
+  text-decoration: none;
+  width: 300px;
+}
+
+.btnn:hover {
+  background-color: rgb(58, 24, 5);
+  color: rgb(251, 250, 247);
+  text-decoration: none;
+  border-radius: 10px;
+  border-bottom-right-radius: 0px;
+  padding: 10px 15px 10px 15px;
+  border: 1px solid rgb(125, 33, 33);
+}
+
+/*third*/
+.bg-img {
+  background-image: url("../../../assets/Healthy.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-trans {
+  backdrop-filter: blur(20px) saturate(105%);
+  -webkit-backdrop-filter: blur(20px) saturate(105%);
+  background-color: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(249, 249, 249, 0.3);
+  margin: 0;
+}
+.bg-offer-transpar{
+  backdrop-filter: blur(20px) saturate(105%);
+  -webkit-backdrop-filter: blur(20px) saturate(105%);
+  background-color: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(249, 249, 249, 0.3);
+  margin: 0;
+}
+.micons{
+  margin: auto;
+  width: 150px;
+}
