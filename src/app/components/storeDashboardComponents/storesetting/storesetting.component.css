@@ -1,0 +1,44 @@
+.uploadimg{
+    width: 400px;
+    position: relative;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+  }
+  .uploadimg img{
+    border-radius: 10px;
+  }
+  .uploadimg .add{
+    color: black;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .uploadimg .add input[type='file']{
+    position: absolute;
+    opacity: 0;
+  }
+  
+  input[type='file']::-webkit-file-upload-button{
+  cursor: pointer;
+  }
+  
+
+  .bg-img{
+    background-image: url("/assets/rr.jpeg");
+    background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-trans {
+  backdrop-filter: blur(20px) saturate(105%);
+  -webkit-backdrop-filter: blur(20px) saturate(105%);
+  background-color: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(249, 249, 249, 0.3);
+  margin: 0;
+}

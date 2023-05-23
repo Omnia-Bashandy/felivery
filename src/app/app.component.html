@@ -1,14 +1,10 @@
-<app-loading *ngIf="isLoading"></app-loading>
+<!-- <app-loading *ngIf="isLoading"></app-loading> -->
 
 <div *ngIf="!isLoading" class="container-fluid">
-  <div *ngIf="isOk">
+  <ng-container *ngIf="!isDashboardRoute()">
     <app-navbar></app-navbar>
-  </div>
-  <div *ngIf="!isOk">
-    <app-store-nav-bar></app-store-nav-bar>
-  </div>
-
-  <!-- <app-navbar></app-navbar> -->
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </ng-container>
+  <router-outlet *ngIf="isDashboardRoute()"></router-outlet>
 </div>
-<app-footer *ngIf="!isLoading"></app-footer>

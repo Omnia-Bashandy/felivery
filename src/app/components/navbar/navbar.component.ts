@@ -25,11 +25,11 @@ Activet(link: string) {
 isActive(link: string): boolean {
   return this.activeLink === link;
 }
-toggleDropdown(): void {
-  this.showDropdown = !this.showDropdown;
-}
 setActive(link: string): void {
   this.activeLink = link;
+}
+toggleDropdown(): void {
+  this.showDropdown = !this.showDropdown;
 }
 
 }

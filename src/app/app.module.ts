@@ -38,6 +38,11 @@ import { EditStoreComponent } from './components/storeDashboardComponents/edit-s
 import { DeleteStoreComponent } from './components/storeDashboardComponents/delete-store/delete-store.component';
 import { AddItemsComponent } from './components/storeDashboardComponents/add-items/add-items.component';
 import { StoreNavBarComponent } from './components/storeDashboardComponents/store-nav-bar/store-nav-bar.component';
+import { CategoriesComponent } from './components/storeDashboardComponents/categories/categories.component';
+import { MenuitemsComponent } from './components/storeDashboardComponents/menuitems/menuitems.component';
+import { StoreoffersComponent } from './components/storeDashboardComponents/storeoffers/storeoffers.component';
+import { StoresettingComponent } from './components/storeDashboardComponents/storesetting/storesetting.component';
+import { StorehomeComponent } from './components/storeDashboardComponents/storehome/storehome.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +72,12 @@ import { StoreNavBarComponent } from './components/storeDashboardComponents/stor
     StoreNavBarComponent,
     LoginComponent,
     RestauindivualComponent,
-    RegistercustomerComponent
+    RegistercustomerComponent,
+    CategoriesComponent,
+    MenuitemsComponent,
+    StoreoffersComponent,
+    StoresettingComponent,
+    StorehomeComponent
   ],
   imports: [
     BrowserModule,
