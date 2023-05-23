@@ -24,42 +24,42 @@ import { StorehomeComponent } from './components/storeDashboardComponents/storeh
 import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
 import { DeleteItemsComponent } from './components/storeDashboardComponents/delete-items/delete-items.component';
 
+
 const routes: Routes = [
-  {path:"" , component:HomeComponent},
-  {path:"pastry" , component:CategoryComponent},
-  {path:"offers" , component:OffersComponent},
-  {path:"groceries" , component:GroceriesComponent},
-  {path:"restaurants" , component:RestaurantsComponent},
-  {path:"Partners" , component:PartnersComponent},
-  {path:"order" , component:OrderComponent},
-  {path:"offerlist" , component:OfferlistComponent},
+  { path: '', component: HomeComponent },
+  { path: 'pastry', component: CategoryComponent },
+  { path: 'offers', component: OffersComponent },
+  { path: 'groceries', component: GroceriesComponent },
+  { path: 'restaurants', component: RestaurantsComponent },
+  { path: 'Partners', component: PartnersComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'offerlist', component: OfferlistComponent },
   {
     path: 'store-dashboard',
     component: StoreDashboardComponent,
     children: [
+
       { path: '', redirectTo: 'storehome', pathMatch: 'full' }, // Redirect to the default child route
       { path: 'storehome', component: StorehomeComponent },
       { path: 'edit-store', component: EditStoreComponent },
       { path: 'add-items', component: AddItemsComponent },
       { path: 'delete-store', component: DeleteStoreComponent },
+
       { path: 'categories', component: CategoriesComponent},
       { path: 'menuitems', component: MenuitemsComponent},
       { path: 'storeoffers', component: StoreoffersComponent},
       { path: 'storesetting', component: StoresettingComponent},
-      { path: 'deletestore', component: DeleteStoreComponent},
+      
       { path: 'delete-items', component: DeleteItemsComponent},
       { path: 'update-items', component: UpdateItemsComponent},
-
-
     ]
   },
-  {path:"login" , component:LoginComponent},
-  {path:"restauindivual" , component:RestauindivualComponent},
-  {path:"registercustomer" , component:RegistercustomerComponent},
-  {path:"**", component:ErrorComponent}
-
-
+  { path: 'login', component: LoginComponent },
+  { path: 'restauindivual', component: RestauindivualComponent },
+  { path: 'registercustomer', component: RegistercustomerComponent },
+  { path: '**', component: ErrorComponent }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -43,6 +43,7 @@ import { MenuitemsComponent } from './components/storeDashboardComponents/menuit
 import { StoreoffersComponent } from './components/storeDashboardComponents/storeoffers/storeoffers.component';
 import { StoresettingComponent } from './components/storeDashboardComponents/storesetting/storesetting.component';
 import { StorehomeComponent } from './components/storeDashboardComponents/storehome/storehome.component';
+
 import { DeleteItemsComponent } from './components/storeDashboardComponents/delete-items/delete-items.component';
 import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
 
@@ -79,9 +80,11 @@ import { UpdateItemsComponent } from './components/storeDashboardComponents/upda
     MenuitemsComponent,
     StoreoffersComponent,
     StoresettingComponent,
+
     StorehomeComponent,
     DeleteItemsComponent,
     UpdateItemsComponent
+
   ],
   imports: [
     BrowserModule,

@@ -10,12 +10,16 @@ import { faMagnifyingGlass , faBars } from '@fortawesome/free-solid-svg-icons';
 export class StoreNavBarComponent {
   search = faMagnifyingGlass;
   bars = faBars
-  activeLink: string = 'home';
+  activeLink: string = 'storehome';
+
+  ngOnInit(): void {
+    this.isActive('storehome'); // Evaluate the active state of the 'storehome' link when the component initializes
+  }
   
   isActive(link: string): boolean {
     return this.activeLink === link;
   }
-  
+
   setActive(link: string): void {
     this.activeLink = link;
   }

@@ -1,82 +1,55 @@
-.sidenav{
-  height: 100%;
-width: 240px;
-overflow-x: hidden;
-text-transform: uppercase;
-font-family: 'Abril Fatface', serif;
-background-color: #f3650e;
-height: 100vh;
-position: fixed;
-top: 0;
-left: 0;
-padding: 20px;
+.sidenav {
+  width: 230px;
+  overflow-x: hidden;
+  text-transform: uppercase;
+  font-family: 'Abril Fatface', serif;
+  background-color: #f3650e;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  height: 100vh;
 }
+
 .sidenav a {
-text-decoration: none;
-font-size: 15px;
-color: #f8eeee;
-display: block;
-width: 110px;
-padding-left: 10px;
+  color: white;
+  text-decoration: none;
 }
+
 .sidenav a:hover {
-color: #e9e3de;
-}
-.sidenav{
-background-color: #f3650e;
-height: 100vh;
-/* width: 250px; */
-position: fixed;
-top: 0;
-left: 0;
-padding: 20px;
-}
-ul {
-list-style-type: none;
-}
-li {
-margin-bottom: 10px;
-}
-a {
-color: #333;
-text-decoration: none;
-}
-a:hover {
-color: #000;
-font-weight: bold;
-}
-.margin-buttom{
-margin-top: 270px;
+  color: #e9e3de;
 }
 
-/* responsive side bar */
-
-#sidbarnav{
-height: 100%;
-width: 230px;
-overflow-x: hidden;
-text-transform: uppercase;
-font-family: 'Abril Fatface', serif;
-background-color: #f3650e;
-position: fixed;
-top: 0;
-left: 0;
-padding: 20px;
+.margin-buttom {
+  margin-top: 270px;
 }
 
-#sidbarnav .navbar-brand{ 
-
-color: white
-
+#sidbarnav {
+  width: 230px;
+  overflow-x: hidden;
+  text-transform: uppercase;
+  font-family: 'Abril Fatface', serif;
+  background-color: #f3650e;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  height: 100vh;
 }
-#sidbarnav li a{ 
 
-color: white
+#sidbarnav .navbar-brand {
+  color: white;
+}
 
+#sidbarnav li a {
+  color: white;
 }
 
 #sidbarnav .nav-link:active,
-.nav-link:focus,
-.nav-link:hover{
-color: #e9e3de;
+#sidbarnav .nav-link:focus,
+#sidbarnav .nav-link:hover {
+  color:  #64300f;
+}
+span{
+  margin-left: 10px;
 }

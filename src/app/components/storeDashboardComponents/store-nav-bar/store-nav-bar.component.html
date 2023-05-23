@@ -2,36 +2,36 @@
 <!-- new responsive side bar -->
 <nav class="navbar navbar-expand d-flex flex-column align-item-start
 " id="sidbarnav">
-<a class="navbar-brand "> Felievery</a>
+<a class="navbar-brand " routerLink="/"> Felievery</a>
 
 <ul class="navbar-nav pt-5 d-flex flex-column w-100 text-center">
 
 
 
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/store-dashboard/storehome">
-        <i class="fa-solid fa-house" style="color: #fcfcfc;"></i>
+    <li class="nav-item" [class.active]="isActive('storehome')">
+      <a class="nav-link" routerLink="/store-dashboard/storehome" (click)="setActive('storehome')">
+        <i class="fa-solid fa-house" ></i>
       <span>Home</span>
-       </a>
+      </a>
     </li>
   
     <li class="nav-item" [class.active]="isActive('menuitems')"> 
       <a class="nav-link" routerLink="/store-dashboard/menuitems" (click)="setActive('menuitems')">
-        <i class="fa-solid fa-bowl-food " style="color: #ffffff;"></i>
+        <i class="fa-solid fa-bowl-food "></i>
         <span>Menu Items</span> 
       </a>
     </li>
   
     <li class="nav-item" [class.active]="isActive('categories')">
       <a class="nav-link" routerLink="/store-dashboard/categories" (click)="setActive('categories')">
-        <i class="fa-solid fa-truck" style="color: #ffffff;"></i>
+        <i class="fa-solid fa-truck"></i>
         <span>Categories</span>
       </a>
     </li>
   
     <li class="nav-item" [class.active]="isActive('storeoffers')"> 
       <a class="nav-link" routerLink="/store-dashboard/storeoffers" (click)="setActive('storeoffers')">
-        <i class="fa-solid fa-tag" style="color: #ffffff;"></i>
+        <i class="fa-solid fa-tag"></i>
         <span>Offers</span>
       </a>
     </li>
