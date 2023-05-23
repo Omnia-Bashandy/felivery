@@ -21,6 +21,9 @@ import { MenuitemsComponent } from './components/storeDashboardComponents/menuit
 import { StoreoffersComponent } from './components/storeDashboardComponents/storeoffers/storeoffers.component';
 import { StoresettingComponent } from './components/storeDashboardComponents/storesetting/storesetting.component';
 import { StorehomeComponent } from './components/storeDashboardComponents/storehome/storehome.component';
+import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
+import { DeleteItemsComponent } from './components/storeDashboardComponents/delete-items/delete-items.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,15 +38,20 @@ const routes: Routes = [
     path: 'store-dashboard',
     component: StoreDashboardComponent,
     children: [
-      { path: '', redirectTo: 'storehome', pathMatch: 'full' },
+
+      { path: '', redirectTo: 'storehome', pathMatch: 'full' }, // Redirect to the default child route
       { path: 'storehome', component: StorehomeComponent },
       { path: 'edit-store', component: EditStoreComponent },
       { path: 'add-items', component: AddItemsComponent },
       { path: 'delete-store', component: DeleteStoreComponent },
-      { path: 'categories', component: CategoriesComponent },
-      { path: 'menuitems', component: MenuitemsComponent },
-      { path: 'storeoffers', component: StoreoffersComponent },
-      { path: 'storesetting', component: StoresettingComponent },
+
+      { path: 'categories', component: CategoriesComponent},
+      { path: 'menuitems', component: MenuitemsComponent},
+      { path: 'storeoffers', component: StoreoffersComponent},
+      { path: 'storesetting', component: StoresettingComponent},
+      
+      { path: 'delete-items', component: DeleteItemsComponent},
+      { path: 'update-items', component: UpdateItemsComponent},
     ]
   },
   { path: 'login', component: LoginComponent },

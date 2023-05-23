@@ -44,6 +44,9 @@ import { StoreoffersComponent } from './components/storeDashboardComponents/stor
 import { StoresettingComponent } from './components/storeDashboardComponents/storesetting/storesetting.component';
 import { StorehomeComponent } from './components/storeDashboardComponents/storehome/storehome.component';
 
+import { DeleteItemsComponent } from './components/storeDashboardComponents/delete-items/delete-items.component';
+import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +80,11 @@ import { StorehomeComponent } from './components/storeDashboardComponents/storeh
     MenuitemsComponent,
     StoreoffersComponent,
     StoresettingComponent,
-    StorehomeComponent
+
+    StorehomeComponent,
+    DeleteItemsComponent,
+    UpdateItemsComponent
+
   ],
   imports: [
     BrowserModule,

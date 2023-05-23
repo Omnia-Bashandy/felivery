@@ -13,7 +13,9 @@
   >
 
   <div class="card stylecard">
-    <a routerLink="add-items"> 
+
+    <a routerLink="/store-dashboard/add-items"> 
+
         <i class="fa-regular fa-square-plus" style="color: #51331f;"></i>
     </a>
   </div>
@@ -50,17 +52,15 @@
           </div>
         </div>
    
-        <div
-          class="row h-btn justify-content-center mt-3 mr-1 mb-3 pl-3 pr-3 mb-2"
-        >
-          <div class="col-4 mt-2">
-            <a routerLink="/restauindivual" class="btn btn-dark"
-              >Update</a>
-          </div>
-          <div class="col-4  mt-2">
-            <a routerLink="/restauindivual" class="btn btn-danger"
-              >Delete</a>
-          </div>
+<div class="row h-btn justify-content-center mt-3 mr-1 mb-3 pl-3 pr-3 mb-2">
+  <div class="col-4 mt-2">
+    <a routerLink="/store-dashboard/update-items" class="btn btn-dark">Update</a>
+  </div>
+  <div class="col-4  mt-2">
+    <a routerLink="/store-dashboard/delete-items" class="btn btn-danger">Delete</a>
+  </div>
+</div>
+
         </div>
       </div>
     </div>

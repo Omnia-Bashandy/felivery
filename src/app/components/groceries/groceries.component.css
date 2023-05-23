@@ -1,0 +1,33 @@
+.hidding-offer{
+    font-family: 'Abril Fatface', serif;
+    font-size: 50px;  
+    color: rgb(29, 19, 1);
+    margin-top: 200px;
+  }
+  .bg-color{
+    background-image: url("/assets/groc.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,63,9,1) 53%, rgb(122, 65, 8) 100%); */
+  }
+
+  .height-img{
+    padding: 0;
+    margin: 0;
+    height: 500px;
+  }
+
+  .height-contain{
+    height: 500px;
+  }
+  .bg-glass{
+    
+    padding: 0;
+    margin: 0;
+    height: 500px;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(226, 156, 82, 0.31);
+    margin-left: 0px;
+  }
