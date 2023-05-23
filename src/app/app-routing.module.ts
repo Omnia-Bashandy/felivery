@@ -16,6 +16,11 @@ import { StoreDashboardComponent } from './components/storeDashboardComponents/s
 import { EditStoreComponent } from './components/storeDashboardComponents/edit-store/edit-store.component';
 import { AddItemsComponent } from './components/storeDashboardComponents/add-items/add-items.component';
 import { DeleteStoreComponent } from './components/storeDashboardComponents/delete-store/delete-store.component';
+import { CategoriesComponent } from './components/storeDashboardComponents/categories/categories.component';
+import { MenuitemsComponent } from './components/storeDashboardComponents/menuitems/menuitems.component';
+import { StoreoffersComponent } from './components/storeDashboardComponents/storeoffers/storeoffers.component';
+import { StoresettingComponent } from './components/storeDashboardComponents/storesetting/storesetting.component';
+import { StorehomeComponent } from './components/storeDashboardComponents/storehome/storehome.component';
 
 const routes: Routes = [
   {path:"" , component:HomeComponent},
@@ -30,10 +35,15 @@ const routes: Routes = [
     path: 'store-dashboard',
     component: StoreDashboardComponent,
     children: [
-      { path: '', redirectTo: 'edit-store', pathMatch: 'full' }, // Redirect to the default child route
+      { path: '', redirectTo: 'storehome', pathMatch: 'full' }, // Redirect to the default child route
+      { path: 'storehome', component: StorehomeComponent },
       { path: 'edit-store', component: EditStoreComponent },
       { path: 'add-items', component: AddItemsComponent },
       { path: 'delete-store', component: DeleteStoreComponent },
+      { path: 'categories', component: CategoriesComponent},
+      { path: 'menuitems', component: MenuitemsComponent},
+      { path: 'storeoffers', component: StoreoffersComponent},
+      { path: 'storesetting', component: StoresettingComponent},
     ]
   },
   {path:"login" , component:LoginComponent},

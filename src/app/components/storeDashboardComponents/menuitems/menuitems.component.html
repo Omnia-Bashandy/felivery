@@ -1,0 +1,68 @@
+<!-- <p>menuitems works!</p>
+<app-offerslide></app-offerslide>
+<app-offerlist></app-offerlist> -->
+
+
+<div class="row mt-4 mb-4">
+    <h3 class="hidding-offer">Menu Items In Restaurants</h3>
+</div>
+<hr class="style-line">
+<div class="container mb-5">
+  <div
+    class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"
+  >
+
+  <div class="card stylecard">
+    <a routerLink="add-items"> 
+        <i class="fa-regular fa-square-plus" style="color: #51331f;"></i>
+    </a>
+  </div>
+  
+    <div
+      *ngFor="let Restaurant of Restaurants"
+      class="col d-flex justify-content-center"
+    >
+
+      <div class="offer-cards">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <img [src]="Restaurant.image" alt="Image" class="imgoffer" />
+          </div>
+        </div>
+        <div class="row justify-content-center h-hidding">
+          <div class="col-12 text-center">
+            <h1 class="ff pt-3 pl-2 pr-2">
+              {{ Restaurant.name }}
+            </h1>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+           
+            <div class="col-12 text-center">
+               Price : 100$
+            </div>
+            
+        </div>
+
+        <div class="row justify-content-center h-desc">
+          <div class="col-12 text-center">
+            <p class="pl-3 pr-3">{{ Restaurant.description }}</p>
+          </div>
+        </div>
+   
+        <div
+          class="row h-btn justify-content-center mt-3 mr-1 mb-3 pl-3 pr-3 mb-2"
+        >
+          <div class="col-4 mt-2">
+            <a routerLink="/restauindivual" class="btn btn-dark"
+              >Update</a>
+          </div>
+          <div class="col-4  mt-2">
+            <a routerLink="/restauindivual" class="btn btn-danger"
+              >Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
