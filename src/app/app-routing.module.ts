@@ -21,6 +21,8 @@ import { MenuitemsComponent } from './components/storeDashboardComponents/menuit
 import { StoreoffersComponent } from './components/storeDashboardComponents/storeoffers/storeoffers.component';
 import { StoresettingComponent } from './components/storeDashboardComponents/storesetting/storesetting.component';
 import { StorehomeComponent } from './components/storeDashboardComponents/storehome/storehome.component';
+import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
+import { DeleteItemsComponent } from './components/storeDashboardComponents/delete-items/delete-items.component';
 
 const routes: Routes = [
   {path:"" , component:HomeComponent},
@@ -44,6 +46,11 @@ const routes: Routes = [
       { path: 'menuitems', component: MenuitemsComponent},
       { path: 'storeoffers', component: StoreoffersComponent},
       { path: 'storesetting', component: StoresettingComponent},
+      { path: 'deletestore', component: DeleteStoreComponent},
+      { path: 'delete-items', component: DeleteItemsComponent},
+      { path: 'update-items', component: UpdateItemsComponent},
+
+
     ]
   },
   {path:"login" , component:LoginComponent},

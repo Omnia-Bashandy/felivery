@@ -1,71 +1,105 @@
-<!-- <app-store-nav-bar></app-store-nav-bar> -->
-<div class="container mt-3">
+<div class="container-fluied bg-img">
+  <div class="row bg-trans">
+    <div class="container-fluied justify-content-center mb-5 mt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-12 p-5">
+          <h1 class="hidding-offer text-white text-center">Update Store</h1>
+          <form>
+            <div class="mb-3">
+              <div class="uploadimg mt-5">
+                <img src="../../../assets/rr.jpeg" class="w-100" />
+                <div class="add">
+                  <input type="file" />
+                  <i class="fa fa-camera"></i>
+                </div>
+              </div>
+              <label for="name" class="form-label">Change Photo</label>
+            </div>
 
-    <h1>Edit</h1>
-    
-<h4>Store</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"> Name </label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+            <div class="mb-3">
+              <label for="storename" class="form-label">Store Name</label>
+              <input
+                id="storename"
+                type="text"
+                placeholder="Enter Storename"
+                class="form-control"
+                aria-describedby="storename"
+              />
             </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label">Address</label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
+
+            <div class="mb-3">
+              <label for="discription" class="form-label">Discription</label>
+              <input
+                type="text"
+                placeholder="Enter discription"
+                class="form-control"
+                id="discription"
+                aria-describedby="discription"
+              />
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label">Email</label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+
+            <div class="mb-3">
+              <label for="Email" class="form-label">Email</label>
+              <input
+                type="email"
+                placeholder="Enter Email"
+                class="form-control"
+                id="email"
+                aria-describedby="Email"
+              />
             </div>
-            <div class="form-group">
-                <label asp-for="MobileNumber" class="control-label">MobileNumber</label>
-                <input asp-for="MobileNumber" class="form-control" />
-                <span asp-validation-for="MobileNumber" class="text-danger"></span>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                placeholder="EnterPassword"
+                class="form-control"
+                id="password"
+                aria-describedby="Password"
+              />
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label">Description</label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input
+                type="text"
+                placeholder="Enter Address"
+                class="form-control"
+                id="address"
+                aria-describedby="Address"
+              />
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label">Password</label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+            <div class="mb-3">
+              
+              
+              <label for="mobileNumber" class="form-label">Mobile Number</label>
+              <input
+                type="text"
+                placeholder="Enter Mobile Number"
+                class="form-control"
+                id="mobileNumber"
+                aria-describedby="MobileNumber"
+              />
             </div>
-            <div class="form-group">
-                <label asp-for="RestaurantImg" class="control-label">Store Image</label>
-                <input type="file" asp-for="RestaurantImg" class="form-control" />
-                <span asp-validation-for="RestaurantImg" class="text-danger"></span>
-                
+
+            <div class="mb-3 row justify-content-center">
+              <div class="col-4">
+                <a routerLink="/store-dashboard/" class="btn btn-danger"
+                  >Save Item</a
+                >
+              </div>
+              <div class="col-2">
+                <a
+                  routerLink="/store-dashboard/storesetting"
+                  class="btn btn-dark"
+                  >Cancel</a
+                >
+              </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary mt-3" />
-            </div>
-        </form>
+          </form>
+        </div>
+      </div>
     </div>
-
-    <!-- <a asp-action="Index">Back to List</a> -->
-</div>
-<hr>
-<hr>
-<hr>
-<hr>
-
-<div  class="container text-center"  >
-<div class="mb-3" class="nav-item" [class.active]="isActive('delete-store')">
-    <a class="nav-link" class="btn btn-danger " routerLink="/delete-store" (click)="setActive('delete-store')">delete store</a>
-</div>
-<hr>
-<hr>
-<hr>
-<hr>
-</div>
+  </div>
 </div>
