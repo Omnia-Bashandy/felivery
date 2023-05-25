@@ -13,7 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
 import { DataTablesModule } from "angular-datatables";
 import { GroceriesComponent } from './components/groceries/groceries.component';
@@ -92,7 +92,9 @@ import { UpdateItemsComponent } from './components/storeDashboardComponents/upda
     FontAwesomeModule,
     FormsModule,
     FontAwesomeModule,
-    DataTablesModule
+    DataTablesModule,
+    ReactiveFormsModule,
+  
     // NgbCollapseModule
   ],
   providers: [],

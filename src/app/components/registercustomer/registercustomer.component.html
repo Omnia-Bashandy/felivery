@@ -1,82 +1,115 @@
-
-  
-  <div class="container-fluied bg-img">
-    <div class="row">
-      <div class="container justify-content-center mb-3">
-        <div class="row container justify-content-center">
-            <div class="col-lg-6 mt-5 mb-5 p-5">
-              <h4 class="font p-5">
-                
-Join Felivery,
-The Middle East's largest delivery platform.
-              </h4>
+<div class="container-fluied bg-img">
+  <div class="row">
+    <div class="container justify-content-center mb-3">
+      <div class="row container justify-content-center">
+        <div class="col-lg-6 mt-5 mb-5 p-5">
+          <h4 class="font p-5">
+            Join Felivery, The Middle East's largest delivery platform.
+          </h4>
+        </div>
+        <div class="col-lg-5 col-12 p-5 p-sm-5">
+          <form [formGroup]="validRegCustomer" (ngSubmit)="AdduserCustomer()">
+            <div class="mb-3">
+              <label for="username" class="form-label">User name</label>
+              <input
+                formControlName="username"
+                type="text"
+                placeholder="Enter any UserName You want"
+                class="form-control"
+                id="username"
+                aria-describedby="usernameHelp"
+              />
+              
+              <div  *ngIf="validRegCustomer.controls.username.errors">
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.username.errors['minlength'] && validRegCustomer.controls.username.touched">Username must be at least 8 characters.</div>
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.username.errors['maxlength'] && validRegCustomer.controls.username.touched">Username can have at most 12 characters.</div>
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.username.errors['required'] && validRegCustomer.controls.username.touched">Username is required.</div>
+              </div>
             </div>
-          <div class="col-lg-5 col-12 p-5 p-sm-5">
-            <form>
-              <div class="mb-3">
-                <label for="username" class="form-label">User name</label>
-                <input
-                  type="text"
-                  placeholder="Enter any UserName You want"
-                  class="form-control"
-                  id="username"
-                  aria-describedby="usernameHelp"
-                />
-              </div>
-             
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Email address</label
-                >
-                <input
-                  type="email"
-                  placeholder="Enter Your Email address"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                />
-                <div id="emailHelp" class="form-text remain">
-                  We'll never share your email with anyone else.
-                </div>
-              </div>
 
-              <div class="mb-3">
-                <label for="Password" class="form-label">Password</label>
-                <input
-                  type="password"
-                  placeholder="Must Be more Than 8 Chrachters"
-                  class="form-control"
-                  id="Password"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="Mobile" class="form-label">Mobile number</label>
-                <input
-                  type="text"
-                  placeholder="+201XXXXXXXXX"
-                  class="form-control"
-                  id="Mobile"
-                  aria-describedby="MobileHelp"
-                />
-              </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                formControlName="email"
+                type="email"
+                placeholder="Enter Your Email address"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <!-- <div
+                class="validateerrorstyle"
+                *ngIf="!emailValid && validRegCustomer.touched"
+              >
+                Email address is not Valid Please Enter a Valid email
+              </div> -->
 
-              <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
-                <input
-                  type="text"
-                  placeholder="Enter Your address"
-                  class="form-control"
-                  id="address"
-                  aria-describedby="addresssHelp"
-                />
+              <div *ngIf="validRegCustomer.controls.email.errors">
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.email.errors['email'] && validRegCustomer.controls.email.touched">Please enter a valid email.</div>
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.email.errors['required'] && validRegCustomer.controls.email.touched">Email is required.</div>
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.email.errors['emailTaken'] && validRegCustomer.controls.email.touched">This email is already taken.</div>
               </div>
-  
+            </div>
+
+            <div class="mb-3">
+              <label for="Password" class="form-label">Password</label>
+              <input
+                formControlName="password"
+                type="password"
+                placeholder="Must Be more Than 8 Chrachters"
+                class="form-control"
+                id="Password"
+              />
+              <div *ngIf="validRegCustomer.controls.password.errors">
+                <div class="validateerrorstyle"  *ngIf="validRegCustomer.controls.password.errors['min'] && validRegCustomer.controls.password.touched">Password must have at least 8 characters.</div>
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.password.errors['pattern'] && validRegCustomer.controls.password.touched">Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.</div>
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.password.errors['required'] && validRegCustomer.controls.password.touched">Password is required.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="Mobile" class="form-label">Mobile number</label>
+              <input
+                formControlName="mobile"
+                type="text"
+                placeholder="+201XXXXXXXXX"
+                class="form-control"
+                id="Mobile"
+                aria-describedby="MobileHelp"
+              />
+              <div *ngIf="validRegCustomer.controls.mobile.errors">
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.mobile.errors['required'] && validRegCustomer.controls.mobile.touched">Mobile is required.</div>
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.mobile.errors['pattern'] && validRegCustomer.controls.mobile.touched">Please enter a valid mobile number.</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input
+                formControlName="address"
+                type="text"
+                placeholder="Enter Your address"
+                class="form-control"
+                id="address"
+                aria-describedby="addresssHelp"
+              />
               
-              
-              <a class="btnn">Register</a>
-            </form>
-          </div> 
+              <div *ngIf="validRegCustomer.controls.address.errors">
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.address.errors['maxlength'] && validRegCustomer.controls.address.touched">Address can have at most 12 characters.</div>
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.address.errors['required'] && validRegCustomer.controls.address.touched">Address is required.</div>
+              </div>
+            </div>
+
+            <input
+              type="submit"
+              value="Register"
+              [disabled]="!validRegCustomer.valid"
+              class="btnn"
+            />
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>

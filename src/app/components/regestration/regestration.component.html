@@ -1,102 +1,149 @@
-
-
-  
 <div class="container-fluied bg-img">
-    <div class="row">
-      <div class="container justify-content-center mb-3">
-        <div class="row container justify-content-center">
-            <div class="col-lg-6 mt-5 mb-5 p-5">
-              <h4 class="font p-5">
-                 <h2 class="remain">Reach new customers,</h2>
-    <h2 class="remain">Get more sales.</h2>
-    <br>
-    <h2 class="remain">Join Felivery,</h2>
-    <h2 class="remain">The Middle East's largest delivery platform.</h2>
-              </h4>
+  <div class="row">
+    <div class="container justify-content-center mb-3">
+      <div class="row container justify-content-center">
+        <div class="col-lg-6 mt-5 mb-5 p-5">
+          <h4 class="font p-5">
+            <h2 class="remain">Reach new customers,</h2>
+            <h2 class="remain">Get more sales.</h2>
+            <br />
+            <h2 class="remain">Join Felivery,</h2>
+            <h2 class="remain">The Middle East's largest delivery platform.</h2>
+          </h4>
+        </div>
+        <div class="col-lg-5 col-12 p-5 p-sm-5">
+          <form [formGroup]="validationsRegister" (ngSubmit)="Adduser()">
+            <div class="mb-3">
+              <label for="username" class="form-label">User name</label>
+              <input
+                formControlName="username"
+                type="text"
+                placeholder="Enter Your Store Name"
+                class="form-control"
+                id="username"
+                aria-describedby="usernameHelp"
+              />
+              <div  *ngIf="validationsRegister.controls.username.errors">
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.username.errors['minlength'] && validationsRegister.controls.username.touched">Username must be at least 8 characters.</div>
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.username.errors['maxlength'] && validationsRegister.controls.username.touched">Username can have at most 12 characters.</div>
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.username.errors['required'] && validationsRegister.controls.username.touched">Username is required.</div>
+              </div>
+              
             </div>
-          <div class="col-lg-5 col-12 p-5 p-sm-5">
-            <form>
-              <div class="mb-3">
-                <label for="username" class="form-label">User name</label>
-                <input
-                  type="text"
-                  placeholder="Enter Your Store Name"
-                  class="form-control"
-                  id="username"
-                  aria-describedby="usernameHelp"
-                />
+
+            <div class="mb-3">
+              <label for="address" class="form-label">Restaurant Address</label>
+              <input
+                formControlName="address"
+                type="text"
+                placeholder="Enter Restaurant address"
+                class="form-control"
+                id="address"
+                aria-describedby="addresssHelp"
+              />
+              <!-- <div class="validateerrorstyle" *ngIf="!addressValid && validationsRegister.touched ">
+                address is not Valid Please Enter a Valid addressValid
+              </div> -->
+
+              <div *ngIf="validationsRegister.controls.address.errors">
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.address.errors['maxlength'] && validationsRegister.controls.address.touched">Address can have at most 12 characters.</div>
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.address.errors['required'] && validationsRegister.controls.address.touched">Address is required.</div>
               </div>
-  
-              <div class="mb-3">
-                <label for="address" class="form-label">Restaurant Address</label>
-                <input
-                  type="text"
-                  placeholder="Enter Restaurant address"
-                  class="form-control"
-                  id="address"
-                  aria-describedby="addresssHelp"
-                />
+
+            </div>
+            <div class="mb-3">
+              <label class="form-label"> Store Type </label>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Restaurant</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                formControlName="email"
+                type="email"
+                placeholder="Enter Your Email address"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <div *ngIf="validationsRegister.controls.email.errors">
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.email.errors['email'] && validationsRegister.controls.email.touched">Please enter a valid email.</div>
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.email.errors['required'] && validationsRegister.controls.email.touched">Email is required.</div>
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.email.errors['emailTaken'] && validationsRegister.controls.email.touched">This email is already taken.</div>
               </div>
-              <div class="mb-3">
-                <label class="form-label"> Store Type </label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Restaurant</option>
-                  =
-                </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="Password" class="form-label">Password</label>
+              <input
+                formControlName="password"
+                type="password"
+                placeholder="Ex:Ra@w_12O"
+                class="form-control"
+                id="Password"
+              />
+              <!-- <div class="validateerrorstyle" *ngIf="!passwordValid && validationsRegister.touched ">
+                password is not Valid Please Enter a Valid password
+              </div> -->
+              <div *ngIf="validationsRegister.controls.password.errors">
+                <div class="validateerrorstyle"  *ngIf="validationsRegister.controls.password.errors['min'] && validationsRegister.controls.password.touched">Password must have at least 8 characters.</div>
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.password.errors['pattern'] && validationsRegister.controls.password.touched">Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.</div>
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.password.errors['required'] && validationsRegister.controls.password.touched">Password is required.</div>
               </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Email address</label
-                >
-                <input
-                  type="email"
-                  placeholder="Enter Your Email address"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                />
-                <div id="emailHelp" class="form-text remain">
-                  We'll never share your email with anyone else.
-                </div>
+            </div>
+            <div class="mb-3">
+              <label for="Mobile" class="form-label">Mobile number</label>
+              <input
+                formControlName="mobile"
+                type="text"
+                placeholder="+02 01XXXXXXXX"
+                class="form-control"
+                id="Mobile"
+                aria-describedby="MobileHelp"
+              />
+              <!-- <div class="validateerrorstyle" *ngIf="!mobileValid && validationsRegister.touched ">
+                Mobile is not Valid Please Enter a Valid mobile
+              </div> -->
+
+              <div *ngIf="validationsRegister.controls.mobile.errors">
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.mobile.errors['required'] && validationsRegister.controls.mobile.touched">Mobile is required.</div>
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.mobile.errors['pattern'] && validationsRegister.controls.mobile.touched">Please enter a valid mobile number.</div>
               </div>
-              <div class="mb-3">
-                <label for="Mobile" class="form-label">Mobile number</label>
-                <input
-                  type="text"
-                  placeholder="+201XXXXXXXXX"
-                  class="form-control"
-                  id="Mobile"
-                  aria-describedby="MobileHelp"
-                />
+            </div>
+
+          
+            <div class="mb-3">
+              <label for="Description" class="form-label"> Description </label>
+              <textarea
+                formControlName="desc"
+                placeholder="Enter Description Here"
+                class="form-control"
+                id="Description"
+              ></textarea>
+              <div *ngIf="validationsRegister.controls.desc.errors">
+                <div class="validateerrorstyle"  *ngIf="validationsRegister.controls.desc.errors['min'] && validationsRegister.controls.desc.touched">Description must have at least 10 characters.</div>
+                <div class="validateerrorstyle" *ngIf="validationsRegister.controls.desc.errors['required'] && validationsRegister.controls.desc.touched">Description is required.</div>
               </div>
-  
-              <div class="mb-3">
-                <label for="Password" class="form-label">Password</label>
-                <input
-                  type="password"
-                  placeholder="************"
-                  class="form-control"
-                  id="Password"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="Description" class="form-label"> Description </label>
-                <textarea
-                  placeholder="Enter Description Here"
-                  class="form-control"
-                  id="Description"
-                ></textarea>
-              </div>
-              <div class="mb-3">
-                <label class="form-label text-white m-1" for="img"
-                  >Restaurant Image</label
-                >
-                <input type="file" class="form-control" id="img" />
-              </div>
-              <a class="btnn">Register</a>
-            </form>
-          </div> 
+              <!-- <div class="validateerrorstyle" *ngIf="!descValid && validationsRegister.touched ">
+                Description is not Valid Please Enter a Valid Description
+              </div> -->
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white m-1" for="img"
+                >Restaurant Image</label
+              >
+              <input 
+              formControlName="imgupload"
+              type="file" class="form-control" id="img" />
+            </div>
+            <input type="submit" class="btnn" [disabled]="!validationsRegister.valid" value="Register" />
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>
+
