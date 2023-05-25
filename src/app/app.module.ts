@@ -47,6 +47,7 @@ import { StorehomeComponent } from './components/storeDashboardComponents/storeh
 import { DeleteItemsComponent } from './components/storeDashboardComponents/delete-items/delete-items.component';
 import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PendingComponent } from './components/storeDashboardComponents/pending/pending.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +84,8 @@ import { HttpClientModule } from '@angular/common/http';
 
     StorehomeComponent,
     DeleteItemsComponent,
-    UpdateItemsComponent
+    UpdateItemsComponent,
+    PendingComponent
 
   ],
   imports: [

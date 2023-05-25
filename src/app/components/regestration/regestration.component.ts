@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StoreService } from 'src/app/Services/store.service';
+import {faEye , faEyeSlash  } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-regestration',
@@ -9,6 +10,12 @@ import { StoreService } from 'src/app/Services/store.service';
   styleUrls: ['./regestration.component.css']
 })
 export class RegestrationComponent {
+  eye = faEye;
+  eyeSlash = faEyeSlash
+  passwordVisible: boolean = false;
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
   
   // reactive forms
   // const phoneNumberPattern = /^(\+\d{1,3}[- ]?)?\d{10}$/;
@@ -17,7 +24,7 @@ export class RegestrationComponent {
     address: new FormControl("",[Validators.max(12),Validators.required]),
     email:new FormControl("",[Validators.email,Validators.required]),
     password:new FormControl("",[Validators.min(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/),Validators.required]),
-    mobile:new FormControl("",[Validators.required,Validators.pattern(/^(\+01-?)?(\d{11})$/)]),
+    mobile:new FormControl("",[Validators.required,Validators.pattern(/^(\+01-?)?(\d{10})$/)]),
     desc:new FormControl("",[Validators.required,Validators.min(10)]),
     imgupload:new FormControl(""),
   })
@@ -28,6 +35,8 @@ export class RegestrationComponent {
 
   
   AddRestaurant(discription: string, phone: number, address: string, password: string, remail: string, Rname: string) {
+    console.log(phone);
+    
     let newRestaurant ={
       "model":{
       username: Rname,
@@ -58,13 +67,13 @@ export class RegestrationComponent {
   //   }
   // }
   if (this.validationsRegister.valid) {
-    console.log(this.validationsRegister.value);
-    }
+    
     console.log(newRestaurant);
       this.myService.addRestaurant(newRestaurant).subscribe();
-      //   this.router.navigate(['/']); 
+      this.router.navigate(['/pending']); 
       alert(`Rest ${Rname} added successfully`)
     }
+  }
 }
 
 

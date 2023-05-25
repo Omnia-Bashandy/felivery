@@ -79,20 +79,28 @@
               </div>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 " >
               <label for="Password" class="form-label">Password</label>
-              <input
-              #Rpassword
-              name="address"
-                formControlName="password"
-                type="password"
-                placeholder="Ex:Ra@w_12O"
-                class="form-control"
-                id="Password"
-              />
-              <!-- <div class="validateerrorstyle" *ngIf="!passwordValid && validationsRegister.touched ">
-                password is not Valid Please Enter a Valid password
-              </div> -->
+              <div class="input-group">
+                <input
+                #Rpassword
+                  formControlName="password"
+                  [type]="passwordVisible ? 'text' : 'password'"
+                  placeholder="Must Be more Than 8 Characters"
+                  class="form-control"
+                  id="Password"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    (click)="togglePasswordVisibility()"
+                    title="{{ passwordVisible ? 'Hide' : 'Show' }}"
+                  >
+                    <fa-icon [icon]="passwordVisible ? eyeSlash : eye"></fa-icon>
+                  </button>
+                </div>
+              </div>
               <div *ngIf="validationsRegister.controls.password.errors">
                 <div class="validateerrorstyle"  *ngIf="validationsRegister.controls.password.errors['min'] && validationsRegister.controls.password.touched">Password must have at least 8 characters.</div>
                 <div class="validateerrorstyle" *ngIf="validationsRegister.controls.password.errors['pattern'] && validationsRegister.controls.password.touched">Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.</div>

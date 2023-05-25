@@ -23,6 +23,7 @@ import { StoresettingComponent } from './components/storeDashboardComponents/sto
 import { StorehomeComponent } from './components/storeDashboardComponents/storehome/storehome.component';
 import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
 import { DeleteItemsComponent } from './components/storeDashboardComponents/delete-items/delete-items.component';
+import { PendingComponent } from './components/storeDashboardComponents/pending/pending.component';
 
 
 const routes: Routes = [
@@ -57,6 +58,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'restauindivual', component: RestauindivualComponent },
   { path: 'registercustomer', component: RegistercustomerComponent },
+  {path:"pending" , component:PendingComponent},
   { path: '**', component: ErrorComponent }
 ];
 

@@ -55,17 +55,36 @@
 
             <div class="mb-3">
               <label for="Password" class="form-label">Password</label>
-              <input
-                formControlName="password"
-                type="password"
-                placeholder="Must Be more Than 8 Chrachters"
-                class="form-control"
-                id="Password"
-              />
+              <div class="input-group">
+                <input
+                  formControlName="password"
+                  [type]="passwordVisible ? 'text' : 'password'"
+                  placeholder="Must Be more Than 8 Characters"
+                  class="form-control"
+                  id="Password"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    (click)="togglePasswordVisibility()"
+                    title="{{ passwordVisible ? 'Hide' : 'Show' }}"
+                  >
+                    <fa-icon [icon]="passwordVisible ? eyeSlash : eye"></fa-icon>
+                  </button>
+                </div>
+              </div>
+              
               <div *ngIf="validRegCustomer.controls.password.errors">
-                <div class="validateerrorstyle"  *ngIf="validRegCustomer.controls.password.errors['min'] && validRegCustomer.controls.password.touched">Password must have at least 8 characters.</div>
-                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.password.errors['pattern'] && validRegCustomer.controls.password.touched">Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.</div>
-                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.password.errors['required'] && validRegCustomer.controls.password.touched">Password is required.</div>
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.password.errors['min'] && validRegCustomer.controls.password.touched">
+                  Password must have at least 8 characters.
+                </div>
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.password.errors['pattern'] && validRegCustomer.controls.password.touched">
+                  Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.
+                </div>
+                <div class="validateerrorstyle" *ngIf="validRegCustomer.controls.password.errors['required'] && validRegCustomer.controls.password.touched">
+                  Password is required.
+                </div>
               </div>
             </div>
             <div class="mb-3">
