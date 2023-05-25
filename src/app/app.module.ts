@@ -46,6 +46,7 @@ import { StorehomeComponent } from './components/storeDashboardComponents/storeh
 
 import { DeleteItemsComponent } from './components/storeDashboardComponents/delete-items/delete-items.component';
 import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { UpdateItemsComponent } from './components/storeDashboardComponents/upda
     FontAwesomeModule,
     FormsModule,
     FontAwesomeModule,
-    DataTablesModule
+    DataTablesModule,
+    HttpClientModule
     // NgbCollapseModule
   ],
   providers: [],

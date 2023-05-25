@@ -1,102 +1,108 @@
-
-
-  
 <div class="container-fluied bg-img">
-    <div class="row">
-      <div class="container justify-content-center mb-3">
-        <div class="row container justify-content-center">
-            <div class="col-lg-6 mt-5 mb-5 p-5">
-              <h4 class="font p-5">
-                 <h2 class="remain">Reach new customers,</h2>
-    <h2 class="remain">Get more sales.</h2>
-    <br>
-    <h2 class="remain">Join Felivery,</h2>
-    <h2 class="remain">The Middle East's largest delivery platform.</h2>
-              </h4>
+  <div class="row">
+    <div class="container justify-content-center mb-3">
+      <div class="row container justify-content-center">
+          <div class="col-lg-6 mt-5 mb-5 p-5">
+            <h4 class="font p-5">
+                <h2 class="remain">Reach new customers,</h2>
+  <h2 class="remain">Get more sales.</h2>
+  <br>
+  <h2 class="remain">Join Felivery,</h2>
+  <h2 class="remain">The Middle East's largest delivery platform.</h2>
+            </h4>
+          </div>
+        <div class="col-lg-5 col-12 p-5 p-sm-5">
+          <form>
+            <div class="mb-3">
+              <label for="username" class="form-label">Restaurant Name
+              </label>
+              <input
+              #Rname
+                type="text"
+                placeholder="Enter Your Store Name"
+                class="form-control"
+                id="username"
+                aria-describedby="usernameHelp"
+              />
             </div>
-          <div class="col-lg-5 col-12 p-5 p-sm-5">
-            <form>
-              <div class="mb-3">
-                <label for="username" class="form-label">User name</label>
-                <input
-                  type="text"
-                  placeholder="Enter Your Store Name"
-                  class="form-control"
-                  id="username"
-                  aria-describedby="usernameHelp"
-                />
+
+            <div class="mb-3">
+              <label for="address" class="form-label">Restaurant Address</label>
+              <input
+              #address
+                type="text"
+                placeholder="Enter Restaurant address"
+                class="form-control"
+                id="address"
+                aria-describedby="addresssHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label"> Store Type </label>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Restaurant</option>
+                =
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+              #remail
+                type="email"
+                placeholder="Enter Your Email address"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <div id="emailHelp" class="form-text remain">
+                We'll never share your email with anyone else.
               </div>
-  
-              <div class="mb-3">
-                <label for="address" class="form-label">Restaurant Address</label>
-                <input
-                  type="text"
-                  placeholder="Enter Restaurant address"
-                  class="form-control"
-                  id="address"
-                  aria-describedby="addresssHelp"
-                />
-              </div>
-              <div class="mb-3">
-                <label class="form-label"> Store Type </label>
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>Restaurant</option>
-                  =
-                </select>
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >Email address</label
-                >
-                <input
-                  type="email"
-                  placeholder="Enter Your Email address"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                />
-                <div id="emailHelp" class="form-text remain">
-                  We'll never share your email with anyone else.
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="Mobile" class="form-label">Mobile number</label>
-                <input
-                  type="text"
-                  placeholder="+201XXXXXXXXX"
-                  class="form-control"
-                  id="Mobile"
-                  aria-describedby="MobileHelp"
-                />
-              </div>
-  
-              <div class="mb-3">
-                <label for="Password" class="form-label">Password</label>
-                <input
-                  type="password"
-                  placeholder="************"
-                  class="form-control"
-                  id="Password"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="Description" class="form-label"> Description </label>
-                <textarea
-                  placeholder="Enter Description Here"
-                  class="form-control"
-                  id="Description"
-                ></textarea>
-              </div>
-              <div class="mb-3">
-                <label class="form-label text-white m-1" for="img"
-                  >Restaurant Image</label
-                >
-                <input type="file" class="form-control" id="img" />
-              </div>
-              <a class="btnn">Register</a>
-            </form>
-          </div> 
-        </div>
+            </div>
+            <div class="mb-3">
+              <label for="Mobile" class="form-label">Mobile number</label>
+              <input
+              #phone
+              name="mobile"
+                type="number"
+                placeholder="+201XXXXXXXXX"
+                class="form-control"
+                id="Mobile"
+                aria-describedby="MobileHelp"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="Password" class="form-label">Password</label>
+              <input
+              #password
+                type="password"
+                placeholder="************"
+                class="form-control"
+                id="Password"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="Description" class="form-label"> Description </label>
+              <textarea
+              #discription
+                placeholder="Enter Description Here"
+                class="form-control"
+                id="Description"
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-white m-1" for="img"
+                >Restaurant Image</label
+              >
+              <input type="file" class="form-control" id="img" />
+            </div>
+            <button class="btnn" (click)="AddRestaurant(discription.value, +phone.value,address.value,password.value, remail.value , Rname.value)">Register</button>
+            
+          </form>
+        </div> 
       </div>
     </div>
   </div>
+</div>
