@@ -62,11 +62,20 @@
     text-align: center;
   }
   
-  .uploadimg .add input[type='file']{
+.uploadimg .add input[type='file']{
     position: absolute;
     opacity: 0;
-  }
+}
   
-  input[type='file']::-webkit-file-upload-button{
+input[type='file']::-webkit-file-upload-button{
   cursor: pointer;
-  }
+}
+
+.validateerrorstyle{
+    color: rgb(151, 6, 6); backdrop-filter: blur(20px) saturate(105%);
+    -webkit-backdrop-filter: blur(20px) saturate(105%);
+    background-color: rgba(255, 255, 255, 0.42);
+    border-radius: 12px;
+    padding: 4px;
+    font-style: oblique;
+}
