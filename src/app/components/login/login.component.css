@@ -45,4 +45,11 @@
     border: 1px solid rgb(125, 33, 33);
   }
   
- 
+  .validateerrorstyle{
+    color: rgb(243, 234, 234); backdrop-filter: blur(20px) saturate(105%);
+    -webkit-backdrop-filter: blur(20px) saturate(105%);
+    background-color: rgba(255, 255, 255, 0.42);
+    border-radius: 12px;
+    padding: 4px;
+    font-style: oblique;
+   }

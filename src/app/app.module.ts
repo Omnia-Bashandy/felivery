@@ -13,7 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // import {NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from './components/loading/loading.component';
 import { DataTablesModule } from "angular-datatables";
 import { GroceriesComponent } from './components/groceries/groceries.component';
@@ -47,6 +47,7 @@ import { StorehomeComponent } from './components/storeDashboardComponents/storeh
 import { DeleteItemsComponent } from './components/storeDashboardComponents/delete-items/delete-items.component';
 import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
 
+import{ HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,7 +93,10 @@ import { UpdateItemsComponent } from './components/storeDashboardComponents/upda
     FontAwesomeModule,
     FormsModule,
     FontAwesomeModule,
-    DataTablesModule
+    DataTablesModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  
     // NgbCollapseModule
   ],
   providers: [],
