@@ -4,53 +4,13 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 col-12 p-5">
           <h1 class="hidding-offer text-white">Welcome Again Hungry Man!</h1>
-          <form [formGroup]="validlogin" (ngSubmit)="loginuser()">
-            <div class="mb-3">
-              <label for="username" class="form-label">UserName</label>
-              <input
-                formControlName="username"
-                type="text"
-                placeholder="Enter Your Store Name"
-                class="form-control"
-                id="username"
-                aria-describedby="username"
-              />
-
-              <div *ngIf="validlogin.controls.username.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validlogin.controls.username.errors['minlength'] &&
-                    validlogin.controls.username.touched
-                  "
-                >
-                  Username must be at least 8 characters.
-                </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validlogin.controls.username.errors['maxlength'] &&
-                    validlogin.controls.username.touched
-                  "
-                >
-                  Username can have at most 12 characters.
-                </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validlogin.controls.username.errors['required'] &&
-                   validlogin.controls.username.touched
-                  "
-                >
-                  Username is required.
-                </div>
-              </div>
-            </div>
+          <form [formGroup]="validlogin" >
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"
                 >Email address</label
               >
               <input
+              #email
                 formControlName="email"
                 type="email"
                 placeholder="Enter Your Email address"
@@ -91,13 +51,28 @@
 
             <div class="mb-3">
               <label for="Password" class="form-label">Password</label>
-              <input
-                formControlName="password"
-                type="password"
-                placeholder="************"
-                class="form-control"
-                id="Password"
-              />
+              <div class="input-group">
+                <input
+                  #password
+                  formControlName="password"
+                  [type]="passwordVisible ? 'text' : 'password'"
+                  placeholder="********"
+                  class="form-control"
+                  id="Password"
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$"
+/>
+
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    (click)="togglePasswordVisibility()"
+                    title="{{ passwordVisible ? 'Hide' : 'Show' }}"
+                  >
+                    <fa-icon [icon]="passwordVisible ? eyeSlash : eye"></fa-icon>
+                  </button>
+                </div>
+              </div>
               <div *ngIf="validlogin.controls.password.errors">
                 <div class="validateerrorstyle"  *ngIf="validlogin.controls.password.errors['min'] && validlogin.controls.password.touched">Password must have at least 8 characters.</div>
                 <div class="validateerrorstyle" *ngIf="validlogin.controls.password.errors['pattern'] && validlogin.controls.password.touched">Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.</div>
@@ -105,7 +80,8 @@
               </div>
             </div>
 
-            <input type="submit" class="btnn" [disabled]="!validlogin.valid" value="Login">
+            <!-- <input type="submit" class="btnn"  value="Login" (click)="login(email.value , password.value)"> -->
+            <button type="submit" class="btnn"  value="Login" (click)="login(email.value , password.value)">Login</button>
           </form>
         </div>
       </div>

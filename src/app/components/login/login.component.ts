@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { data } from 'jquery';
+import { LoginService } from 'src/app/Services/login.service';
+import {faEye , faEyeSlash  } from '@fortawesome/free-solid-svg-icons';
+import { SharedService } from 'src/app/Services/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +12,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  eye = faEye;
+  eyeSlash = faEyeSlash
+  passwordVisible: boolean = false;
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
  // const phoneNumberPattern = /^(\+\d{1,3}[- ]?)?\d{10}$/;
  validlogin= new FormGroup({
   username: new FormControl("",[Validators.min(8),Validators.max(12),Validators.required]),
@@ -14,10 +25,54 @@ export class LoginComponent {
   password:new FormControl("",[Validators.min(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/),Validators.required]),
 
 })
+constructor(public myService:LoginService ,public sharedService :SharedService , public router : Router){
+}
 
-loginuser(){
-  if(this.validlogin.valid){
-  console.log(this.validlogin.value)
+ngOnInit(): void {
+  // console.log(this.myService.getAllUsers());
+  //   this.myService.getAllRestaurants().subscribe({
+    //     next:(data)=>{
+//       this.Restaurants = data;
+//       console.log(this.Restaurants)
+//     },
+//     error:(err)=>{console.log(err)},
+//     // complete:()=>{}
+// })
+}
+login(email: any, password: any) {
+  console.log("hiii");
+  
+  // if (this.validlogin.valid) {
+    const credentials = {
+      email: email,
+      password: password
+    };
+
+    this.myService.login(credentials).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        const id = data["id"]; // Accessing the "id" property
+        const role = data["roles"][0]; // Accessing the "id" property
+        console.log(id); // Check the value of id
+        console.log(role); // Check the value of id
+        // Use the id as needed
+        this.sharedService.setId(id);
+        if (role == "PendingStore") {
+          this.router.navigate(['/pending']); 
+        }else if(role == "Customer"){
+          this.router.navigate(['/']); 
+        }else if(role == "ApprovedStore"){
+          this.router.navigate(['/store-dashboard/storehome'])
+        }
+      },
+      error: (err) => {
+        console.log(err);
+        // Handle login error
+      },
+    });
+
+
+    // console.log(this.validlogin.value);
   }
 }
-}
+

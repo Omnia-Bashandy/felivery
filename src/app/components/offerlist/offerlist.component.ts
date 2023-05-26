@@ -15,13 +15,13 @@ export class OfferlistComponent implements OnInit{
    ngOnInit(): void {
      // console.log(this.offersServ.GetAlloffers());
  
-     this.offersServ.GetAlloffers().subscribe({
-       next:(data) =>{
-         this.offers = data;
+    //  this.offersServ.GetAlloffers().subscribe({
+    //    next:(data) =>{
+    //      this.offers = data;
            
-       },
-       error:(err)=>{console.log(err)}
-     })
+    //    },
+    //    error:(err)=>{console.log(err)}
+    //  })
  
  
  

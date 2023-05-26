@@ -30,4 +30,6 @@ export class StoreService {
   addRestaurant(Restaurant: any ) {
     return this.myClient.post(this.Base_URLReg,Restaurant );
   }
+
+  
 }

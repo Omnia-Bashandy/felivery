@@ -69,7 +69,16 @@ export class RegestrationComponent {
   if (this.validationsRegister.valid) {
     
     console.log(newRestaurant);
-      this.myService.addRestaurant(newRestaurant).subscribe();
+      this.myService.addRestaurant(newRestaurant).subscribe(
+        (data: any) => {
+          console.log(data);
+        },
+        (error: any) => {
+          console.log('Error', error);
+        }
+      );
+      console.log();
+      
       this.router.navigate(['/pending']); 
       alert(`Rest ${Rname} added successfully`)
     }

@@ -18,7 +18,7 @@
                 <h3>Restaurant Name :</h3>
               </div>
               <div class="col-3">
-                <p>Elm2moon</p>
+                <p>{{Rname}}</p>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@
                 <a routerLink="/store-dashboard/storesetting" class="btn btn-dark">Cancel</a>
               </div>
               <div class="col-3">
-                <a class="nav-link" class="btn btn-danger " routerLink="/store-dashboard/delete-store" >delete store</a>
+                <a class="nav-link" class="btn btn-danger " routerLink="/store-dashboard/delete-store" (click)="deleteR()">delete store</a>
                 </div>
             </div>
           </div>
