@@ -22,8 +22,5 @@ export class OfferlistComponent implements OnInit{
     //    },
     //    error:(err)=>{console.log(err)}
     //  })
- 
- 
- 
    }
 }

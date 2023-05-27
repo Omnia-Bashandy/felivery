@@ -1,0 +1,15 @@
+table{
+  margin-right: 150px;
+  padding: 0;
+}
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    height: 30px;
+  }
+  th, td {
+    background-color: #d4b696;
+    padding: 30px;
+  }
+tr:hover {background-color: #D6EEEE;
+height: 30px;}

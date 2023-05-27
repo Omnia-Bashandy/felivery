@@ -7,15 +7,15 @@
             <div class="col-md-5 col-12 p-5">
               <div class="row">
                 <h1 class="text-capitalize fontheader">
-                  Special Meal is here <i class="fa-solid fa-burger"></i>
+                  {{Item?.name}} <i class="fa-solid fa-burger"></i>
                 </h1>
-                <p class="ff">Description</p>
-                <p class="ff">Category: Burgers</p>
+                <!-- <p class="ff">{{item.description}}</p> -->
+                <p class="ff">Category: {{Item.category.name}}</p>
 
-                <p class="ff">Price : 180$</p>
+                <p class="ff">Price : {{Item.price}}$</p>
               </div>
               <div class="row mt-3">
-                <input type="button" value="Order" class="btnn" />
+                <input routerLink="/cart" type="button" value="Add To Cart" class="btnn" />
               </div>
 
               <div class="row mt-2 icons ml-4">
@@ -43,6 +43,7 @@
                 </a>
               </div>
 
+              <!-- list of items -->
               <div class="row mt-2 container">
                 <div class="col-1 margin-arrow">
                   <a
@@ -314,7 +315,7 @@
           <div class="row mt-5 bg-order">
             <div class="col-12">
               <div class="row p-5">
-                <h3 class="fontheader">Restuarant Name</h3>
+                <h3 class="fontheader">{{Item.restaurant.name}}</h3>
                 <img
                   src="../../../assets/rr.jpeg"
                   class="w-100 h-100"
@@ -322,9 +323,7 @@
                   srcset=""
                 />
                 <p>
-                  Description About Restaurant Description About
-                  RestaurantDescription About RestaurantDescription About
-                  RestaurantDescription About RestaurantDescription About
+                  {{Item.restaurant.description}}
                 </p>
 
                 <a
