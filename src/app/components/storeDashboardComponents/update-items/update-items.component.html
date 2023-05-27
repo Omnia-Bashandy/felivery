@@ -75,10 +75,10 @@
                 class="form-control"
               >
                 <option value="">Select a Category</option>
-                <option>Pizza</option>
-                <option>Breakfast</option>
-                <option>Main Course</option>
-                <option>Soup</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
               </select>
               <div *ngIf="edititem.controls.category.errors">
                 <div
@@ -115,6 +115,19 @@
                   Please enter a valid price number.
                 </div>
               </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="rname">Restaurant Number</label>
+              <input
+              #rname
+                formControlName="rname"
+                type="text"
+                placeholder="Enter Restaurant"
+                class="form-control"
+                id="rname"
+                aria-describedby="rname"
+              />
             </div>
           </form>
         </div>
