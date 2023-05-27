@@ -20,7 +20,7 @@ export class StoreService {
   }
 
   updateRestaurant(Restaurant: any ) {
-    return this.myClient.put(`${this.Base_URL}/${Restaurant.id}`, Restaurant);
+    return this.myClient.put(`${this.Base_URL}`, Restaurant);
   }
 
   deleteRestaurant(id: any) {

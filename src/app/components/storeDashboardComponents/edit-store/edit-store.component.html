@@ -4,7 +4,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 col-12 p-5">
           <h1 class="hidding-offer text-white text-center">Update Store</h1>
-          <form [formGroup]="validUpdatestore" (ngSubmit)="updateStore()">
+          <form [formGroup]="validUpdatestore" (ngSubmit)="update(Remail, Rmobile, Rname, Raddress, Rdis)">
             <div class="mb-3">
               <div class="uploadimg mt-5">
                 <img src="../../../assets/rr.jpeg" class="w-100" />
@@ -19,71 +19,46 @@
             <div class="mb-3">
               <label for="storename" class="form-label">Store Name</label>
               <input
+                #Rname
                 formControlName="username"
                 id="storename"
                 type="text"
                 placeholder="Enter Storename"
                 class="form-control"
                 aria-describedby="storename"
+                [value]="restaurantData?.name"
               />
+            
               <div *ngIf="validUpdatestore.controls.username.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.username.errors['minlength'] &&
-                    validUpdatestore.controls.username.touched
-                  "
-                >
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.username.errors['minlength'] && validUpdatestore.controls.username.touched">
                   Username must be at least 8 characters.
                 </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.username.errors['maxlength'] &&
-                    validUpdatestore.controls.username.touched
-                  "
-                >
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.username.errors['maxlength'] && validUpdatestore.controls.username.touched">
                   Username can have at most 12 characters.
                 </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                  validUpdatestore.controls.username.errors['required'] &&
-                    validUpdatestore.controls.username.touched
-                  "
-                >
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.username.errors['required'] && validUpdatestore.controls.username.touched">
                   Username is required.
                 </div>
               </div>
             </div>
 
             <div class="mb-3">
-              <label for="discription" class="form-label">Discription</label>
+              <label for="discription" class="form-label">Description</label>
               <input
+                #Rdis
                 formControlName="desc"
                 type="text"
-                placeholder="Enter discription"
+                placeholder="Enter description"
                 class="form-control"
-                id="discription"
-                aria-describedby="discription"
+                id="description"
+                aria-describedby="description"
+                [value]="restaurantData?.description"
               />
               <div *ngIf="validUpdatestore.controls.desc.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.desc.errors['min'] &&
-                   validUpdatestore.controls.desc.touched
-                  "
-                >
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.desc.errors['min'] && validUpdatestore.controls.desc.touched">
                   Description must have at least 10 characters.
                 </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.desc.errors['required'] &&
-                    validUpdatestore.controls.desc.touched
-                  "
-                >
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.desc.errors['required'] && validUpdatestore.controls.desc.touched">
                   Description is required.
                 </div>
               </div>
@@ -92,40 +67,21 @@
             <div class="mb-3">
               <label for="Email" class="form-label">Email</label>
               <input
+                #Remail
                 type="email"
                 formControlName="email"
                 placeholder="Enter Email"
                 class="form-control"
                 id="email"
                 aria-describedby="Email"
+                [value]="restaurantData?.email"
               />
               <div *ngIf="validUpdatestore.controls.email.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.email.errors['email'] &&
-                    validUpdatestore.controls.email.touched
-                  "
-                >
-                  Please enter a valid email.
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.email.errors['email'] && validUpdatestore.controls.email.touched">
+                  Invalid email format.
                 </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.email.errors['required'] &&
-                    validUpdatestore.controls.email.touched
-                  "
-                >
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.email.errors['required'] && validUpdatestore.controls.email.touched">
                   Email is required.
-                </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.email.errors['emailTaken'] &&
-                    validUpdatestore.controls.email.touched
-                  "
-                >
-                  This email is already taken.
                 </div>
               </div>
             </div>
@@ -133,40 +89,23 @@
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
               <input
+                #Rpassword
                 type="password"
                 formControlName="password"
-                placeholder="EnterPassword"
+                placeholder="Enter Password"
                 class="form-control"
                 id="password"
-                aria-describedby="Password"
+                aria-describedby="password"
+                [value]="restaurantData?.password"
               />
               <div *ngIf="validUpdatestore.controls.password.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.password.errors['min'] &&
-                    validUpdatestore.controls.password.touched
-                  "
-                >
-                  Password must have at least 8 characters.
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.password.errors['minlength'] && validUpdatestore.controls.password.touched">
+                  Password must be at least 8 characters.
                 </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.password.errors['pattern'] &&
-                    validUpdatestore.controls.password.touched
-                  "
-                >
-                  Password must contain at least one uppercase letter, one
-                  lowercase letter, one digit, and one special character.
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.password.errors['pattern'] && validUpdatestore.controls.password.touched">
+                  Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.
                 </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.password.errors['required'] &&
-                    validUpdatestore.controls.password.touched
-                  "
-                >
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.password.errors['required'] && validUpdatestore.controls.password.touched">
                   Password is required.
                 </div>
               </div>
@@ -175,83 +114,49 @@
             <div class="mb-3">
               <label for="address" class="form-label">Address</label>
               <input
+                #Raddress
                 type="text"
                 formControlName="address"
                 placeholder="Enter Address"
                 class="form-control"
                 id="address"
-                aria-describedby="Address"
+                aria-describedby="address"
+                [value]="restaurantData?.address"
               />
               <div *ngIf="validUpdatestore.controls.address.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.address.errors['maxlength'] &&
-                    validUpdatestore.controls.address.touched
-                  "
-                >
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.address.errors['maxlength'] && validUpdatestore.controls.address.touched">
                   Address can have at most 12 characters.
                 </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.address.errors['required'] &&
-                    validUpdatestore.controls.address.touched
-                  "
-                >
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.address.errors['required'] && validUpdatestore.controls.address.touched">
                   Address is required.
                 </div>
               </div>
             </div>
+
             <div class="mb-3">
-              <label for="mobileNumber" class="form-label">Mobile Number</label>
+              <label for="mobile" class="form-label">Mobile Number</label>
               <input
+                #Rmobile
                 type="text"
                 formControlName="mobile"
                 placeholder="Enter Mobile Number"
                 class="form-control"
-                id="mobileNumber"
-                aria-describedby="MobileNumber"
+                id="mobile"
+                aria-describedby="mobile"
+                [value]="restaurantData?.mobileNumber"
               />
               <div *ngIf="validUpdatestore.controls.mobile.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.mobile.errors['required'] &&
-                    validUpdatestore.controls.mobile.touched
-                  "
-                >
-                  Mobile is required.
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.mobile.errors['pattern'] && validUpdatestore.controls.mobile.touched">
+                  Invalid mobile number format.
                 </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    validUpdatestore.controls.mobile.errors['pattern'] &&
-                    validUpdatestore.controls.mobile.touched
-                  "
-                >
-                  Please enter a valid mobile number.
+                <div class="validateerrorstyle" *ngIf="validUpdatestore.controls.mobile.errors['required'] && validUpdatestore.controls.mobile.touched">
+                  Mobile number is required.
                 </div>
               </div>
             </div>
 
-            <div class="mb-3 row justify-content-center">
-              <div class="col-4">
-                <input
-                  routerLink="/store-dashboard/"
-                  class="btn btn-danger"
-                  type="submit"
-                  value="Save"
-                  [disabled]="!updateStore"
-                />
-              </div>
-              <div class="col-2">
-                <a
-                  routerLink="/store-dashboard/storesetting"
-                  class="btn btn-dark"
-                  >Cancel</a
-                >
-              </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary btn-lg" type="submit" >Update</button>
             </div>
           </form>
         </div>

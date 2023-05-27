@@ -10,10 +10,12 @@ import { StoreService } from 'src/app/Services/store.service';
 export class StoresettingComponent {
   restaurantData:any;
   id!: string | null;
+
   constructor(private sharedService: SharedService , public myService:StoreService ) {}
 
   ngOnInit() {
     this.id = this.sharedService.getId();
+
     // Get the stored id from the shared service
     console.log(this.id);
     this.myService.getRestaurantById(this.id).subscribe({
@@ -22,6 +24,7 @@ export class StoresettingComponent {
               console.log(data)
               console.log(this.restaurantData)
               console.log(this.restaurantData.address)
+              this.sharedService.setName(this.restaurantData.name);
             },
             error:(err)=>{console.log(err)},
             // complete:()=>{}

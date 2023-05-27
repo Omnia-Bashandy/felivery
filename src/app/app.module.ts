@@ -48,6 +48,7 @@ import { DeleteItemsComponent } from './components/storeDashboardComponents/dele
 import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PendingComponent } from './components/storeDashboardComponents/pending/pending.component';
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,7 +99,7 @@ import { PendingComponent } from './components/storeDashboardComponents/pending/
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
