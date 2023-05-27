@@ -1,0 +1,46 @@
+
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CategoriesService } from 'src/app/Services/categories.service';
+
+
+@Component({
+  selector: 'app-addcategory',
+  templateUrl: './addcategory.component.html',
+  styleUrls: ['./addcategory.component.css']
+})
+export class AddcategoryComponent {
+ addcat= new FormGroup({
+  categoryname: new FormControl("",[Validators.min(5),Validators.max(50),Validators.required]),
+    // catImg:new FormControl(""),
+    // desc:new FormControl("",[Validators.required,Validators.max(100)]),
+    // menuitems:new FormControl("",[Validators.required,Validators.max(100)]),
+  })
+ 
+  constructor(public myService:CategoriesService){
+  }
+
+Addcat(categoryname: string) {
+
+    let newItem={
+      name: categoryname,
+      
+      }
+  
+  if (this.addcat.valid) {
+    console.log(newItem);
+      this.myService.addCategory(newItem).subscribe(
+        (data: any) => {
+                  console.log(data);
+                  alert(`${categoryname} added successfully`)
+                },
+                (err: any) => {
+                  console.log('Error', err);
+                }
+      );
+
+    }
+  }
+  
+
+}

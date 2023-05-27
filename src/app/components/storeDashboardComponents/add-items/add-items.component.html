@@ -4,10 +4,11 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 col-12 p-5">
           <h1 class="hidding-offer text-white">Add New Item</h1>
-          <form [formGroup]="addnewitem" (ngSubmit)="addNewItem()">
+                    <form [formGroup]="addnewitem">
             <div class="mb-3">
               <label for="name" class="form-label">Item Name</label>
               <input
+              #itemnam
                 formControlName="itemname"
                 type="text"
                 placeholder="Enter Item Name"
@@ -40,8 +41,9 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="discription" class="form-label">Discription</label>
+              <label for="discription" class="form-label">Description</label>
               <input
+              #desc
                 formControlName="desc"
                 type="text"
                 placeholder="Enter discription"
@@ -68,17 +70,18 @@
             </div>
 
             <div class="mb-3">
-              <label for="RestaurantID" class="control-label"> Category </label>
+              <label for="categoryID" class="control-label"> Category </label>
               <select
-                id="RestaurantID"
+              #categoryname
+                id="categoryID"
                 formControlName="category"
                 class="form-control"
               >
                 <option value="">Select a Category</option>
-                <option>Pizza</option>
-                <option>Breakfast</option>
-                <option>Main Course</option>
-                <option>Soup</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
               </select>
               <div *ngIf="addnewitem.controls.category.errors">
                 <div
@@ -94,8 +97,9 @@
             <div class="mb-3">
               <label for="price" class="form-label">Price</label>
               <input
+              #price
                 formControlName="price"
-                type="text"
+                type="number"
                 placeholder="Enter Price"
                 class="form-control"
                 id="price"/>
@@ -116,6 +120,28 @@
                 </div>
               </div>
             </div>
+
+            <div class="mb-3">
+              <label for="rname">Restaurant Number</label>
+              <input
+              #rname
+                formControlName="rname"
+                type="text"
+                placeholder="Enter Restaurant"
+                class="form-control"
+                id="rname"
+                aria-describedby="rname"
+              />
+            </div>
+
+            <button
+            routerLink="/store-dashboard/menuitems"
+            class="btn btn-danger"
+            type="submit"
+          (click)="addNewItem(itemnam.value, categoryname.value, price.value,rname.value)"
+           
+            [disabled]="!addnewitem.valid"
+          >Save</button>
           </form>
         </div>
         <div class="col-lg-6 p-5">
@@ -135,13 +161,15 @@
             <div class="col-10 text-center">
               <div class="row justify-content-center">
                 <div class="col-4">
-                  <input
+                  <!-- (click)="addNewItem(itemname.value,desc.value, categoryname.value, price.value,rname.value)" -->
+                  <button
                     routerLink="/store-dashboard/menuitems"
                     class="btn btn-danger"
                     type="submit"
+                  (click)="addNewItem(itemnam.value, categoryname.value, price.value,rname.value)"
                     value="Save Item"
                     [disabled]="!addnewitem.valid"
-                  />
+                  ></button>
                 </div>
                 <div class="col-2">
                   <a
@@ -158,3 +186,4 @@
     </div>
   </div>
 </div>
+

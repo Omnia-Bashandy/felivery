@@ -8,41 +8,54 @@
 >
 
 <div class="card stylecard">
-  <a routerLink="/store-dashboard/add-category"> 
+  <a routerLink="/store-dashboard/addcategory"> 
       <i class="fa-regular fa-square-plus" style="color: #51331f;"></i>
   </a>
 </div>
 
   <div
-    *ngFor="let Restaurant of Restaurants"
+    *ngFor="let category of categories"
     class="col d-flex justify-content-center"
   >
 
-    <div class="offer-cards">
+    <div class="offer-cards pb-5">
       <div class="row justify-content-center">
         <div class="col-12 text-center">
-          <img [src]="Restaurant.image" alt="Image" class="imgoffer" />
+          <img src="/assets/Burger.jpg" alt="Image" class="imgoffer" />
         </div>
       </div>
       <div class="row justify-content-center h-hidding">
         <div class="col-12 text-center">
           <h1 class="ff pt-3 pl-2 pr-2">
-            {{ Restaurant.name }}
+            {{ category.name }}
+
           </h1>
         </div>
       </div>
-      <div class="row justify-content-center h-desc">
-        <div class="col-12 text-center">
-          <p class="pl-3 pr-3">{{ Restaurant.description }}</p>
-        </div>
-      </div>
 
-      <div class="row justify-content-center h-desc">
-        <div class="col-6 text-center">
-          <a href="" class="btnn">Show Items</a>
-        </div>
-        <div class="col-5 text-center">
-          <a href="" class="btnn">Update Category</a>
+      <!-- buttons crud operations -->
+      <div class="row justify-content-center h-desc buttons mb-5">
+        <div class="col-12 text-center">
+          <div class="row justify-content-center">
+            <div class="col-8">
+              <a  class="bu" routerLink="/store-dashboard/showitemsbyid/{{category.id}}">Show Menu Items</a>
+
+            </div>
+          </div>
+          <div class="row justify-content-center mt-4">
+            <div class="col-8 text-center">
+              
+              <a  class="bu">Update Category</a>
+            </div>
+            </div>
+            <div class="row justify-content-center mt-4">
+  
+              <div class="col-8 text-center">
+                <a  routerLink="/store-dashboard/delete-items/{{category.id}}" (click)="deleteItem(category.id)" class="bu" >delete</a>
+                
+              </div>
+            </div>
+         
         </div>
       </div>
     </div>

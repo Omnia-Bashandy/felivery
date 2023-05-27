@@ -1,23 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuitemsService } from 'src/app/Services/menuitems.service';
 
 @Component({
   selector: 'app-menuitems',
   templateUrl: './menuitems.component.html',
   styleUrls: ['./menuitems.component.css']
 })
-export class MenuitemsComponent {
-  Restaurants: { name: string; description: string; image: string; }[] = [
-    { name: "Burgers", description: "This is a restaurant",  image: "assets/Burger.jpg"},
-    { name: "Healthy", description: "This is a res",  image: "assets/Healthy.jpg"},
-    { name: "Pizza", description: "This is a restaurant with a long discrition and name",  image: "assets/Pizza.jpg"},
-    { name: "Pizza", description: "This is another restaurant",  image: "assets/Pizza.jpg"},
-    { name: "Healthy", description: "This is another res",  image: "assets/Healthy.jpg"},
-    { name: "Burgers", description: "This is another restaurant with another long discrition and another long name",  image: "assets/Burger.jpg"},
-    { name: "Burgers", description: "This is a restaurant",  image: "assets/Burger.jpg"},
-    { name: "Healthy", description: "This is a res",  image: "assets/Healthy.jpg"},
-    { name: "Pizza", description: "This is a restaurant with a long discrition and name",  image: "assets/Pizza.jpg"},
-    { name: "Burgers", description: "This is another restaurant",  image: "assets/Pizza.jpg"},
-    { name: "Healthy", description: "This is another res",  image: "assets/Healthy.jpg"},
-    { name: "Pizza", description: "This is another restaurant with a veeeery long discrition and another long name",  image: "assets/Burger.jpg"}
-  ];
+export class MenuitemsComponent implements OnInit{
+
+  items:any = [];
+
+  constructor(public menuservice :MenuitemsService ,private router: Router) {}
+  ngOnInit(): void {
+    // console.log(this.menuservice.GetAllmenuserved);
+      this.menuservice.GetAllmenuserved().subscribe({
+       next:(data) =>{
+         this.items = data;     
+       },
+       error:(err)=>{console.log(err)}
+     })
+
+  }
+  deleteItem(id: any): void {
+    this.menuservice.getMenuitemById(id).subscribe()
+    this.menuservice.deleteMenuitem(id).subscribe(() => {
+      // alert('Item deleted successfully.');
+      console.log("Deleteeed");
+      
+      this.router.navigate(["/store-dashboard/menuitems"]);
+    }, error => {
+      console.error('Error deleting item:', error);
+    });
+  }
+
+  newItem: any = {};
+
+
+  addItem(): void {
+    this.menuservice.addmenuitem(this.newItem).subscribe(
+      (response) => {
+        console.log('Item added successfully.');
+        // Reset the form after successful submission
+        this.newItem = {};
+      },
+      (error) => {
+        console.error('Error adding item:', error);
+      }
+    );
+  }
+
+
 }

@@ -24,6 +24,11 @@ import { StorehomeComponent } from './components/storeDashboardComponents/storeh
 import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
 import { DeleteItemsComponent } from './components/storeDashboardComponents/delete-items/delete-items.component';
 import { PendingComponent } from './components/storeDashboardComponents/pending/pending.component';
+import { MenuservedComponent } from './components/menuserved/menuserved.component';
+import { CartComponent } from './components/cart/cart.component';
+import { TryadditemComponent } from './components/tryadditem/tryadditem.component';
+import { ShowitemsbyidComponent } from './components/storeDashboardComponents/showitemsbyid/showitemsbyid.component';
+import { AddcategoryComponent } from './components/storeDashboardComponents/addcategory/addcategory.component';
 
 
 const routes: Routes = [
@@ -33,8 +38,12 @@ const routes: Routes = [
   { path: 'groceries', component: GroceriesComponent },
   { path: 'restaurants', component: RestaurantsComponent },
   { path: 'Partners', component: PartnersComponent },
-  { path: 'order', component: OrderComponent },
   { path: 'offerlist', component: OfferlistComponent },
+  { path: 'order/:id', component: OrderComponent },
+  { path: 'menuserved', component: MenuservedComponent},
+  { path: 'cart', component: CartComponent},
+  { path: 'tryadditem', component: TryadditemComponent},
+
   {
     path: 'store-dashboard',
     component: StoreDashboardComponent,
@@ -50,9 +59,17 @@ const routes: Routes = [
       { path: 'menuitems', component: MenuitemsComponent},
       { path: 'storeoffers', component: StoreoffersComponent},
       { path: 'storesetting', component: StoresettingComponent},
+      // menuitems store
+      { path: 'delete-items/:id', component: DeleteItemsComponent},
+      { path: 'update-items/:id', component: UpdateItemsComponent},
+      // category
+      { path: 'showitemsbyid/:id', component: ShowitemsbyidComponent},
+      { path: 'addcategory', component: AddcategoryComponent},
+
+
       
-      { path: 'delete-items', component: DeleteItemsComponent},
-      { path: 'update-items', component: UpdateItemsComponent},
+
+      
     ]
   },
   { path: 'login', component: LoginComponent },

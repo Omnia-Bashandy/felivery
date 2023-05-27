@@ -48,6 +48,11 @@ import { DeleteItemsComponent } from './components/storeDashboardComponents/dele
 import { UpdateItemsComponent } from './components/storeDashboardComponents/update-items/update-items.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PendingComponent } from './components/storeDashboardComponents/pending/pending.component';
+import { MenuservedComponent } from './components/menuserved/menuserved.component';
+import { CartComponent } from './components/cart/cart.component';
+import { TryadditemComponent } from './components/tryadditem/tryadditem.component';
+import { ShowitemsbyidComponent } from './components/storeDashboardComponents/showitemsbyid/showitemsbyid.component';
+import { AddcategoryComponent } from './components/storeDashboardComponents/addcategory/addcategory.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +90,12 @@ import { PendingComponent } from './components/storeDashboardComponents/pending/
     StorehomeComponent,
     DeleteItemsComponent,
     UpdateItemsComponent,
-    PendingComponent
+    PendingComponent,
+    MenuservedComponent,
+    CartComponent,
+    TryadditemComponent,
+    ShowitemsbyidComponent,
+    AddcategoryComponent
 
   ],
   imports: [

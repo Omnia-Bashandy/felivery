@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-// import { Router } from '@angular/router';
 import { MenuitemsService } from 'src/app/Services/menuitems.service';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
-  selector: 'app-add-items',
-  templateUrl: './add-items.component.html',
-  styleUrls: ['./add-items.component.css']
+  selector: 'app-tryadditem',
+  templateUrl: './tryadditem.component.html',
+  styleUrls: ['./tryadditem.component.css']
 })
-export class AddItemsComponent {
+export class TryadditemComponent  {
+
+
+
+
+
+
 
   addnewitem= new FormGroup({
     itemname: new FormControl("",[Validators.min(5),Validators.max(50),Validators.required]),
@@ -55,39 +59,31 @@ addNewItem(itemnam: string, categoryname: any, price: any,rname:any) {
       // alert(`${itemnam} added successfully`);
     }
   }
+
   
-  newItem: any = {};
+  // newItem: any = {};
 
-  addItem(name: string, category: any, price: any,rest:any): void {
+
+  // addItem(name: string, category: any, price: any,rest:any): void {
      
-      let newItem={
-        name: name,
-        price: price,
-        categoryID: category,
-        restaurantID: rest,
-        }
-    this.myService.addmenuitem(this.newItem).subscribe(
-      (response) => {
-        console.log('Item added successfully.');
-        this.newItem = {};
-      },
-      (error) => {
-        console.error('Error adding item:', error);
-      }
-    );
-  }
+  //     let newItem={
+  //       name: name,
+  //       price: price,
+  //       categoryID: category,
+  //       restaurantID: rest,
+  //       }
+  //   this.myService.addmenuitem(this.newItem).subscribe(
+  //     (response) => {
+  //       console.log('Item added successfully.');
+  //       // Reset the form after successful submission
+  //       this.newItem = {};
+  //     },
+  //     (error) => {
+  //       console.error('Error adding item:', error);
+  //     }
+  //   );
+  // }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

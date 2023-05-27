@@ -18,7 +18,7 @@ export class RegistercustomerComponent {
   validRegCustomer= new FormGroup({
     username: new FormControl("",[Validators.min(8),Validators.max(12),Validators.required]),
     email:new FormControl("",[Validators.email,Validators.required]),
-    password:new FormControl("",[Validators.min(8),Validators.pattern(/^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/),Validators.required]),
+    password:new FormControl("",[Validators.min(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/),Validators.required]),
     mobile:new FormControl("",[Validators.required,Validators.pattern(/^(\+01-?)?(\d{10})$/)]), 
     address: new FormControl("",[Validators.max(12),Validators.required]),
   })

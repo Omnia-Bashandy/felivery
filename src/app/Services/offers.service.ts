@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class OffersService {
+  private offersURL = "https://localhost:44309/api/offers";
 
   constructor(private client:HttpClient) { }
   // url
- private offersURL = "https://localhost:44309/api/offers";
 
  GetAlloffers(){
   return this.client.get(this.offersURL);
