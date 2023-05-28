@@ -7,8 +7,8 @@ export class SharedService {
 
   constructor() { }
   private id: string | null = null;
+  private custId: string | null = null;
   private name: string | null = null;
-  private role: string | null = null;
 
   setId(id: string): void {
     localStorage.setItem("storeId",id)
@@ -17,6 +17,16 @@ export class SharedService {
 
   getId(): string | null {
     return localStorage.getItem("storeId")
+    // return this.id;
+  }
+
+  setCustId(id: string): void {
+    localStorage.setItem("custId",id)
+    // this.id = id;
+  }
+
+  getCustId(): string | null {
+    return localStorage.getItem("custId")
     // return this.id;
   }
 

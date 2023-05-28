@@ -1,6 +1,7 @@
 
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CategoriesService } from 'src/app/Services/categories.service';
 
 
@@ -16,8 +17,8 @@ export class AddcategoryComponent {
     // desc:new FormControl("",[Validators.required,Validators.max(100)]),
     // menuitems:new FormControl("",[Validators.required,Validators.max(100)]),
   })
- 
-  constructor(public myService:CategoriesService){
+
+  constructor(public myService:CategoriesService , private route:Router){
   }
 
 Addcat(categoryname: string) {
@@ -33,6 +34,7 @@ Addcat(categoryname: string) {
         (data: any) => {
                   console.log(data);
                   alert(`${categoryname} added successfully`)
+                  this.route.navigate(['/store-dashboard/categories']);
                 },
                 (err: any) => {
                   console.log('Error', err);

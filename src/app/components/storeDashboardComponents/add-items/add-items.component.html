@@ -135,12 +135,18 @@
 
             <button
             routerLink="/store-dashboard/menuitems"
-            class="btn btn-danger"
+            class="btn btn-danger m-3"
             type="submit"
           (click)="addNewItem(itemnam.value, price.value)"
           
             [disabled]="!addnewitem.valid"
           >Save</button>
+          
+            <a
+              routerLink="/store-dashboard/menuitems"
+              class="btn btn-dark m-3"
+              >Cancel</a
+            >
           </form>
         </div>
         <div class="col-lg-6 p-5">
@@ -170,13 +176,7 @@
                     [disabled]="!addnewitem.valid"
                   ></button> -->
                 </div>
-                <div class="col-2">
-                  <a
-                    routerLink="/store-dashboard/menuitems"
-                    class="btn btn-dark"
-                    >Cancel</a
-                  >
-                </div>
+                
               </div>
             </div>
           </div>

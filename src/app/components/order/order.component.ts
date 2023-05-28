@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MenuitemsService } from 'src/app/Services/menuitems.service';
 import { MenuservedComponent } from '../menuserved/menuserved.component';
 import { data, param } from 'jquery';
+import { SharedService } from 'src/app/Services/shared.service';
 // import { error } from 'jquery';
 
 @Component({
@@ -18,23 +19,32 @@ export class OrderComponent  implements OnInit{
   }
 
   Item:any|undefined;
-  item:any = [];
-  constructor(public route: ActivatedRoute,private menuService: MenuitemsService) {
-      
-    }
+  items:any = [];
+  id:any
+  constructor(public route: ActivatedRoute,private menuService: MenuitemsService , private shared:SharedService , public router:Router) {
+    
+  }
+  custId : any = this.shared.getCustId()
 
     ngOnInit() {
-      console.log(this.route.params.subscribe(params=> this.getelmentbyid(params['id'])));
-      
-      this.route.params.subscribe(params=> this.getelmentbyid(params['id']));
-
-      this.menuService.GetAllmenuserved().subscribe((data)=>this.item=data);
+      // console.log(this.route.params.subscribe(params=> this.getelmentbyid(params['id'])));
+      // this.route.params.subscribe(params => {
+      //   this.id = params['id'];
+      // })
+      // this.route.params.subscribe(params=> this.getelmentbyid(params['id']));
+      // console.log(this.id);
+      this.menuService.GetAllmenuserved().subscribe((data)=>this.items=data);
     }
     getelmentbyid(id:any){
-      this.menuService.getMenuitemById(id).subscribe((data)=>this.Item = data)
-
-    }
-
+      this.menuService.getMenuitemById(id).subscribe(
+        (response) => {
+      console.log(response);
+      
+      }, (error) => {
+        console.log(error);
+      });
+      }
+      
     quantity: number = 1; // Initial quantity
   incrementQuantity() {
     this.quantity++;
@@ -45,7 +55,13 @@ export class OrderComponent  implements OnInit{
       this.quantity--;
     }
   }
-
+  addToCart(){
+  if (this.custId) {
+    this.router.navigate(['/cart'])
+  }else{
+    this.router.navigate(['/login'])
+  }
+  }
     // itemId:any;
     // Item:any;
     // constructor(route: ActivatedRoute,private menuService: MenuitemsService) {

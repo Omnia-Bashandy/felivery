@@ -69,8 +69,7 @@
             <div class="col-2 mt-2">
               <!-- <button  routerLink="/order/{{i.id}}"  class="btnn hvr-bounce-in">Order</button> -->
               <button  [routerLink]="['/order',i.id]"  class="btnn hvr-bounce-in">Order</button>
-              <button  [routerLink]="['/delete-items',i.id]" (click)="deleteItem(i.id)"  class="btnn hvr-bounce-in">delete</button>
-
+              <!-- <button  [routerLink]="['/delete-items',i.id]" (click)="deleteItem(i.id)"  class="btnn hvr-bounce-in">delete</button> -->
               <!-- <button  routerLink="/order/{{i.id}}"  (click)="goToItemDetails(i.id)" class="btnn hvr-bounce-in">Order</button> -->
             </div>
           </div>

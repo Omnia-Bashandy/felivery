@@ -49,13 +49,14 @@ login(email: any, password: any) {
         console.log(logToken); // Check the value of id
         localStorage.setItem("token",logToken)
         // Use the id as needed
-        this.sharedService.setId(id);
         if (role == "PendingStore") {
           this.router.navigate(['/pending']); 
         }else if(role == "Customer"){
           this.router.navigate(['/']); 
+          this.sharedService.setCustId(id)
         }else if(role == "ApprovedStore"){
           this.router.navigate(['/store-dashboard/storehome'])
+          this.sharedService.setId(id);
         }
       },
       error: (err) => {
