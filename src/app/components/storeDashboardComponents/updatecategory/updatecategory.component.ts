@@ -30,7 +30,7 @@ editcat = new FormGroup(
     this.catService.getCategoryById(categoryId)
       .subscribe((response: any) => {
         this.category = response;
-      });
+    });
   }
 
   updateCategory(categoryname: string) {
