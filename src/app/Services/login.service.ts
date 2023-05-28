@@ -11,33 +11,33 @@ export class LoginService {
 
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
-  setToken(token: string) {
-    // Store token in cookie
-    this.cookieService.set(this.tokenKey, token);
+  // setToken(token: string) {
+  //   // Store token in cookie
+  //   this.cookieService.set(this.tokenKey, token);
 
-    // Store token in local storage
-    localStorage.setItem(this.tokenKey, token);
-  }
+  //   // Store token in local storage
+  //   localStorage.setItem(this.tokenKey, token);
+  // }
 
-  getToken(): string | null {
-    // Get token from cookie
-    const cookieToken = this.cookieService.get(this.tokenKey);
+  // getToken(): string | null {
+  //   // Get token from cookie
+  //   const cookieToken = this.cookieService.get(this.tokenKey);
 
-    if (cookieToken) {
-      return cookieToken;
-    }
+  //   if (cookieToken) {
+  //     return cookieToken;
+  //   }
 
-    // Get token from local storage
-    return localStorage.getItem(this.tokenKey);
-  }
+  //   // Get token from local storage
+  //   return localStorage.getItem(this.tokenKey);
+  // }
 
-  removeToken() {
-    // Remove token from cookie
-    this.cookieService.delete(this.tokenKey);
+  // removeToken() {
+  //   // Remove token from cookie
+  //   this.cookieService.delete(this.tokenKey);
 
-    // Remove token from local storage
-    localStorage.removeItem(this.tokenKey);
-  }
+  //   // Remove token from local storage
+  //   localStorage.removeItem(this.tokenKey);
+  // }
 
   login(credentials: any) {
     return this.http.post(this.loginUrl, credentials);

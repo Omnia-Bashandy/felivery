@@ -69,20 +69,20 @@ export class RegestrationComponent {
   if (this.validationsRegister.valid) {
     
     console.log(newRestaurant);
-      this.myService.addRestaurant(newRestaurant).subscribe(
-        (data: any) => {
+      this.myService.addRestaurant(newRestaurant).subscribe({
+        next: (data: any) => {
           console.log(data);
+          const token = data["token"]; // Accessing the "id" property
+          console.log(token); // Check the value of id
+          localStorage.setItem('token',token)
+          this.router.navigate(['/pending']); 
+          
+          alert(`Rest ${Rname} added successfully`)
         },
-        (error: any) => {
-          console.log('Error', error);
-        }
-      );
-      console.log();
-      
-      this.router.navigate(['/pending']); 
-      alert(`Rest ${Rname} added successfully`)
-    }
+        error: (err) => {
+          console.log(err);
+          // Handle login error
+        },
+    })
   }
-}
-
-
+}}

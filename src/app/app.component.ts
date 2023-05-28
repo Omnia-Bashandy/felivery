@@ -23,13 +23,13 @@ export class AppComponent implements OnInit {
       this.isLoading = false;
     }, 3000); // Adjust the delay time as needed
 
-    // Retrieve token from local storage
-    const token = this.loginService.getToken();
+    // // Retrieve token from local storage
+    // const token = this.loginService.getToken();
 
-    if (token) {
-      // Set the token in the cookie
-      this.loginService.setToken(token);
-    }
+    // if (token) {
+    //   // Set the token in the cookie
+    //   this.loginService.setToken(token);
+    // }
   }
 
   isDashboardRoute(): boolean {

@@ -53,16 +53,19 @@ export class RegistercustomerComponent {
       // mobileN
     };
 
-    this.http.Register(userData).subscribe(
-      (response) => {
-        // Handle the successful response here
-        console.log(response);
+    this.http.Register(userData).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        const token = data["token"]; // Accessing the "id" property
+        console.log(token); // Check the value of id
+        localStorage.setItem('token',token)
       },
-      (error) => {
-        // Handle the error here
-        console.error(error);
-      }
-    );
-  }
+      error: (err) => {
+        console.log(err);
+        // Handle login error
+      },
+      });
+    }
+  // },token
   }
 

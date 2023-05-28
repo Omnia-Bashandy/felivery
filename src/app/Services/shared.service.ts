@@ -8,14 +8,18 @@ export class SharedService {
   constructor() { }
   private id: string | null = null;
   private name: string | null = null;
+  private role: string | null = null;
 
   setId(id: string): void {
-    this.id = id;
+    localStorage.setItem("storeId",id)
+    // this.id = id;
   }
 
   getId(): string | null {
-    return this.id;
+    return localStorage.getItem("storeId")
+    // return this.id;
   }
+
   setName(name: string): void {
     this.name = name;
   }
@@ -23,4 +27,6 @@ export class SharedService {
   geName(): string | null {
     return this.name;
   }
+
+
 }
