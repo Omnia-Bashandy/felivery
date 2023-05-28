@@ -4,10 +4,13 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 col-12 p-5">
           <h1 class="hidding-offer text-white">Update Item Data</h1>
-          <form [formGroup]="edititem" (ngSubmit)="editItem()">
+          <form [formGroup]="edititem">
+
+          <!-- <form [formGroup]="edititem" (ngSubmit)="editItem(itemname.value,category.value,price.value,rest.value)"> -->
             <div class="mb-3">
               <label for="name" class="form-label">Item Name</label>
               <input
+              #itemname
                 formControlName="itemname"
                 type="text"
                 placeholder="Enter Item Name"
@@ -39,47 +42,20 @@
                 </div>
               </div>
             </div>
+      
             <div class="mb-3">
-              <label for="discription" class="form-label">Discription</label>
-              <input
-                formControlName="desc"
-                type="text"
-                placeholder="Enter discription"
-                class="form-control"
-                id="discription"
-                aria-describedby="discription"
-              />
-              <div *ngIf="edititem.controls.desc.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    edititem.controls.desc.errors['maxlength'] &&
-                    edititem.controls.desc.touched">
-                  Description can have at most 100 characters.
-                </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    edititem.controls.desc.errors['required'] &&
-                    edititem.controls.desc.touched">
-                  Description is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="RestaurantID" class="control-label"> Category </label>
+              <label for="categoryID" class="control-label" > Category </label>
               <select
-                id="RestaurantID"
+                #categoryname
+                id="categoryID"
                 formControlName="category"
-                class="form-control"
-              >
+                [(ngModel)]="selectedCategoryId"
+                (ngModelChange)="setSelectedCategory()"
+                class="form-control">
                 <option value="">Select a Category</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+                <option *ngFor="let c of cats" [value]="c.id">{{ c.name }}</option>
               </select>
+
               <div *ngIf="edititem.controls.category.errors">
                 <div
                   class="validateerrorstyle"
@@ -90,10 +66,12 @@
                 </div>
               </div>
             </div>
+            
 
             <div class="mb-3">
               <label for="price" class="form-label">Price</label>
               <input
+              #price
                 formControlName="price"
                 type="text"
                 placeholder="Enter Price"
@@ -120,7 +98,7 @@
             <div class="mb-3">
               <label for="rname">Restaurant Number</label>
               <input
-              #rname
+              #rest
                 formControlName="rname"
                 type="text"
                 placeholder="Enter Restaurant"
@@ -149,6 +127,7 @@
               <div class="row justify-content-center">
                 <div class="col-4">
                   <input
+                  (click)="editItem(itemname.value,price.value)"
                     routerLink="/store-dashboard/menuitems"
                     class="btn btn-danger"
                     type="submit"

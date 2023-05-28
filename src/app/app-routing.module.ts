@@ -29,6 +29,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { TryadditemComponent } from './components/tryadditem/tryadditem.component';
 import { ShowitemsbyidComponent } from './components/storeDashboardComponents/showitemsbyid/showitemsbyid.component';
 import { AddcategoryComponent } from './components/storeDashboardComponents/addcategory/addcategory.component';
+import { UpdatecategoryComponent } from './components/storeDashboardComponents/updatecategory/updatecategory.component';
 
 
 const routes: Routes = [
@@ -65,6 +66,8 @@ const routes: Routes = [
       // category
       { path: 'showitemsbyid/:id', component: ShowitemsbyidComponent},
       { path: 'addcategory', component: AddcategoryComponent},
+      { path: 'updatecategory/:id', component: UpdatecategoryComponent},
+
 
 
       

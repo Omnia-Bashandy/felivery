@@ -27,7 +27,7 @@ addmenuitem(menuitem:any) {
   return this.client.post(this.addURL, menuitem);
 }
 updateMenuitem(menuitem: any ) {
-  return this.client.put(`${this.putURL}/${menuitem.id}`, menuitem);
+  return this.client.put(`${this.putURL}`, menuitem);
 }
 
 // updateMenuitem(id: any, updatedItem: any){

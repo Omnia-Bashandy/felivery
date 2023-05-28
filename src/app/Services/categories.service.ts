@@ -9,6 +9,7 @@ export class CategoriesService {
 
 
   private Base_URL = "https://localhost:44309/api/Category";
+  private put ="https://localhost:44309/api/Category";
   
   constructor(private client:HttpClient) { }
   
@@ -22,8 +23,8 @@ export class CategoriesService {
 addCategory(menuitem:any) {
   return this.client.post(this.Base_URL, menuitem);
 }
-updateCategory(menuitem: any ) {
-  return this.client.put(`${this.Base_URL}/${menuitem.id}`, menuitem);
+updateCategory(updatedCategory: any ) {
+  return this.client.put(`${this.put}`, updatedCategory);
 }
 deleteCategory(id: any) {
   return this.client.delete(`${this.Base_URL}/${id}`);

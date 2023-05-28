@@ -55,6 +55,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { TryadditemComponent } from './components/tryadditem/tryadditem.component';
 import { ShowitemsbyidComponent } from './components/storeDashboardComponents/showitemsbyid/showitemsbyid.component';
 import { AddcategoryComponent } from './components/storeDashboardComponents/addcategory/addcategory.component';
+import { UpdatecategoryComponent } from './components/storeDashboardComponents/updatecategory/updatecategory.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { AddcategoryComponent } from './components/storeDashboardComponents/addc
     CartComponent,
     TryadditemComponent,
     ShowitemsbyidComponent,
-    AddcategoryComponent
+    AddcategoryComponent,
+    UpdatecategoryComponent
 
   ],
   imports: [

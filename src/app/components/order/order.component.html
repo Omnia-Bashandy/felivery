@@ -14,6 +14,12 @@
 
                 <p class="ff">Price : {{Item.price}}$</p>
               </div>
+              <div>
+                <button (click)="decrementQuantity()">-</button>
+                <input type="number" [(ngModel)]="quantity" />
+                <button (click)="incrementQuantity()">+</button>
+              </div>
+              
               <div class="row mt-3">
                 <input routerLink="/cart" type="button" value="Add To Cart" class="btnn" />
               </div>
@@ -61,250 +67,80 @@
                     class="carousel slide"
                     data-ride="carousel"
                   >
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <div class="row">
-                          <div class="col-md-4 mb-3">
-                            <div class="offer-cards mt-1">
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <img
-                                    src="../../../assets/Burger.jpg"
-                                    class="imgoffer"
-                                    alt=""
-                                  />
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <h1 class="ff pt-3 pl-2 pr-2">
-                                    Special meal is here Sandwich
-                                  </h1>
-                                </div>
-                              </div>
-
-                              <div
-                                class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3"
-                              >
-                                <div class="col-5">
-                                  <h3>100$</h3>
-                                </div>
-                                <div class="col-6">
-                                  <h6 class="tx">128$</h6>
-                                </div>
-                              </div>
-                              <div class="row justify-content-center">
-                                <div class="col-12 mt-2">
-                                  <a href="" class="btnn hvr-bounce-in"
-                                    >Order</a
-                                  >
-                                </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item" *ngFor="let item of item; let i = index" [class.active]="i === 0">
+                      <!-- Existing code for each item in the carousel -->
+                      <div class="row">
+                        <div class="col-md-8 mb-3">
+                          <div class="offer-cards mt-1">
+                            <div class="row">
+                              <div class="col-12 text-center">
+                                <img src="../../../assets/Burger.jpg" class="imgoffer" alt="" />
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <div class="offer-cards mt-1">
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <img
-                                    src="../../../assets/Healthy.jpg"
-                                    class="imgoffer"
-                                    alt=""
-                                  />
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <h1 class="ff pt-3 pl-2 pr-2">
-                                    Special meal is here Sandwich
-                                  </h1>
-                                </div>
-                              </div>
-
-                              <div
-                                class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3"
-                              >
-                                <div class="col-5">
-                                  <h3>100$</h3>
-                                </div>
-                                <div class="col-6">
-                                  <h6 class="tx">128$</h6>
-                                </div>
-                              </div>
-                              <div class="row justify-content-center">
-                                <div class="col-12 mt-2">
-                                  <a href="" class="btnn hvr-bounce-in"
-                                    >Order</a
-                                  >
-                                </div>
+                            <div class="row">
+                              <div class="col-12 text-center">
+                                <h1 class="ff pt-3 pl-2 pr-2">
+                                  {{item.name}}
+                                  {{item.category.name}}
+                                </h1>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <div class="offer-cards mt-1">
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <img
-                                    src="../../../assets/Pizza.jpg"
-                                    class="imgoffer"
-                                    alt=""
-                                  />
-                                </div>
+                            <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
+                              <div class="col-5">
+                                <h3>{{item.price}}$</h3>
                               </div>
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <h1 class="ff pt-3 pl-2 pr-2">
-                                    Special meal is here Sandwich
-                                  </h1>
-                                </div>
-                              </div>
-
-                              <div
-                                class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3"
-                              >
-                                <div class="col-5">
-                                  <h3>100$</h3>
-                                </div>
-                                <div class="col-6">
-                                  <h6 class="tx">128$</h6>
-                                </div>
-                              </div>
-                              <div class="row justify-content-center">
-                                <div class="col-12 mt-2">
-                                  <a href="" class="btnn hvr-bounce-in"
-                                    >Order</a
-                                  >
-                                </div>
+                              <div class="col-6">
+                                <h6 class="tx">128$</h6>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="carousel-item">
-                        <div class="row">
-                          <div class="col-md-4 mb-3">
-                            <div class="offer-cards mt-1">
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <img
-                                    src="../../../assets/Healthy.jpg"
-                                    class="imgoffer"
-                                    alt=""
-                                  />
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <h1 class="ff pt-3 pl-2 pr-2">
-                                    Special meal is here Sandwich
-                                  </h1>
-                                </div>
-                              </div>
-
-                              <div
-                                class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3"
-                              >
-                                <div class="col-5">
-                                  <h3>100$</h3>
-                                </div>
-                                <div class="col-6">
-                                  <h6 class="tx">128$</h6>
-                                </div>
-
-                               
-                              </div>
-                              <div class="row justify-content-center">
-                                <div class="col-12 mt-2">
-                                  <a href="" class="btnn hvr-bounce-in"
-                                    >Order</a
-                                  >
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <div class="offer-cards mt-1">
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <img
-                                    src="../../../assets/Pizza.jpg"
-                                    class="imgoffer"
-                                    alt=""
-                                  />
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <h1 class="ff pt-3 pl-2 pr-2">
-                                    Special meal is here Sandwich
-                                  </h1>
-                                </div>
-                              </div>
-
-                              <div
-                                class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3"
-                              >
-                                <div class="col-5">
-                                  <h3>100$</h3>
-                                </div>
-                                <div class="col-6">
-                                  <h6 class="tx">128$</h6>
-                                </div>
-
-                               
-                              </div>
-                              <div class="row justify-content-center">
-                                <div class="col-12 mt-2">
-                                  <a href="" class="btnn hvr-bounce-in"
-                                    >Order</a
-                                  >
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <div class="offer-cards mt-1">
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <img
-                                    src="../../../assets/Burger.jpg"
-                                    class="imgoffer"
-                                    alt=""
-                                  />
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-12 text-center">
-                                  <h1 class="ff pt-3 pl-2 pr-2">
-                                    Special meal is here Sandwich
-                                  </h1>
-                                </div>
-                              </div>
-
-                              <div
-                                class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3"
-                              >
-                                <div class="col-5">
-                                  <h3>100$</h3>
-                                </div>
-                                <div class="col-6">
-                                  <h6 class="tx">128$</h6>
-                                </div>
-
-                               
-                              </div>
-                              <div class="row justify-content-center">
-                                <div class="col-12 mt-2">
-                                  <a href="" class="btnn hvr-bounce-in"
-                                    >Order</a
-                                  >
-                                </div>
+                            <div class="row justify-content-center">
+                              <div class="col-12 mt-2">
+                                <button  [routerLink]="['/order/',item.id]"  class="btnn hvr-bounce-in">Order</button>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
+
+                  <div class="carousel-inner">
+                    <div class="carousel-item" *ngFor="let item of item; let i = index" >
+                      <!-- Existing code for each item in the carousel -->
+                      <div class="row">
+                        <div class="col-md-8 mb-3">
+                          <div class="offer-cards mt-1">
+                            <div class="row">
+                              <div class="col-12 text-center">
+                                <img src="../../../assets/Burger.jpg" class="imgoffer" alt="" />
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 text-center">
+                                <h1 class="ff pt-3 pl-2 pr-2">
+                                  {{item.name}}
+                                  {{item.category.name}}
+                                </h1>
+                              </div>
+                            </div>
+                            <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
+                              <div class="col-5">
+                                <h3>{{item.price}}$</h3>
+                              </div>
+                           
+                            </div>
+                            <div class="row justify-content-center">
+                              <div class="col-12 mt-2">
+                                <button  [routerLink]="['/order/',item.id]"  class="btnn hvr-bounce-in">Order </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
                   </div>
                 </div>
               </div>

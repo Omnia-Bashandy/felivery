@@ -1,5 +1,5 @@
 import { Component , OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from 'src/app/Services/categories.service';
 
 @Component({
@@ -9,9 +9,11 @@ import { CategoriesService } from 'src/app/Services/categories.service';
 })
 export class CategoriesComponent {
   categories:any = [];
+  id:any;
 
-  constructor(public catService :CategoriesService ,private router: Router) {}
+  constructor(public catService :CategoriesService ,private router: Router,private route : ActivatedRoute) {}
   ngOnInit(): void {
+
     // console.log(this.menuservice.GetAllmenuserved);
       this.catService.GetAllCategories().subscribe({
        next:(data) =>{
@@ -48,5 +50,32 @@ export class CategoriesComponent {
     );
   }
 
+  updateItem(id:any){
+    // this.router.navigate(['/categories', categoryId]);
+  }
+  // getCategory() {
+  //   const categoryId = 'your-category-id'; // Replace with the desired category id
+  //   this.catService.getCategoryById(categoryId)
+  //     .subscribe((response: any) => {
+  //       this.categoryInfo = response.name; // Assuming the API response has a 'name' property
+  //     });
+  // }
+
+  // updateCategory() {
+  //   const categoryId = 'your-category-id'; // Replace with the desired category id
+  //   const updatedInfo = { name: 'Updated Category Name' }; // Replace with the updated information
+  //   this.catService.updateCategory(categoryId)
+  //     .subscribe((response: any) => {
+  //       // Handle the API response after updating the category information
+  //       console.log(response);
+  //     });
+  // }
+
+  // item:any;
+  // updateItem(id:any){
+  //   this.route.params.subscribe(params=> this.catService.getCategoryById(params['id']))
+  //   this.catService.getCategoryById(this.id).subscribe((data)=>this.item = data)
+
+  // }
 
 }
