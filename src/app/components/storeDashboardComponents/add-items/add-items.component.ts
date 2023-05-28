@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component  } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { data } from 'jquery';
+import { CategoriesService } from 'src/app/Services/categories.service';
 // import { Router } from '@angular/router';
 import { MenuitemsService } from 'src/app/Services/menuitems.service';
+import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
   selector: 'app-add-items',
@@ -9,7 +12,7 @@ import { MenuitemsService } from 'src/app/Services/menuitems.service';
   styleUrls: ['./add-items.component.css']
 })
 export class AddItemsComponent {
-
+id:string |null = this.shared.getId()
   addnewitem= new FormGroup({
     itemname: new FormControl("",[Validators.min(5),Validators.max(50),Validators.required]),
     category: new FormControl("", Validators.required),
@@ -19,65 +22,53 @@ export class AddItemsComponent {
 
   })
 
-  constructor(public myService:MenuitemsService){
+  constructor(public myService:MenuitemsService , private shared : SharedService , private categories : CategoriesService){
   }
+  selectedCategoryId: string | undefined;
 
-addNewItem(itemnam: string, categoryname: any, price: any,rname:any) {
-    // {
-    //   "name": "string",
-    //   "price": 0,
-    //   "categoryID": 1,
-    //   "restaurantID": 1,
-    //   "menuItemImg": "string"
-    // }
-    let newItem={
+setSelectedCategory() {
+  console.log(this.selectedCategoryId); // Output the selected category ID
+}
+
+  
+  addNewItem(itemnam: string, price: any) {
+    const newItem = {
       name: itemnam,
       price: price,
-      categoryID: categoryname,
-      restaurantID: rname,
-     menuItemImg: "skkfftring"
-      }
+      categoryID: this.selectedCategoryId,
+      restaurantID: this.id,
+      menuItemImg: "skkfftring"
+    };
   
-  if (this.addnewitem.valid) {
-    console.log(newItem);
+    if (this.addnewitem.valid) {
+      console.log(newItem);
+  
       this.myService.addmenuitem(newItem).subscribe(
         (data: any) => {
-                  console.log(data);
-                },
-                (err: any) => {
-                  console.log('Error', err);
-                }
+          console.log(data);
+        },
+        (err: any) => {
+          console.log('Error', err);
+        }
       );
-
-      // }
-      // );
-      // this.router.navigate(['/menuitems']); 
-      // alert(`${itemnam} added successfully`);
     }
   }
   
-  newItem: any = {};
 
-  addItem(name: string, category: any, price: any,rest:any): void {
-     
-      let newItem={
-        name: name,
-        price: price,
-        categoryID: category,
-        restaurantID: rest,
-        }
-    this.myService.addmenuitem(this.newItem).subscribe(
-      (response) => {
-        console.log('Item added successfully.');
-        this.newItem = {};
-      },
-      (error) => {
-        console.error('Error adding item:', error);
-      }
-    );
+
+  cats:any = [];
+  ngOnInit(): void {
+  this.categories.GetAllCategories().subscribe(
+    (data : any) =>{
+      console.log(data);
+      this.cats = data;
+    },
+    (err: any) => {
+      console.log('Error', err);
+    }
+  )
   }
 }
-
 
 
 

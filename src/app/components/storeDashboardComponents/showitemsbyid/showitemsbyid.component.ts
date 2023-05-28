@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { param } from 'jquery';
+import { data, param } from 'jquery';
 import { CategoriesService } from 'src/app/Services/categories.service';
 import { MenuitemsService } from 'src/app/Services/menuitems.service';
 
@@ -10,19 +10,38 @@ import { MenuitemsService } from 'src/app/Services/menuitems.service';
   styleUrls: ['./showitemsbyid.component.css']
 })
 export class ShowitemsbyidComponent {
-  items:any|undefined;
+  items:any|undefined = [];
   // category:any;
-  id:any;
+  ID:any | undefined 
+  item : any 
   constructor(public route: ActivatedRoute,private Service:CategoriesService, private menu:MenuitemsService) { 
     }
     ngOnInit() {
-      // console.log(this.route.params.subscribe(params=> this.getelmentbyid(params['id'])));
+      this.ID = this.route.snapshot.params["id"];
+      console.log(this.ID);
+
+      this.menu.GetAllmenuserved().subscribe(
+        (data: any) => {
+          // Log the data to the console
+          console.log(data);
       
-      // this.route.params.subscribe(params=> this.getelmentbyid(params['id']));
-      this.menu.GetAllmenuserved().subscribe((data)=>this.items = data)
-      this.route.params.subscribe(()=> this.Service.getCategoryById(this.id));
+          // Iterate over the data array using a for loop
+          for (let item of data) {
+            
+            if (Number(item.categoryID) == this.ID) {
+            
+              this.items.push(item);
+            } else {
+              console.log("Not equal");
+            }
+          }
+        },
+        (err: any) => {
+          console.log('Error', err);
+        }
+      );
+      
+      
     }
-    // getelmentbyid(id:any){
-    //   this.menu.GetAllmenuserved().subscribe((data)=>this.item = data)
-    // }
+
 }

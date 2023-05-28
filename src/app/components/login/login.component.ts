@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { data } from 'jquery';
 import { LoginService } from 'src/app/Services/login.service';
 import {faEye , faEyeSlash  } from '@fortawesome/free-solid-svg-icons';
 import { SharedService } from 'src/app/Services/shared.service';
@@ -29,15 +28,6 @@ constructor(public myService:LoginService ,public sharedService :SharedService ,
 }
 
 ngOnInit(): void {
-  // console.log(this.myService.getAllUsers());
-  //   this.myService.getAllRestaurants().subscribe({
-    //     next:(data)=>{
-//       this.Restaurants = data;
-//       console.log(this.Restaurants)
-//     },
-//     error:(err)=>{console.log(err)},
-//     // complete:()=>{}
-// })
 }
 login(email: any, password: any) {
   console.log("hiii");

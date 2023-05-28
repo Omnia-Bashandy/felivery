@@ -70,19 +70,18 @@
             </div>
 
             <div class="mb-3">
-              <label for="categoryID" class="control-label"> Category </label>
+              <label for="categoryID" class="control-label" > Category </label>
               <select
-              #categoryname
+                #categoryname
                 id="categoryID"
                 formControlName="category"
-                class="form-control"
-              >
+                [(ngModel)]="selectedCategoryId"
+                (ngModelChange)="setSelectedCategory()"
+                class="form-control">
                 <option value="">Select a Category</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+                <option *ngFor="let c of cats" [value]="c.id">{{ c.name }}</option>
               </select>
+
               <div *ngIf="addnewitem.controls.category.errors">
                 <div
                   class="validateerrorstyle"
@@ -121,7 +120,7 @@
               </div>
             </div>
 
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label for="rname">Restaurant Number</label>
               <input
               #rname
@@ -132,14 +131,14 @@
                 id="rname"
                 aria-describedby="rname"
               />
-            </div>
+            </div> -->
 
             <button
             routerLink="/store-dashboard/menuitems"
             class="btn btn-danger"
             type="submit"
-          (click)="addNewItem(itemnam.value, categoryname.value, price.value,rname.value)"
-           
+          (click)="addNewItem(itemnam.value, price.value)"
+          
             [disabled]="!addnewitem.valid"
           >Save</button>
           </form>
@@ -162,14 +161,14 @@
               <div class="row justify-content-center">
                 <div class="col-4">
                   <!-- (click)="addNewItem(itemname.value,desc.value, categoryname.value, price.value,rname.value)" -->
-                  <button
+                  <!-- <button
                     routerLink="/store-dashboard/menuitems"
                     class="btn btn-danger"
                     type="submit"
                   (click)="addNewItem(itemnam.value, categoryname.value, price.value,rname.value)"
                     value="Save Item"
                     [disabled]="!addnewitem.valid"
-                  ></button>
+                  ></button> -->
                 </div>
                 <div class="col-2">
                   <a

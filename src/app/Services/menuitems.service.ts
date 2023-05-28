@@ -16,10 +16,10 @@ export class MenuitemsService {
   constructor(private client:HttpClient) { }
 
 
- GetAllmenuserved(){
+  GetAllmenuserved(){
   return this.client.get(this.Base_URL);
- }
- getMenuitemById(id:any) {
+  }
+  getMenuitemById(id:any) {
   const url = `${this.Uurl}/${id}`;
   return this.client.get(url);
 }
