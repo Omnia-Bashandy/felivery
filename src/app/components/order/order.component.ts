@@ -18,6 +18,7 @@ export class OrderComponent  implements OnInit{
   }
 
   Item:any|undefined;
+  item:any = [];
   constructor(public route: ActivatedRoute,private menuService: MenuitemsService) {
       
     }
@@ -26,11 +27,24 @@ export class OrderComponent  implements OnInit{
       console.log(this.route.params.subscribe(params=> this.getelmentbyid(params['id'])));
       
       this.route.params.subscribe(params=> this.getelmentbyid(params['id']));
+
+      this.menuService.GetAllmenuserved().subscribe((data)=>this.item=data);
     }
     getelmentbyid(id:any){
       this.menuService.getMenuitemById(id).subscribe((data)=>this.Item = data)
 
     }
+
+    quantity: number = 1; // Initial quantity
+  incrementQuantity() {
+    this.quantity++;
+  }
+
+  decrementQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+  }
 
     // itemId:any;
     // Item:any;

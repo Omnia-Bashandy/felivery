@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CategoriesService } from 'src/app/Services/categories.service';
 import { MenuitemsService } from 'src/app/Services/menuitems.service';
+import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
   selector: 'app-update-items',
@@ -11,71 +13,78 @@ import { MenuitemsService } from 'src/app/Services/menuitems.service';
 
 
 export class UpdateItemsComponent implements OnInit{
-  edititem: any =[];
-  id:any;
-  constructor(private formBuilder: FormBuilder, private menuService: MenuitemsService) { }
-
+  // editIitem:any;
+  // id:any;
+  
+  iditem:any
+  restid:any =this.storeservice.getId();
+  constructor(private route:ActivatedRoute, private menuService: MenuitemsService ,private storeservice:SharedService,
+    private categoriees:CategoriesService) { }
+  // validations
+  edititem = new FormGroup({
+    itemname: new FormControl("", [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
+    category: new FormControl("", Validators.required),
+    price: new FormControl("", [Validators.required, Validators.pattern(/^\d+(\.\d{1,2,3})?$/)]),
+    rname: new FormControl(""),
+    itemImg: new FormControl("")
+    // desc: new FormControl("", [Validators.required, Validators.maxLength(100)]),
+  });
+  
+  arritems:any
   ngOnInit() {
-    this.edititem = this.formBuilder.group({
-      itemname: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
-      desc: ['', [Validators.required, Validators.maxLength(100)]],
-      category: ['', Validators.required],
-      price: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2,3})?$/)]],
-      rname: [''],
-      itemImg:['']
-    });
-  }
+    this.menuService.getMenuitemById(this.route.snapshot.params["id"]).subscribe({
+       next: (data: any) => 
+    {
+      console.log(data);
+      this.iditem = data["id"]
+    },
+      error: (err) => {
+      console.log(err); 
+    },
+}); 
 
-  editItem(): void {
-    if (this.edititem.valid) {
-      const updatedItem = this.edititem.value;
-      // Call the menuService method to update the item
-      this.menuService.updateMenuitem(updatedItem).subscribe(
-        () => {
-          console.log('Item updated successfully.');
-          // Additional logic after successful update, e.g., navigation or displaying a success message
-        },
-        (error) => {
-          console.error('Error updating item:', error);
-          // Additional error handling, e.g., displaying an error message
-        }
-      );
+
+
+this.categoriees.GetAllCategories().subscribe(
+  (data : any) =>{
+    console.log(data);
+    this.cats = data;
+  },
+  (err: any) => {
+    console.log('Error', err);
+  }
+)
+ }
+
+ cats:any=[];
+ selectedCategoryId: string | undefined;
+
+ setSelectedCategory() {
+   console.log(this.selectedCategoryId); // Output the selected category ID
+ }
+
+editItem(itemname: string, price: any) {
+  const updatedItem = {
+    id: this.iditem,
+    name: itemname,
+    categoryID:  this.selectedCategoryId,
+    price: price,
+    restaurantID: 1,
+    menuItemImg: "bbbb"
+  };
+
+  console.log(updatedItem);
+
+  this.menuService.updateMenuitem(updatedItem).subscribe(
+    (data) => {
+      console.log(data);
+      alert("Updated successfully");
+    },
+    (error) => {
+      console.error(error);
+      alert("Failed to update item");
     }
-  }
+  );
+}
 
-  // itemId: any;
-
-  // // {
-  // //   "id": 5,
-  // //   "name": "btates",
-  // //   "price": 90,
-  // //   "categoryID": 1,
-  // //   "restaurantID": 1,
-  // //   "menuItemImg": "string"
-  // // }
-
-  // constructor(public route:ActivatedRoute,public service:MenuitemsService) {
-  // }
-  // ngOnInit(): void {
-   
-  // }
-  // edititem= new FormGroup({
-  //   itemname: new FormControl("",[Validators.min(5),Validators.max(50),Validators.required]),
-  //   category: new FormControl("", Validators.required),
-  //   price:new FormControl("",[Validators.pattern(/^(?=.*[0-9]).{1,3}$/),Validators.required]),
-  //   itemImg:new FormControl(""),
-  //   desc:new FormControl("",[Validators.required,Validators.max(100)]),
-  //   rname:new FormControl("",[Validators.required]),
-  // })
-  // editItem(){
-  //   if(this.edititem.valid){
-  //   this.service.updateMenuitem(this.edititem).subscribe(
-  //     (data: any) => {
-  //       console.log(data);
-  //       alert("yaaaay")
-  //     },
-  //     (err: any) => {
-  //       console.log('Error', err);
-  //     })}
-  // }
 }
