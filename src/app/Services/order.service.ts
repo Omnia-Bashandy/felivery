@@ -24,6 +24,10 @@ export class OrderService {
   deleteOrder(id: any) {
     return this.myClient.delete(`${this.Base_URL}/${id}`);
   }
+  addOrder(Order:any){
+    return this.myClient.post(`${this.Base_URL}`, Order);
+    
+  }
   private  OrderKey= 'Order';
 
   addToOrder(item: any) {

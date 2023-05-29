@@ -30,6 +30,7 @@ import { TryadditemComponent } from './components/tryadditem/tryadditem.componen
 import { ShowitemsbyidComponent } from './components/storeDashboardComponents/showitemsbyid/showitemsbyid.component';
 import { AddcategoryComponent } from './components/storeDashboardComponents/addcategory/addcategory.component';
 import { UpdatecategoryComponent } from './components/storeDashboardComponents/updatecategory/updatecategory.component';
+import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.component';
 
 
 const routes: Routes = [
@@ -79,6 +80,7 @@ const routes: Routes = [
   { path: 'restauindivual', component: RestauindivualComponent },
   { path: 'registercustomer', component: RegistercustomerComponent },
   {path:"pending" , component:PendingComponent},
+  {path:"confirmOrder" , component:ConfirmOrderComponent},
   { path: '**', component: ErrorComponent }
 ];
 

@@ -22,14 +22,14 @@ export class MenuservedComponent implements OnInit{
      })
 
   }
-  deleteItem(id: any): void {
-    this.menuservice.deleteMenuitem(id).subscribe(() => {
-      console.log('Item deleted successfully.');
-      this.router.navigate(["/menuserved"]);
-    }, error => {
-      console.error('Error deleting item:', error);
-    });
-  }
+  // deleteItem(id: any): void {
+  //   this.menuservice.deleteMenuitem(id).subscribe(() => {
+  //     console.log('Item deleted successfully.');
+  //     this.router.navigate(["/menuserved"]);
+  //   }, error => {
+  //     console.error('Error deleting item:', error);
+  //   });
+  // }
 
   
 

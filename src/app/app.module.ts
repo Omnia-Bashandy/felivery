@@ -56,6 +56,7 @@ import { TryadditemComponent } from './components/tryadditem/tryadditem.componen
 import { ShowitemsbyidComponent } from './components/storeDashboardComponents/showitemsbyid/showitemsbyid.component';
 import { AddcategoryComponent } from './components/storeDashboardComponents/addcategory/addcategory.component';
 import { UpdatecategoryComponent } from './components/storeDashboardComponents/updatecategory/updatecategory.component';
+import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,8 @@ import { UpdatecategoryComponent } from './components/storeDashboardComponents/u
     TryadditemComponent,
     ShowitemsbyidComponent,
     AddcategoryComponent,
-    UpdatecategoryComponent
+    UpdatecategoryComponent,
+    ConfirmOrderComponent
 
   ],
   imports: [

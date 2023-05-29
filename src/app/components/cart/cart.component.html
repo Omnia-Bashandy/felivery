@@ -7,27 +7,34 @@
             <tr>
               <th>Item Image</th>
               <th>Item name</th>
-              <th>Item category</th>
               <th>Quantity</th>
+              <th>Price</th>
               <th>Total Price</th>
               <th>Delete</th>
             </tr>
-          
+
             <ng-container *ngFor="let o of orders">
               <tr class="m-2">
                 <td class="w">
                   <img src="../../../assets/Burger.jpg" class="cart-img" alt="">
                 </td>
                 <td>{{ o.menuItemID.name }}</td>
-                <td>{{ o.menuItemID.categoryID }}</td>
                 <td>{{ o.quantity }}</td>
                 <td>{{ o.menuItemID.price }}$</td>
+                <td>{{ o.menuItemID.price * o.quantity }}</td>
                 <td><button class="btn btn-danger text-bg-dark" (click)="removefromCart(o.menuItemID.id)">Delete</button></td>
               </tr>
             </ng-container>
           </table>
+          <label>Total Bill </label>
+          <input type="text" [(ngModel)]="totalprice">
+          <label>Address</label>
+          <input type="text" [(ngModel)]="address">
           
-          <button (click)="calculateTotalPrice()">Order</button>
+          <button (click)="placeOrder()">Order</button>
+          <button class="btn btn-primary" (click)="clearCart()">Clear Cart</button>
         </div>
       </div>
     </div>
+  </div>
+</div>

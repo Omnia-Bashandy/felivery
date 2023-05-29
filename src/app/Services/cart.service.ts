@@ -4,49 +4,47 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
-  private  cartKey= 'cart';
+  private cartKey = 'cart';
 
   addToCart(item: any) {
-    // Retrieve the cart items from local storage
     const cartItems = this.getCartItems();
+    const existingItemIndex = cartItems.findIndex((cartItem: any) => cartItem.menuItemID.id === item.menuItemID.id);
 
-    // Push the new item to the cart array
-    cartItems.push(item);
+    if (existingItemIndex !== -1) {
+      cartItems[existingItemIndex].quantity += item.quantity;
+    } else {
+      cartItems.push(item);
+    }
 
-    // Update the cart items in local storage
+    this.updateCartItems(cartItems);
+  }
+
+  updateCartItems(cartItems: any[]) {
     localStorage.setItem(this.cartKey, JSON.stringify(cartItems));
   }
 
   getCartItems(): any[] {
-    // Retrieve the cart items from local storage
     const cartItemsString = localStorage.getItem(this.cartKey);
 
-    // Parse the cart items from the string representation
     if (cartItemsString) {
       return JSON.parse(cartItemsString);
     }
 
-    // Return an empty array if no cart items are found
     return [];
   }
 
   deleteFromCart(itemId: string) {
-    // Retrieve the cart items from local storage
     const cartItems = this.getCartItems();
-  
-    // Find the index of the item to be deleted
-    const index = cartItems.findIndex((cartItem: any) => cartItem.id === itemId);
-  
-    // If the item is found, remove it from the cart array
+    const index = cartItems.findIndex((cartItem: any) => cartItem.menuItemID.id === itemId);
+
     if (index !== -1) {
       cartItems.splice(index, 1);
-      console.log(cartItems);
-      
     }
-  
-    // Update the cart items in local storage
-    localStorage.setItem(this.cartKey, JSON.stringify(cartItems));
+
+    this.updateCartItems(cartItems);
   }
-  
-  
+  clearCart() {
+    // Clear the cart items from local storage
+    localStorage.removeItem(this.cartKey);
+  }
 }

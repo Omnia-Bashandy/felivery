@@ -37,6 +37,18 @@ export class SharedService {
   geName(): string | null {
     return this.name;
   }
+  setcartRestId(id: number): void {
+    localStorage.setItem("RestCartId", id.toString());
+  }
+  
+  getcartRestId(): number | null {
+    const cartRestId = localStorage.getItem("RestCartId");
+    if (cartRestId) {
+      return parseInt(cartRestId, 10);
+    }
+    return null;
+  }
+  
 
 
 }
