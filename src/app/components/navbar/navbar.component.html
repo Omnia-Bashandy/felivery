@@ -32,6 +32,11 @@
           <li class="nav-item" [class.active]="isActive('groceries')">
             <a class="nav-link" routerLink="/groceries" (click)="setActive('groceries')">Groceries</a>
           </li>
+          <li class="nav-item" [class.active]="isActive('cart')">
+            <a class="nav-link" routerLink="/cart" (click)="setActive('cart')">
+              <i class="fa-solid fa-cart-arrow-down" style="color: #ffffff;"></i>
+            </a>
+          </li>
           <li class="nav-item" >
             <a class="nav-link" routerLink="/store-dashboard" (click)="setActive('store-dashboard')">store-dashboard</a>
           </li>
