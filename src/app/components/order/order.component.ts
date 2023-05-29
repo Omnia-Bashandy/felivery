@@ -4,6 +4,7 @@ import { MenuitemsService } from 'src/app/Services/menuitems.service';
 import { MenuservedComponent } from '../menuserved/menuserved.component';
 import { data, param } from 'jquery';
 import { SharedService } from 'src/app/Services/shared.service';
+import { CartService } from 'src/app/Services/cart.service';
 // import { error } from 'jquery';
 
 @Component({
@@ -23,7 +24,7 @@ export class OrderComponent  implements OnInit{
   oorder:any;
   // id:any
   constructor(public route: ActivatedRoute,private menuService: MenuitemsService
-     , private shared:SharedService , public router:Router) {
+    , private shared:SharedService , public router:Router , public cart:CartService) {
     
   }
   custId : any = this.shared.getCustId()
@@ -38,8 +39,11 @@ export class OrderComponent  implements OnInit{
       this.itemId = this.route.params.subscribe(params => {
         const itemid = params['id'];
         this.menuService.getMenuitemById(itemid).subscribe(
-          (data)=>
+          (data)=>{
           this.Item=data
+          console.log(data);
+          console.log(this.Item["id"]);
+          }
           );
       });
     }
@@ -56,11 +60,14 @@ export class OrderComponent  implements OnInit{
   }
 order:any;
 allorder:any=[];
+// addToCart(product: any) {
+  // Call the addToCart method of the CartService
+  // }
   addToCart() {
     if (this.itemId && this.Item) {
       this.order = {
         menuItemID: {
-          id: this.itemId.id,
+          id: this.Item["id"],
           name: this.Item.name,
           price: this.Item.price,
           menuItemImg: this.Item.menuItemImg,
@@ -69,10 +76,11 @@ allorder:any=[];
         },
         quantity: this.quantity
       };
+      this.cart.addToCart(this.order);
   
-       this.allorder.push(this.order);
-      localStorage.setItem('order', JSON.stringify(this.order));
-      console.log(localStorage.getItem('order'));
+      // this.allorder.push(this.order);
+      // localStorage.setItem('order', JSON.stringify(this.order));
+      // console.log(localStorage.getItem('order'));
       alert(`${this.order.menuItemID.name},"Added Succefully"`)
         this.router.navigate(['/cart']);
   

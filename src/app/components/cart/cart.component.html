@@ -12,41 +12,22 @@
               <th>Total Price</th>
               <th>Delete</th>
             </tr>
-
-            <ng-container *ngIf="order">
+          
+            <ng-container *ngFor="let o of orders">
               <tr class="m-2">
                 <td class="w">
                   <img src="../../../assets/Burger.jpg" class="cart-img" alt="">
                 </td>
-                <td>{{ order.menuItemID.name }}</td>
-                <td>{{ order.menuItemID.categoryID }}</td>
-                <td>{{ order.quantity }}</td>
-                <td>{{ order.menuItemID.price }}$</td>
-                <td><a (click)="removefromCart()">Delete</a></td>
+                <td>{{ o.menuItemID.name }}</td>
+                <td>{{ o.menuItemID.categoryID }}</td>
+                <td>{{ o.quantity }}</td>
+                <td>{{ o.menuItemID.price }}$</td>
+                <td><button class="btn btn-danger text-bg-dark" (click)="removefromCart(o.menuItemID.id)">Delete</button></td>
               </tr>
             </ng-container>
-
-            <tr class="m-2 p-5">
-              <td class="w">
-                <img src="../../../assets/Healthy.jpg" class="cart-img" alt="">
-              </td>
-              <td>Burger</td>
-              <td>Fast food</td>
-              <td>3</td>
-              <td>200$</td>
-              <td>Delete</td>
-            </tr>
-            <tr class="mb-2">
-              <td class="w">
-                <img src="../../../assets/Burger.jpg" class="cart-img" alt="">
-              </td>
-              <td>Burger</td>
-              <td>Fast food</td>
-              <td>3</td>
-              <td>200$</td>
-              <td>Delete</td>
-            </tr>
           </table>
+          
+          <button (click)="calculateTotalPrice()">Order</button>
         </div>
       </div>
     </div>

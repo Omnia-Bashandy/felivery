@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/Services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -6,31 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit{
-
+constructor(public cart:CartService){}
   order:any=[];
-  totalprice:any
+  item:any;
+  orders:any=this.cart.getCartItems();
+  totalprice:any;
+  savedItems:any = []
   
   ngOnInit() {
-    const orderString = localStorage.getItem('order');
-    if (orderString) {
-      this.order = JSON.parse(orderString);
-    }  }
-// Retrieve data from local storage
-// retrievedData = localStorage.getItem('order');
-if (retrievedData: any) {
-  this.order = [JSON.parse(retrievedData)];
-  const category = this.order.category;
-  const price = this.order.menuItemID.price;
-  const menuItemID = this.order.menuItemID;
-  const quantity = this.order.quantity;
-
-  // if (quantity > 1) {
-  //  this.totalprice += price * quantity;
-  // }
-  
-}
-
-
+    for (let i = 0; i < this.orders.length; i++) {
+      console.log(this.orders[i]);
+    
+      const item = {
+        menuItemID: this.orders[i]["menuItemID"]["id"],
+        quantity: this.orders[i]["quantity"],
+        price: this.orders[i]["menuItemID"]["price"]
+      };
+    
+      this.savedItems.push(item);
+    }
+    console.log(this.savedItems);
+    
+  }
 calculateTotalPrice() {
   let totalPrice = 0;
   for (const order of this.order) {
@@ -38,8 +36,15 @@ calculateTotalPrice() {
   }
   return totalPrice;
 }
-removefromCart(){
+removefromCart(id:any){
+  this.cart.deleteFromCart(id)
   localStorage.removeItem('order');
   // localStorage.clear();
 }
+orderCheck(){
+  // console.log(orderString);
+  console.log(this.order);
+
 }
+}
+
