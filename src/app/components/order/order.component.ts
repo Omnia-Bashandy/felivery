@@ -55,6 +55,7 @@ export class OrderComponent  implements OnInit{
     }
   }
 order:any;
+allorder:any=[];
   addToCart() {
     if (this.itemId && this.Item) {
       this.order = {
@@ -69,14 +70,17 @@ order:any;
         quantity: this.quantity
       };
   
+       this.allorder.push(this.order);
       localStorage.setItem('order', JSON.stringify(this.order));
       console.log(localStorage.getItem('order'));
-  
-      if (this.custId) {
+      alert(`${this.order.menuItemID.name},"Added Succefully"`)
         this.router.navigate(['/cart']);
-      } else {
-        this.router.navigate(['/login']);
-      }
+  
+      // if (this.custId) {
+      //   this.router.navigate(['/cart']);
+      // } else {
+      //   this.router.navigate(['/login']);
+      // }
     }
   }
 

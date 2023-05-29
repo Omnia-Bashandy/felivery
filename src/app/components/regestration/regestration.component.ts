@@ -10,6 +10,36 @@ import {faEye , faEyeSlash  } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./regestration.component.css']
 })
 export class RegestrationComponent {
+
+  selectedFile: File | null = null;
+
+  ondileSelected(event:any){
+    this.selectedFile = event.target.files[0];
+  }
+  onUpload(){
+    if (this.selectedFile) {
+      const formData = new FormData();
+      formData.append('image', this.selectedFile);
+  
+      // Replace 'your-upload-url' with the actual URL for uploading the image
+      // const uploadUrl = 'your-upload-url';
+  
+      this.myService.addRestaurant(formData).subscribe(
+        response => {
+          console.log('Image uploaded successfully');
+          console.log(response);
+          
+        },
+        error => {
+          console.error('Image upload failed', error);
+          // Handle any errors
+        }
+      );
+    } else {
+      console.error('No file selected');
+    }
+  }
+
   eye = faEye;
   eyeSlash = faEyeSlash
   passwordVisible: boolean = false;
@@ -51,21 +81,6 @@ export class RegestrationComponent {
       storeImg : "abs"
       }
   }
-
-  // {
-  //   "model": {
-  //     "username": "Mohamad",
-  //     "email": "Mohamad@Gmail.com",
-  //     "password": "Aasd@123"
-  //   },
-  //   "restaurant": {
-  //     "name": "Mohamad",
-  //     "address": "string",
-  //     "mobileNumber": 555557777,
-  //     "description": "string",
-  //     "storeImg": "string"
-  //   }
-  // }
   if (this.validationsRegister.valid) {
     
     console.log(newRestaurant);

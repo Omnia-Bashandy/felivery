@@ -1,44 +1,52 @@
+<div class="container-fluid bg-img">
+  <div class="row bg-trans">
+    <div class="container justify-content-center mb-3">
+      <div class="row justify-content-center">
+        <div class="col-10 text-center">
+          <table class="table">
+            <tr>
+              <th>Item Image</th>
+              <th>Item name</th>
+              <th>Item category</th>
+              <th>Quantity</th>
+              <th>Total Price</th>
+              <th>Delete</th>
+            </tr>
 
-<div class="container-fluied bg-img">
-    <div class="row bg-trans">
-      <div class="container justify-content-center mb-3">
-        <div class="row justify-content-center mt-2 mb-2 ml-5">
-          <div class="col-lg-8 col-12 m-3">
-            <div class="row mt-5 bg-order">
-              <div class="col-md-5 col-12 p-5">
-                <div class="row">
-                  <h1 class="text-capitalize fontheader">
-                    Checkout
-                   <i class="fa-solid fa-burger"></i>
-                  </h1>
-                  <p class="ff">Category: </p>
-  
-                  <p class="ff">Price : </p>
-                </div>
-                <div class="row mt-3">
-                  <input type="button" value="Checkout" class="btnn" />
-                </div>
-  
-                <div class="row mt-2 icons ml-4">
-                  <div class="col-3">
-                    <i class="fa-brands fa-facebook ml-1"></i>
-                  </div>
-                  <div class="col-3">
-                    <i class="fa-brands fa-instagram ml-1"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-7 col-12">
-                <div class="row m-4">
-                  <div class="col-12">
-                    <img src="../../../assets/Burger.jpg" class="img-order w-100 h-75" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <ng-container *ngIf="order">
+              <tr class="m-2">
+                <td class="w">
+                  <img src="../../../assets/Burger.jpg" class="cart-img" alt="">
+                </td>
+                <td>{{ order.menuItemID.name }}</td>
+                <td>{{ order.menuItemID.categoryID }}</td>
+                <td>{{ order.quantity }}</td>
+                <td>{{ order.menuItemID.price }}$</td>
+                <td><a (click)="removefromCart()">Delete</a></td>
+              </tr>
+            </ng-container>
+
+            <tr class="m-2 p-5">
+              <td class="w">
+                <img src="../../../assets/Healthy.jpg" class="cart-img" alt="">
+              </td>
+              <td>Burger</td>
+              <td>Fast food</td>
+              <td>3</td>
+              <td>200$</td>
+              <td>Delete</td>
+            </tr>
+            <tr class="mb-2">
+              <td class="w">
+                <img src="../../../assets/Burger.jpg" class="cart-img" alt="">
+              </td>
+              <td>Burger</td>
+              <td>Fast food</td>
+              <td>3</td>
+              <td>200$</td>
+              <td>Delete</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
-  </div>
-  
