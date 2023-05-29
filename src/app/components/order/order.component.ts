@@ -20,65 +20,65 @@ export class OrderComponent  implements OnInit{
 
   Item:any|undefined;
   items:any = [];
-  id:any
-  constructor(public route: ActivatedRoute,private menuService: MenuitemsService , private shared:SharedService , public router:Router) {
+  oorder:any;
+  // id:any
+  constructor(public route: ActivatedRoute,private menuService: MenuitemsService
+     , private shared:SharedService , public router:Router) {
     
   }
   custId : any = this.shared.getCustId()
 
-    ngOnInit() {
-      // console.log(this.route.params.subscribe(params=> this.getelmentbyid(params['id'])));
-      // this.route.params.subscribe(params => {
-      //   this.id = params['id'];
-      // })
-      // this.route.params.subscribe(params=> this.getelmentbyid(params['id']));
-      // console.log(this.id);
+  itemId:any;
+
+      // fetch item by id -> route to order page -done
+      // fetch resturant id -> shared 
+      ngOnInit() {
       this.menuService.GetAllmenuserved().subscribe((data)=>this.items=data);
-    }
-    getelmentbyid(id:any){
-      this.menuService.getMenuitemById(id).subscribe(
-        (response) => {
-      console.log(response);
-      
-      }, (error) => {
-        console.log(error);
+
+      this.itemId = this.route.params.subscribe(params => {
+        const itemid = params['id'];
+        this.menuService.getMenuitemById(itemid).subscribe(
+          (data)=>
+          this.Item=data
+          );
       });
-      }
-      
-    quantity: number = 1; // Initial quantity
+    }
+
+      //quantity 
+ quantity: number = 1; 
   incrementQuantity() {
     this.quantity++;
   }
-
   decrementQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
     }
   }
-  addToCart(){
-  if (this.custId) {
-    this.router.navigate(['/cart'])
-  }else{
-    this.router.navigate(['/login'])
+order:any;
+  addToCart() {
+    if (this.itemId && this.Item) {
+      this.order = {
+        menuItemID: {
+          id: this.itemId.id,
+          name: this.Item.name,
+          price: this.Item.price,
+          menuItemImg: this.Item.menuItemImg,
+          categoryID: this.Item.categoryID,
+          restaurantID: this.Item.restaurantID
+        },
+        quantity: this.quantity
+      };
+  
+      localStorage.setItem('order', JSON.stringify(this.order));
+      console.log(localStorage.getItem('order'));
+  
+      if (this.custId) {
+        this.router.navigate(['/cart']);
+      } else {
+        this.router.navigate(['/login']);
+      }
+    }
   }
-  }
-    // itemId:any;
-    // Item:any;
-    // constructor(route: ActivatedRoute,private menuService: MenuitemsService) {
-    //   this.itemId = route.snapshot.params["id"];
-    // }
-
-    // ngOnInit() {
-    //   this.menuService.getMenuitemById(this.itemId).subscribe({
-    //     next:(data)=>{
-    //       console.log(data);
-    //     this.Item = data;
-    //     },
-    //     error:(err)=>{
-    //       console.log(err);
-    //     }
-    //   })
-    // };
 
   }
     
