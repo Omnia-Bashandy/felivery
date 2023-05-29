@@ -15,10 +15,6 @@ import { StoreService } from 'src/app/Services/store.service';
 export class RestaurantsComponent {
   //Custom Data With image Uint8Array
   Restaurants :any = []
-exactMatch: any;
-notmatch:any;
-searchText: string = '';
-filteredItems: any[] = [];
   constructor(public myService:StoreService ){
   }
   ngOnInit(): void {
@@ -33,22 +29,6 @@ filteredItems: any[] = [];
   })
 }
 
-filterItems() {
-  this.filteredItems = this.Restaurants.filter((data:any) =>
-   data.name.toLowerCase().includes(this.searchText.toLowerCase()));
-}
-
-
-
-updateFilteredItems() {
-  this.exactMatch = null; 
-}
-search() {
-  this.exactMatch = this.Restaurants.find((restaurant: any) =>
-    restaurant.name.toLowerCase() === this.searchText.toLowerCase()
-  );
-  this.notmatch = !this.exactMatch;
-}
 
 
   /*   Restaurants: { name: string; description: string; image: Uint8Array; }[] = [

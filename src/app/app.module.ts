@@ -49,7 +49,7 @@ import { UpdateItemsComponent } from './components/storeDashboardComponents/upda
 import { HttpClientModule } from '@angular/common/http';
 import { PendingComponent } from './components/storeDashboardComponents/pending/pending.component';
 
-import { CookieService } from 'ngx-cookie-service';
+// import { CookieService } from 'ngx-cookie-service';
 import { MenuservedComponent } from './components/menuserved/menuserved.component';
 import { CartComponent } from './components/cart/cart.component';
 import { TryadditemComponent } from './components/tryadditem/tryadditem.component';
@@ -113,7 +113,7 @@ import { UpdatecategoryComponent } from './components/storeDashboardComponents/u
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [CookieService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -29,6 +29,7 @@ constructor(public cart:CartService){}
     console.log(this.savedItems);
     
   }
+  
 calculateTotalPrice() {
   let totalPrice = 0;
   for (const order of this.order) {

@@ -17,15 +17,36 @@ export class OrderService {
     return this.myClient.get(`${this.Base_URL}/${id}`);
   }
 
-  updateOrder(id : any,Order: any ) {
+  updateOrder(Order: any ) {
     return this.myClient.put(`${this.Base_URL}`, Order);
   }
 
   deleteOrder(id: any) {
     return this.myClient.delete(`${this.Base_URL}/${id}`);
   }
+  private  OrderKey= 'Order';
 
-  // Register(user: any ) {
-  //   return this.myClient.post(this.Base_URL,user );
-  // }
+  addToOrder(item: any) {
+    // Retrieve the Order items from local storage
+    const OrderItems = this.getOrderItems();
+
+    // Push the new item to the Order array
+    OrderItems.push(item);
+
+    // Update the Order items in local storage
+    localStorage.setItem(this.OrderKey, JSON.stringify(OrderItems));
+  }
+
+  getOrderItems(): any[] {
+    // Retrieve the Order items from local storage
+    const OrderItemsString = localStorage.getItem(this.OrderKey);
+
+    // Parse the Order items from the string representation
+    if (OrderItemsString) {
+      return JSON.parse(OrderItemsString);
+    }
+
+    // Return an empty array if no Order items are found
+    return [];
+  }
 }
