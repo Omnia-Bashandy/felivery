@@ -77,7 +77,7 @@ const routes: Routes = [
     ]
   },
   { path: 'login', component: LoginComponent },
-  { path: 'restauindivual', component: RestauindivualComponent },
+  { path: 'restauindivual/:id', component: RestauindivualComponent },
   { path: 'registercustomer', component: RegistercustomerComponent },
   {path:"pending" , component:PendingComponent},
   {path:"confirmOrder" , component:ConfirmOrderComponent},

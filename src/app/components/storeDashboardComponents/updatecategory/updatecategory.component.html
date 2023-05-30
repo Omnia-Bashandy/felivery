@@ -89,12 +89,15 @@
           </div>
           <div class="col-lg-6 p-5">
             <div class="mb-3">
-              <div class="uploadimg">
-                <img src="../../../assets/Pizza.jpg" class="w-100" />
+             
+              <div class="uploadimg mt-5">
+                <!-- <img src="../../../assets/rr.jpeg" class="w-100" /> -->
+                <img [src]="photopath" class="w-100" />
                 <div class="add">
-                  <input type="file" 
+                  <input type="file"
                   formControlName="catImg"
-                  accept="image/" />
+                  accept="image/"
+                   (change)="imageupload($event)"/>
                   <i class="fa fa-camera"></i>
                 </div>
               </div>

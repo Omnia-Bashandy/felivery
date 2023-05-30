@@ -29,6 +29,9 @@ export class RestaurantsComponent {
   })
 }
 
+getrestuarantbyID(){
+  
+}
 
 iconcolor1: string = "yellow";
 iconcolor2: string = 'grey';
