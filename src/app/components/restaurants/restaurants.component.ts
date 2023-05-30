@@ -30,7 +30,52 @@ export class RestaurantsComponent {
 }
 
 
+iconcolor1: string = "yellow";
+iconcolor2: string = 'grey';
+iconcolor3: string = 'grey';
+iconcolor4: string = 'grey';
+iconcolor5: string = 'grey';
 
+selectedStars: number = 0;
+Selected(rating: number){
+  this.selectedStars = rating;
+  if (rating === 1) {
+    this.iconcolor1 = 'yellow'; 
+    this.iconcolor2 = 'grey'; 
+this.iconcolor3 = 'grey';
+this.iconcolor4 = 'grey'; 
+this.iconcolor5 = 'grey';
+    
+  } else if (rating === 2) {
+    this.iconcolor1 = 'yellow'; 
+    this.iconcolor2 = 'yellow'; 
+this.iconcolor3 = 'grey';
+this.iconcolor4 = 'grey'; 
+this.iconcolor5 = 'grey';
+  } else if (rating === 3) {
+    this.iconcolor1 = 'yellow'; 
+    this.iconcolor2 = 'yellow'; 
+this.iconcolor3 = 'yellow';
+this.iconcolor4 = 'grey'; 
+this.iconcolor5 = 'grey'; 
+  } else if (rating === 4) {
+    this.iconcolor1 = 'yellow'; 
+    this.iconcolor2 = 'yellow'; 
+this.iconcolor3 = 'yellow';
+this.iconcolor4 = 'yellow'; 
+this.iconcolor5 = 'grey'; 
+  } else if (rating === 5) {
+    this.iconcolor1 = 'yellow'; 
+    this.iconcolor2 = 'yellow'; 
+this.iconcolor3 = 'yellow';
+this.iconcolor4 = 'yellow'; 
+this.iconcolor5 = 'yellow';
+  }
+  this.selectedStars = rating;
+
+  console.log(this.selectedStars);
+  
+}
   /*   Restaurants: { name: string; description: string; image: Uint8Array; }[] = [
     { name: "Restaurant 1", description: "This is a restaurant",  image: new Uint8Array([0x00, 0x01, 0x02])},
     { name: "Res 2", description: "This is a res",  image: new Uint8Array([0x00, 0x01, 0x02])},

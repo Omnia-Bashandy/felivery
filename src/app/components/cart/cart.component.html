@@ -1,4 +1,4 @@
-<div class="container-fluid bg-img">
+<!-- <div class="container-fluid bg-img">
   <div class="row bg-trans">
     <div class="container justify-content-center mb-3">
       <div class="row justify-content-center">
@@ -19,15 +19,19 @@
                   <img src="../../../assets/Burger.jpg" class="cart-img" alt="">
                 </td>
                 <td>{{ o.menuItemID.name }}</td>
-                <td>{{ o.quantity }}</td>
+                <td>
+                  <button (click)="decrementQuantity(o)">-</button>
+                  {{ o.quantity }}
+                  <button (click)="incrementQuantity(o)">+</button>
+                </td>
+                
                 <td>{{ o.menuItemID.price }}$</td>
-                <td>{{ o.menuItemID.price * o.quantity }}</td>
-                <td><button class="btn btn-danger text-bg-dark" (click)="removefromCart(o.menuItemID.id)">Delete</button></td>
+                <td>{{ o.menuItemID.price * o.quantity }}$</td>
+                <td><button class="btn btn-danger text-bg-dark" (click)="removefromCart(o.menuItemID.id)"><i class="fa-solid fa-xmark"></i></button></td>
               </tr>
             </ng-container>
           </table>
-          <label>Total Bill </label>
-          <input type="text" [(ngModel)]="totalprice">
+          <p>Total Bill : {{totalprice}}</p>
           <label>Address</label>
           <input type="text" [(ngModel)]="address">
           
@@ -38,3 +42,113 @@
     </div>
   </div>
 </div>
+ -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="container justify-content-center mb-3">
+      <div class="row justify-content-center">
+        <!-- <ngx-star-rating  ></ngx-star-rating> -->
+   
+        <div class="col-8 mt-4">
+        <div class="container m-3">
+          <div class="row">
+            <div class="col-8">
+              <h1 class="hidding-offerr">Your Shopping Cart</h1>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-2 p-3">
+          <button class="btnn" (click)="clearCart()">Clear Cart</button>
+
+            </div>
+          </div>
+          <div class="row mt-3 cart-card" *ngFor="let o of orders">
+             <!-- img -->
+            <div class="col-3">
+              <img src="../../../assets/Burger.jpg" class="cart-img" alt="">
+
+            </div>
+            <!-- name -->
+            <div class="col-4 p-5">
+            <h4 class="hidding-offer">
+
+             {{ o.menuItemID.name }}
+            </h4> 
+            <h4>
+              {{o.menuItemID.description}}
+            </h4>
+            </div>
+            
+            <!-- total price -->
+            <div class="col-2 p-5">
+             <h5 > {{ o.menuItemID.price * o.quantity }}$</h5>
+            </div>
+            <!-- increase quantity -->
+            <div class="col-1 quan">
+              <button class=" btn-quan" (click)="incrementQuantity(o)">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              <div class="text-center">{{ o.quantity }}</div>
+              <button class=" btn-quan" (click)="decrementQuantity(o)">  
+                <i class="fa-solid fa-minus"></i>
+              </button>
+
+            </div>
+            <!-- delete button -->
+            <div class="col-2 p-5">
+              <td><button class="btn-delete" (click)="removefromCart(o.menuItemID.id)"><i class="fa-solid fa-xmark"></i></button></td>
+
+            </div>
+          </div>
+          <hr>
+            <!-- Total price for all items -->
+          <div class="row">
+            <div class="col-3">
+             <h1>Total Bill :</h1>
+            </div>
+            <div class="col-6"></div>
+            <div class="col-3">
+              <h1>{{totalprice}} $</h1>
+            </div>
+          </div>
+         </div>
+        </div>
+
+       <div class="col-4 padding-payment bg-dark text-white">
+        <div class="row">
+          <div class="col-3">
+          <h1 class="hidding-offerr">payment</h1>
+</div>
+
+
+        </div>
+        <div class="row">
+          <label>Accepted Cards</label>
+          <div class="icon-container">
+            <a href=""><i class="fa-brands fa-cc-paypal" 
+              style="color: #f06f05; font-size:50px"></i>
+            </a>
+            <a href=""><i class="fa-solid fa-money-bills" 
+            style="color: #eaeaeb;font-size:50px"></i>
+          </a>
+          </div>
+          <label for="cname">Name on Card</label>
+          <input type="text" id="cname" name="cardname" placeholder="ana folan l folany">
+          <label for="ccnum">Credit card number</label>
+          <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+         
+            <label>Address</label>
+            <input type="text" [(ngModel)]="address" placeholder="Cairo">
+            
+            
+          </div>
+          <div class="row mt-2 mb-2">
+
+            <button (click)="placeOrder()" class="btnn">Checkout -></button>
+          </div>
+      </div>
+     
+
+    </div>
+  </div>
+

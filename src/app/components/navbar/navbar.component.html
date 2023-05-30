@@ -32,21 +32,26 @@
           <li class="nav-item" [class.active]="isActive('groceries')">
             <a class="nav-link" routerLink="/groceries" (click)="setActive('groceries')">Groceries</a>
           </li>
-          <li class="nav-item" [class.active]="isActive('cart')">
-            <a class="nav-link" routerLink="/cart" (click)="setActive('cart')">
-              <i class="fa-solid fa-cart-arrow-down" style="color: #ffffff;"></i>
-            </a>
-          </li>
+        
           <li class="nav-item" >
             <a class="nav-link" routerLink="/store-dashboard" (click)="setActive('store-dashboard')">store-dashboard</a>
           </li>
       </ul>
         <div class="input-group w-auto">
           <ul class="navbar-nav mr-auto col-10 align-items-center" id="main">
-            
+            <!-- cart -->
+            <li class="nav-item" [class.active]="isActive('cart')">
+              <a class="nav-link" routerLink="/cart" (click)="setActive('cart')">
+                <i class="fa-solid fa-cart-arrow-down" style="color: #ffffff;">
+                  <span class="cart-counter">{{ cartService.cartItemCount}}</span>
+                </i>
+              </a>
+            </li>
+            <!-- login -->
             <li class="nav-item" [class.active]="isActive('login')">
               <a class="nav-link" routerLink="/login" (click)="setActive('login')">Login</a>
             </li>
+            <!-- register -->
             <li class="nav-item" [class.active]="isActive('registercustomer')">
               <a class="nav-link" routerLink="/registercustomer" (click)="setActive('registercustomer')">Register</a>
             </li>
