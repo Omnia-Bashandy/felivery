@@ -11,32 +11,26 @@ import {faEye , faEyeSlash  } from '@fortawesome/free-solid-svg-icons';
 })
 export class RegestrationComponent {
 
-  selectedFile: File | null = null;
-
+  // selectedFile: File | null = null;
+//image**********************
   ondileSelected(event:any){
     this.selectedFile = event.target.files[0];
   }
-  onUpload(){
-    if (this.selectedFile) {
-      const formData = new FormData();
-      formData.append('image', this.selectedFile);
-  
-      // Replace 'your-upload-url' with the actual URL for uploading the image
-      // const uploadUrl = 'your-upload-url';
-  
-      this.myService.addRestaurant(formData).subscribe(
-        response => {
-          console.log('Image uploaded successfully');
-          console.log(response);
-          
-        },
-        error => {
-          console.error('Image upload failed', error);
-          // Handle any errors
-        }
-      );
-    } else {
-      console.error('No file selected');
+  selectedFile: FormData | null = null;
+
+  onUpload(event: any){
+    if(event.target.files.length > 0) {
+      const file = event.target.files[0];
+      //if(event.target.files.length == 1 && (file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg')) {
+      if(file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg') {
+        const formData = new FormData();
+        formData.append('file',file);
+        //this.selectedFile = file;
+        this.selectedFile = formData;
+
+      } else {
+        alert('Please select an Image in either .jpg, .jpeg, or .png forms!');
+      }
     }
   }
 
@@ -82,7 +76,6 @@ export class RegestrationComponent {
       }
   }
   if (this.validationsRegister.valid) {
-    
     console.log(newRestaurant);
       this.myService.addRestaurant(newRestaurant).subscribe({
         next: (data: any) => {
@@ -97,7 +90,14 @@ export class RegestrationComponent {
         error: (err) => {
           console.log(err);
           // Handle login error
-        },
+        }
+    })
+    this.myService.uploadImg(this.selectedFile).subscribe({
+      next(data : any) {
+        console.log(data);
+      },error: (err) => {
+        console.log(err);
+      }
     })
   }
 }}

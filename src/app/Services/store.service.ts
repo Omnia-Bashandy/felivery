@@ -10,7 +10,12 @@ export class StoreService {
   constructor(private myClient: HttpClient) { }
   private Base_URL = "https://localhost:44309/api/Store";
   private Base_URLReg = "https://localhost:44309/api/Store/Registration";
+  private img_url = "https://localhost:44309/api/Store/uploadImage";
+  
+  uploadImg(img:any){
+    return this.myClient.post(this.img_url,img );
 
+  }
   getAllRestaurants() {
     return this.myClient.get(this.Base_URL);
   }
