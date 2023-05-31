@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { faMagnifyingGlass , faBars } from '@fortawesome/free-solid-svg-icons';
+import { CartService } from 'src/app/Services/cart.service';
+import { LoginService } from 'src/app/Services/login.service';
+import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +16,14 @@ activeLink: string = 'home';
 showDashboardLinks = false;
 showDropdown: boolean = false; // Add showDropdown property
 
+cartItemCount: number|any = 0;
+constructor(public cartService: CartService,private login:LoginService,
+  private user:SharedService) {}
 
+  ngOnInit() {
+    // Fetch the cart item count from the cart service or data source
+    this.cartItemCount = this.cartService.getCartItemsCount();
+  }
 
 Activet(link: string) {
     if (link === 'store-dashboard') {
@@ -30,6 +40,16 @@ setActive(link: string): void {
 }
 toggleDropdown(): void {
   this.showDropdown = !this.showDropdown;
+}
+
+islogin(){
+  return this.login.login(this.user.getCustId() || this.user.getId());
+}
+custUser:any = this.user.getCustId();
+restUser:any =  this.user.getId();
+logout(){
+  localStorage.removeItem('custUser');
+  localStorage.removeItem('restUser');
 }
 
 }

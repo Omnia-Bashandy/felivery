@@ -42,4 +42,11 @@ export class LoginService {
   login(credentials: any) {
     return this.http.post(this.loginUrl, credentials);
   }
+
+  // logout
+
+  // logout(){
+  //   // return !this.login;
+  //   localStorage.removeItem('token');
+  // }
 }

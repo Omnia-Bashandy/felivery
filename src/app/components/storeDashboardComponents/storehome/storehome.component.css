@@ -1,0 +1,125 @@
+.hidding-offer{
+    font-family: 'Abril Fatface', serif;
+    font-size: 50px;  
+  }
+  .font{
+    font-family: 'Libre Baskerville', serif;
+  }
+  
+
+  /* 
+  .ellipsis {
+      width: 15rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+  }
+  
+  .card {
+    border: 1px solid rgb(232, 151, 1);
+    background-color: rgb(245, 228, 213);
+  transition: transform 0.5s;
+  }
+  
+  .card:hover {
+  transform: scale(1.18);
+  } */
+  
+  .btnn {
+    background-color: rgb(233, 107, 34);
+    color: rgb(251, 250, 247);
+    border-radius: 10px;
+    border-bottom-right-radius: 0px;
+    padding: 7px 12px 7px 12px;
+    border: 1px solid white;
+    text-decoration: none;
+  }
+  
+  .btnn:hover {
+    background-color: rgb(58, 24, 5);
+    color: rgb(251, 250, 247);
+    text-decoration: none;
+    border-radius: 10px;
+    border-bottom-right-radius: 0px;
+    padding: 7px 12px 7px 12px;
+    border: 1px solid rgb(125, 33, 33);
+  }
+  
+  .imgoffer {
+    width: 100%;
+    height: 180px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+  
+  .ff {
+    font-size: 25px;
+  }
+  .bg-contain-stars {
+    border: 1px solid rgb(206, 205, 202);
+    width: 70%;
+    border-radius: 15px;
+    text-align: center;
+    color: rgb(231, 152, 5);
+    box-shadow: inset;
+  }
+  .offer-cards {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: 100%;
+    height: auto;
+    background-color: rgb(245, 228, 213);
+    border: 1px solid rgb(232, 151, 1);
+    border-radius: 15px;
+  }
+  .bg-btn{
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 5px;
+  
+  }
+  
+  .h-hidding{
+    margin-top: 5px;
+    padding: 3px;
+  }
+  .h-desc{
+    margin-top: 7px;
+    height: 50px;
+  }
+  
+  .h-rate{
+    margin-top: 7px;
+  
+  }
+  .h-btn{
+    margin-top: 7px;
+  }
+  
+.style-line{
+    color: rgb(207, 136, 5);
+}
+
+.stylecard{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    background-color: rgb(245, 228, 213);
+    border: 1px solid rgb(232, 151, 1);
+    border-radius: 15px;
+}
+.stylecard a{
+    margin: auto;
+    font-size: 80px;
+    cursor: pointer;
+ }
+
+ .buttons a{
+  margin: 50px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: bisque;
+  color: black;
+  border: 1px solid orange;
+  border-radius: 15px;
+ }

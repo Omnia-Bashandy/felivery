@@ -57,7 +57,8 @@ import { ShowitemsbyidComponent } from './components/storeDashboardComponents/sh
 import { AddcategoryComponent } from './components/storeDashboardComponents/addcategory/addcategory.component';
 import { UpdatecategoryComponent } from './components/storeDashboardComponents/updatecategory/updatecategory.component';
 import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.component';
-
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { OrderstatusComponent } from './components/orderstatus/orderstatus.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,7 +103,8 @@ import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.
     ShowitemsbyidComponent,
     AddcategoryComponent,
     UpdatecategoryComponent,
-    ConfirmOrderComponent
+    ConfirmOrderComponent,
+    OrderstatusComponent
 
   ],
   imports: [
@@ -113,7 +115,8 @@ import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.
     FontAwesomeModule,
     DataTablesModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxStarRatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

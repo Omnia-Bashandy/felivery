@@ -42,7 +42,7 @@ login(email: any, password: any) {
       next: (data: any) => {
         console.log(data);
         const id = data["id"]; // Accessing the "id" property
-        const role = data["roles"][0]; // Accessing the "id" property
+        const role = data["roles"][0]; // Accessing the "id" property        
         const logToken = data["token"]; // Accessing the "id" property
         console.log(id); // Check the value of id
         console.log(role); // Check the value of id

@@ -52,6 +52,8 @@ export class RegistercustomerComponent {
           }
       // mobileN
     };
+    console.log(userData);
+    
 
     this.http.Register(userData).subscribe({
       next: (data: any) => {

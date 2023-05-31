@@ -23,7 +23,8 @@ export class OrderComponent  implements OnInit{
   items:any = [];
   oorder:any;
   // id:any
-  constructor(public route: ActivatedRoute,private menuService: MenuitemsService
+  constructor(public route: ActivatedRoute,
+    private menuService: MenuitemsService
     , private shared:SharedService , public router:Router , public cartService:CartService) {
     
   }
@@ -41,6 +42,8 @@ export class OrderComponent  implements OnInit{
         this.menuService.getMenuitemById(itemid).subscribe(
           (data)=>{
           this.Item=data
+          console.log("this . item order id",this.Item);
+          
           console.log(data);
           console.log(this.Item["id"]);
           }
@@ -60,26 +63,22 @@ export class OrderComponent  implements OnInit{
   }
 order:any;
 allorder:any=[];
-// addToCart(product: any) {
-  // Call the addToCart method of the CartService
-  // }
   addToCart() {
     if (this.itemId && this.Item) {
       const restaurantID = this.Item.restaurantID;
       const cartRestaurantID = this.shared.getcartRestId();
       console.log(restaurantID);
       console.log(cartRestaurantID);
-      if (cartRestaurantID === null) {
+      // if (cartRestaurantID === null) {
         this.shared.setcartRestId(restaurantID);
-      }
-      if (cartRestaurantID && restaurantID == cartRestaurantID) {
+      // }
+      // else if (cartRestaurantID && restaurantID == cartRestaurantID) {
         const existingItemIndex = this.cartService.getCartItems().findIndex((item: any) => item.menuItemID.id === this.Item.id);
-  
         if (existingItemIndex !== -1) {
-          // Item already exists in the cart, increase the quantity
           this.cartService.getCartItems()[existingItemIndex].quantity += this.quantity;
           this.cartService.updateCartItems(this.cartService.getCartItems());
-        } else {
+        }
+         else {
           // Item does not exist in the cart, add it as a new item
           this.order = {
             menuItemID: {
@@ -92,16 +91,14 @@ allorder:any=[];
             },
             quantity: this.quantity
           };
-  
           this.cartService.addToCart(this.order);
         }
-
-  
         alert(`${this.order.menuItemID.name} added successfully.`);
         this.router.navigate(['/cart']);
-      } else {
-        alert('You can only add items from the same restaurant to your cart.');
-      }
+      } 
+      // else {
+      //   alert('You can only add items from the same restaurant to your cart.');
+      // }
     }
   }
   
@@ -109,6 +106,5 @@ allorder:any=[];
   
 
 
-  }
-    
+  
 

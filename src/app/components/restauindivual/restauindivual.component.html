@@ -4,41 +4,70 @@
       <div class="row justify-content-center">
         <div class="col-lg-7 col-12 p-5">
           <div class="row justify-content-center text-center">
-              <img src="../../../assets/rr.jpeg" class="img-Restaurant">
-              <h1 class="hidding-offer text-capitalize ">el maamon restaurant</h1>
-              <p class="text-center">
-                El Maamon is a restaurant located in Egypt, serving a
-                selection of Beverages, Juices, Desserts that delivers across
-                Almazah, Ard El Golf, Ard El Golf 2, Heliopolis - Baron and
-                Heliopolis - El Horreya. Thier best selling dishes are Avocado
-                With Vanilla And Milk Juice and Dates With Milk And Honey,
-                although they have a variety of dishes and meals to choose
-                from like Beverages, Juices, Desserts. They have been reviewed
-                1436 times by talabat users, with a rating of 4.5.
-              </p>
-              <a href="" class="btnn mb-5">Show Menu</a>
-              <div class="input-group rounded">
-                <input type="search" class="form-control rounded" placeholder="Search Another Restaurant"
-                />
-                <span class="input-group-text border-0" id="search-addon">
-  
-                </span>
-              </div>
-            </div>
-        </div> 
+            <img src="../../../assets/rr.jpeg" class="img-Restaurant">
+            <h1 class="hidding-offer text-capitalize">
+              {{ restaurant.name }}
+            </h1>
+            <p class="text-center">
+              {{ restaurant.description }}
+            </p>
+            <!-- <a href="" class="btnn mb-5">Show Menu</a> -->
+            <!-- <div class="input-group rounded">
+              <input type="search" class="form-control rounded" placeholder="Search Another Restaurant" />
+              <span class="input-group-text border-0" id="search-addon"></span>
+            </div> -->
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row mt-5 mb-3">
-      <div class="container">
-        <h2 class="hidding-offer">All Menu Items</h2>
-          <app-menuserved></app-menuserved>
-        </div>
+    <h2 class="hidding-offer">Menu Served</h2>
+    <div *ngFor="let m of menus" class="col-3 d-flex justify-content-center">
+        <div class="offer-cards mt-2 mb-2">
+          <div class="row justify-content-center">
+            <div class="col-12 text-center">
+              <img
+              src="assets/Burger.jpg" alt="Image"
+                class="imgoffer"
+              />
+            </div>
+          </div>
+          <div class="row justify-content-center h-hidding">
+            <div class="col-12 text-center">
+              <h1 class="ff pt-3 pl-2 pr-2">
+                {{ m.name }}
+              </h1>
+            </div>
+          </div>
+  
+          <div class="row justify-content-center h-desc">
+            <div class="col-12 text-center">
+              <p class="pl-3 pr-3">{{m.description}}</p>
+  
+            </div>
+          </div>
+          <div class="row justify-content-center h-rate">
+            <div class="col-3 bg-contain-stars micons">
+              <i class="fa-sharp fa-solid fa-star"></i>
+              <i class="fa-sharp fa-solid fa-star"></i>
+              <i class="fa-sharp fa-solid fa-star"></i>
+              <i class="fa-sharp fa-solid fa-star"></i>
+              <i class="fa-sharp fa-solid fa-star"></i>
+            </div>
+          </div>
+          <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
+            <div class="col-3">
+              <h3>{{m.price}} $</h3>
+            </div>
+            <div class="col-2 mt-2">
+              <button  [routerLink]="['/order',m.id]"  class="btnn hvr-bounce-in">Order</button>
+            </div>
+          </div>
+        </div> 
       </div>
     </div>
-<!-- 
-<div class="container">
-  <app-feedback></app-feedback>
-</div> -->
+  </div>
