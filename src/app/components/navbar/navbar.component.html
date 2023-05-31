@@ -41,12 +41,12 @@
           <ul class="navbar-nav mr-auto col-10 align-items-center" id="main">
 
             <!-- order status -->
-            <li class="nav-item" [class.active]="isActive('orderstatus')">
+            <li *ngIf="isloggedIn()" class="nav-item" [class.active]="isActive('orderstatus')">
               <a class="nav-link" routerLink="/orderstatus" (click)="setActive('orderstatus')">
                 <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i></a>
             </li>
             <!-- cart -->
-            <li class="nav-item" [class.active]="isActive('cart')">
+            <li *ngIf="isloggedIn()" class="nav-item" [class.active]="isActive('cart')">
               <a class="nav-link" routerLink="/cart" (click)="setActive('cart')">
                 <i class="fa-solid fa-cart-arrow-down" style="color: #ffffff;">
                   <span class="cart-counter">{{ cartService.cartItemCount}}</span>

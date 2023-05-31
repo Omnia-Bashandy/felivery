@@ -92,12 +92,12 @@ export class RegestrationComponent {
           // Handle login error
         }
     })
-    this.myService.uploadImg(this.selectedFile).subscribe({
-      next(data : any) {
-        console.log(data);
-      },error: (err) => {
-        console.log(err);
-      }
-    })
+  //   this.myService.uploadImg(this.selectedFile).subscribe({
+  //     next(data : any) {
+  //       console.log(data);
+  //     },error: (err) => {
+  //       console.log(err);
+  //     }
+  //   })
   }
 }}
