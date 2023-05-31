@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CartService } from 'src/app/Services/cart.service';
 import { OrderService } from 'src/app/Services/order.service';
 import { SharedService } from 'src/app/Services/shared.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -15,8 +16,14 @@ export class CartComponent implements OnInit {
   savedItems: any[] = [];
   address: string = '';
 
-  constructor(public cart: CartService, private orderService: OrderService , public shared:SharedService , public route:Router) {}
+ 
 
+
+  constructor(public cart: CartService,
+    private location: Location,
+     private orderService: OrderService , public shared:SharedService , public route:Router) {}
+
+  quantity:any|null;
   ngOnInit() {
     this.orders = this.cart.getCartItems();
     for (let i = 0; i < this.orders.length; i++) {
@@ -25,14 +32,25 @@ export class CartComponent implements OnInit {
         quantity: this.orders[i]["quantity"],
         price: this.orders[i]["menuItemID"]["price"]
       };
-      console.log(this.orders[i]);
-      
+      console.log(this.orders[i]);  
       this.savedItems.push(item);
+   
     }
-
+  
+    this.calculateTotalPrice();
+   
+  }
+  incrementQuantity(item:any) {
+    item.quantity++;
     this.calculateTotalPrice();
   }
 
+  decrementQuantity(item:any) {
+    if (item.quantity > 1) {
+      item.quantity--;
+      this.calculateTotalPrice();
+    }
+  }
   removefromCart(id: any) {
     this.cart.deleteFromCart(id);
   }
@@ -54,12 +72,11 @@ export class CartComponent implements OnInit {
       customerID: this.shared.getCustId() // Add the customer ID
     };
 console.log(orderData);
-
     this.orderService.addOrder(orderData).subscribe(
       (data: any) => {
         console.log("Order placed successfully:", data);
         console.log(data);
-        this.route.navigate(['confirmOrder'])
+        this.route.navigate(['orderstatus'])
       },
       (error: any) => {
         console.log("Error placing order:", error);
@@ -73,5 +90,11 @@ console.log(orderData);
     localStorage.setItem("cartRestId", this.initial_value);
     // Reset any other relevant variables or properties
   }
+
+previousPage()
+ {
+  this.location.back();
+}  
   
+
 }

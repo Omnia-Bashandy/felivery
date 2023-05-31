@@ -1,3 +1,53 @@
-<p>pending works!</p>
-<fa-icon [icon]="pending"></fa-icon>
-<button (click)="back()" >Back to home</button>
+<div class="container height">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <!-- approved row -->
+      <div class="row">
+        <div class="col-6 mt-5 p-3">
+          <div class="row">
+            <h1 class="hidding-offer">
+              Your Data Is being Processed
+              <fa-icon [icon]="pending" class="font-size"></fa-icon>
+            </h1>
+            <p>
+              You can see your competitors' restaurants until yours is accepted
+            </p>
+          </div>
+          <div class="row mt-3">
+            <button routerLink="/restaurants" class="btnn">
+              See Restuarants
+            </button>
+          </div>
+          <div class="row mt-1">
+            <button (click)="back()" class="btn btn-dark">Back to home</button>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <img src="/assets/order.png" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- un approved row -->
+      <!-- <div class="row">
+                <div class="col-6 mt-5 p-3">
+                    <div class="row">
+                        <h1 class="hidding-offer">We Sorry Your Data Is Not Accepted
+                            <fa-icon [icon]="pending" class="font-size"></fa-icon>
+                        </h1>
+                        <p>We will Update website with Condotions to get Approved After</p>
+                    </div>
+                    <div class="row mt-3">
+                        <button routerLink="/restaurants" class="btnn">
+                            See Restuarants</button>
+                    </div>
+                    <div class="row mt-1">
+                        <button (click)="back()" class="btn btn-dark">
+                            Back to home</button>
+                    </div>
+                </div>
+            </div> -->
+    </div>
+  </div>
+</div>

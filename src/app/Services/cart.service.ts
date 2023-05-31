@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   private cartKey = 'cart';
-
+  cartItemCount: number = 0;
+  
   addToCart(item: any) {
     const cartItems = this.getCartItems();
     const existingItemIndex = cartItems.findIndex((cartItem: any) => cartItem.menuItemID.id === item.menuItemID.id);
@@ -46,5 +47,10 @@ export class CartService {
   clearCart() {
     // Clear the cart items from local storage
     localStorage.removeItem(this.cartKey);
+  }
+
+  getCartItemsCount(){
+    const cartItems = this.getCartItems();
+    this.cartItemCount = cartItems.reduce((total: number, item: any) => total + item.quantity, 0);
   }
 }

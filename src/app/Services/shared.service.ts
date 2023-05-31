@@ -9,6 +9,9 @@ export class SharedService {
   private id: string | null = null;
   private custId: string | null = null;
   private name: string | null = null;
+  // private status:boolean = false;
+  private status:any;
+
 
   setId(id: string): void {
     localStorage.setItem("storeId",id)
@@ -48,7 +51,27 @@ export class SharedService {
     }
     return null;
   }
-  
+ 
+  setStatus(sts:any){
+    this.status = sts;
+  }
+  getStatus(){
+    // return this.status;
+   let savedStatus = localStorage.getItem('orderStatus');
+    if (this.status) {
+      this.status = savedStatus;
+      console.log('order status', this.status);
+    } else {
+      console.log('there is no status');
+    }
+  }
+  // delete status
+  cancelStatus() {
+    this.status = false;
+  }
 
-
+  // logout
+  // logout(){
+  //   localStorage.removeItem('token');
+  // }
 }

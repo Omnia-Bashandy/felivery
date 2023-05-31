@@ -32,6 +32,18 @@ editcat = new FormGroup(
         this.category = response;
     });
   }
+  photopath = '../../../../assets/rr.jpeg'; 
+  
+  imageupload(event: any) {
+    if (event.target.files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0])
+      reader.onload=(eventt:any)=>{
+        this.photopath=eventt.target.result;
+      }
+      
+    }
+  }
 
   updateCategory(categoryname: string) {
     let Updatedcategory = {

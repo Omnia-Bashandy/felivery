@@ -3,7 +3,11 @@
 }
 .hidding-offer{
   font-family: 'Abril Fatface', serif;
-  font-size: 50px;  
+  font-size: 20px;  
+}
+.hidding-offerr{
+  font-family: 'Abril Fatface', serif;
+  font-size: 40px;  
 }
 .font{
   font-family: 'Libre Baskerville', serif;
@@ -82,8 +86,8 @@ cursor: pointer;
 }
 
 .cart-img{
-width: 100px;
-height:100px;
+width: 200px;
+height:200px;
 border-radius: 15px;
 
 }
@@ -97,7 +101,7 @@ margin-top: 50px;
 
 }
 .w{
-width: 150px;
+width: 200px;
 text-align: center;
 }
 th{
@@ -110,5 +114,52 @@ border-radius: 15px;
 padding: 8px;
 }
 
+.btn-delete{
+  background-color: antiquewhite;
+  height: 80px;
+  border: 1px solid white;
+  color: rgb(98, 7, 7);
+  font-size: 40px;
+  border-radius: 15px;
+  width: 50px;
+}
+.cart-card{
+  background-color: antiquewhite;
+  background: #eee;
+  padding: 20px;
+  box-shadow: 0 8px 8px -4px rgb(245, 222, 187);
+}
 
+.quan{
+  margin-top: 20px;
+  height: 130px;
+  padding: 2px;
+  font-size: 30px;
+  text-align: center;
+  /* background: #dedada; */
+  /* border: 1px solid rgb(221, 218, 218); */
+  border-radius: 15px;
+}
+.btn-quan{
+  border: none;
+  /* font-size: 30px; */
 
+}
+
+.padding-payment{
+  padding: 60px;
+}
+input[type=text] {
+  width: 100%;
+  background-color: transparent;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid rgb(222, 96, 6);
+}
+
+ngb-rating {
+  color: #FFC107;
+  font-size: 80px;
+}

@@ -31,6 +31,7 @@ import { ShowitemsbyidComponent } from './components/storeDashboardComponents/sh
 import { AddcategoryComponent } from './components/storeDashboardComponents/addcategory/addcategory.component';
 import { UpdatecategoryComponent } from './components/storeDashboardComponents/updatecategory/updatecategory.component';
 import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.component';
+import { OrderstatusComponent } from './components/orderstatus/orderstatus.component';
 
 
 const routes: Routes = [
@@ -68,6 +69,9 @@ const routes: Routes = [
       { path: 'showitemsbyid/:id', component: ShowitemsbyidComponent},
       { path: 'addcategory', component: AddcategoryComponent},
       { path: 'updatecategory/:id', component: UpdatecategoryComponent},
+      // pending
+      { path: 'pending', component: PendingComponent},
+
 
 
 
@@ -77,10 +81,11 @@ const routes: Routes = [
     ]
   },
   { path: 'login', component: LoginComponent },
-  { path: 'restauindivual', component: RestauindivualComponent },
+  { path: 'restauindivual/:id', component: RestauindivualComponent },
   { path: 'registercustomer', component: RegistercustomerComponent },
   {path:"pending" , component:PendingComponent},
-  {path:"confirmOrder" , component:ConfirmOrderComponent},
+  {path:"confirm-order" , component:ConfirmOrderComponent},
+  {path:"orderstatus" , component:OrderstatusComponent},
   { path: '**', component: ErrorComponent }
 ];
 

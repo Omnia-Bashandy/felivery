@@ -11,10 +11,11 @@ export class StoreService {
   private Base_URL = "https://localhost:44309/api/Store";
   private Base_URLReg = "https://localhost:44309/api/Store/Registration";
   private img_url = "https://localhost:44309/api/Store/uploadImage";
+  private ItemsbyID =" https://localhost:44309/api/Store/MstoreID";
+  private totalEarningsURL ="https://localhost:44309/api/Store/TotalEarnings";
   
   uploadImg(img:any){
     return this.myClient.post(this.img_url,img );
-
   }
   getAllRestaurants() {
     return this.myClient.get(this.Base_URL);
@@ -36,5 +37,12 @@ export class StoreService {
     return this.myClient.post(this.Base_URLReg,Restaurant );
   }
 
-  
+  getItemsbyID(id:any){
+    return this.myClient.get(`${this.ItemsbyID}/${id}`);
+  }
+
+  gettotalbyID(id:any){
+    return this.myClient.get(`${this.totalEarningsURL}/${id}`);
+  }
+
 }
