@@ -83,11 +83,12 @@ console.log(orderData);
         // Handle error case
       }
     );
+    this.shared.setStatus("pending")
   }
   initial_value:any = null;
   clearCart() {
     this.cart.clearCart();
-    localStorage.setItem("cartRestId", this.initial_value);
+    localStorage.setItem("RestCartId", this.initial_value);
     // Reset any other relevant variables or properties
   }
 

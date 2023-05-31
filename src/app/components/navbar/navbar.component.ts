@@ -15,10 +15,11 @@ bars = faBars
 activeLink: string = 'home';
 showDashboardLinks = false;
 showDropdown: boolean = false; // Add showDropdown property
+islog:boolean = true;
 
 cartItemCount: number|any = 0;
 constructor(public cartService: CartService,private login:LoginService,
-  private user:SharedService) {}
+  private user:SharedService ) {}
 
   ngOnInit() {
     // Fetch the cart item count from the cart service or data source
@@ -41,15 +42,13 @@ setActive(link: string): void {
 toggleDropdown(): void {
   this.showDropdown = !this.showDropdown;
 }
-
-islogin(){
-  return this.login.login(this.user.getCustId() || this.user.getId());
-}
-custUser:any = this.user.getCustId();
-restUser:any =  this.user.getId();
-logout(){
-  localStorage.removeItem('custUser');
-  localStorage.removeItem('restUser');
+isLoggedIn: boolean = false;
+isloggedIn(): boolean {
+  const token = localStorage.getItem('token');
+  return !!token; // Returns true if token exists, false otherwise
 }
 
+logOut(){
+  localStorage.removeItem("token")
+}
 }

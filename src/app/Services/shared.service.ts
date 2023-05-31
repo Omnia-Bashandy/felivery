@@ -10,7 +10,7 @@ export class SharedService {
   private custId: string | null = null;
   private name: string | null = null;
   // private status:boolean = false;
-  private status:any;
+  private status:any = "pending"
 
 
   setId(id: string): void {
@@ -51,13 +51,13 @@ export class SharedService {
     }
     return null;
   }
- 
+  
   setStatus(sts:any){
-    this.status = sts;
+    localStorage.setItem("orderStatus",sts)
   }
-  getStatus(){
+  getStatus():any{
     // return this.status;
-   let savedStatus = localStorage.getItem('orderStatus');
+  let savedStatus = localStorage.getItem('orderStatus');
     if (this.status) {
       this.status = savedStatus;
       console.log('order status', this.status);

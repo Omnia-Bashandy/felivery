@@ -67,8 +67,8 @@ export class OrderService {
     return this.myClient.get(`${this.DeliveredURL}/${id}`);
   }
   updateDonestatus(orderID:any){
-    let id:any
-    return this.myClient.put(`${this.updateDone}/${id}`,orderID);
+    // let id:any
+    return this.myClient.put(`${this.updateDone}/${orderID}`,"");
   }
 
 }

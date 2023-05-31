@@ -1,24 +1,25 @@
-
+hiiiiiiiiiiii
 <div class="container height">
     <div class="row justify-content-center">
       <div class="col-lg-10">
-        <!-- still not checkecd -->
-        <!-- <div class="row"  *ngIf="!validStatus || validStatus">
+        <!-- Default div -->
+        <div class="row" *ngIf="pending">
           <div class="col-9 mt-5 p-5">
             <div class="row">
               <h1 class="hidding-offer">
-               Your Order Will be Checked Soon Don't worry
+                Your Order Will be Checked Soon Don't worry
               </h1>
+              <button class="btn btn-danger">Cancle Order</button>
             </div>
           </div>
-          
-        </div> -->
-        <!-- approved row -->
-        <div class="row" *ngIf="validStatus">
+        </div>
+      
+        <!-- Approved div -->
+        <div class="row" *ngIf="done">
           <div class="col-6 mt-5 p-5">
             <div class="row">
               <h1 class="hidding-offer">
-                Waahhoo Your Order is comingg soon
+                Waahhoo Your Order is coming soon
               </h1>
             </div>
           </div>
@@ -28,30 +29,25 @@
             </div>
           </div>
         </div>
-
-        <!-- un approved row -->
-        <div class="row" *ngIf="!validStatus">
-            <div class="col-8 mt-5 p-3">
-              <div class="row">
-                <h1 class="hidding-offer">
-                    We sorry To inform you that Your Order is Cancelled can hurt Your heart too
-
-                </h1>
-                <p>
-                  You can see your competitors' restaurants until yours is accepted
-                </p>
-              </div>
-              <div class="row mt-3">
-                <button routerLink="/restaurants" class="btnn">
-                  See Restuarants
-                </button>
-              </div>
-              <div class="row mt-1">
-  
-              </div>
+      
+        <!-- Unapproved div -->
+        <div class="row" *ngIf="cancel">
+          <div class="col-8 mt-5 p-3">
+            <div class="row">
+              <h1 class="hidding-offer">
+                We're sorry to inform you that your order is cancelled. It can hurt your heart too.
+              </h1>
+              <p>
+                You can see your competitors' restaurants until yours is accepted.
+              </p>
+            </div>
+            <div class="row mt-3">
+              <button routerLink="/restaurants" class="btnn">
+                See Restaurants
+              </button>
             </div>
           </div>
-        
+        </div>
       </div>
     </div>
   </div>

@@ -122,7 +122,7 @@ export class StorehomeComponent {
     // progress bar
     this.deliveredPercentage()
     // this.getorderbyID();
-    this.aproveOrderstatus();
+    // this.aproveOrderstatus();
 
   }
 
@@ -153,22 +153,26 @@ export class StorehomeComponent {
 //       );
 //   });
 //  }
-  aproveOrderstatus() {
-    // this.orderservice.getOrderById(this.orderId).subscribe(
-    //   (response: any) => {
-    //     console.log(response.name);
-    //     this.orderName = response.name;
-    //     console.log(this.orderName);
-    //   },
-    //   (error: any) => {
-    //     console.log('Error retrieving order:', error);
-    //   }
-    // );
-    this.sharedService.setStatus(true);
+
+  aproveOrderstatus(Oid:number) {
+    this.orderservice.updateDonestatus(Oid).subscribe(
+      (response: any) => {
+        console.log(response);
+        // this.orderName = response.name;
+        // console.log(this.orderName);
+      },
+      (error: any) => {
+        console.log('Error retrieving order:', error);
+      }
+    );
+    this.sharedService.setStatus("done");
+console.log(typeof Oid);
+console.log(+Oid);
+
   }
 
   cancelOrderstatus(){
-    this.sharedService.setStatus(false);
+    this.sharedService.setStatus("cancle");
   }
 
   removeOrderFromTable() {

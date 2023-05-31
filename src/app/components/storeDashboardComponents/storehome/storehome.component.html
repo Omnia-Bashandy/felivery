@@ -114,21 +114,21 @@
           <tr *ngFor="let o of orders">
             <td>{{o.id}}</td>
             <!-- <td>{{o.details[o.name]}}</td> -->
-            <td>{{o.address}}</td>
+            <td >{{o.address}}</td>
             <td>{{o.totalPrice}}$</td>
             <td>{{o.customerID}}</td>
 
             <td>
-             <button class="btn btn-success" (click)="aproveOrderstatus()">
+             <button class="btn btn-success" (click)="aproveOrderstatus(o.id)">
               <i class="fa-solid fa-check" style="color: #00040a;"></i>
              </button>
 
              <button  class="btn btn-danger m-1" (click)="cancelOrderstatus()">
               <i class="fa-solid fa-xmark" style="color: #02060d;"></i>
              </button>
-             <button  class="btn btn-success m-1">
+             <!-- <button  class="btn btn-success m-1">
               Deliverd
-             </button>
+             </button> -->
             </td>
           </tr>
           
