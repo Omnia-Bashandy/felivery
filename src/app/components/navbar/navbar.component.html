@@ -17,9 +17,9 @@
           <li class="nav-item" [class.active]="isActive('home')">
             <a class="nav-link" routerLink="/" (click)="setActive('home')">Home</a>
           </li>
-          <li class="nav-item" [class.active]="isActive('offers')">
+          <!-- <li class="nav-item" [class.active]="isActive('offers')">
             <a class="nav-link" routerLink="/offers" (click)="setActive('offers')">Offers</a>
-          </li>
+          </li> -->
           <li class="nav-item" [class.active]="isActive('menuserved')">
             <a class="nav-link" routerLink="/menuserved" (click)="setActive('menuserved')">menu items</a>
           </li>
@@ -39,6 +39,21 @@
       </ul>
         <div class="input-group w-auto">
           <ul class="navbar-nav mr-auto col-10 align-items-center" id="main">
+            
+            <!-- logout -->
+             <li 
+             *ngIf="islogin()"
+             class="nav-item" [class.active]="isActive('login')">
+              <a class="nav-link" routerLink="/login" 
+              (click)="logout()"
+              (click)="setActive('login')">Logout</a>
+            </li>
+            <!-- order status -->
+            <li 
+            class="nav-item" [class.active]="isActive('orderstatus')">
+              <a class="nav-link" routerLink="/orderstatus" (click)="setActive('orderstatus')">
+                <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i></a>
+            </li>
             <!-- cart -->
             <li class="nav-item" [class.active]="isActive('cart')">
               <a class="nav-link" routerLink="/cart" (click)="setActive('cart')">
@@ -47,12 +62,17 @@
                 </i>
               </a>
             </li>
+           
             <!-- login -->
-            <li class="nav-item" [class.active]="isActive('login')">
+            <li 
+            *ngIf="islogin()"
+            class="nav-item" [class.active]="isActive('login')">
               <a class="nav-link" routerLink="/login" (click)="setActive('login')">Login</a>
             </li>
             <!-- register -->
-            <li class="nav-item" [class.active]="isActive('registercustomer')">
+            <li 
+            *ngIf="islogin()"
+            class="nav-item" [class.active]="isActive('registercustomer')">
               <a class="nav-link" routerLink="/registercustomer" (click)="setActive('registercustomer')">Register</a>
             </li>
           </ul>

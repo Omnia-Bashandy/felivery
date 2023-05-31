@@ -29,6 +29,29 @@ export class RestaurantsComponent {
   })
 }
 
+exactMatch: any;
+notmatch:any;
+searchText: string = '';
+filteredItems: any[] = [];
+
+
+filterItems() {
+  this.filteredItems = this.Restaurants.filter((data:any) =>
+   data.name.toLowerCase().includes(this.searchText.toLowerCase()));
+}
+
+
+updateFilteredItems() {
+  this.exactMatch = null; 
+}
+search() {
+  this.exactMatch = this.Restaurants.find((restaurant: any) =>
+    restaurant.name.toLowerCase() === this.searchText.toLowerCase()
+  );
+  this.notmatch = !this.exactMatch;
+}
+
+
 getrestuarantbyID(){
   
 }

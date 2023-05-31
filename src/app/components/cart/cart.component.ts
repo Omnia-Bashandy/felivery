@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CartService } from 'src/app/Services/cart.service';
 import { OrderService } from 'src/app/Services/order.service';
 import { SharedService } from 'src/app/Services/shared.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +19,9 @@ export class CartComponent implements OnInit {
  
 
 
-  constructor(public cart: CartService, private orderService: OrderService , public shared:SharedService , public route:Router) {}
+  constructor(public cart: CartService,
+    private location: Location,
+     private orderService: OrderService , public shared:SharedService , public route:Router) {}
 
   quantity:any|null;
   ngOnInit() {
@@ -73,7 +76,7 @@ console.log(orderData);
       (data: any) => {
         console.log("Order placed successfully:", data);
         console.log(data);
-        this.route.navigate(['confirm-order'])
+        this.route.navigate(['orderstatus'])
       },
       (error: any) => {
         console.log("Error placing order:", error);
@@ -87,6 +90,11 @@ console.log(orderData);
     localStorage.setItem("cartRestId", this.initial_value);
     // Reset any other relevant variables or properties
   }
+
+previousPage()
+ {
+  this.location.back();
+}  
   
 
 }

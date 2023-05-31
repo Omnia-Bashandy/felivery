@@ -42,6 +42,8 @@ export class OrderComponent  implements OnInit{
         this.menuService.getMenuitemById(itemid).subscribe(
           (data)=>{
           this.Item=data
+          console.log("this . item order id",this.Item);
+          
           console.log(data);
           console.log(this.Item["id"]);
           }
@@ -67,16 +69,16 @@ allorder:any=[];
       const cartRestaurantID = this.shared.getcartRestId();
       console.log(restaurantID);
       console.log(cartRestaurantID);
-      if (cartRestaurantID === null) {
+      // if (cartRestaurantID === null) {
         this.shared.setcartRestId(restaurantID);
-      }
-      if (cartRestaurantID && restaurantID == cartRestaurantID) {
+      // }
+      // else if (cartRestaurantID && restaurantID == cartRestaurantID) {
         const existingItemIndex = this.cartService.getCartItems().findIndex((item: any) => item.menuItemID.id === this.Item.id);
-  
         if (existingItemIndex !== -1) {
           this.cartService.getCartItems()[existingItemIndex].quantity += this.quantity;
           this.cartService.updateCartItems(this.cartService.getCartItems());
-        } else {
+        }
+         else {
           // Item does not exist in the cart, add it as a new item
           this.order = {
             menuItemID: {
@@ -93,9 +95,10 @@ allorder:any=[];
         }
         alert(`${this.order.menuItemID.name} added successfully.`);
         this.router.navigate(['/cart']);
-      } else {
-        alert('You can only add items from the same restaurant to your cart.');
-      }
+      } 
+      // else {
+      //   alert('You can only add items from the same restaurant to your cart.');
+      // }
     }
   }
   
@@ -103,6 +106,5 @@ allorder:any=[];
   
 
 
-  }
-    
+  
 

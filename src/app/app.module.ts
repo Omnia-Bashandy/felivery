@@ -58,6 +58,7 @@ import { AddcategoryComponent } from './components/storeDashboardComponents/addc
 import { UpdatecategoryComponent } from './components/storeDashboardComponents/updatecategory/updatecategory.component';
 import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.component';
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import { OrderstatusComponent } from './components/orderstatus/orderstatus.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,7 +103,8 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     ShowitemsbyidComponent,
     AddcategoryComponent,
     UpdatecategoryComponent,
-    ConfirmOrderComponent
+    ConfirmOrderComponent,
+    OrderstatusComponent
 
   ],
   imports: [

@@ -8,7 +8,12 @@ export class OrderService {
 
   constructor(private myClient: HttpClient) { }
   private Base_URL = "https://localhost:44309/api/Order";
-  
+  // private ordersREST ="https://localhost:44309/api/Store/GetOrdersBystoreID?storeID=";
+  private ordersREST ="https://localhost:44309/api/Store/OstoreID";
+  private pendingOrd ="https://localhost:44309/api/Store/PendingOrders";
+  private DeliveredURL ="https://localhost:44309/api/Store/DeliveredOrders";
+  private updateDone ="https://localhost:44309/api/Store/DoneOrder";
+
   getAllOrders() {
     return this.myClient.get(this.Base_URL);
   }
@@ -49,8 +54,21 @@ export class OrderService {
     if (OrderItemsString) {
       return JSON.parse(OrderItemsString);
     }
-
     // Return an empty array if no Order items are found
     return [];
   }
+  getOrdersbyRestID(id: any){
+    return this.myClient.get(`${this.ordersREST}/${id}`);
+  }
+  getPending(id: any){
+    return this.myClient.get(`${this.pendingOrd}/${id}`);
+  }
+  getDelivered(id: any){
+    return this.myClient.get(`${this.DeliveredURL}/${id}`);
+  }
+  updateDonestatus(orderID:any){
+    let id:any
+    return this.myClient.put(`${this.updateDone}/${id}`,orderID);
+  }
+
 }
