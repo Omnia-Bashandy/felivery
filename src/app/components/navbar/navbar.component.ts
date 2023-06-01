@@ -16,10 +16,10 @@ activeLink: string = 'home';
 showDashboardLinks = false;
 showDropdown: boolean = false; // Add showDropdown property
 islog:boolean = true;
-
 cartItemCount: number|any = 0;
 constructor(public cartService: CartService,private login:LoginService,
   private user:SharedService ) {}
+  name:any = localStorage.getItem("CusName")
 
   ngOnInit() {
     // Fetch the cart item count from the cart service or data source

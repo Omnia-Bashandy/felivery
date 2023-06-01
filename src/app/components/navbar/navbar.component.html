@@ -38,28 +38,74 @@
           </li> -->
         </ul>
         <div class="input-group w-auto">
-          <ul class="navbar-nav mr-auto col-10 align-items-center" id="main">
-
-            <!-- order status -->
-            <li *ngIf="isloggedIn()" class="nav-item" [class.active]="isActive('orderstatus')">
-              <a class="nav-link" routerLink="/orderstatus" (click)="setActive('orderstatus')">
-                <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i></a>
-            </li>
-            <!-- cart -->
-            <li *ngIf="isloggedIn()" class="nav-item" [class.active]="isActive('cart')">
-              <a class="nav-link" routerLink="/cart" (click)="setActive('cart')">
-                <i class="fa-solid fa-cart-arrow-down" style="color: #ffffff;">
-                  <span class="cart-counter">{{ cartService.cartItemCount}}</span>
-                </i>
+          <!-- Example single danger button -->
+<!-- <div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div> -->
+           <ul class="navbar-nav mr-auto col-10 align-items-center" id="main">
+            <!-- < order status  -->
+            <div class="btn-group" *ngIf="isloggedIn()">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-solid fa-user" style="color: #ffffff;"></i> Welcome, {{ name }}
               </a>
-            </li>
-            <!-- <button *ngIf="!isloggedIn()" >Login</button> -->
-            <!-- <button *ngIf="isloggedIn()" (click)="logOut()">Logout</button> -->
-            <!-- logout -->
+              <div class="dropdown-menu">
+                <a class="nav-link dropdown-item" routerLink="/orderstatus" (click)="setActive('orderstatus')"> 
+                  <i class="fa-solid fa-bag-shopping" ></i> 
+                  <span  style="font-size: 17px;margin-left: 3px;">  My Order</span></a>
+                <a class="nav-link dropdown-item" routerLink="/cart" (click)="setActive('cart')"> 
+                  <i class="fa-solid fa-cart-arrow-down" >
+                    <span class="cart-counter">{{ cartService.cartItemCount}}</span>
+                  </i>
+                  <span  style="font-size: 17px;margin-left: 3px;">  My Cart </span> </a>
+                <div class="dropdown-divider"></div>
+                <a class="nav-link" routerLink="/login" (click)="logOut()" (click)="setActive('login')"><span  style="font-size: 17px;margin-left: 3px;"> Logout </span></a>
 
-            <li *ngIf="isloggedIn()" class="nav-item" [class.active]="isActive('login')">
-              <a class="nav-link" routerLink="/login" (click)="logOut()" (click)="setActive('login')">Logout</a>
-            </li>
+              </div>
+            </div>
+           <!-- *********************************
+             <div class="input-group w-auto">
+              <ul class="navbar-nav mr-auto col-10 align-items-center" id="main">
+                <li *ngIf="isloggedIn()" class="nav-item" [class.active]="isActive('orderstatus')">
+                  <a class="nav-link" routerLink="/orderstatus" (click)="setActive('orderstatus')">
+                    <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
+                  </a>
+                </li>
+                 cart
+                <li *ngIf="isloggedIn()" class="nav-item" [class.active]="isActive('cart')">
+                  <a class="nav-link" routerLink="/cart" (click)="setActive('cart')">
+                    <i class="fa-solid fa-cart-arrow-down" style="color: #ffffff;">
+                      <span class="cart-counter">{{ cartService.cartItemCount}}</span>
+                    </i>
+                  </a>
+                </li>
+                <li *ngIf="isloggedIn()" class="nav-item dropdown" [class.active]="isActive('user')">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa-solid fa-user" style="color: #ffffff;"></i> Welcome, {{ name }}
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/profile" (click)="setActive('user')">Profile</a>
+                    <a class="dropdown-item" routerLink="/logout" (click)="logOut()">Logout</a>
+                  </div>
+                </li>
+                <li *ngIf="!isloggedIn()" class="nav-item" [class.active]="isActive('login')">
+                  <a class="nav-link" routerLink="/login" (click)="setActive('login')">Login</a>
+                </li>
+                <li *ngIf="!isloggedIn()" class="nav-item" [class.active]="isActive('registercustomer')">
+                  <a class="nav-link" routerLink="/registercustomer" (click)="setActive('registercustomer')">Register</a>
+                </li>
+              </ul>
+            </div> -->
+            
+              
             <!-- login -->
             <li *ngIf="!isloggedIn()" class="nav-item" [class.active]="isActive('login')">
               <a class="nav-link" routerLink="/login" (click)="setActive('login')">Login</a>
@@ -68,7 +114,7 @@
             <li *ngIf="!isloggedIn()" class="nav-item" [class.active]="isActive('registercustomer')">
               <a class="nav-link" routerLink="/registercustomer" (click)="setActive('registercustomer')">Register</a>
             </li>
-          </ul>
+          </ul> 
           <!-- <input
             type="search"
             class="form-control rounded"

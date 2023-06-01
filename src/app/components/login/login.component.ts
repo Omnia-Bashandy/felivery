@@ -44,6 +44,11 @@ login(email: any, password: any) {
         const id = data["id"]; // Accessing the "id" property
         const role = data["roles"][0]; // Accessing the "id" property        
         const logToken = data["token"]; // Accessing the "id" property
+        const name = data["username"]; // Accessing the "id" property
+        // this.sharedService.setCusName(name)
+        localStorage.setItem("CusName",name)
+
+        console.log(name); // Check the value of id
         console.log(id); // Check the value of id
         console.log(role); // Check the value of id
         console.log(logToken); // Check the value of id

@@ -32,6 +32,14 @@ export class SharedService {
     return localStorage.getItem("custId")
     // return this.id;
   }
+  // setCusName(name: string): void {
+  //   localStorage.setItem("CusName",name)
+
+  // }
+
+  // geCusName(): string | null {
+  //   return localStorage.getItem("CusName")
+  // }
 
   setName(name: string): void {
     this.name = name;
