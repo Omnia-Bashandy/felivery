@@ -24,6 +24,7 @@ export class StoresettingComponent {
               console.log(data)
               console.log(this.restaurantData)
               console.log(this.restaurantData.address)
+              console.log(this.restaurantData.storeImg)
               this.sharedService.setName(this.restaurantData.name);
             },
             error:(err)=>{console.log(err)},

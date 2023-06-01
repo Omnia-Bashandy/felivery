@@ -32,6 +32,7 @@ import { AddcategoryComponent } from './components/storeDashboardComponents/addc
 import { UpdatecategoryComponent } from './components/storeDashboardComponents/updatecategory/updatecategory.component';
 import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.component';
 import { OrderstatusComponent } from './components/orderstatus/orderstatus.component';
+import { EditStorImgComponent } from './components/storeDashboardComponents/edit-stor-img/edit-stor-img.component';
 
 
 const routes: Routes = [
@@ -71,6 +72,7 @@ const routes: Routes = [
       { path: 'updatecategory/:id', component: UpdatecategoryComponent},
       // pending
       { path: 'pending', component: PendingComponent},
+      {path:"storeImg" , component:EditStorImgComponent},
 
 
 

@@ -10,13 +10,17 @@ export class StoreService {
   constructor(private myClient: HttpClient) { }
   private Base_URL = "https://localhost:44309/api/Store";
   private Base_URLReg = "https://localhost:44309/api/Store/Registration";
-  private img_url = "https://localhost:44309/api/Store/uploadImage";
   private ItemsbyID =" https://localhost:44309/api/Store/MstoreID";
   private totalEarningsURL ="https://localhost:44309/api/Store/TotalEarnings";
   
-  uploadImg(img:any){
-    return this.myClient.post(this.img_url,img );
+  private img_url = "https://localhost:44309/api/Store/uploadImage";
+  //uploadImg(img:any , name:any){
+    //return this.myClient.post(this.img_url,img ,name);
+  //}
+  uploadImg(img:any ,storeName:any){
+    return this.myClient.post(`${this.img_url}/${storeName}`,img);
   }
+
   getAllRestaurants() {
     return this.myClient.get(this.Base_URL);
   }
