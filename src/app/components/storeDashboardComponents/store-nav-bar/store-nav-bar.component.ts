@@ -24,8 +24,8 @@ constructor(public route:Router){}
   setActive(link: string): void {
     this.activeLink = link;
   }
-  logOut(){
+  LogOut(){
     // localStorage.removeItem("token")
-    this.route.navigate(['/'])
+    this.route.navigate(['/login'])
   }
 }

@@ -46,7 +46,6 @@ login(email: any, password: any) {
         const logToken = data["token"]; // Accessing the "id" property
         const name = data["username"]; // Accessing the "id" property
         // this.sharedService.setCusName(name)
-        localStorage.setItem("CutName",name)
 
         console.log(name); // Check the value of id
         console.log(id); // Check the value of id
@@ -58,6 +57,7 @@ login(email: any, password: any) {
         if (role == "PendingStore") {
           this.router.navigate(['/pending']); 
         }else if(role == "Customer"){
+          localStorage.setItem("CutName",name)
           this.router.navigate(['/']); 
           this.sharedService.setCustId(id)
         }else if(role == "ApprovedStore"){
