@@ -19,7 +19,7 @@ islog:boolean = true;
 cartItemCount: number|any = 0;
 constructor(public cartService: CartService,private login:LoginService,
   private user:SharedService ) {}
-  name:any = localStorage.getItem("CusName")
+  name = localStorage.getItem("CutName")
 
   ngOnInit() {
     // Fetch the cart item count from the cart service or data source

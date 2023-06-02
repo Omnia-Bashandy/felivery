@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import {faEye , faEyeSlash  } from '@fortawesome/free-solid-svg-icons';
 import { CustomerService } from 'src/app/Services/customer.service';
 
@@ -13,7 +14,7 @@ export class RegistercustomerComponent {
   eye = faEye;
   eyeSlash = faEyeSlash
   passwordVisible: boolean = false;
-  constructor(private http : CustomerService){}
+  constructor(private http : CustomerService , private route:Router){}
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
@@ -61,9 +62,12 @@ export class RegistercustomerComponent {
         const token = data["token"]; // Accessing the "id" property
         console.log(token); // Check the value of id
         localStorage.setItem('token',token)
+        console.log(`Welcome in Felivery`);
+        this.route.navigate(['/'])
       },
       error: (err) => {
         console.log(err);
+        alert(`${err.error}`)
         // Handle login error
       },
       });

@@ -46,7 +46,7 @@ login(email: any, password: any) {
         const logToken = data["token"]; // Accessing the "id" property
         const name = data["username"]; // Accessing the "id" property
         // this.sharedService.setCusName(name)
-        localStorage.setItem("CusName",name)
+        localStorage.setItem("CutName",name)
 
         console.log(name); // Check the value of id
         console.log(id); // Check the value of id
