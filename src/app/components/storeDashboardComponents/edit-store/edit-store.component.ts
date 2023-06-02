@@ -11,6 +11,7 @@ import { StoreService } from 'src/app/Services/store.service';
 export class EditStoreComponent implements OnInit {
   activeLink: string = 'home';
 
+
   isActive(link: string): boolean {
     return this.activeLink === link;
   }
@@ -56,7 +57,7 @@ export class EditStoreComponent implements OnInit {
     });
   }
 
-  update(Remail: any, Rmobile: any, Rname: any, Raddress: any, Rdis: any) {
+  update( Rmobile: any, Rname: any, Raddress: any, Rdis: any) {
     // if (this.validUpdatestore.valid) {
       // {
       //   "id": 5,
@@ -73,7 +74,6 @@ export class EditStoreComponent implements OnInit {
         address: Raddress.value,
         mobileNumber: Rmobile.value,
         description: Rdis.value,
-        storeImg: "ghg",
         type: 0
       };
       console.log(updatedData);
@@ -84,7 +84,18 @@ export class EditStoreComponent implements OnInit {
           console.log(response);
           console.log(this.id);
           
+    //       //image
+    // this.myService.uploadImg(this.selectedFile, Rname ).subscribe({ 
+    //   //this.myService.uploadImg( Rname ).subscribe({ 
+    //     next(data : any) {
+    //       console.log(data);
+    //     },error: (err) => {
+    //       console.log(err);
+    //       // this.imgUrl = err.error["text"]
+    //       console.log(err.error["text"]);
           
+    //     }
+    //   })
         },
         error: (err) => {
           console.error(err);

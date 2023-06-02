@@ -17,6 +17,7 @@ showDashboardLinks = false;
 showDropdown: boolean = false; // Add showDropdown property
 islog:boolean = true;
 
+
 status: string = '';
 
 cartItemCount: number|any = 0;
@@ -24,6 +25,11 @@ constructor(public cartService: CartService,private login:LoginService,
   private user:SharedService ) {
     this.status = this.user.getStatus();
   }
+cartItemCount: number|any = 0;
+constructor(public cartService: CartService,private login:LoginService,
+  private user:SharedService ) {}
+  name = localStorage.getItem("CutName")
+
 
   ngOnInit() {
     // Fetch the cart item count from the cart service or data source

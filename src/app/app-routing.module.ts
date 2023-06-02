@@ -36,6 +36,8 @@ import { PendingstatusComponent } from './components/pendingstatus/pendingstatus
 import { CancelstatusComponent } from './components/cancelstatus/cancelstatus.component';
 import { DeliveredstatusComponent } from './components/deliveredstatus/deliveredstatus.component';
 import { CancelusrstatusComponent } from './components/cancelusrstatus/cancelusrstatus.component';
+import { EditStorImgComponent } from './components/storeDashboardComponents/edit-stor-img/edit-stor-img.component';
+
 
 
 const routes: Routes = [
@@ -78,6 +80,7 @@ const routes: Routes = [
       { path: 'updatecategory/:id', component: UpdatecategoryComponent},
       // pending
       { path: 'pending', component: PendingComponent},
+      {path:"storeImg" , component:EditStorImgComponent},
 
 
       

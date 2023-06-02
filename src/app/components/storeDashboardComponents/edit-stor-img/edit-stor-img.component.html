@@ -1,0 +1,8 @@
+<div class="uploadimg mt-5">
+    <img [src]="restaurantData.storeImg || 'assets/Burger.jpg'" class="w-25 m-5" />
+    <div class="add">
+      <input type="file" (change)="onUpload($event)" />
+      <i class="fa fa-camera"></i>
+      <button (click)="update()">Save</button>
+    </div>
+  </div>

@@ -11,12 +11,11 @@ import {faEye , faEyeSlash  } from '@fortawesome/free-solid-svg-icons';
 })
 export class RegestrationComponent {
 
-  // selectedFile: File | null = null;
 //image**********************
-  ondileSelected(event:any){
-    this.selectedFile = event.target.files[0];
-  }
-  selectedFile: FormData | null = null;
+  // ondileSelected(event:any){
+  //   this.selectedFile = event.target.files[0];
+  // }
+  selectedFile: FormData | undefined ;
 
   onUpload(event: any){
     if(event.target.files.length > 0) {
@@ -27,7 +26,6 @@ export class RegestrationComponent {
         formData.append('file',file);
         //this.selectedFile = file;
         this.selectedFile = formData;
-
       } else {
         alert('Please select an Image in either .jpg, .jpeg, or .png forms!');
       }
@@ -57,10 +55,8 @@ export class RegestrationComponent {
     // console.log(myService.getAllRestaurants.length);
   }
 
-  
+imgUrl:any;
   AddRestaurant(discription: string, phone: number, address: string, password: string, remail: string, Rname: string) {
-    console.log(phone);
-    
     let newRestaurant ={
       "model":{
       username: Rname,
@@ -72,32 +68,46 @@ export class RegestrationComponent {
       address: address,
       mobileNumber: phone,
       description: discription,
-      storeImg : "abs"
+      // storeImg : this.imgUrl
       }
   }
+  
   if (this.validationsRegister.valid) {
+    //register
     console.log(newRestaurant);
       this.myService.addRestaurant(newRestaurant).subscribe({
+        
         next: (data: any) => {
           console.log(data);
           const token = data["token"]; // Accessing the "id" property
           console.log(token); // Check the value of id
           localStorage.setItem('token',token)
           this.router.navigate(['/pending']); 
-          
-          alert(`Rest ${Rname} added successfully`)
+          console.log("hello")
+          alert(`Restaurant ${Rname} added successfully`)
+
+           //image
+      this.myService.uploadImg(this.selectedFile, Rname ).subscribe({ 
+        //this.myService.uploadImg( Rname ).subscribe({ 
+          next(data : any) {
+            console.log(data);
+          },error: (err) => {
+            console.log(err);
+            this.imgUrl = err.error["text"]
+            console.log(err.error["text"]);
+            
+          }
+        })
+
         },
         error: (err) => {
           console.log(err);
-          // Handle login error
+          console.log(err.error);
+          alert(`${err.error}`)
         }
-    })
-  //   this.myService.uploadImg(this.selectedFile).subscribe({
-  //     next(data : any) {
-  //       console.log(data);
-  //     },error: (err) => {
-  //       console.log(err);
-  //     }
-  //   })
+        
+      })
   }
+    
+        
 }}

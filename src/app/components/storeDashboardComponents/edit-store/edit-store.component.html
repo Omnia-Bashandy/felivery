@@ -4,17 +4,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 col-12 p-5">
           <h1 class="hidding-offer text-white text-center">Update Store</h1>
-          <form [formGroup]="validUpdatestore" (ngSubmit)="update(Remail, Rmobile, Rname, Raddress, Rdis)">
-            <div class="mb-3">
-              <div class="uploadimg mt-5">
-                <img src="../../../assets/rr.jpeg" class="w-100" />
-                <div class="add">
-                  <input type="file" />
-                  <i class="fa fa-camera"></i>
-                </div>
-              </div>
-              <label for="name" class="form-label">Change Photo</label>
-            </div>
+          <form [formGroup]="validUpdatestore" (ngSubmit)="update( Rmobile, Rname, Raddress, Rdis)">
 
             <div class="mb-3">
               <label for="storename" class="form-label">Store Name</label>
@@ -63,7 +53,7 @@
                 </div>
               </div>
             </div>
-
+<!-- 
             <div class="mb-3">
               <label for="Email" class="form-label">Email</label>
               <input
@@ -109,7 +99,7 @@
                   Password is required.
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <div class="mb-3">
               <label for="address" class="form-label">Address</label>
@@ -154,9 +144,18 @@
                 </div>
               </div>
             </div>
-
-            <div class="d-grid gap-2">
-              <button class="btn btn-primary btn-lg" type="submit" >Update</button>
+            <div class="mb-3">
+              <div class="uploadimg">
+                <!-- <img [src]="restaurantData.storeImg || 'assets/Burger.jpg'" class="w-100" /> -->
+                <label for="name" class="form-label">Change Photo</label>
+                <div class="add">
+                  <!-- <input type="file" /> -->
+                  <i routerLink="/store-dashboard/storeImg" class="fa fa-camera"></i>
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary btn-lg" type="submit" >Update</button>
+              </div>
             </div>
           </form>
         </div>
