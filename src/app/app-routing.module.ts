@@ -32,6 +32,10 @@ import { AddcategoryComponent } from './components/storeDashboardComponents/addc
 import { UpdatecategoryComponent } from './components/storeDashboardComponents/updatecategory/updatecategory.component';
 import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.component';
 import { OrderstatusComponent } from './components/orderstatus/orderstatus.component';
+import { PendingstatusComponent } from './components/pendingstatus/pendingstatus.component';
+import { CancelstatusComponent } from './components/cancelstatus/cancelstatus.component';
+import { DeliveredstatusComponent } from './components/deliveredstatus/deliveredstatus.component';
+import { CancelusrstatusComponent } from './components/cancelusrstatus/cancelusrstatus.component';
 
 
 const routes: Routes = [
@@ -45,7 +49,10 @@ const routes: Routes = [
   { path: 'order/:id', component: OrderComponent },
   { path: 'menuserved', component: MenuservedComponent},
   { path: 'cart', component: CartComponent},
-  { path: 'tryadditem', component: TryadditemComponent},
+  { path: 'pendingstatus', component: PendingstatusComponent},
+  { path: 'deliverdstatus', component: DeliveredstatusComponent},
+  { path: 'cancelstatus', component: CancelstatusComponent},
+  { path: 'cancelusrstatus', component: CancelusrstatusComponent},
 
   {
     path: 'store-dashboard',
@@ -72,10 +79,6 @@ const routes: Routes = [
       // pending
       { path: 'pending', component: PendingComponent},
 
-
-
-
-      
 
       
     ]

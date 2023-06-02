@@ -56,6 +56,7 @@
       </div>
     </div>
 
+
     <!-- Pending Requests Card Example -->
     <div class="col-xl-4 col-md-6 mb-4">
       <div class="card border-left-warning shadow h-100 py-2">
@@ -79,6 +80,7 @@
       </div>
     </div>
   </div>
+  <!-- orders by rest id -->
   <div class="row">
     <div class="col-lg-5 mb-4">
       <!-- Illustrations -->
@@ -123,7 +125,7 @@
               <i class="fa-solid fa-check" style="color: #00040a;"></i>
              </button>
 
-             <button  class="btn btn-danger m-1" (click)="cancelOrderstatus()">
+             <button  class="btn btn-danger m-1" (click)="cancelOrderstatus(o.id)">
               <i class="fa-solid fa-xmark" style="color: #02060d;"></i>
              </button>
              <!-- <button  class="btn btn-success m-1">
@@ -136,6 +138,64 @@
       </table>
     </div>
   </div>
+
+   <!-- cancelled orders -->
+
+   <div class="row justify-content-center">
+    <div class="col-xl-10 col-md-8 mb-4">
+      <h3>Canclled Orders</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Order Number</th>
+            <th>Customer ID</th>
+            <th>Customer Name</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Address</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bo of backupdatacheckout.details">
+            <td>{{ bo.menuItemID }}</td>
+            <td>{{ backupdatacheckout.customerID}}</td>
+            <td>{{ backupdatacheckout.customerID.name }}</td>
+            <td>{{ bo.quantity }}</td>
+            <td>{{ backupdatacheckout.totalPrice }}</td>
+            <td>{{ backupdatacheckout.address }}</td>
+
+          </tr>
+        </tbody>
+<!-- <p>Total Price: {{ backupdatacheckout.totalPrice }}</p>
+<p>Address: {{ backupdatacheckout.address }}</p>
+<p>Backup Order Details:</p>
+<ul>
+  <li *ngFor="let bo of backupdatacheckout.details">
+    <p>Menu Item ID: {{ bo.menuItemID }}</p>
+    <p>Quantity: {{ bo.quantity }}</p>
+    <p>Price: {{ bo.price }}</p>
+  </li>
+</ul>
+<p>Restaurant ID: {{ backupdatacheckout.restaurantID }}</p>
+<p>Customer ID: {{ backupdatacheckout.customerID }}</p> -->
+
+        <!-- <tbody>
+          <tr *ngFor="let bo of backupdatacheckout">
+            <td>{{bo.id}}</td>
+          <td>{{o.details[o.name]}}</td>
+            <td >{{bo.address}}</td>
+            <td>{{bo.totalPrice}}$</td>
+            <td>{{bo.customerID}}</td>
+
+          </tr>
+          
+        </tbody> -->
+      </table>
+    </div>
+  </div>
+
+
 </div>
 
 <div class="container">

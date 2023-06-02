@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CanclledordersService } from 'src/app/Services/canclledorders.service';
+import { CartService } from 'src/app/Services/cart.service';
 import { CategoriesService } from 'src/app/Services/categories.service';
 import { OrderService } from 'src/app/Services/order.service';
 import { SharedService } from 'src/app/Services/shared.service';
@@ -21,14 +23,19 @@ export class StorehomeComponent {
   pendingOrders:any;
   orderName:any; //to save name on it
   orderId:any;//to get order name by using it
-
   roundedPercentage:any;
   restuDetails:any
 
+  backupdatacheckout:any;
+
+  feedbackExist:any = false;
+  cancledExist:any = false;
 
   constructor(private sharedService: SharedService,
     private orderservice:OrderService,private servicestore:StoreService,
-    private route:ActivatedRoute,private category:CategoriesService) {}
+    private route:ActivatedRoute,private category:CategoriesService,
+    private cart:CartService,
+    private orderCancellationService:CanclledordersService) {}
 
   ngOnInit() {
     // Get the stored id from the shared service
@@ -118,9 +125,16 @@ export class StorehomeComponent {
       }
     )
     
+    this.backupdatacheckout = this.orderCancellationService.getCanceledOrderData();
+
+    if (this.backupdatacheckout) {
+      // Perform any necessary actions with the canceled order data
+
+      console.log('Canceled order data:', this.backupdatacheckout);
+      this.cancledExist = true
+    }
 
     // progress bar
-    this.deliveredPercentage()
     // this.getorderbyID();
     // this.aproveOrderstatus();
 
@@ -165,24 +179,51 @@ export class StorehomeComponent {
         console.log('Error retrieving order:', error);
       }
     );
-    this.sharedService.setStatus("done");
+    this.sharedService.setStatus('done');
 console.log(typeof Oid);
 console.log(+Oid);
 
   }
 
-  cancelOrderstatus(){
-    this.sharedService.setStatus("cancle");
+  // aproveOrderstatus(Oid:number) {
+  //   this.orderservice.updateDonestatus(Oid).subscribe(
+  //     (response: any) => {
+  //       console.log(response);
+  //       // this.orderName = response.name;
+  //       // console.log(this.orderName);
+  //     },
+  //     (error: any) => {
+  //       console.log('Error retrieving order:', error);
+  //     }
+  //   );
+  //   this.sharedService.setStatus("done");
+  //   this.cart.deleteFromCart(Number(Oid));
+  //   console.log(typeof Oid);
+  //   console.log(+Oid);
+  // }
+
+  // cancelOrderstatus(){
+  //   this.sharedService.setStatus("cancle");
+  // }
+
+  
+  cancelOrderstatus(Oid: any) {
+    const cancelledIndex = this.orders.findIndex((order: any) => order.id === Oid);
+    console.log(cancelledIndex);
+    
+    if (cancelledIndex !== -1) {
+      this.orders.splice(cancelledIndex, 1);
+    }
+    const storedOrders = localStorage.getItem('orders');
+    if (storedOrders) {
+      const orders = JSON.parse(storedOrders);
+      const updatedOrders = orders.filter((order: any) => order.id !== Oid);
+      localStorage.setItem('orders', JSON.stringify(updatedOrders));
+    }
+    this.sharedService.setStatus('cancel');
+    this.cart.deleteFromCart(Oid);
   }
 
-  removeOrderFromTable() {
-    // Find the index of the cancelled order in the array
-    // const cancelledIndex = this.orders.findIndex(order => order.status === 'cancel');
-    // Remove the order from the array
-    // if (cancelledIndex !== -1) {
-    //   this.orders.splice(cancelledIndex, 1);
-    // }
-  }
 
 
 }
