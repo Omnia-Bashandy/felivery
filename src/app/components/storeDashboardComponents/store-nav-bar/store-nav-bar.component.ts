@@ -26,6 +26,8 @@ constructor(public route:Router){}
   }
   logOut(){
     // localStorage.removeItem("token")
-    this.route.navigate(['/'])
+    this.route.navigate(['/login'])
+    console.log("hii");
+    
   }
 }
