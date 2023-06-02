@@ -25,9 +25,7 @@ constructor(public cartService: CartService,private login:LoginService,
   private user:SharedService ) {
     this.status = this.user.getStatus();
   }
-cartItemCount: number|any = 0;
-constructor(public cartService: CartService,private login:LoginService,
-  private user:SharedService ) {}
+
   name = localStorage.getItem("CutName")
 
 

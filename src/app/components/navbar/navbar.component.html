@@ -40,39 +40,10 @@
         <div class="input-group w-auto">
 
           <ul class="navbar-nav mr-auto col-10 align-items-center" id="main">
-
-
             <!-- order status -->
           
-            <ul class="navbar-nav ml-auto">
-              <!-- Pending Component -->
-              <li class="nav-item" *ngIf="status === 'pending'">
-                <a class="nav-link" routerLink="/pendingstatus">
-                  <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
-                </a>
-              </li>
-            
-              <!-- Cancelled Component -->
-              <li class="nav-item" *ngIf="status === 'cancel'">
-                <a class="nav-link" routerLink="/cancelstatus">
-                  <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
-                </a>
-              </li>
-            
-              <!-- Done Component -->
-              <li class="nav-item" *ngIf="status === 'done'">
-                <a class="nav-link" routerLink="/deliverdstatus">
-                  <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
-                </a>
-              </li>
-              <!-- canclled by customer -->
-              <li class="nav-item" *ngIf="status === 'cancelcustomer'">
-                <a class="nav-link" routerLink="/cancelusrstatus">
-                  <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
-                </a>
-              </li>
-            </ul>
-           <ul class="navbar-nav mr-auto col-10 align-items-center" id="main">
+          
+            <ul class="navbar-nav mr-auto col-10 align-items-center" id="main">
             <!-- < order status  -->
             <div class="btn-group" *ngIf="isloggedIn()">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,9 +51,37 @@
 
               </a>
               <div class="dropdown-menu">
-                <a class="nav-link dropdown-item" routerLink="/orderstatus" (click)="setActive('orderstatus')"> 
+                <!-- <a class="nav-link dropdown-item" routerLink="/orderstatus" (click)="setActive('orderstatus')"> 
                   <i class="fa-solid fa-bag-shopping" ></i> 
-                  <span  style="font-size: 17px;margin-left: 3px;">  My Order</span></a>
+                  <span  style="font-size: 17px;margin-left: 3px;">  My Order</span></a> -->
+                  <ul class="navbar-nav ml-auto">
+                    <!-- Pending Component -->
+                    <li class="nav-link dropdown-item" *ngIf="status === 'pending'"  style="font-size: 17px;margin-left: 3px; color: black;">
+                      <a class="nav-link dropdown-item" routerLink="/pendingstatus">
+                        <i class="fa-solid fa-bag-shopping" ></i>
+                        My Order</a>
+                    </li>
+                  
+                    <!-- Cancelled Component -->
+                    <li class="nav-link dropdown-item" *ngIf="status === 'cancel'"  style="font-size: 17px;margin-left: 3px;color: black;">
+                      <a class="nav-link dropdown-item" routerLink="/cancelstatus">
+                        <i class="fa-solid fa-bag-shopping" ></i>
+                        My Order</a>
+                    </li>
+                  
+                    <!-- Done Component -->
+                    <li class="nav-link dropdown-item" *ngIf="status === 'done'" style="font-size: 17px;margin-left: 3px;color: black;">
+                      <a class="nav-link dropdown-item" routerLink="/deliverdstatus">
+                        <i class="fa-solid fa-bag-shopping" ></i>
+                        My Order</a>
+                    </li>
+                    <!-- canclled by customer -->
+                    <li class="nav-link dropdown-item" *ngIf="status === 'cancelcustomer'" style="font-size: 17px;margin-left: 3px;color: black;">
+                      <a class="nav-link dropdown-item" routerLink="/cancelusrstatus">
+                        <i class="fa-solid fa-bag-shopping" ></i>
+                        My Order</a>
+                    </li>
+                  </ul>
                 <a class="nav-link dropdown-item" routerLink="/cart" (click)="setActive('cart')"> 
                   <i class="fa-solid fa-cart-arrow-down" >
                     <span class="cart-counter">{{ cartService.cartItemCount}}</span>
@@ -93,40 +92,6 @@
 
               </div>
             </div>
-           <!-- *********************************
-             <div class="input-group w-auto">
-              <ul class="navbar-nav mr-auto col-10 align-items-center" id="main">
-                <li *ngIf="isloggedIn()" class="nav-item" [class.active]="isActive('orderstatus')">
-                  <a class="nav-link" routerLink="/orderstatus" (click)="setActive('orderstatus')">
-                    <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i>
-                  </a>
-                </li>
-                 cart
-                <li *ngIf="isloggedIn()" class="nav-item" [class.active]="isActive('cart')">
-                  <a class="nav-link" routerLink="/cart" (click)="setActive('cart')">
-                    <i class="fa-solid fa-cart-arrow-down" style="color: #ffffff;">
-                      <span class="cart-counter">{{ cartService.cartItemCount}}</span>
-                    </i>
-                  </a>
-                </li>
-                <li *ngIf="isloggedIn()" class="nav-item dropdown" [class.active]="isActive('user')">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa-solid fa-user" style="color: #ffffff;"></i> Welcome, {{ name }}
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="/profile" (click)="setActive('user')">Profile</a>
-                    <a class="dropdown-item" routerLink="/logout" (click)="logOut()">Logout</a>
-                  </div>
-                </li>
-                <li *ngIf="!isloggedIn()" class="nav-item" [class.active]="isActive('login')">
-                  <a class="nav-link" routerLink="/login" (click)="setActive('login')">Login</a>
-                </li>
-                <li *ngIf="!isloggedIn()" class="nav-item" [class.active]="isActive('registercustomer')">
-                  <a class="nav-link" routerLink="/registercustomer" (click)="setActive('registercustomer')">Register</a>
-                </li>
-              </ul>
-            </div> -->
-            
               
             <!-- login -->
             <li *ngIf="!isloggedIn()" class="nav-item" [class.active]="isActive('login')">
@@ -136,17 +101,8 @@
             <li *ngIf="!isloggedIn()" class="nav-item" [class.active]="isActive('registercustomer')">
               <a class="nav-link" routerLink="/registercustomer" (click)="setActive('registercustomer')">Register</a>
             </li>
+            </ul> 
           </ul> 
-          <!-- <input
-            type="search"
-            class="form-control rounded"
-            placeholder="Search"
-            aria-label="Search"
-            aria-describedby="search-addon"
-            />
-            <span class="input-group-text border-0" id="search-addon">
-              <fa-icon [icon]="search"></fa-icon>
-            </span>  -->
         </div>
       </div>
     </nav>
