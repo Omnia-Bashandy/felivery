@@ -205,7 +205,6 @@ console.log(+Oid);
   // cancelOrderstatus(){
   //   this.sharedService.setStatus("cancle");
   // }
-
   
   cancelOrderstatus(Oid: any) {
     const cancelledIndex = this.orders.findIndex((order: any) => order.id === Oid);
@@ -223,7 +222,4 @@ console.log(+Oid);
     this.sharedService.setStatus('cancel');
     this.cart.deleteFromCart(Oid);
   }
-
-
-
 }

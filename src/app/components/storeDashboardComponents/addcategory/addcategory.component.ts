@@ -40,9 +40,6 @@ Addcat(categoryname: string) {
                   console.log('Error', err);
                 }
       );
-
     }
   }
-  
-
 }
