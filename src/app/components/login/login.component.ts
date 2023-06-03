@@ -42,30 +42,25 @@ login(email: any, password: any) {
       next: (data: any) => {
         console.log(data);
         const id = data["id"]; // Accessing the "id" property
-        const role = data["roles"][0]; // Accessing the "id" property        
-        const logToken = data["token"]; // Accessing the "id" property
-        const name = data["username"]; // Accessing the "id" property
-        // this.sharedService.setCusName(name)
-        localStorage.setItem("CutName",name)
-
-        console.log(name); // Check the value of id
-        console.log(id); // Check the value of id
-        console.log(role); // Check the value of id
-        console.log(logToken); // Check the value of id
+        const role = data["roles"][0]; // Accessing the "role" property        
+        const logToken = data["token"]; // Accessing the "token" property
+        const name = data["username"]; // Accessing the "username" property
         localStorage.setItem("token",logToken)
-        this.sharedService.setId(id);
-        // Use the id as needed
+        
         if (role == "PendingStore") {
           this.router.navigate(['/pending']); 
         }else if(role == "Customer"){
+          localStorage.setItem("CustName",name)
           this.router.navigate(['/']); 
           this.sharedService.setCustId(id)
         }else if(role == "ApprovedStore"){
           this.router.navigate(['/store-dashboard/storehome'])
+          this.sharedService.setId(id);
         }
       },
       error: (err) => {
         console.log(err);
+        alert(`${err.error}`)
         // Handle login error
       },
     });

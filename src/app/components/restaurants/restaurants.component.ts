@@ -46,7 +46,9 @@ updateFilteredItems() {
 }
 search() {
   this.exactMatch = this.Restaurants.find((restaurant: any) =>
-    restaurant.name.toLowerCase() === this.searchText.toLowerCase()
+    
+    restaurant.name.toLowerCase().includes(this.searchText)
+    //restaurant.name.toLowerCase() === this.searchText.toLowerCase()
   );
   this.notmatch = !this.exactMatch;
 }

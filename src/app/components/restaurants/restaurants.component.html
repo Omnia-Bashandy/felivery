@@ -22,7 +22,7 @@
           <p class="font">ABS Are cool But have you tried Our Restaurants Food?</p>
                    <!-- Search -->
                    <div class="input-group rounded">
-                    <input type="search" type="text" [(ngModel)]="searchText" (input)="updateFilteredItems()" class="form-control rounded" placeholder="Search On Specfic Restaurant"
+                    <input type="search" (keyup)="search()" type="text" [(ngModel)]="searchText" (input)="updateFilteredItems()" class="form-control rounded" placeholder="Search On Specfic Restaurant"
                     />
                     <span (click)="search()">
                       <i class="fa-solid fa-magnifying-glass mt-2 ml-1" 
@@ -116,11 +116,11 @@
         </div>
 
         <div class="row justify-content-center h-desc">
-          <div class="col-12 text-center">
-            <p class="pl-3 pr-3">{{Restaurant.description}}</p>
-
+          <div class="col-12 text-center ellipsis">
+            <p>{{Restaurant.description}}</p>
           </div>
         </div>
+        
         <div class="row justify-content-center h-rate">
           <div class="col-3 bg-contain-stars micons">
               <i (click)="Selected(1)" [style.color]="iconcolor1" class="fa-sharp fa-solid fa-star" ></i>

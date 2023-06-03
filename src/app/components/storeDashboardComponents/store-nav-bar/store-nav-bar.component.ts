@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faMagnifyingGlass , faBars } from '@fortawesome/free-solid-svg-icons';
+import { data } from 'jquery';
+import { SharedService } from 'src/app/Services/shared.service';
+import { StoreService } from 'src/app/Services/store.service';
 
 
 @Component({
@@ -12,9 +15,21 @@ export class StoreNavBarComponent {
   search = faMagnifyingGlass;
   bars = faBars
   activeLink: string = 'storehome';
-constructor(public route:Router){}
+  id: any = this.shared.getId()
+  resId: any;
+  TheStore: any = this.store.getRestaurantById(this.id).subscribe(
+    (data) => {
+      this.resId = data
+    }
+  )
+  StoreImg: string = this.TheStore.storeImg;
+constructor(public route:Router, private shared:SharedService, private store:StoreService){}
   ngOnInit(): void {
     this.isActive('storehome'); // Evaluate the active state of the 'storehome' link when the component initializes
+  console.log("aaaaaaaaaaaaaaaaaaaaaaaaa");
+  console.log(this.id);
+  console.log(this.resId);
+  console.log(this.resId.name);
   }
   
   isActive(link: string): boolean {
@@ -24,8 +39,8 @@ constructor(public route:Router){}
   setActive(link: string): void {
     this.activeLink = link;
   }
-  logOut(){
+  LogOut(){
     // localStorage.removeItem("token")
-    this.route.navigate(['/'])
+    this.route.navigate(['/login'])
   }
 }

@@ -50,6 +50,12 @@
 #sidbarnav .nav-link:hover {
   color:  #64300f;
 }
+
 span{
   margin-left: 10px;
+}
+
+.style-img{
+  border-radius: 50%;
+  height: 150px;
 }

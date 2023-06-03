@@ -13,6 +13,13 @@ export class MenuitemsService {
   private putURL = "https://localhost:44309/api/MenuItem/put";
   // private deleteURL ="https://localhost:44309/api/MenuItem";
   private delurl = "https://localhost:44309/api/MenuItem/delete";
+  private imgUrl = "https://localhost:44309/api/MenuItem/UploadImage/uploadImage"
+
+
+  uploadImg(img:any ,storeName:any , itemname :any){
+    return this.client.post(`${this.imgUrl}/${storeName}/${itemname}`,img);
+  }
+
   constructor(private client:HttpClient) { }
 
 

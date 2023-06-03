@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CategoriesService } from 'src/app/Services/categories.service';
+import { SharedService } from 'src/app/Services/shared.service';
 
 
 @Component({
@@ -17,17 +18,16 @@ export class AddcategoryComponent {
     // desc:new FormControl("",[Validators.required,Validators.max(100)]),
     // menuitems:new FormControl("",[Validators.required,Validators.max(100)]),
   })
-
-  constructor(public myService:CategoriesService , private route:Router){
+  constructor(public myService:CategoriesService , private route:Router , public shared:SharedService){
   }
+  id = this.shared.getId()
 
 Addcat(categoryname: string) {
 
     let newItem={
       name: categoryname,
-      
+      restaurantID : this.id
       }
-  
   if (this.addcat.valid) {
     console.log(newItem);
       this.myService.addCategory(newItem).subscribe(
@@ -40,9 +40,6 @@ Addcat(categoryname: string) {
                   console.log('Error', err);
                 }
       );
-
     }
   }
-  
-
 }
