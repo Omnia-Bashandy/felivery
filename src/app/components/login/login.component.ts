@@ -45,8 +45,6 @@ login(email: any, password: any) {
         const role = data["roles"][0]; // Accessing the "id" property        
         const logToken = data["token"]; // Accessing the "id" property
         const name = data["username"]; // Accessing the "id" property
-        // this.sharedService.setCusName(name)
-
         console.log(name); // Check the value of id
         console.log(id); // Check the value of id
         console.log(role); // Check the value of id
@@ -59,6 +57,7 @@ login(email: any, password: any) {
         }else if(role == "Customer"){
           localStorage.setItem("CutName",name)
           this.router.navigate(['/']); 
+          localStorage.setItem("CutName",name)
           this.sharedService.setCustId(id)
         }else if(role == "ApprovedStore"){
           this.router.navigate(['/store-dashboard/storehome'])

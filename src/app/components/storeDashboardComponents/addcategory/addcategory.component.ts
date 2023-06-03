@@ -18,7 +18,6 @@ export class AddcategoryComponent {
     // desc:new FormControl("",[Validators.required,Validators.max(100)]),
     // menuitems:new FormControl("",[Validators.required,Validators.max(100)]),
   })
-
   constructor(public myService:CategoriesService , private route:Router , public shared:SharedService){
   }
   id = this.shared.getId()

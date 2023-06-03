@@ -29,15 +29,29 @@ id:string |null = this.shared.getId()
 setSelectedCategory() {
   console.log(this.selectedCategoryId); // Output the selected category ID
 }
+selectedFile: FormData | undefined ;
 
-  
+  onUpload(event: any){
+    if(event.target.files.length > 0) {
+      const file = event.target.files[0];
+      //if(event.target.files.length == 1 && (file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg')) {
+      if(file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg') {
+        const formData = new FormData();
+        formData.append('file',file);
+        //this.selectedFile = file;
+        this.selectedFile = formData;
+      } else {
+        alert('Please select an Image in either .jpg, .jpeg, or .png forms!');
+      }
+    }
+  }
+  imgUrl:any;
   addNewItem(itemnam: string, price: any) {
     const newItem = {
       name: itemnam,
       price: price,
       categoryID: this.selectedCategoryId,
-      restaurantID: this.id,
-      menuItemImg: "skkfftring"
+      restaurantID: this.id
     };
   
     if (this.addnewitem.valid) {
@@ -46,11 +60,26 @@ setSelectedCategory() {
       this.myService.addmenuitem(newItem).subscribe(
         (data: any) => {
           console.log(data);
+          console.log(data["restaurant"]["name"]);
+          
         },
         (err: any) => {
           console.log('Error', err);
         }
+
       );
+       //image
+      //  this.myService.uploadImg(this.selectedFile, Rname ,itemnam).subscribe({ 
+      //   //this.myService.uploadImg( Rname ).subscribe({ 
+      //     next(data : any) {
+      //       console.log(data);
+      //     },error: (err) => {
+      //       console.log(err);
+      //       this.imgUrl = err.error["text"]
+      //       console.log(err.error["text"]);
+            
+      //     }
+      //   })
     }
   }
   

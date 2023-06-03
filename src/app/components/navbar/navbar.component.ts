@@ -51,6 +51,7 @@ toggleDropdown(): void {
   this.showDropdown = !this.showDropdown;
 }
 isLoggedIn: boolean = false;
+
 isloggedIn(): boolean {
   const token = localStorage.getItem('CutName');
   return !!token; // Returns true if token exists, false otherwise
