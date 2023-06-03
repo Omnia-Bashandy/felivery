@@ -111,7 +111,7 @@
 
 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/Services/cart.service';
 import { OrderService } from 'src/app/Services/order.service';
@@ -129,7 +129,11 @@ export class CartComponent implements OnInit {
   savedItems: any[] = [];
   address: string = '';
   quantity:any|null;
+  amount = 324;
 
+  paypal:any;
+
+   @ViewChild('paymentRef', {static: true}) paymentRef!: ElementRef;
   backupOrderobject:any; //object that sends into store home if customer press cancel button in pending page
 
 
@@ -148,6 +152,15 @@ export class CartComponent implements OnInit {
       };
       console.log(this.orders[i]);  
       this.savedItems.push(item);
+      window.paypal.Buttons(
+        {
+          style: {
+            layout: 'horizontal',
+            color: 'blue',
+            shape: 'rect',
+            label: 'paypal',
+          },
+        }).render(this.paymentRef.nativeElement);
     }
   
     this.calculateTotalPrice();

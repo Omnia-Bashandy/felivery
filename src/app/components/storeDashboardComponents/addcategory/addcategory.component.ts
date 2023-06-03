@@ -28,7 +28,6 @@ Addcat(categoryname: string) {
       name: categoryname,
       restaurantID : this.id
       }
-  
   if (this.addcat.valid) {
     console.log(newItem);
       this.myService.addCategory(newItem).subscribe(

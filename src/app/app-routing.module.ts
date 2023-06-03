@@ -66,6 +66,7 @@ const routes: Routes = [
       { path: 'edit-store', component: EditStoreComponent },
       { path: 'add-items', component: AddItemsComponent },
       { path: 'delete-store', component: DeleteStoreComponent },
+      // { path: 'login', component: LoginComponent },
 
       { path: 'categories', component: CategoriesComponent},
       { path: 'menuitems', component: MenuitemsComponent},
