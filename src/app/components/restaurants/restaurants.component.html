@@ -22,7 +22,7 @@
           <p class="font">ABS Are cool But have you tried Our Restaurants Food?</p>
                    <!-- Search -->
                    <div class="input-group rounded">
-                    <input type="search" type="text" [(ngModel)]="searchText" (input)="updateFilteredItems()" class="form-control rounded" placeholder="Search On Specfic Restaurant"
+                    <input type="search" (keyup)="search()" type="text" [(ngModel)]="searchText" (input)="updateFilteredItems()" class="form-control rounded" placeholder="Search On Specfic Restaurant"
                     />
                     <span (click)="search()">
                       <i class="fa-solid fa-magnifying-glass mt-2 ml-1" 

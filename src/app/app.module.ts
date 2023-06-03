@@ -117,7 +117,7 @@ import { EditStorImgComponent } from './components/storeDashboardComponents/edit
     FontAwesomeModule,
     DataTablesModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
     // NgxStarRatingModule
   ],
   providers: [],
