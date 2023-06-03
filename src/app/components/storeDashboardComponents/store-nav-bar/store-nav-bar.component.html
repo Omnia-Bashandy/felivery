@@ -3,7 +3,7 @@
   <a class="navbar-brand "> Felivery</a>
   <ul class="navbar-nav pt-5 d-flex flex-column w-100 text-center">
 
-    <img src="../../../../assets/rr.jpeg" alt="" class="mb-2 style-img">
+    <img [src]= "StoreImg" alt="" class="mb-2 style-img">
 
     <li class="nav-item" [class.active]="isActive('storehome')">
       <a class="nav-link" routerLink="/store-dashboard/storehome" (click)="setActive('storehome')">

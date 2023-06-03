@@ -94,24 +94,16 @@ export class StorehomeComponent {
           }
     );
 
-    // get all categories by rest id
-
-    this.category.GetAllCategories().subscribe(
-      (data: any) => {
-        console.log(data);
-        this.categories = data;
-        for (let c of data) {
-          if (c.categoryID=== Number(this.id)) {
-            this.items.push(c);
-          } else {
-            console.log("Not equal");
-          }
-        }
+// get all categories by rest id
+this.category.getCategoryRestid(this.id).subscribe(
+  (data:any)=>{
+        console.log(data);//all items
+        this.categories=data;
       },
-      (err: any) => {
-        console.log('Error', err);
+      (error:any)=>{
+        console.log("There is an error ",error); 
       }
-    );
+);
 
 
     // resturant details

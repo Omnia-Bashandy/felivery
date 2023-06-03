@@ -18,18 +18,15 @@ export class CategoriesComponent {
     private shared:SharedService,private router: Router) {}
 
   ngOnInit(): void {
-    this.catService.GetAllCategories().subscribe(
+    this.catService.getCategoryRestid(this.id).subscribe(
       (data:any)=>{
-        console.log(this.id);
-          console.log(data);//all items
-            if (this.categories.restuarantID == this.id) {
-              console.log(this.categories=data);
-            }
+            console.log(data);//all items
             this.categories=data;
           },
           (error:any)=>{
-            console.log("There is an error ",error);
-          } );
+            console.log("There is an error ",error); 
+          }
+    );
         }
   deleteItem(id: any): void {
     this.catService.getCategoryById(id).subscribe()
