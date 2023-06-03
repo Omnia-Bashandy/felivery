@@ -1,6 +1,8 @@
 import { Component , OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from 'src/app/Services/categories.service';
+import { SharedService } from 'src/app/Services/shared.service';
+import { StoreService } from 'src/app/Services/store.service';
 
 @Component({
   selector: 'app-categories',
@@ -9,20 +11,23 @@ import { CategoriesService } from 'src/app/Services/categories.service';
 })
 export class CategoriesComponent {
   categories:any = [];
-  id:any;
+  id:any = this.shared.getId();
 
-  constructor(public catService :CategoriesService ,private router: Router,private route : ActivatedRoute) {}
+  constructor(public catService :CategoriesService,
+    private servicestore: StoreService,
+    private shared:SharedService,private router: Router) {}
+
   ngOnInit(): void {
-
-    // console.log(this.menuservice.GetAllmenuserved);
-      this.catService.GetAllCategories().subscribe({
-       next:(data) =>{
-         this.categories = data;     
-       },
-       error:(err)=>{console.log(err)}
-     })
-
-  }
+    this.catService.getCategoryRestid(this.id).subscribe(
+      (data:any)=>{
+            console.log(data);//all items
+            this.categories=data;
+          },
+          (error:any)=>{
+            console.log("There is an error ",error); 
+          }
+    );
+        }
   deleteItem(id: any): void {
     this.catService.getCategoryById(id).subscribe()
     this.catService.deleteCategory(id).subscribe(() => {
