@@ -10,7 +10,8 @@ export class CategoriesService {
 
   private Base_URL = "https://localhost:44309/api/Category";
   private put ="https://localhost:44309/api/Category";
-  
+  private GetByCategoryRest = "https://localhost:44309/api/Store/CstoreID";
+
   constructor(private client:HttpClient) { }
   
  GetAllCategories(){
@@ -29,5 +30,8 @@ updateCategory(updatedCategory: any ) {
 deleteCategory(id: any) {
   return this.client.delete(`${this.Base_URL}/${id}`);
 }
-
+getCategoryRestid(id:any){
+  const url = `${this.GetByCategoryRest}/${id}`;
+  return this.client.get(url);
+}
 }

@@ -27,6 +27,5 @@ export class CustomerService {
   Register(user: any ) {
     return this.myClient.post(this.Base_URL,user );
   }
-
 }
 

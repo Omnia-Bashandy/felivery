@@ -82,12 +82,10 @@ selectedFile: FormData | undefined ;
       //   })
     }
   }
-  
-
 
   cats:any = [];
   ngOnInit(): void {
-  this.categories.GetAllCategories().subscribe(
+  this.categories.getCategoryRestid(this.id).subscribe(
     (data : any) =>{
       console.log(data);
       this.cats = data;

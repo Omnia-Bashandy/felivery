@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuitemsService } from 'src/app/Services/menuitems.service';
 import { SharedService } from 'src/app/Services/shared.service';
+import { StoreService } from 'src/app/Services/store.service';
 
 @Component({
   selector: 'app-menuitems',
@@ -11,17 +12,19 @@ import { SharedService } from 'src/app/Services/shared.service';
 export class MenuitemsComponent implements OnInit{
 
   items:any = [];
+
   data:any =[];
 
-  constructor(public menuservice :MenuitemsService ,private router: Router,public shared:SharedService) {}
-  ID:any = this.shared.getId() ;
+  constructor(public menuservice :MenuitemsService ,private router: Router,public shared:SharedService, private servicestore: StoreService,
+) {}
+  id:any = this.shared.getId() ;
   ngOnInit(): void {
       this.menuservice.GetAllmenuserved().subscribe({
        next:(data) =>{
          var d = Object.values(data);
         console.log(d);
          for (let i =0;i<d.length;i++){
-          if (d[i].restaurantID==this.ID){
+          if (d[i].restaurantID==this.id){
             this.items.push(d[i]) 
           }
          }                   
@@ -29,7 +32,21 @@ export class MenuitemsComponent implements OnInit{
        error:(err)=>{console.log(err)}
      })
 
-  }
+
+  ngOnInit(): void {
+    this.servicestore.getItemsbyID(this.id).subscribe(
+      (data:any)=>{
+        console.log(this.id);
+          console.log(data);//all items
+            if (this.items.restuarantID == this.id) {
+              console.log(this.items=data);
+            }
+            this.items=data;
+          },
+          (error:any)=>{
+            console.log("There is an error ",error);
+          } );
+        }
   deleteItem(id: any): void {
     this.menuservice.getMenuitemById(id).subscribe()
     this.menuservice.deleteMenuitem(id).subscribe(() => {
@@ -44,7 +61,6 @@ export class MenuitemsComponent implements OnInit{
 
   newItem: any = {};
 
-
   addItem(): void {
     this.menuservice.addmenuitem(this.newItem).subscribe(
       (response) => {
@@ -57,6 +73,4 @@ export class MenuitemsComponent implements OnInit{
       }
     );
   }
-
-
 }
