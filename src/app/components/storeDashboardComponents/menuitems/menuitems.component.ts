@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuitemsService } from 'src/app/Services/menuitems.service';
+import { SharedService } from 'src/app/Services/shared.service';
 
 @Component({
   selector: 'app-menuitems',
@@ -10,15 +11,20 @@ import { MenuitemsService } from 'src/app/Services/menuitems.service';
 export class MenuitemsComponent implements OnInit{
 
   items:any = [];
+  data:any =[];
 
-  constructor(public menuservice :MenuitemsService ,private router: Router) {}
+  constructor(public menuservice :MenuitemsService ,private router: Router,public shared:SharedService) {}
+  ID:any = this.shared.getId() ;
   ngOnInit(): void {
-    // console.log(this.menuservice.GetAllmenuserved);
       this.menuservice.GetAllmenuserved().subscribe({
        next:(data) =>{
-         this.items = data; 
-         console.log(this.items);
-             
+         var d = Object.values(data);
+        console.log(d);
+         for (let i =0;i<d.length;i++){
+          if (d[i].restaurantID==this.ID){
+            this.items.push(d[i]) 
+          }
+         }                   
        },
        error:(err)=>{console.log(err)}
      })

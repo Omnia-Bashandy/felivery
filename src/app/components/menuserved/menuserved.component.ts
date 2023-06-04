@@ -22,21 +22,4 @@ export class MenuservedComponent implements OnInit{
      })
 
   }
-  // deleteItem(id: any): void {
-  //   this.menuservice.deleteMenuitem(id).subscribe(() => {
-  //     console.log('Item deleted successfully.');
-  //     this.router.navigate(["/menuserved"]);
-  //   }, error => {
-  //     console.error('Error deleting item:', error);
-  //   });
-  // }
-
-  
-
-  
-  // goToItemDetails(itemId: any){
-  //   this.menuservice.getMenuitemById(itemId).subscribe((items) => {
-  //     this.router.navigate(['/order', itemId]);
-  //   });
-  // }
 }

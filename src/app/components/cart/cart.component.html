@@ -85,7 +85,7 @@
             
             <!-- total price -->
             <div class="col-2 p-5">
-             <h5 > {{ o.menuItemID.price * o.quantity }}$</h5>
+             <h5 > {{ o.menuItemID.price * o.quantity }}LE</h5>
             </div>
             <!-- increase quantity -->
             <div class="col-1 quan">
@@ -112,7 +112,7 @@
             </div>
             <div class="col-6"></div>
             <div class="col-3">
-              <h1>{{totalprice}} $</h1>
+              <h1>{{totalprice}} LE</h1>
             </div>
           </div>
          </div>
@@ -128,11 +128,12 @@
         </div>
         <div class="row">
           <label>Accepted Cards</label>
+          <div #paymentRef></div>
           <div class="icon-container">
             <!-- <a href=""><i class="fa-brands fa-cc-paypal" 
               style="color: #f06f05; font-size:50px"></i> 
             </a>-->
-            <div #paymentRef></div>
+            
             <a href=""><i class="fa-solid fa-money-bills" 
             style="color: #eaeaeb;font-size:50px"></i>
           </a>

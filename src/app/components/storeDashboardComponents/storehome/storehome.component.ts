@@ -105,6 +105,7 @@ export class StorehomeComponent {
             this.items.push(c);
           } else {
             console.log("Not equal");
+         
           }
         }
       },
@@ -142,10 +143,14 @@ export class StorehomeComponent {
 
   deliveredPercentage() {
     const totalOrders = +this.Deliverd + +this.pendingOrders;
+    
+    
+    this.Deliverd = (+this.Deliverd  *100)/ totalOrders
     const deliveryPercentage = (+this.Deliverd / +totalOrders) * 100;
-    this.roundedPercentage = +deliveryPercentage.toFixed(0);
+    this.roundedPercentage = +deliveryPercentage.toFixed(500);
     console.log("This is the delivery bar:", +this.roundedPercentage);
   }
+
   
 //  getorderbyID(){
 //   // this.orderId = this.orderservice.getOrderById(id).subscribe(
