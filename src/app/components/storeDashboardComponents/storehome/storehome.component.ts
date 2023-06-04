@@ -94,6 +94,22 @@ export class StorehomeComponent {
           }
     );
 
+
+    // get all categories by rest id
+
+   // this.category.GetAllCategories().subscribe(
+   //   (data: any) => {
+     //   console.log(data);
+     //   this.categories = data;
+     //   for (let c of data) {
+       //   if (c.categoryID=== Number(this.id)) {
+        //    this.items.push(c);
+       //   } else {
+          //  console.log("Not equal");
+         
+       //   }
+     //   }
+
 // get all categories by rest id
 this.category.getCategoryRestid(this.id).subscribe(
   (data:any)=>{
@@ -134,10 +150,14 @@ this.category.getCategoryRestid(this.id).subscribe(
 
   deliveredPercentage() {
     const totalOrders = +this.Deliverd + +this.pendingOrders;
+    
+    
+    this.Deliverd = (+this.Deliverd  *100)/ totalOrders
     const deliveryPercentage = (+this.Deliverd / +totalOrders) * 100;
-    this.roundedPercentage = +deliveryPercentage.toFixed(0);
+    this.roundedPercentage = +deliveryPercentage.toFixed(500);
     console.log("This is the delivery bar:", +this.roundedPercentage);
   }
+
   
 //  getorderbyID(){
 //   // this.orderId = this.orderservice.getOrderById(id).subscribe(

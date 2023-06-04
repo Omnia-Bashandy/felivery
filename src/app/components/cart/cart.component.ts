@@ -152,17 +152,16 @@ export class CartComponent implements OnInit {
       };
       console.log(this.orders[i]);  
       this.savedItems.push(item);
-      window.paypal.Buttons(
-        {
-          style: {
-            layout: 'horizontal',
-            color: 'blue',
-            shape: 'rect',
-            label: 'paypal',
-          },
-        }).render(this.paymentRef.nativeElement);
     }
-  
+    window.paypal.Buttons(
+      {
+        style: {
+          layout: 'horizontal',
+          color: 'blue',
+          shape: 'rect',
+          label: 'paypal',
+        },
+      }).render(this.paymentRef.nativeElement);
     this.calculateTotalPrice();
   }
 

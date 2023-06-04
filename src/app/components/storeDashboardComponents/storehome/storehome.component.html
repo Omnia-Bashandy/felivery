@@ -35,14 +35,15 @@
               <div class="row no-gutters align-items-center">
                 <div class="col-auto">
                   <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                    {{Deliverd}}%
+                    {{Deliverd *100/ (+this.Deliverd + this.pendingOrders)}}%
+                
                   </div>
                 </div>
                 <div class="col">
-                  <div class="progress progress-sm mr-2" role="progressbar"
+                  <div class="progress progress-sm " role="progressbar"
                   [attr.aria-valuenow]="roundedPercentage" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar bg-info"
-                    [style.width.%]="roundedPercentage" 
+                    [style.width.%]="Deliverd *100/ (+this.Deliverd + this.pendingOrders)" 
                     ></div>
                   </div>
                 </div>
@@ -103,7 +104,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Order Number</th>
+            <th>Order Name</th>
             <!-- <th>Order Name</th> -->
             <th>Address</th>
             <th>Total Price</th>
@@ -114,10 +115,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let o of orders">
-            <td>{{o.id}}</td>
+            <td>{{o.name}}</td>
             <!-- <td>{{o.details[o.name]}}</td> -->
             <td >{{o.address}}</td>
-            <td>{{o.totalPrice}}$</td>
+            <td>{{o.totalPrice}} LE</td>
             <td>{{o.customerID}}</td>
 
             <td>
