@@ -37,63 +37,63 @@ import { CancelstatusComponent } from './components/cancelstatus/cancelstatus.co
 import { DeliveredstatusComponent } from './components/deliveredstatus/deliveredstatus.component';
 import { CancelusrstatusComponent } from './components/cancelusrstatus/cancelusrstatus.component';
 import { EditStorImgComponent } from './components/storeDashboardComponents/edit-stor-img/edit-stor-img.component';
+import { DeveloperComponent } from './components/developer/developer.component';
+import { DevelopermessageComponent } from './components/developermessage/developermessage.component';
 
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'pastry', component: CategoryComponent },
-  { path: 'offers', component: OffersComponent },
-  { path: 'groceries', component: GroceriesComponent },
-  { path: 'restaurants', component: RestaurantsComponent },
-  { path: 'Partners', component: PartnersComponent },
-  { path: 'offerlist', component: OfferlistComponent },
-  { path: 'order/:id', component: OrderComponent },
-  { path: 'menuserved', component: MenuservedComponent},
-  { path: 'cart', component: CartComponent},
-  { path: 'pendingstatus', component: PendingstatusComponent},
-  { path: 'deliverdstatus', component: DeliveredstatusComponent},
-  { path: 'cancelstatus', component: CancelstatusComponent},
-  { path: 'cancelusrstatus', component: CancelusrstatusComponent},
+  { path: "", component: HomeComponent },
+  { path: "pastry", component: CategoryComponent },
+  { path: "offers", component: OffersComponent },
+  { path: "groceries", component: GroceriesComponent },
+  { path: "restaurants", component: RestaurantsComponent },
+  { path: "Partners", component: PartnersComponent },
+  { path: "developer", component: DeveloperComponent },
+  { path: "developermessage", component:DevelopermessageComponent },
+  { path: "offerlist", component: OfferlistComponent },
+  { path: "order/:id", component: OrderComponent },
+  { path: "menuserved", component: MenuservedComponent },
+  { path: "cart", component: CartComponent },
+  { path: "pendingstatus", component: PendingstatusComponent },
+  { path: "deliverdstatus", component: DeliveredstatusComponent },
+  { path: "cancelstatus", component: CancelstatusComponent },
+  { path: "cancelusrstatus", component: CancelusrstatusComponent },
 
   {
-    path: 'store-dashboard',
+    path: "store-dashboard",
     component: StoreDashboardComponent,
     children: [
-
-      { path: '', redirectTo: 'storehome', pathMatch: 'full' }, // Redirect to the default child route
-      { path: 'storehome', component: StorehomeComponent },
-      { path: 'edit-store', component: EditStoreComponent },
-      { path: 'add-items', component: AddItemsComponent },
-      { path: 'delete-store', component: DeleteStoreComponent },
+      { path: "", redirectTo: "storehome", pathMatch: "full" }, // Redirect to the default child route
+      { path: "storehome", component: StorehomeComponent },
+      { path: "edit-store", component: EditStoreComponent },
+      { path: "add-items", component: AddItemsComponent },
+      { path: "delete-store", component: DeleteStoreComponent },
       // { path: 'login', component: LoginComponent },
 
-      { path: 'categories', component: CategoriesComponent},
-      { path: 'menuitems', component: MenuitemsComponent},
-      { path: 'storeoffers', component: StoreoffersComponent},
-      { path: 'storesetting', component: StoresettingComponent},
+      { path: "categories", component: CategoriesComponent },
+      { path: "menuitems", component: MenuitemsComponent },
+      { path: "storeoffers", component: StoreoffersComponent },
+      { path: "storesetting", component: StoresettingComponent },
       // menuitems store
-      { path: 'delete-items/:id', component: DeleteItemsComponent},
-      { path: 'update-items/:id', component: UpdateItemsComponent},
+      { path: "delete-items/:id", component: DeleteItemsComponent },
+      { path: "update-items/:id", component: UpdateItemsComponent },
       // category
-      { path: 'showitemsbyid/:id', component: ShowitemsbyidComponent},
-      { path: 'addcategory', component: AddcategoryComponent},
-      { path: 'updatecategory/:id', component: UpdatecategoryComponent},
+      { path: "showitemsbyid/:id", component: ShowitemsbyidComponent },
+      { path: "addcategory", component: AddcategoryComponent },
+      { path: "updatecategory/:id", component: UpdatecategoryComponent },
       // pending
-      { path: 'pending', component: PendingComponent},
-      {path:"storeImg" , component:EditStorImgComponent},
-
-
-      
-    ]
+      { path: "pending", component: PendingComponent },
+      { path: "storeImg", component: EditStorImgComponent },
+    ],
   },
-  { path: 'login', component: LoginComponent },
-  { path: 'restauindivual/:id', component: RestauindivualComponent },
-  { path: 'registercustomer', component: RegistercustomerComponent },
-  {path:"pending" , component:PendingComponent},
-  {path:"confirm-order" , component:ConfirmOrderComponent},
-  {path:"orderstatus" , component:OrderstatusComponent},
-  { path: '**', component: ErrorComponent }
+  { path: "login", component: LoginComponent },
+  { path: "restauindivual/:id", component: RestauindivualComponent },
+  { path: "registercustomer", component: RegistercustomerComponent },
+  { path: "pending", component: PendingComponent },
+  { path: "confirm-order", component: ConfirmOrderComponent },
+  { path: "orderstatus", component: OrderstatusComponent },
+  { path: "**", component: ErrorComponent },
 ];
 
 
