@@ -36,10 +36,13 @@ constructor(public cartService: CartService,private login:LoginService,
   isloggedIn(): boolean {
     return !!this.CustName; // Returns true if customer name  exists, false otherwise
   }
-  
+  refresh(): void {
+    window.location.reload();
+  }
   logOut(){
     localStorage.removeItem("token")
     localStorage.removeItem("CustName")
+    setInterval(this.refresh,50)
   }
 
 Activet(link: string) {

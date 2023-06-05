@@ -12,19 +12,32 @@ import { StoreService } from 'src/app/Services/store.service';
   styleUrls: ['./store-nav-bar.component.css']
 })
 export class StoreNavBarComponent {
+  id: any = this.shared.getId()
+  StoreImg:any;
+  TheStore: any
   search = faMagnifyingGlass;
   bars = faBars
   activeLink: string = 'storehome';
-  id: any = this.shared.getId()
   resId: any;
-  TheStore: any = this.store.getRestaurantById(this.id).subscribe(
-    (data) => {
-      this.resId = data
-    }
-  )
-  StoreImg: string = this.TheStore.storeImg;
+  // TheStore: any = this.store.getRestaurantById(this.id).subscribe(
+  //   (data) => {
+  //     this.resId = data
+  //   }
+  // )
+  // StoreImg: string = this.TheStore.storeImg;
 constructor(public route:Router, private shared:SharedService, private store:StoreService){}
   ngOnInit(): void {
+    this.store.getRestaurantById(this.id).subscribe(
+      (data) => {
+        console.log(data);
+        this.TheStore = data;
+        this.StoreImg = this.TheStore.storeImg;
+      },
+      (error) => {
+        console.log("error mfesh soraaa",error);
+      }
+    );
+
     this.isActive('storehome'); // Evaluate the active state of the 'storehome' link when the component initializes
   console.log("aaaaaaaaaaaaaaaaaaaaaaaaa");
   console.log(this.id);
@@ -39,8 +52,12 @@ constructor(public route:Router, private shared:SharedService, private store:Sto
   setActive(link: string): void {
     this.activeLink = link;
   }
+  refresh(): void {
+    window.location.reload();
+  }
   LogOut(){
     // localStorage.removeItem("token")
     this.route.navigate(['/login'])
+    setInterval(this.refresh,50)
   }
 }

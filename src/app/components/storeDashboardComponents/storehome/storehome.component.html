@@ -35,8 +35,7 @@
               <div class="row no-gutters align-items-center">
                 <div class="col-auto">
                   <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                    {{Deliverd *100/ (+this.Deliverd + this.pendingOrders)}}%
-                
+                    {{Deliverd *100/ (+this.Deliverd + this.pendingOrders)}}%          
                   </div>
                 </div>
                 <div class="col">
@@ -87,11 +86,11 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Order Name</th>
+            <th>Order ID</th>
             <!-- <th>Order Name</th> -->
             <th>Address</th>
             <th>Total Price</th>
-            <th>Customer ID</th>
+            <th>Customer Name</th>
 
             <th class="m-1">Status</th>
           </tr>
@@ -148,17 +147,15 @@
         <div class="row justify-content-center">
           <hr>
           <h2 class="diplay-1">Category List</h2>
-          <hr>
-          
-            
+          <hr>       
   <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
     <div *ngFor="let c of categories" class="row" class="col d-flex justify-content-center">
             <div routerLink="/store-dashboard/showitemsbyid/{{c.id}}" class="offer-cards pb-5">
-              <div class="row justify-content-center">
+              <!-- <div class="row justify-content-center">
                 <div class="col-12 text-center">
                   <h2>Category</h2>
                 </div>
-              </div>
+              </div> -->
               <div class="row justify-content-center h-hidding">
                 <div class="col-12 text-center">
                   <h1 class="ff pt-3 pl-2 pr-2">
@@ -191,7 +188,7 @@
             <div class="offer-cards pb-5">
               <div class="row justify-content-center">
                 <div class="col-12 text-center">
-                  <img [src]="i.menuItemImg" alt="Image" class="imgoffer" />
+                  <img src={{i.menuItemImg}} alt="Image" class="imgoffer" />
                 </div>
               </div>
               <div class="row justify-content-center h-hidding">

@@ -1,0 +1,117 @@
+<div class="container-fluied bg-img">
+  <div class="row">
+    <div class="container justify-content-center mb-3">
+      <div class="row container justify-content-center">
+        <div class="child col-md-7 col-lg-5 px-lg-2 col-xl-5 px-xl-0 px-xxl-3">
+      <form
+        method="POST"
+        class="w-100 rounded-1 p-4 border bg-white"
+        action="http://localhost:4200/developermessage"
+        enctype="multipart/form-data"
+      >
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Your Name</span>
+          <input
+            required
+            name="name"
+            type="text"
+            class="form-control"
+            placeholder="Mohamed Rabie"
+          />
+        </label>
+
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Email address</span>
+          <input
+            required
+            name="email"
+            type="email"
+            class="form-control"
+            placeholder="Mohamed.Rabie@example.com"
+          />
+        </label>
+
+<div class="row">
+        <label class=" col d-block mb-4">
+          <span class="form-label d-block">Years of experience</span>
+          <select required name="experience" class="form-select">
+            <option>Less than a year</option>
+            <option>1 - 2 years</option>
+            <option>2 - 4 years</option>
+            <option>4 - 7 years</option>
+            <option>7 - 10 years</option>
+            <option>10+ years</option>
+          </select>
+        </label>
+
+        <label class=" col d-block mb-4">
+          <span class="form-label d-block">Your CV</span>
+          <input required name="cv" type="file" class="form-control" />
+        </label>
+</div>
+          <label class="d-block mb-4">
+          <span class="form-label d-block">Tell us more about yourself</span>
+          <textarea
+            name="message"
+            class="form-control"
+            rows="3"
+            placeholder="What motivates you?"
+          ></textarea>
+        </label>
+        <div class="mb-4 row">
+          <div class="col">
+            <div class="form-check">
+              <label class="d-block">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  name="remote"
+                  value="yes"
+                  checked
+                />
+                <span class="form-check-label"
+                  >You'd like to work remotely</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="col">
+            <label class="form-check">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="remote"
+                value="no"
+              />
+              <span class="form-check-label">You'd prefer to work onsite</span>
+            </label>
+            
+          </div>
+
+        </div>
+
+        <div class="mb-3 text-center">
+          <!-- <button type="submit" class="btn btn-primary px-3 rounded-3"> -->
+          <a type="button" href="/developermessage" class="btn btn-primary btn-lg w-50 ">
+            Apply
+          </a>
+          <!-- <input type="submit" value="Apply"> -->
+        </div>
+
+      <div class="d-block text-end">
+          <div class="small">
+            by
+            <a
+              href="http://localhost:4200/"
+              class="text-dark text-decoration-none"
+              target="_blank"
+              >Felivery</a
+            >
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>

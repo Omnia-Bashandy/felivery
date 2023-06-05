@@ -12,6 +12,7 @@ import { StoreService } from 'src/app/Services/store.service';
   templateUrl: './storehome.component.html',
   styleUrls: ['./storehome.component.css']
 })
+
 export class StorehomeComponent {
   id!: string | null;
   orders:any=[];
@@ -35,9 +36,20 @@ export class StorehomeComponent {
     private orderservice:OrderService,private servicestore:StoreService,
     private route:ActivatedRoute,private category:CategoriesService,
     private cart:CartService,
-    private orderCancellationService:CanclledordersService) {}
+    private orderCancellationService:CanclledordersService) {
+      this.servicestore.listen().subscribe((m:any)=>{
+        console.log(m);
+        this.refresh();
+        
+      })
+    }
+
+    refresh(): void {
+      window.location.reload();
+    }
 
   ngOnInit() {
+
     // Get the stored id from the shared service
     this.id = this.sharedService.getId(); 
     console.log(this.id);
@@ -47,6 +59,7 @@ export class StorehomeComponent {
       (data:any)=>{
             console.log(data);//all orders 
             this.orders=data;
+            console.log(this.orders,"fgdffghfghfghgdfgdfg"); 
           },
           (error:any)=>{
             console.log("There is an error ",error); 
@@ -59,10 +72,13 @@ export class StorehomeComponent {
       (data:any)=>{
             console.log(data);//all items
             this.items=data;
+              
+
           },
           (error:any)=>{
             console.log("There is an error ",error); 
           }
+          
     );
 
     // get total earning by rest id
@@ -101,6 +117,8 @@ this.category.getCategoryRestid(this.id).subscribe(
   (data:any)=>{
         console.log(data);//all items
         this.categories=data;
+        console.log("these are our damn categories: " , this.categories);
+        
       },
       (error:any)=>{
         console.log("There is an error ",error); 
@@ -147,6 +165,8 @@ this.servicestore.getRestaurantById(this.id).subscribe(
     const deliveryPercentage = (+this.Deliverd / +totalOrders) * 100;
     this.roundedPercentage = +deliveryPercentage.toFixed(500);
     console.log("This is the delivery bar:", +this.roundedPercentage);
+
+
   }
 
   aproveOrderstatus(Oid:number) {
@@ -164,9 +184,12 @@ this.servicestore.getRestaurantById(this.id).subscribe(
 console.log(typeof Oid);
 console.log(+Oid);
 
+this.servicestore.filter('Register click')
+
   }
   
   cancelOrderstatus(Oid: any) {
+    setInterval(this.refresh,50)
     const cancelledIndex = this.orders.findIndex((order: any) => order.id === Oid);
     console.log(cancelledIndex);
     
@@ -181,5 +204,16 @@ console.log(+Oid);
     }
     this.sharedService.setStatus('cancel');
     this.cart.deleteFromCart(Oid);
+    this.orderservice.deleteOrder(Oid).subscribe(
+      (data:any)=>{
+        console.log(data);//all items
+        
+      },
+      (error:any)=>{
+        console.log("There is an error ",error);
+      }
+  )
+  
   }
+
 }
