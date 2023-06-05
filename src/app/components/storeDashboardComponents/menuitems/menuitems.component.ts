@@ -33,22 +33,6 @@ export class MenuitemsComponent implements OnInit{
        error:(err)=>{console.log(err)}
      })
 
-
-    }
-  // ngOnInit(): void {
-  //   this.servicestore.getItemsbyID(this.id).subscribe(
-  //     (data:any)=>{
-  //       console.log(this.id);
-  //         console.log(data);//all items
-  //           if (this.items.restuarantID == this.id) {
-  //             console.log(this.items=data);
-  //           }
-  //           this.items=data;
-  //         },
-  //         (error:any)=>{
-  //           console.log("There is an error ",error);
-  //         } );
-  //       }
   deleteItem(id: any): void {
     this.menuservice.getMenuitemById(id).subscribe()
     this.menuservice.deleteMenuitem(id).subscribe(() => {
@@ -75,4 +59,5 @@ export class MenuitemsComponent implements OnInit{
       }
     );
   }
+
 }
