@@ -98,7 +98,7 @@ orders:any
 
 
     // Get items by restID
-    this.storeService.getItemsbyID(this.storeID).subscribe(
+    this.storeService.getItemsbyRestID(this.storeID).subscribe(
       (data: any) => {
         console.log(data); // All items
         this.menus = data;
@@ -198,7 +198,7 @@ orders:any
               menuItemImg: this.Item.menuItemImg,
               categoryID: this.Item.categoryID,
               restaurantID: restaurantID
-            }
+            },
             quantity: this.quantity
           };
           this.cartService.addToCart(this.order);
