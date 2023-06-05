@@ -32,7 +32,7 @@ export class MenuitemsComponent implements OnInit{
        },
        error:(err)=>{console.log(err)}
      })
-
+    }
   deleteItem(id: any): void {
     this.menuservice.getMenuitemById(id).subscribe()
     this.menuservice.deleteMenuitem(id).subscribe(() => {
@@ -59,5 +59,4 @@ export class MenuitemsComponent implements OnInit{
       }
     );
   }
-
-}
+  }
