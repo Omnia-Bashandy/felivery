@@ -60,6 +60,8 @@ import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.
 // import { NgxStarRatingModule } from 'ngx-star-rating';
 import { OrderstatusComponent } from './components/orderstatus/orderstatus.component';
 import { EditStorImgComponent } from './components/storeDashboardComponents/edit-stor-img/edit-stor-img.component';
+import { DeveloperComponent } from './components/developer/developer.component';
+import { DevelopermessageComponent } from './components/developermessage/developermessage.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,7 +108,9 @@ import { EditStorImgComponent } from './components/storeDashboardComponents/edit
     UpdatecategoryComponent,
     ConfirmOrderComponent,
     OrderstatusComponent,
-    EditStorImgComponent
+    EditStorImgComponent,
+    DeveloperComponent,
+    DevelopermessageComponent
 
   ],
   imports: [
