@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class StoreService {
   constructor(private myClient: HttpClient) { }
   private Base_URL = "https://localhost:44309/api/Store";
   private Base_URLReg = "https://localhost:44309/api/Store/Registration";
-  private ItemsbyID =" https://localhost:44309/api/Store/MstoreID";
+  private ItemsbyID ="https://localhost:44309/api/Store/StoreMenu";
   private totalEarningsURL ="https://localhost:44309/api/Store/TotalEarnings";
   
   private img_url = "https://localhost:44309/api/Store/uploadImage";
@@ -41,12 +43,20 @@ export class StoreService {
     return this.myClient.post(this.Base_URLReg,Restaurant );
   }
 
-  getItemsbyID(id:any){
+  getItemsbyRestID(id:any){
     return this.myClient.get(`${this.ItemsbyID}/${id}`);
   }
 
   gettotalbyID(id:any){
     return this.myClient.get(`${this.totalEarningsURL}/${id}`);
+  }
+  
+  private _listeners = new Subject<any>();
+  listen(): Observable<any>{
+    return this._listeners.asObservable();
+  }
+  filter(filterBy:string){
+    this._listeners.next(filterBy);
   }
 
 }

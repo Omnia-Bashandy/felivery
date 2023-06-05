@@ -25,19 +25,30 @@ export class LoginComponent {
 
 })
 constructor(public myService:LoginService ,public sharedService :SharedService , public router : Router){
+    // this.myService.listen().subscribe((m:any)=>{
+    //   console.log(m); 
+    // })
+};
+refresh(): void {
+  window.location.reload();
 }
+
 
 ngOnInit(): void {
 }
 login(email: any, password: any) {
   console.log("hiii");
-  
+
   // if (this.validlogin.valid) {
     const credentials = {
       email: email,
       password: password
+      
     };
-
+    
+    //  this.myService.filter('Register click')
+  
+  //  var x = window.location.reload();
     this.myService.login(credentials).subscribe({
       next: (data: any) => {
         console.log(data);
@@ -46,7 +57,7 @@ login(email: any, password: any) {
         const logToken = data["token"]; // Accessing the "token" property
         const name = data["username"]; // Accessing the "username" property
         localStorage.setItem("token",logToken)
-        
+     
         if (role == "PendingStore") {
           this.router.navigate(['/pending']); 
         }else if(role == "Customer"){
@@ -57,6 +68,8 @@ login(email: any, password: any) {
           this.router.navigate(['/store-dashboard/storehome'])
           this.sharedService.setId(id);
         }
+        setInterval(this.refresh,50)
+      //  this.refresh()
       },
       error: (err) => {
         console.log(err);
@@ -67,6 +80,8 @@ login(email: any, password: any) {
 
 
     // console.log(this.validlogin.value);
+  
   }
+  
 }
 

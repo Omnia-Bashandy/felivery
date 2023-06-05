@@ -1,52 +1,83 @@
 <div class="row mt-3 mb-3">
   <div class="container">
     <div class="row">
-      <!-- one -->
-      <div class="col-lg-3 col-md-6">
-        <div *ngFor="let o of offers" class="offer-cards mt-1">
-          <div class="row">
-            <div class="col-12 text-center">
-              <img
-                src="../../../assets/Burger.jpg"
-                class="imgoffer"
-                alt=""
-              />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 text-center">
-              <h1 class="ff pt-3 pl-2 pr-2">
-              {{o.Name}}
-              </h1>
-              <p class="pl-3 pr-3"> {{o.Description}}</p>
-            </div>
-          </div>
-          <div class="row ">
-            <div class="col-4 bg-contain-stars micons">
-              <i class="fa-sharp fa-solid fa-star"></i>
-              <i class="fa-sharp fa-solid fa-star"></i>
-              <i class="fa-sharp fa-solid fa-star"></i>
-              <i class="fa-sharp fa-solid fa-star"></i>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </div>
-            <div class="col-3">3/5</div>
-          </div>
-          <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
-            <div class="col-3">
-              <h3>{{o.offerPrice}} $</h3>
-            </div>
-            <div class="col-3">
-              <h6 class="tx">{{o.MenuitemOffers.Name}}</h6>
-            </div>
+      <div class="col-6">
+        <h3 class="mb-3 mt-5">Popular Offers
 
-            <div class="col-2 mt-2">
-              <a href="" class="btnn hvr-bounce-in">Order</a>
+          <a
+          class="btn mb-3"
+          href="#carouselExampleIndicators2"
+          role="button"
+          data-slide="next"
+        >
+          <i class="fa fa-arrow-right"></i>
+        </a>
+        </h3>
+      </div>
+     
+      <div class="col-12">
+        <div
+          id="carouselExampleIndicators2"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <div class="carousel-inner" *ngFor="let o of offers">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <div class="offer-cards mt-1">
+                    <div class="row">
+                      <div class="col-12 text-center">
+                        <img
+                          src={{o.menuItemImg}}
+                          class="imgoffer"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 text-center">
+                        <h1 class="ff pt-3 pl-2 pr-2">
+                          {{o.name}}
+                        </h1>
+                        <p class="pl-3 pr-3">
+                          {{o.description}}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-4 bg-contain-stars micons">
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                      </div>
+                      <div class="col-3">3/5</div>
+                    </div>
+                    <div
+                      class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3"
+                    >
+                      <div class="col-3">
+                        {{o.price}} LE
+                      </div>
+                      <div class="col-3">
+                        <h6 class="tx">{{o.price + 15}} LE</h6>
+                      </div>
+                      <div class="col-2 mt-2">
+                        <button  [routerLink]="['/order',o.id]"  class="btnn hvr-bounce-in">Order</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  </div>
+  
 
 

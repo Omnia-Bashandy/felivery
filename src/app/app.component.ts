@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     // Simulate loading delay
     setTimeout(() => {
       this.isLoading = false;
-    }, 3000); // Adjust the delay time as needed
+    }, 1000); // Adjust the delay time as needed
 
     // // Retrieve token from local storage
     // const token = this.loginService.getToken();

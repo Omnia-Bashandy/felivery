@@ -1,0 +1,17 @@
+.bg-img{
+    /* background-image:url("../../../assets/Reg-Bg2.jpg"); */
+    background-image:url("../../../assets/dev.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 715px;
+}
+
+.child{
+    opacity: 0.9;
+    width: 900px;
+    height: 600px;
+}
+form{
+    margin-top: 35px;
+    height: 600px;
+}

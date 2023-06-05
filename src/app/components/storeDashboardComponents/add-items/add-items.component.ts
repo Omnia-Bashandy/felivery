@@ -68,18 +68,18 @@ selectedFile: FormData | undefined ;
         }
 
       );
-       //image
-      //  this.myService.uploadImg(this.selectedFile, Rname ,itemnam).subscribe({ 
-      //   //this.myService.uploadImg( Rname ).subscribe({ 
-      //     next(data : any) {
-      //       console.log(data);
-      //     },error: (err) => {
-      //       console.log(err);
-      //       this.imgUrl = err.error["text"]
-      //       console.log(err.error["text"]);
+      //  image
+      this.myService.uploadImg(this.selectedFile, this.id ,itemnam).subscribe({ 
+        //this.myService.uploadImg( Rname ).subscribe({ 
+          next(data : any) {
+            console.log(data);
+          },error: (err) => {
+            console.log(err);
+            this.imgUrl = err.error["text"]
+            console.log(err.error["text"]);
             
-      //     }
-      //   })
+          }
+        })
     }
   }
 

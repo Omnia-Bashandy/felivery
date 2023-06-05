@@ -147,22 +147,22 @@ export class CartComponent implements OnInit {
     for (let i = 0; i < this.orders.length; i++) {
       const item = {
         menuItemID: this.orders[i]["menuItemID"]["id"],
+        menuItem :this.orders[i]["menuItemID"]["name"], 
         quantity: this.orders[i]["quantity"],
         price: this.orders[i]["menuItemID"]["price"]
       };
       console.log(this.orders[i]);  
       this.savedItems.push(item);
-      window.paypal.Buttons(
-        {
-          style: {
-            layout: 'horizontal',
-            color: 'blue',
-            shape: 'rect',
-            label: 'paypal',
-          },
-        }).render(this.paymentRef.nativeElement);
     }
-  
+    window.paypal.Buttons(
+      {
+        style: {
+          layout: 'horizontal',
+          color: 'blue',
+          shape: 'rect',
+          label: 'paypal',
+        },
+      }).render(this.paymentRef.nativeElement);
     this.calculateTotalPrice();
   }
 
@@ -256,6 +256,10 @@ initial_value:any = null;
   clearCart() {
     this.cart.clearCart();
     localStorage.setItem("RestCartId", this.initial_value);
+   
+      window.location.reload();
+   
+    
     // Reset any other relevant variables or properties
   }
 
