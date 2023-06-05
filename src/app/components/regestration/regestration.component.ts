@@ -54,7 +54,9 @@ export class RegestrationComponent {
 
     // console.log(myService.getAllRestaurants.length);
   }
-
+  refresh(): void {
+    window.location.reload();
+  }
 imgUrl:any;
   AddRestaurant(discription: string, phone: number, address: string, password: string, remail: string, Rname: string) {
     let newRestaurant ={
@@ -98,7 +100,7 @@ imgUrl:any;
             
           }
         })
-
+        setInterval(this.refresh,50)
         },
         error: (err) => {
           console.log(err);

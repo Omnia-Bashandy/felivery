@@ -37,7 +37,7 @@
             
             <!-- total price -->
             <div class="col-2 p-5">
-             <h5 > {{ o.menuItemID.price * o.quantity }}$</h5>
+             <h5 > {{ o.menuItemID.price * o.quantity }}LE</h5>
             </div>
             <!-- increase quantity -->
             <div class="col-1 quan">
@@ -64,7 +64,7 @@
             </div>
             <div class="col-6"></div>
             <div class="col-3">
-              <h1>{{totalprice}} $</h1>
+              <h1>{{totalprice}} LE</h1>
             </div>
           </div>
          </div>
@@ -80,22 +80,28 @@
         </div>
         <div class="row">
           <label>Accepted Cards</label>
+          <div #paymentRef></div>
+          <hr> 
           <div class="icon-container">
             <!-- <a href=""><i class="fa-brands fa-cc-paypal" 
               style="color: #f06f05; font-size:50px"></i> 
             </a>-->
-            <div #paymentRef></div>
-            <a href=""><i class="fa-solid fa-money-bills" 
+            
+            <!-- <a href=""><i class="fa-solid fa-money-bills" 
             style="color: #eaeaeb;font-size:50px"></i>
-          </a>
+          </a> -->
+          <label for="delv" > Cash On Delivery &nbsp; </label>
+          <img width="60px" src="assets\cash-on-delivery.png"> &nbsp;
+          <input type="checkbox" id="delv"> 
           </div>
-          <label for="cname">Name on Card</label>
+          <hr> 
+          <!-- <label for="cname">Name on Card</label>
           <input type="text" id="cname" name="cardname" placeholder="ana folan l folany">
           <label for="ccnum">Credit card number</label>
           <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-         
+          -->
             <label>Address</label>
-            <input type="text" [(ngModel)]="address" placeholder="Cairo">
+            <input type="text" [(ngModel)]="address" placeholder="Cairo" style="color: #ffff;">
             
             
           </div>

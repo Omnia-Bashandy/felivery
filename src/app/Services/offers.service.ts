@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class OffersService {
-  private offersURL = "https://localhost:44309/api/offers";
+  private offersURL = "https://localhost:44309/api/MenuItem/GetOffers/offers";
 
   constructor(private client:HttpClient) { }
   // url
@@ -13,9 +13,9 @@ export class OffersService {
  GetAlloffers(){
   return this.client.get(this.offersURL);
  }
- GetofferbyID(id:any){
-  return this.client.get(`${this.offersURL}/${id}`)
- }
+//  GetofferbyID(id:any){
+//   return this.client.get(`${this.offersURL}/${id}`)
+//  }
  
 
 }

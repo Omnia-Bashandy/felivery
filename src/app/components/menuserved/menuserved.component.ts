@@ -16,27 +16,19 @@ export class MenuservedComponent implements OnInit{
     // console.log(this.menuservice.GetAllmenuserved);
       this.menuservice.GetAllmenuserved().subscribe({
        next:(data) =>{
-         this.items = data;     
+         this.items = data ,   
+         console.log(this.items);
+       for (let index = 0; index < this.items.length; index++) {
+        const element = this.items[index];
+        if ( this.items[index].isOffer === true) {
+          console.log(this.items[index].isOffer);     
+        }
+        // console.log(this.items[index].isOffer);
+       }
        },
        error:(err)=>{console.log(err)}
      })
 
+       
   }
-  // deleteItem(id: any): void {
-  //   this.menuservice.deleteMenuitem(id).subscribe(() => {
-  //     console.log('Item deleted successfully.');
-  //     this.router.navigate(["/menuserved"]);
-  //   }, error => {
-  //     console.error('Error deleting item:', error);
-  //   });
-  // }
-
-  
-
-  
-  // goToItemDetails(itemId: any){
-  //   this.menuservice.getMenuitemById(itemId).subscribe((items) => {
-  //     this.router.navigate(['/order', itemId]);
-  //   });
-  // }
 }

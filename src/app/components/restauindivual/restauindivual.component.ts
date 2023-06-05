@@ -96,6 +96,7 @@ orders:any
       );
     });
 
+
     // Get items by restID
     this.storeService.getItemsbyID(this.storeID).subscribe(
       (data: any) => {
@@ -197,9 +198,8 @@ orders:any
               menuItemImg: this.Item.menuItemImg,
               categoryID: this.Item.categoryID,
               restaurantID: restaurantID
-            },
+            }
             quantity: this.quantity
-            // add payment data mn aya 
           };
           this.cartService.addToCart(this.order);
           // setInterval(this.refresh,50)

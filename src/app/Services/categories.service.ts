@@ -10,7 +10,7 @@ export class CategoriesService {
 
   private Base_URL = "https://localhost:44309/api/Category";
   private put ="https://localhost:44309/api/Category";
-  private GetByCategoryRest = "https://localhost:44309/api/Store/CstoreID";
+  private GetByCategoryRest = "https://localhost:44309/api/Store/StoreCategories";
 
   constructor(private client:HttpClient) { }
   

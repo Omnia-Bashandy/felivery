@@ -9,9 +9,9 @@ export class OrderService {
   constructor(private myClient: HttpClient) { }
   private Base_URL = "https://localhost:44309/api/Order";
   // private ordersREST ="https://localhost:44309/api/Store/GetOrdersBystoreID?storeID=";
-  private ordersREST ="https://localhost:44309/api/Store/OstoreID";
-  private pendingOrd ="https://localhost:44309/api/Store/PendingOrders";
-  private DeliveredURL ="https://localhost:44309/api/Store/DeliveredOrders";
+  private ordersREST ="https://localhost:44309/api/Store/PendingOrders";
+  private pendingOrd ="https://localhost:44309/api/Store/TotalPendingOrders";
+  private DeliveredURL ="https://localhost:44309/api/Store/TotalDeliveredOrders";
   private updateDone ="https://localhost:44309/api/Store/DoneOrder";
 
   getAllOrders() {

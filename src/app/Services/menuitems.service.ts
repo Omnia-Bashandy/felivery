@@ -16,8 +16,8 @@ export class MenuitemsService {
   private imgUrl = "https://localhost:44309/api/MenuItem/UploadImage/uploadImage"
 
 
-  uploadImg(img:any ,storeName:any , itemname :any){
-    return this.client.post(`${this.imgUrl}/${storeName}/${itemname}`,img);
+  uploadImg(img:any ,storeId:any , itemname :any){
+    return this.client.post(`${this.imgUrl}/${storeId}/${itemname}`,img);
   }
 
   constructor(private client:HttpClient) { }
