@@ -16,10 +16,19 @@ export class MenuservedComponent implements OnInit{
     // console.log(this.menuservice.GetAllmenuserved);
       this.menuservice.GetAllmenuserved().subscribe({
        next:(data) =>{
-         this.items = data;     
+         this.items = data ,   
+         console.log(this.items);
+       for (let index = 0; index < this.items.length; index++) {
+        const element = this.items[index];
+        if ( this.items[index].isOffer === true) {
+          console.log(this.items[index].isOffer);     
+        }
+        // console.log(this.items[index].isOffer);
+       }
        },
        error:(err)=>{console.log(err)}
      })
 
+       
   }
 }

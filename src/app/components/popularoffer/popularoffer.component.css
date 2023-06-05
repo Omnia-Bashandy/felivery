@@ -67,3 +67,9 @@
 
   background-color: rgb(245, 228, 213);
 }
+#h{
+  display: grid;
+  grid-template-columns: auto auto auto ;
+  justify-content: space-evenly;
+} 
+

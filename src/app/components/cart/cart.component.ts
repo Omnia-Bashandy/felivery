@@ -255,6 +255,10 @@ initial_value:any = null;
   clearCart() {
     this.cart.clearCart();
     localStorage.setItem("RestCartId", this.initial_value);
+   
+      window.location.reload();
+   
+    
     // Reset any other relevant variables or properties
   }
 

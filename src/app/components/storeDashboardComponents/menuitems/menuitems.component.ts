@@ -26,12 +26,13 @@ export class MenuitemsComponent implements OnInit{
          for (let i =0;i<d.length;i++){
           if (d[i].restaurantID==this.id){
             this.items.push(d[i]) 
+           
           }
          }                   
        },
        error:(err)=>{console.log(err)}
      })
-        }
+
   deleteItem(id: any): void {
     this.menuservice.getMenuitemById(id).subscribe()
     this.menuservice.deleteMenuitem(id).subscribe(() => {

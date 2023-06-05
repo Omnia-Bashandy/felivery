@@ -1,7 +1,7 @@
-<section class="ww pt-5 pb-5">
+<!-- <section id="h" class="ww pt-5 pb-5">
   <div class="container">
     <div class="row">
-      <div class="col-6">
+      <div class="col-6" >
         <h3 class="mb-3 mt-5">Popular Offers
 
           <a
@@ -15,13 +15,27 @@
         </h3>
       </div>
      
-      <div class="col-12">
+      <div class="carousel-inner" Class="col-12" *ngFor="let o of offers">
+      <div class="row"><img
+        src={{o.menuItemImg}}
+          class="imgoffer"
+          alt=""
+        /></div>
+        <h1 class="ff pt-3 pl-2 pr-2">
+          {{o.name}}
+        </h1>
+      
+      <div class="row">gfg</div>
+      <div class="row">fgfgfg</div>
+     </div> -->
+
+      <!-- <div class="col-12">
         <div
           id="carouselExampleIndicators2"
           class="carousel slide"
           data-ride="carousel"
         >
-          <div class="carousel-inner">
+          <div class="carousel-inner" *ngFor="let o of offers">
             <div class="carousel-item active">
               <div class="row">
                 <div class="col-md-4 mb-3">
@@ -29,19 +43,19 @@
                     <div class="row">
                       <div class="col-12 text-center">
                         <img
-                          src="../../../assets/Burger.jpg"
+                        src={{o.menuItemImg}}
                           class="imgoffer"
                           alt=""
                         />
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="col">
                       <div class="col-12 text-center">
                         <h1 class="ff pt-3 pl-2 pr-2">
-                          Special meal is here Sandwich
+                          {{o.name}}
                         </h1>
                         <p class="pl-3 pr-3">
-                          speacial meal compononets bla bla
+                          {{o.description}}
                         </p>
                       </div>
                     </div>
@@ -59,108 +73,14 @@
                       class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3"
                     >
                       <div class="col-3">
-                        <h3>100$</h3>
+                        {{o.price}} LE
                       </div>
                       <div class="col-3">
-                        <h6 class="tx">128$</h6>
+                        <h6 class="tx">{{o.price + 15}} LE</h6>
                       </div>
 
                       <div class="col-2 mt-2">
-                        <a href="" class="btnn hvr-bounce-in">Order</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <div class="offer-cards mt-1">
-                    <div class="row">
-                      <div class="col-12 text-center">
-                        <img
-                          src="../../../assets/Healthy.jpg"
-                          class="imgoffer"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12 text-center">
-                        <h1 class="ff pt-3 pl-2 pr-2">
-                          Special meal is here Sandwich
-                        </h1>
-                        <p class="pl-3 pr-3">
-                          speacial meal compononets bla bla
-                        </p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-4 bg-contain-stars micons">
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                      </div>
-                      <div class="col-3">3/5</div>
-                    </div>
-                    <div
-                      class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3"
-                    >
-                      <div class="col-3">
-                        <h3>100$</h3>
-                      </div>
-                      <div class="col-3">
-                        <h6 class="tx">128$</h6>
-                      </div>
-
-                      <div class="col-2 mt-2">
-                        <a href="" class="btnn hvr-bounce-in">Order</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <div class="offer-cards mt-1">
-                    <div class="row">
-                      <div class="col-12 text-center">
-                        <img
-                          src="../../../assets/Pizza.jpg"
-                          class="imgoffer"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12 text-center">
-                        <h1 class="ff pt-3 pl-2 pr-2">
-                          Special meal is here Sandwich
-                        </h1>
-                        <p class="pl-3 pr-3">
-                          speacial meal compononets bla bla
-                        </p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-4 bg-contain-stars micons">
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                        <i class="fa-sharp fa-solid fa-star"></i>
-                      </div>
-                      <div class="col-3">3/5</div>
-                    </div>
-                    <div
-                      class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3"
-                    >
-                      <div class="col-3">
-                        <h3>100$</h3>
-                      </div>
-                      <div class="col-3">
-                        <h6 class="tx">128$</h6>
-                      </div>
-
-                      <div class="col-2 mt-2">
-                        <a href="" class="btnn hvr-bounce-in">Order</a>
+                        <button  [routerLink]="['/order',o.id]"  class="btnn hvr-bounce-in">Order</button>
                       </div>
                     </div>
                   </div>
@@ -169,7 +89,58 @@
             </div>
           </div>
         </div>
+      </div> -->
+    <!-- </div>
+  </div>
+</section> -->
+<div id="h" >
+<div  *ngFor="let i of offers" class="col d-flex justify-content-center">
+  <div class="offer-cards mt-2 mb-2">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <img
+        src={{i.menuItemImg}} alt="Image"
+          class="imgoffer"
+        />
+      </div>
+    </div>
+    <div class="row justify-content-center h-hidding">
+      <div class="col-12 text-center">
+        <h1 class="ff pt-3 pl-2 pr-2">
+          {{i.name}}
+        </h1>
+      </div>
+    </div>
+
+    <div class="row justify-content-center h-desc">
+      <div class="col-12 text-center">
+        <p class="pl-3 pr-3">{{i.description}}</p>
+
+      </div>
+    </div>
+    <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
+      <div class="col-3">
+        <h3>{{i.price}} LE</h3>
+      </div>
+      <div class="col-3">
+        <h6 class="tx">{{i.price + 15}} LE</h6>
+      </div>
+      <div class="col-3">
+        <h6 >{{i.isOffer}}</h6>
+      </div>
+      <div class="col-3">
+        <img style=" margin-top:-741px; margin-left:-337px;" width="100" src="assets\specialoffer.png" alt="">
+
+      </div>
+
+      <div class="col-2 mt-2">
+        <!-- <button  routerLink="/order/{{i.id}}"  class="btnn hvr-bounce-in">Order</button> -->
+        <button  [routerLink]="['/order',i.id]"  class="btnn hvr-bounce-in">Order</button>
+        <!-- <button  [routerLink]="['/delete-items',i.id]" (click)="deleteItem(i.id)"  class="btnn hvr-bounce-in">delete</button> -->
+        <!-- <button  routerLink="/order/{{i.id}}"  (click)="goToItemDetails(i.id)" class="btnn hvr-bounce-in">Order</button> -->
       </div>
     </div>
   </div>
-</section>
+  <div class="clearfix"></div> 
+</div>
+</div>
