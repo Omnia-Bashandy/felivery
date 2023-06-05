@@ -147,6 +147,7 @@ export class CartComponent implements OnInit {
     for (let i = 0; i < this.orders.length; i++) {
       const item = {
         menuItemID: this.orders[i]["menuItemID"]["id"],
+        menuItem :this.orders[i]["menuItemID"]["name"], 
         quantity: this.orders[i]["quantity"],
         price: this.orders[i]["menuItemID"]["price"]
       };

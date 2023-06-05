@@ -83,23 +83,6 @@
   </div>
   <!-- orders by rest id -->
   <div class="row">
-    <div class="col-lg-5 mb-4">
-      <!-- Illustrations -->
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Restuarant Details</h6>
-        </div>
-        <div class="card-body">
-          <p>
-            Restuarant Name : {{restuDetails.name}} ,
-             Restuarant Description : {{restuDetails.description}},
-            Address: {{restuDetails.address}}
-          
-          </p>
-        </div>
-      </div>
-
-    </div>
     <div class="col-xl-6 col-md-6 mb-4">
       <table class="table">
         <thead>
@@ -114,26 +97,45 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let o of orders">
-            <td>{{o.name}}</td>
-            <!-- <td>{{o.details[o.name]}}</td> -->
-            <td >{{o.address}}</td>
-            <td>{{o.totalPrice}} LE</td>
-            <td>{{o.customerID}}</td>
-
+          <tr *ngFor="let currentOrder of orders" >
+            <td>{{ currentOrder.id }}</td>
+            <td>{{ currentOrder.address }}</td>
+            <td>{{ currentOrder.totalPrice }} LE</td>
+            <td>{{ currentOrder.customerID }}</td>
             <td>
-             <button class="btn btn-success" (click)="aproveOrderstatus(o.id)">
+              <button  class="btn btn-info m-1" (click)="selectOrder(currentOrder.id )">
+               Details
+              </button>
+             <button class="btn btn-success" (click)="aproveOrderstatus(currentOrder.id)">
               <i class="fa-solid fa-check" style="color: #00040a;"></i>
              </button>
 
-             <button  class="btn btn-danger m-1" (click)="cancelOrderstatus(o.id)">
+             <button  class="btn btn-danger m-1" (click)="cancelOrderstatus(currentOrder.id)">
               <i class="fa-solid fa-xmark" style="color: #02060d;"></i>
              </button>
+
             </td>
           </tr>
           
         </tbody>
       </table>
+    </div>
+    <div class="col-lg-5 mb-4">
+      <!-- Order Details Section -->
+      <div class="card shadow mb-4" >
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Order Details</h6>
+        </div>
+        <div class="card-body"  *ngIf="orderDetails">
+          <p *ngFor="let item of orderDetails">
+            Item Name : {{item.name}} ,
+            Item quantity : {{item.quantity}},
+            price: {{restuDetails.price}}
+          
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -154,7 +156,7 @@
             <div routerLink="/store-dashboard/showitemsbyid/{{c.id}}" class="offer-cards pb-5">
               <div class="row justify-content-center">
                 <div class="col-12 text-center">
-                  <img src="/assets/Burger.jpg" alt="Image" class="imgoffer" />
+                  <h2>Category</h2>
                 </div>
               </div>
               <div class="row justify-content-center h-hidding">
@@ -184,14 +186,12 @@
           <h2 class="diplay-1">Items List</h2>
           <hr>
 
-         
-     
   <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
     <div *ngFor="let i of items" class="row" class="col d-flex justify-content-center">
             <div class="offer-cards pb-5">
               <div class="row justify-content-center">
                 <div class="col-12 text-center">
-                  <img src="/assets/Burger.jpg" alt="Image" class="imgoffer" />
+                  <img [src]="i.menuItemImg" alt="Image" class="imgoffer" />
                 </div>
               </div>
               <div class="row justify-content-center h-hidding">
@@ -216,10 +216,7 @@
         </div>
         </div>
         <hr />
-        <!-- <div class="row justify-content-center">
-          <h2 class="diplay-1">Offers List</h2>
 
-        </div> -->
       </div>
     </div>
   </div>

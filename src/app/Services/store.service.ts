@@ -10,7 +10,7 @@ export class StoreService {
   constructor(private myClient: HttpClient) { }
   private Base_URL = "https://localhost:44309/api/Store";
   private Base_URLReg = "https://localhost:44309/api/Store/Registration";
-  private ItemsbyID =" https://localhost:44309/api/Store/MstoreID";
+  private ItemsbyID ="https://localhost:44309/api/Store/StoreMenu";
   private totalEarningsURL ="https://localhost:44309/api/Store/TotalEarnings";
   
   private img_url = "https://localhost:44309/api/Store/uploadImage";
@@ -41,7 +41,7 @@ export class StoreService {
     return this.myClient.post(this.Base_URLReg,Restaurant );
   }
 
-  getItemsbyID(id:any){
+  getItemsbyRestID(id:any){
     return this.myClient.get(`${this.ItemsbyID}/${id}`);
   }
 

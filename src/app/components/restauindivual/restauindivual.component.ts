@@ -38,7 +38,7 @@ export class RestauindivualComponent implements OnInit {
     });
 
        // get items by restID
-       this.storeService.getItemsbyID(this.storeID).subscribe(
+       this.storeService.getItemsbyRestID(this.storeID).subscribe(
         (data:any)=>{
               console.log(data);//all items
               this.menus=data;
