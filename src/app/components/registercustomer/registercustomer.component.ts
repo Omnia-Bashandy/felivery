@@ -11,6 +11,9 @@ import { CustomerService } from 'src/app/Services/customer.service';
   styleUrls: ['./registercustomer.component.css']
 })
 export class RegistercustomerComponent {
+  refresh(): void {
+    window.location.reload();
+  }
   eye = faEye;
   eyeSlash = faEyeSlash
   passwordVisible: boolean = false;
@@ -55,16 +58,17 @@ export class RegistercustomerComponent {
     };
     console.log(userData);
     
-
+    // setInterval(this.refresh,5000)
     this.http.Register(userData).subscribe({
       next: (data: any) => {
         console.log(data);
         const token = data["token"]; // Accessing the "id" property
         console.log(token); // Check the value of id
         localStorage.setItem('token',token)
-        console.log(`Welcome in Felivery`);
-        this.route.navigate(['/'])
+        alert(`Welcome in Felivery`);
+        this.route.navigate(['/login'])
       },
+      
       error: (err) => {
         console.log(err);
         alert(`${err.error}`)
