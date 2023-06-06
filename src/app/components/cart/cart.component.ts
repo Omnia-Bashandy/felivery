@@ -117,6 +117,7 @@ import { CartService } from 'src/app/Services/cart.service';
 import { OrderService } from 'src/app/Services/order.service';
 import { SharedService } from 'src/app/Services/shared.service';
 import { Location } from '@angular/common';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -132,22 +133,26 @@ export class CartComponent implements OnInit {
   amount = 324;
 
   paypal:any;
+  addresss:any;
 
    @ViewChild('paymentRef', {static: true}) paymentRef!: ElementRef;
   backupOrderobject:any; //object that sends into store home if customer press cancel button in pending page
 
-
+  refresh(): void {
+    window.location.reload();
+  }
   constructor(public cart: CartService,
     private location: Location,
     private orderService: OrderService ,
     public shared:SharedService , public route:Router) {}
 
   ngOnInit() {
+    this.addresss = new FormControl("Cairo",[Validators.max(12),Validators.required]),
     this.orders = this.cart.getCartItems();
     for (let i = 0; i < this.orders.length; i++) {
       const item = {
         menuItemID: this.orders[i]["menuItemID"]["id"],
-        menuItem :this.orders[i]["menuItemID"]["name"], 
+        // menuItem :this.orders[i]["menuItemID"]["name"], 
         quantity: this.orders[i]["quantity"],
         price: this.orders[i]["menuItemID"]["price"]
       };
@@ -180,6 +185,7 @@ export class CartComponent implements OnInit {
 
   removefromCart(id: any) {
     this.cart.deleteFromCart(id);
+    window.location.reload();
   }
 
   calculateTotalPrice() {
@@ -190,58 +196,25 @@ export class CartComponent implements OnInit {
     this.totalprice = totalPrice;
   }
 
-
-  //once clicked checkout button
-// placeOrder() {
-//     const orderData = {
-//       totalPrice: this.totalprice,
-//       address: this.address,
-//       details: this.savedItems,
-//       restaurantID: this.shared.getcartRestId(), // Add the restaurant ID
-//       customerID: this.shared.getCustId() // Add the customer ID
-//     };
-//     console.log(orderData);
-
-//     this.orderService.addOrder(orderData).subscribe(
-//       (data: any) => {
-//         console.log("Order placed successfully:", data);
-//         console.log(data);
-//         // this.route.navigate(['/pendingstatus'])
-
-//         // to save data in back up object and send it into pending page
-//         this.backupOrderobject = orderData;
-//         console.log("back up order data",this.backupOrderobject);
-//         this.route.navigate(['/pendingstatus'], { state: { backupOrderObject: this.backupOrderobject } });
-
-//       },
-//       (error: any) => {
-//         console.log("Error placing order:", error);
-//       }
-//     );
-//     this.shared.setStatus("pending");
-    
-//   }
-
-
-
-// once clicked checkout button
 placeOrder() {
   const orderData = {
     totalPrice: this.totalprice,
     address: this.address,
     details: this.savedItems,
     restaurantID: this.shared.getcartRestId(), // Add the restaurant ID
-    customerID: this.shared.getCustId() // Add the customer ID
+     customerID: Number( this.shared.getCustId()) // Add the customer ID
   };
   console.log(orderData);
 
   this.orderService.addOrder(orderData).subscribe(
     (data: any) => {
       console.log('Order placed successfully:', data);
-      console.log(data);
-      this.backupOrderobject = orderData;
-      console.log('Backup order data', this.backupOrderobject);
-      this.route.navigate(['/pendingstatus'], { state: { backupOrderObject: this.backupOrderobject } });
+      console.log(data.id);
+      this.cart.clearCart()
+      localStorage.setItem("cancelledOrderId" , data.id) 
+
+      // console.log('Backup order data', this.backupOrderobject);
+      this.route.navigate(['/pendingstatus'])
     },
     (error: any) => {
       console.log('Error placing order:', error);
@@ -249,6 +222,8 @@ placeOrder() {
   );
   this.shared.setStatus('pending');
 }
+
+
 
 
 

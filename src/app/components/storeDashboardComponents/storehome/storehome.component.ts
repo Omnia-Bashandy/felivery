@@ -36,6 +36,7 @@ export class StorehomeComponent {
     private orderservice:OrderService,private servicestore:StoreService,
     private route:ActivatedRoute,private category:CategoriesService,
     private cart:CartService,
+    // private sharedserv = sharedService,
     private orderCancellationService:CanclledordersService) {
       this.servicestore.listen().subscribe((m:any)=>{
         console.log(m);
@@ -47,25 +48,37 @@ export class StorehomeComponent {
     refresh(): void {
       window.location.reload();
     }
+    finishedOrders:any;
 
   ngOnInit() {
 
     // Get the stored id from the shared service
     this.id = this.sharedService.getId(); 
     console.log(this.id);
+    // if (this.sharedService.getStatus() === 'cancelcustomer') {
+    //   setInterval(this.refresh,50)
+    //   alert(`order canceled `)
+    // }
+    // this.sharedserv.setStatus('cancelcustomer');
     
 
     this.orderservice.getOrdersbyRestID(this.id).subscribe(
       (data:any)=>{
             console.log(data);//all orders 
             this.orders=data;
-            console.log(this.orders,"fgdffghfghfghgdfgdfg"); 
+            console.log(this.orders); 
           },
           (error:any)=>{
             console.log("There is an error ",error); 
           }
     )
-
+    //finished orders
+    this.orderservice.getFinishedOrders(this.id).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.finishedOrders = data
+        
+    })
 
     //get menu items by rest id 
     this.servicestore.getItemsbyRestID(this.id).subscribe(
@@ -150,12 +163,20 @@ this.servicestore.getRestaurantById(this.id).subscribe(
     // this.aproveOrderstatus();
     
   }
+
+    
+  
   orderDetails : any;
   selectOrder(currentid:any) {
     this.orderservice.getOrderById(currentid).subscribe(
       (data:any)=>{
         console.log(data.details);
         this.orderDetails = data.details
+        for (let index = 0; index < this.orderDetails.length; index++) {
+          const element = this.orderDetails[index];
+          console.log("item "+element.menuItem.name);
+        }
+        
     })
   }
 

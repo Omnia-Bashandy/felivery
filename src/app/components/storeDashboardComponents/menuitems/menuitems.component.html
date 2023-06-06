@@ -1,21 +1,18 @@
 <div class="row mt-4 mb-4">
-  <h3 class="hidding-offer">Menu Items In Restaurants</h3>
+  <h3 class="hidding-offer" style="color:aliceblue">Menu Items In Restaurants</h3>
 </div>
 <hr class="style-line" />
 <div class="container mb-5">
   <div
-    class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"
-  >
+    class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
     <div class="card stylecard">
       <a routerLink="/store-dashboard/add-items">
         <i class="fa-regular fa-square-plus" style="color: #51331f"></i>
       </a>
     </div>
-
     <div
-      *ngFor="let item of items"
-      class="col d-flex justify-content-center"
-    >
+      *ngFor="let item of items  | paginate: { itemsPerPage: itemperpage, currentPage: p ,totalItems:0}"
+      class="col d-flex justify-content-center">
       <div class="offer-cards">
         <div class="row justify-content-center">
           <div class="col-12 text-center">
@@ -30,7 +27,7 @@
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-12 text-center">Price : {{item.price}} $</div>
+          <div class="col-12 text-center">Price : {{item.price}} LE</div>
         </div>
 
         <div class="row justify-content-center h-desc">
@@ -46,15 +43,17 @@
             <a routerLink="/store-dashboard/update-items/{{item.id}}" class="btn btn-dark">Update</a>
           </div>
           <div class="col-4 mt-2">
-            <button  routerLink="/store-dashboard/delete-items/{{items.id}}" (click)="deleteItem(item.id)" class="btn btn-danger" >delete</button>
-
-             <!-- <a routerLink="/store-dashboard/delete-items/{{item.id}}" class="btn btn-danger">Delete</a> -->
+          
+            <button  routerLink="/store-dashboard/delete-items/{{item.id}}" class="btn btn-danger" >delete</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </div>
+<div class="text-center mt-4 flex justify-center item-center edt">
+    <pagination-controls  previousLabel="Prev" nextLabel="Next" (pageChange)="p = $event"></pagination-controls>
+</div>
+
 
 
 

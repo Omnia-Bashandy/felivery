@@ -14,8 +14,9 @@ export class StoreService {
   private Base_URLReg = "https://localhost:44309/api/Store/Registration";
   private ItemsbyID ="https://localhost:44309/api/Store/StoreMenu";
   private totalEarningsURL ="https://localhost:44309/api/Store/TotalEarnings";
-  
   private img_url = "https://localhost:44309/api/Store/uploadImage";
+  private rate_url = "https://localhost:44309/api/Store/SetRating";
+  
   //uploadImg(img:any , name:any){
     //return this.myClient.post(this.img_url,img ,name);
   //}
@@ -49,6 +50,10 @@ export class StoreService {
 
   gettotalbyID(id:any){
     return this.myClient.get(`${this.totalEarningsURL}/${id}`);
+  }
+
+  SetRate(id:any,rate:any){
+    return this.myClient.put(`${this.rate_url}/${id}/${rate}`,"");
   }
   
   private _listeners = new Subject<any>();

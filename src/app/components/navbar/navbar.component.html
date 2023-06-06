@@ -44,7 +44,7 @@
           <!-- < order status  -->
           <div class="btn-group" *ngIf="isloggedIn()">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fa-solid fa-user" style="color: #ffffff;"></i> Welcome, {{ CustName }}
+              <i class="fa-solid fa-user" style="color: #bb622a;">  Welcome, {{ CustName }}  </i>
 
             </a>
             <div class="dropdown-menu">
@@ -65,7 +65,7 @@
                 
                   <!-- Done Component -->
                   <li class="nav-link dropdown-item" *ngIf="status === 'done'" style="font-size: 17px;margin-left: 3px;color: black;">
-                    <a class="nav-link dropdown-item" routerLink="/deliverdstatus">
+                    <a class="nav-link dropdown-item" routerLink="/deliverdstatus1">
                       <i class="fa-solid fa-bag-shopping" ></i>
                       My Order</a>
                   </li>

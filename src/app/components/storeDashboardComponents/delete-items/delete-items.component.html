@@ -1,27 +1,23 @@
-
 <div class="container-fluied bg-img">
-    <div class="row">
-      <div class="container justify-content-center mb-5 mt-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 text-center col-12 p-5">
-            <h1 class="hidding-offer">Are You Sure You Want to Delete This Item?</h1>
-            <h3 class="hidding-offer mt-3">{{items.name}} aaa</h3>
+  <div class="row">
+    <div class="container justify-content-center mb-5 mt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 text-center col-12 p-5">
+          <h1 class="hidding-offer" style="color:aliceblue">Are You Sure You Want to Delete This Item?</h1>
+          <h3 class="hidding-offer mt-3">{{items.name}}</h3>
 
-         <div class="row justify-content-center">
-          <div class="col-2">
-            
-            <button  [routerLink]="['/delete-items',items.id]" (click)="deleteItem(items.id)">Delete</button>
-            <!-- <a class="btn btn-danger" (click)="deleteItem(items.id)">Delete</a> -->
-          </div>
-          <div class="col-2">
-            
-            <a class="btn btn-dark"
-            routerLink="/store-dashboard/menuitems">Cancel</a>
-          </div>
-         </div>
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <a class="btn btn-light"  (click)="deleteItem(items.id) " >Delete</a>
+            </div>
+            <div class="col-2">
 
-          </div> 
+              <a class="btn btn-dark" routerLink="/store-dashboard/menuitems">Cancel</a>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
+</div>

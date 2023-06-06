@@ -19,6 +19,7 @@ export class RestauindivualComponent implements OnInit {
   restaurant: any;
   menus: any[] = [];
 
+
   // order 
   Item: any | undefined;
   items: any = [];
@@ -27,6 +28,7 @@ export class RestauindivualComponent implements OnInit {
   quantity: number = 1;
   order: any;
   savedItems: any[] = [];
+
 
   @ViewChild('paymentRef', {static: true}) paymentRef!: ElementRef;
   backupOrderobject:any; //object that sends into store home if customer press cancel button in pending page
@@ -45,11 +47,13 @@ export class RestauindivualComponent implements OnInit {
   storeid:any = this.shared.getId();
 
   rateInput = new FormControl(0);
-  ratingValue:any;
-  totalRatings:any;
-  numOfRaters:any;
+  // ratingValue:any;
+  Finalrating: any;
+  // totalRatings:any;
+  // numOfRaters:any;
   getRating(){
     console.log(this.rateInput.value);
+   
   }
   // rate() {
   //   const rate = this.rateInput.value;
@@ -80,8 +84,6 @@ onRateChange(rating: number) {
 ratingSubmitted:any
 orders:any
   ngOnInit(): void {
-
-
     this.route.params.subscribe(params => {
       this.storeID = params['id'];
   
@@ -95,7 +97,8 @@ orders:any
         }
       );
     });
-
+//rating 
+// this.storeService.get
 
     // Get items by restID
     this.storeService.getItemsbyRestID(this.storeID).subscribe(
@@ -158,7 +161,7 @@ orders:any
   addToCart(MID:any) {
     // this.route.params.subscribe(params => {
     //   const itemId = params['id'];
-      console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",MID);
+      // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",MID);
       console.log(MID);
       
       this.menuitemsService.getMenuitemById(MID).subscribe(

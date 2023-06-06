@@ -1,12 +1,149 @@
-<div class="container-fluied bg-img">
+<div class="container-fluid bg-img">
+  <div class="row bg-trans">
+    <div class="container justify-content-center mb-5 mt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-10 col-12 p-5">
+          <h1 class="hidding-offer text-white">Update Item Data</h1>
+          <form [formGroup]="edititem">
+            <div class="mb-3">
+              <label for="name" class="form-label">Item Name</label>
+              <input
+              #itemname
+                formControlName=""
+                type="text"
+                value={{item.name}}
+                class="form-control"
+                id="name"
+                aria-describedby="name"
+                [value]="item.name"
+              />
+           
+              <div *ngIf="edititem.controls.itemname.errors">
+                <div
+                  class="validateerrorstyle"
+                  *ngIf="
+                    edititem.controls.itemname.errors['minlength'] &&
+                    edititem.controls.itemname.touched">
+                  Item Name must be at least 5 characters.
+                </div>
+                <div
+                  class="validateerrorstyle"
+                  *ngIf="
+                    edititem.controls.itemname.errors['maxlength'] &&
+                    edititem.controls.itemname.touched">Item Name can have at most 50 characters.
+                </div>
+                <div
+                  class="validateerrorstyle"
+                  *ngIf="
+                    edititem.controls.itemname.errors['required'] &&
+                    edititem.controls.itemname.touched
+                  ">
+                  Item Name is required.
+                </div>
+              </div>
+            </div>
+      
+            <div class="mb-3">
+              <label for="categoryID" class="control-label" > Category </label>
+              <select
+                #categoryname
+                id="categoryID"
+                formControlName="category"
+                value ={{item.id}}
+                [(ngModel)]="selectedCategoryId"
+                (ngModelChange)="setSelectedCategory()"
+                class="form-control">
+                <option value="">Select a Category</option>
+                <option *ngFor="let c of cats" [value]="c.id">{{ c.name }}</option>
+              </select>
+
+              <div *ngIf="edititem.controls.category.errors">
+                <div
+                  class="validateerrorstyle"
+                  *ngIf="
+                    edititem.controls.category.errors['required'] &&
+                    edititem.controls.category.touched">
+                  Please select a country.
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input
+              #price
+                formControlName=""
+                type="text"
+                value="{{item.price}}"
+                placeholder="Enter Price"
+                class="form-control"
+                id="price"/>
+
+              <div *ngIf="edititem.controls.price.errors">
+                <div
+                  class="validateerrorstyle"
+                  *ngIf="
+                    edititem.controls.price.errors['required'] &&
+                    edititem.controls.price.touched">
+                  price is required.
+                </div>
+                <div
+                  class="validateerrorstyle"
+                  *ngIf="
+                    edititem.controls.price.errors['pattern'] &&
+                    edititem.controls.price.touched">
+                  Please enter a valid price number.
+                </div>
+              </div>
+            </div>
+
+
+            <!-- <label for="rest" class="form-label">Restaurant Name</label>
+            <input
+            #itemname
+              formControlName=""
+              type="text"
+              
+              class="form-control"
+              id="rest"
+              aria-describedby="rest"
+              [value]="item.restaurant.name"
+            /> -->
+
+            <div class="mb-3">
+              <div class="add text-center">
+                Upload Image
+                <input type="file" (change)="onUpload($event)" style="display: none" id="fileInput" />
+                <label for="fileInput" class="fa fa-camera" style="font-size: 60px;"></label>
+              </div>
+            </div>
+
+            <button
+              routerLink="/store-dashboard/menuitems"
+              class="btn btn-success m-3 w-50"
+              type="submit"
+              (click)="editItem(itemname.value, price.value)"
+                  >
+              Save
+            </button>
+
+            <a routerLink="/store-dashboard/menuitems" class="btn btn-danger m-3 w-25">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container-fluied bg-img">
   <div class="row bg-trans">
     <div class="container-fluied justify-content-center mb-5 mt-5">
       <div class="row justify-content-center">
         <div class="col-lg-6 col-12 p-5">
           <h1 class="hidding-offer text-white">Update Item Data</h1>
           <form [formGroup]="edititem">
-
-          <!-- <form [formGroup]="edititem" (ngSubmit)="editItem(itemname.value,category.value,price.value,rest.value)"> -->
+           <form [formGroup]="edititem" (ngSubmit)="editItem(itemname.value,category.value,price.value,rest.value)"> 
             <div class="mb-3">
               <label for="name" class="form-label">Item Name</label>
               <input
@@ -94,47 +231,44 @@
                 </div>
               </div>
             </div>
-
+            <div class="mb-3">
+              <div class="add text-center">
+                Upload Image
+                <input type="file" (change)="onUpload($event)" style="display: none" id="fileInput" />
+                <label for="fileInput" class="fa fa-camera" style="font-size: 60px;"></label>
+              </div>
+            </div>
+  
+            <div class="row justify-content-center mt-5">
+              <div class="col-10 text-center">
+                <div class="row justify-content-center">
+                  <div class="col-4">
+                    <input
+                    (click)="editItem(itemname.value,price.value)"
+                      routerLink="/store-dashboard/menuitems"
+                      class="btn btn-danger"
+                      type="submit"
+                      value="Save Item"
+                      [disabled]="!edititem.valid"
+                    />
+                  </div>
+                  <div class="col-2">
+                    <a
+                      routerLink="/store-dashboard/menuitems"
+                      class="btn btn-dark"
+                      >Cancel</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
           </form>
         </div>
         <div class="col-lg-6 p-5">
-          <div class="mb-3">
-            <div class="uploadimg">
-              <img src="../../../assets/Pizza.jpg" class="w-100" />
-              <div class="add">
-                <input type="file" />
-                <i class="fa fa-camera"></i>
-              </div>
-            </div>
-            <label for="imgitem" class="form-label">Upload Item picture</label>
-            <input type="file" id="imgitem" formControlName="itemImg" />
-          </div>
+          
 
-          <div class="row justify-content-center mt-5">
-            <div class="col-10 text-center">
-              <div class="row justify-content-center">
-                <div class="col-4">
-                  <input
-                  (click)="editItem(itemname.value,price.value)"
-                    routerLink="/store-dashboard/menuitems"
-                    class="btn btn-danger"
-                    type="submit"
-                    value="Save Item"
-                    [disabled]="!edititem.valid"
-                  />
-                </div>
-                <div class="col-2">
-                  <a
-                    routerLink="/store-dashboard/menuitems"
-                    class="btn btn-dark"
-                    >Cancel</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->

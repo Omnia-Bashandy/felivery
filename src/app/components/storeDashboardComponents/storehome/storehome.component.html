@@ -35,8 +35,10 @@
               <div class="row no-gutters align-items-center">
                 <div class="col-auto">
                   <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                    {{Deliverd *100/ (+this.Deliverd + this.pendingOrders)}}%          
+
+                    {{ (Deliverd * 100 / (+this.Deliverd + this.pendingOrders)) | number:'1.1-1' }}%
                   </div>
+                  
                 </div>
                 <div class="col">
                   <div class="progress progress-sm " role="progressbar"
@@ -81,53 +83,55 @@
     </div>
   </div>
   <!-- orders by rest id -->
+  <hr>
+        <h2 class="diplay-1 text-center" style="color:aliceblue">Pending Orders</h2>
+        <hr> 
   <div class="row">
     <div class="col-xl-6 col-md-6 mb-4">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <!-- <th>Order Name</th> -->
-            <th>Address</th>
-            <th>Total Price</th>
-            <th>Customer Name</th>
 
-            <th class="m-1">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let currentOrder of orders" >
-            <td>{{ currentOrder.id }}</td>
-            <td>{{ currentOrder.address }}</td>
-            <td>{{ currentOrder.totalPrice }} LE</td>
-            <td>{{ currentOrder.customerID }}</td>
-            <td>
-              <button  class="btn btn-info m-1" (click)="selectOrder(currentOrder.id )">
-               Details
-              </button>
-             <button class="btn btn-success" (click)="aproveOrderstatus(currentOrder.id)">
-              <i class="fa-solid fa-check" style="color: #00040a;"></i>
-             </button>
-
-             <button  class="btn btn-danger m-1" (click)="cancelOrderstatus(currentOrder.id)">
-              <i class="fa-solid fa-xmark" style="color: #02060d;"></i>
-             </button>
-
-            </td>
-          </tr>
-          
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table text-center">
+          <thead>
+            <tr style="color:aliceblue">
+              <th>Order ID</th>
+              <th>Address</th>
+              <th>Total Price</th>
+              <th>Customer ID</th>
+              <th class="m-1">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let currentOrder of orders ;let i = index " style="color:aliceblue">
+              <td>{{i+1}}</td>
+              <td>{{ currentOrder.address }}</td>
+              <td>{{ currentOrder.totalPrice }} LE</td>
+              <td>{{ currentOrder.customerID }}</td>
+              <td>
+                <button class="btn btn-success" (click)="aproveOrderstatus(currentOrder.id)">
+                  <i class="fa-solid fa-check" style="color: #00040a;"></i>
+                </button>
+                <button class="btn btn-danger m-1" (click)="cancelOrderstatus(currentOrder.id)">
+                  <i class="fa-solid fa-xmark" style="color: #02060d;"></i>
+                </button>
+                <button class="btn btn-info m-1" (click)="selectOrder(currentOrder.id)">
+                  <i class="fa fa-angle-right" style="font-size:20px"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
     </div>
     <div class="col-lg-5 mb-4">
       <!-- Order Details Section -->
       <div class="card shadow mb-4" >
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Order Details</h6>
+          <h6 class="m-0 font-weight-bold text-primary" style="color:aliceblue">Order Details</h6>
         </div>
-        <div class="card-body"  *ngIf="orderDetails">
+        <div class="card-body"  *ngIf="orderDetails" >
           <p *ngFor="let item of orderDetails">
-            Item Name : {{item.name}} ,
+            Item Name : {{item.menuItem.name}} ,
             Item quantity : {{item.quantity}},
             price: {{restuDetails.price}}
           
@@ -136,6 +140,7 @@
       </div>
 
     </div>
+
   </div>
 
 </div>
@@ -146,43 +151,52 @@
       <div class="container-fluied">
         <div class="row justify-content-center">
           <hr>
-          <h2 class="diplay-1">Category List</h2>
+
+          <h2 class="diplay-1 text-center" style="color:aliceblue">Orders Done</h2>
           <hr>       
-  <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-    <div *ngFor="let c of categories" class="row" class="col d-flex justify-content-center">
-            <div routerLink="/store-dashboard/showitemsbyid/{{c.id}}" class="offer-cards pb-5">
-              <!-- <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                  <h2>Category</h2>
-                </div>
-              </div> -->
-              <div class="row justify-content-center h-hidding">
-                <div class="col-12 text-center">
-                  <h1 class="ff pt-3 pl-2 pr-2">
-                    {{ c.name }}
-        
-                  </h1>
-                  <div class="row justify-content-center">
-                    {{ c.description}}
-  
-                  </div>
-                  <div class="row justify-content-center">
-                    <!-- {{ i.price }} -->
-  
-                  </div>
-                </div>
-              </div>
-        
-            </div>
-          </div>
-        </div>
+          <table class="table text-center">
+            <thead>
+              <tr style="color:aliceblue">
+                <th>Order ID</th>
+                <th>Address</th>
+                <th>Total Price</th>
+                <th>Customer Id</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let currentOrder of finishedOrders" style="color:aliceblue">
+                <td>{{ currentOrder.id }}</td>
+                <td>{{ currentOrder.address }}</td>
+                <td>{{ currentOrder.totalPrice }} LE</td>
+                <td>{{ currentOrder.customerID }}</td>
+                <!-- <td>
+                  <button  class="btn btn-info m-1" (click)="selectOrder(currentOrder.id )">
+                   Details
+                  </button>
+                 <button class="btn btn-success" (click)="aproveOrderstatus(currentOrder.id)">
+                  <i class="fa-solid fa-check" style="color: #00040a;"></i>
+                 </button>
+    
+                 <button  class="btn btn-danger m-1" (click)="cancelOrderstatus(currentOrder.id)">
+                  <i class="fa-solid fa-xmark" style="color: #02060d;"></i>
+                 </button>
+    
+                </td> -->
+              </tr>
+              
+            </tbody>
+          </table>
         </div>
         <hr />
 
         <div class="row justify-content-center">
-          <h2 class="diplay-1">Items List</h2>
+
+          <h2 class="diplay-1" style="color:aliceblue">Items List</h2>
+
           <hr>
 
+         
+     
   <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
     <div *ngFor="let i of items" class="row" class="col d-flex justify-content-center">
             <div class="offer-cards pb-5">
@@ -213,7 +227,10 @@
         </div>
         </div>
         <hr />
+        <!-- <div class="row justify-content-center">
+          <h2 class="diplay-1">Offers List</h2>
 
+        </div> -->
       </div>
     </div>
   </div>

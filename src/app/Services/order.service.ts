@@ -8,11 +8,12 @@ export class OrderService {
 
   constructor(private myClient: HttpClient) { }
   private Base_URL = "https://localhost:44309/api/Order";
-  // private ordersREST ="https://localhost:44309/api/Store/GetOrdersBystoreID?storeID=";
+  private finishedOrders ="https://localhost:44309/api/Store/FinshedOrders";
   private ordersREST ="https://localhost:44309/api/Store/PendingOrders";
   private pendingOrd ="https://localhost:44309/api/Store/TotalPendingOrders";
   private DeliveredURL ="https://localhost:44309/api/Store/TotalDeliveredOrders";
   private updateDone ="https://localhost:44309/api/Store/DoneOrder";
+
 
   getAllOrders() {
     return this.myClient.get(this.Base_URL);
@@ -20,6 +21,9 @@ export class OrderService {
 
   getOrderById(id: any) {
     return this.myClient.get(`${this.Base_URL}/${id}`);
+  }
+  getFinishedOrders(id: any) {
+    return this.myClient.get(`${this.finishedOrders}/${id}`);
   }
 
   updateOrder(Order: any ) {
@@ -34,6 +38,10 @@ export class OrderService {
     
   }
   private  OrderKey= 'Order';
+
+
+
+
 
   addToOrder(item: any) {
     // Retrieve the Order items from local storage

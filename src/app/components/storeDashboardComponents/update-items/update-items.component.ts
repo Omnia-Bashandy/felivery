@@ -16,6 +16,7 @@ export class UpdateItemsComponent implements OnInit{
   // editIitem:any;
   // id:any;
   
+  item:any
   iditem:any
   restid:any =this.storeservice.getId();
   constructor(private route:ActivatedRoute, private menuService: MenuitemsService ,private storeservice:SharedService,
@@ -32,10 +33,15 @@ export class UpdateItemsComponent implements OnInit{
   
   arritems:any
   ngOnInit() {
-    this.menuService.getMenuitemById(this.route.snapshot.params["id"]).subscribe({
-       next: (data: any) => 
+    
+    this.iditem = this.route.snapshot.params["id"];
+    
+    this.menuService.getMenuitemById(this.iditem).subscribe({
+      next: (data: any) => 
     {
+      this.item = data
       console.log(data);
+
       this.iditem = data["id"]
     },
       error: (err) => {
@@ -45,7 +51,7 @@ export class UpdateItemsComponent implements OnInit{
 
 
 
-this.categoriees.GetAllCategories().subscribe(
+this.categoriees.getCategoryRestid(this.restid).subscribe(
   (data : any) =>{
     console.log(data);
     this.cats = data;
@@ -69,8 +75,8 @@ editItem(itemname: string, price: any) {
     name: itemname,
     categoryID:  this.selectedCategoryId,
     price: price,
-    restaurantID: 1,
-    menuItemImg: "bbbb"
+    restaurantID: this.restid,
+    menuItemImg: this.item.menuItemImg
   };
 
   console.log(updatedItem);
@@ -79,12 +85,40 @@ editItem(itemname: string, price: any) {
     (data) => {
       console.log(data);
       alert("Updated successfully");
+      window.location.reload();
     },
     (error) => {
       console.error(error);
       alert("Failed to update item");
     }
   );
+   //  image
+   this.menuService.uploadImg(this.selectedFile, this.restid ,itemname).subscribe({ 
+    //this.myService.uploadImg( Rname ).subscribe({ 
+      next(data : any) {
+        console.log(data);
+      },error: (err) => {
+        console.log(err);
+        // this.imgUrl = err.error["text"]
+        console.log(err.error["text"]);
+        
+      }
+    })
 }
+selectedFile: FormData | undefined ;
 
+  onUpload(event: any){
+    if(event.target.files.length > 0) {
+      const file = event.target.files[0];
+      //if(event.target.files.length == 1 && (file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg')) {
+      if(file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg') {
+        const formData = new FormData();
+        formData.append('file',file);
+        //this.selectedFile = file;
+        this.selectedFile = formData;
+      } else {
+        alert('Please select an Image in either .jpg, .jpeg, or .png forms!');
+      }
+    }
+}
 }

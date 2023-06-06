@@ -1,51 +1,52 @@
-<!-- new responsive side bar -->
-<nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidbarnav">
-  <a class="navbar-brand "> Felivery</a>
-  <ul class="navbar-nav pt-5 d-flex flex-column w-100 text-center">
+<nav class="navbar navbar-expand-lg d-flex flex-column align-items-start" id="sidbarnav">
+  <!-- <h1 class="navbar-brand">welcome <br> to your <br> restaurant </h1> -->
+ 
 
-    <img [src]= "StoreImg" alt="" class="mb-2 style-img">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse"
+  aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="sidebarCollapse">
+    <ul class="navbar-nav  d-flex flex-column w-100 text-center">
+      <a class="navbar-brand">Felivery</a>
+      <img [src]="StoreImg" alt="" class="mb-2 style-img">
 
-    <li class="nav-item" [class.active]="isActive('storehome')">
-      <a class="nav-link" routerLink="/store-dashboard/storehome" (click)="setActive('storehome')">
-        <i class="fa-solid fa-house" ></i>
-      <span>Home</span>
-      </a>
-    </li>
-    
-    <li class="nav-item" [class.active]="isActive('menuitems')"> 
-      <a class="nav-link" routerLink="/store-dashboard/menuitems" (click)="setActive('menuitems')">
-        <i class="fa-solid fa-bowl-food "></i>
-        <span>Menu Items</span> 
-      </a>
-    </li>
-
-    <li class="nav-item" [class.active]="isActive('categories')">
-      <a class="nav-link" routerLink="/store-dashboard/categories" (click)="setActive('categories')">
-        <i class="fa-solid fa-truck"></i>
-        <span>Categories</span>
-      </a>
-    </li>
-
-    <li class="nav-item" [class.active]="isActive('storeoffers')"> 
-      <a class="nav-link" routerLink="/store-dashboard/storeoffers" (click)="setActive('storeoffers')">
-        <i class="fa-solid fa-tag"></i>
-        <span>Offers</span>
-      </a>
-    </li>
-
-    <li class="nav-item" [class.active]="isActive('storesetting')">
-      <a class="nav-link" routerLink="/store-dashboard/storesetting" (click)="setActive('storesetting')">
-        <i class="fa-solid fa-gear"></i>
-        <span>settings</span>
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link margin-buttom" routerLink="/" (click)="LogOut()">
-      <i class="fa-solid fa-person-walking-arrow-right"></i>
-    <span>LogOut</span>
-      </a>
-    </li>
-    
-  </ul>
+      <li class="nav-item" [class.active]="isActive('storehome')">
+        <a class="nav-link" routerLink="/store-dashboard/storehome" (click)="setActive('storehome')">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="nav-item" [class.active]="isActive('menuitems')">
+        <a class="nav-link" routerLink="/store-dashboard/menuitems" (click)="setActive('menuitems')">
+          <i class="fa-solid fa-bowl-food"></i>
+          <span>Menu Items</span>
+        </a>
+      </li>
+      <li class="nav-item" [class.active]="isActive('categories')">
+        <a class="nav-link" routerLink="/store-dashboard/categories" (click)="setActive('categories')">
+          <i class="fa-solid fa-truck"></i>
+          <span>Categories</span>
+        </a>
+      </li>
+      <li class="nav-item" [class.active]="isActive('storeoffers')">
+        <a class="nav-link" routerLink="/store-dashboard/storeoffers" (click)="setActive('storeoffers')">
+          <i class="fa-solid fa-tag"></i>
+          <span>Offers</span>
+        </a>
+      </li>
+      <li class="nav-item" [class.active]="isActive('storesetting')">
+        <a class="nav-link" routerLink="/store-dashboard/storesetting" (click)="setActive('storesetting')">
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link margin-buttom" routerLink="/" (click)="LogOut()">
+          <i class="fa-solid fa-person-walking-arrow-right"></i>
+          <span>LogOut</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </nav>

@@ -30,7 +30,9 @@ setSelectedCategory() {
   console.log(this.selectedCategoryId); // Output the selected category ID
 }
 selectedFile: FormData | undefined ;
-
+refresh(): void {
+  window.location.reload();
+}
   onUpload(event: any){
     if(event.target.files.length > 0) {
       const file = event.target.files[0];
@@ -47,42 +49,46 @@ selectedFile: FormData | undefined ;
   }
   imgUrl:any;
   addNewItem(itemnam: string, price: any) {
+     
+    setInterval(this.refresh,500)
     const newItem = {
       name: itemnam,
       price: price,
       categoryID: this.selectedCategoryId,
-      restaurantID: this.id
+      restaurantID: this.id,
+      menuItemImg : "https://localhost:44309//uploads/common/noimg.png"
+
     };
-  
+      //  image
+ this.myService.uploadImg(this.selectedFile, this.id ,itemnam).subscribe({ 
+  //this.myService.uploadImg( Rname ).subscribe({ 
+    next(data : any) {
+      console.log(data);
+    },error: (err) => {
+      console.log(err);
+      this.imgUrl = err.error["text"]
+      console.log(err.error["text"]);
+      
+    }
+  }) 
+     
     if (this.addnewitem.valid) {
+     
       console.log(newItem);
-  
-      this.myService.addmenuitem(newItem).subscribe(
+ this.myService.addmenuitem(newItem).subscribe(
         (data: any) => {
           console.log(data);
           console.log(data["restaurant"]["name"]);
-          
+ 
         },
+        
         (err: any) => {
           console.log('Error', err);
         }
 
-      );
-      //  image
-      this.myService.uploadImg(this.selectedFile, this.id ,itemnam).subscribe({ 
-        //this.myService.uploadImg( Rname ).subscribe({ 
-          next(data : any) {
-            console.log(data);
-          },error: (err) => {
-            console.log(err);
-            this.imgUrl = err.error["text"]
-            console.log(err.error["text"]);
-            
-          }
-        })
-    }
+      );  
+    }  
   }
-
   cats:any = [];
   ngOnInit(): void {
   this.categories.getCategoryRestid(this.id).subscribe(

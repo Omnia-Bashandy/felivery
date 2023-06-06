@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+
+  "configurations": [
+    {
+      "name": "Angular Debug",
+
+      "type": "chrome",
+
+      "request": "launch",
+
+      "url": "http://localhost:4200/cart",
+
+      "webRoot": "${workspaceFolder}",
+      "skipFiles": [
+        "${workspaceFolder}/src/app/app.module.ts",
+        "${workspaceFolder}/src/app/routing/**"]
+    }
+
+  ]
+
+}
