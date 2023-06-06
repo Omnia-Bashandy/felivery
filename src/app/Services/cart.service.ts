@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class CartService {
   private cartKey = 'cart';
   cartItemCount: number = 0;
+  
   addToCart(item: any) {
     const cartItems = this.getCartItems();
     const existingItemIndex = cartItems.findIndex((cartItem: any) => cartItem.menuItemID.id === item.menuItemID.id);
