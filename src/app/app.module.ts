@@ -63,6 +63,7 @@ import { EditStorImgComponent } from './components/storeDashboardComponents/edit
 import { DeveloperComponent } from './components/developer/developer.component';
 import { DevelopermessageComponent } from './components/developermessage/developermessage.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
