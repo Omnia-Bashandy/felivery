@@ -6,13 +6,13 @@
   <div
     class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"
   >
-
+<!-- 
   <div class="card stylecard">
     <a routerLink="/store-dashboard/add-items"> 
         <i class="fa-regular fa-square-plus" style="color: #51331f;"></i>
     </a>
   </div>
-  
+   -->
     <div
       *ngFor="let Restaurant of offers"
       class="col d-flex justify-content-center"
@@ -21,7 +21,7 @@
       <div class="offer-cards">
         <div class="row justify-content-center">
           <div class="col-12 text-center">
-            <img [src]="Restaurant.image" alt="Image" class="imgoffer" />
+            <img [src]="Restaurant.menuItemImg" alt="Image" class="imgoffer" />
           </div>
         </div>
         <div class="row justify-content-center h-hidding">
@@ -34,15 +34,11 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-2">
-               <p style="text-decoration: line-through;"> 180$</p>
-            </div>
-            <div class="col-1">
-                100$
-            </div>
-            <div class="col-1">
-                <i class="fa-solid fa-tag font-icon" style="color: #9b0707;"></i>
-
-            </div>
+               <p style="text-decoration: line-through; width: 50px; " > {{Restaurant.price + 15}} LE</p>       
+               <p style=" width: 50px; ">
+                {{Restaurant.price }} LE
+              </p>
+              </div>
         </div>
 
         <div class="row justify-content-center h-desc">
@@ -50,7 +46,7 @@
             <p class="pl-3 pr-3">{{ Restaurant.description }}</p>
           </div>
         </div>
-        <div class="row justify-content-center h-rate">
+        <!-- <div class="row justify-content-center h-rate">
           <div class="col-3 bg-contain-stars micons">
             <i class="fa-sharp fa-solid fa-star"></i>
             <i class="fa-sharp fa-solid fa-star"></i>
@@ -58,8 +54,8 @@
             <i class="fa-sharp fa-solid fa-star"></i>
             <i class="fa-sharp fa-solid fa-star"></i>
           </div>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="row h-btn justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3 mb-2"
         >
           <div class="col-4 mt-2">
@@ -70,7 +66,7 @@
             <a routerLink="/store-dashboard/delete-items" class="btn btn-danger"
               >Delete</a>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
