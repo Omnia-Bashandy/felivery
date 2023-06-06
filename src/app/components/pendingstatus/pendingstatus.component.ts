@@ -104,7 +104,7 @@ export class PendingstatusComponent implements OnInit{
   )
     this.sharedserv.setStatus('cancelcustomer');
     alert("Your cancellation sent");
-    this.route.navigate(['/'])
+    this.route.navigate(['/cancelusrstatus'])
 
 }
 

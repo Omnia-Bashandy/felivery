@@ -116,8 +116,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let currentOrder of orders" style="color:aliceblue">
-              <td>{{ currentOrder.id }}</td>
+            <tr *ngFor="let currentOrder of orders ;let i = index " style="color:aliceblue">
+              <td>{{i+1}}</td>
               <td>{{ currentOrder.address }}</td>
               <td>{{ currentOrder.totalPrice }} LE</td>
               <td>{{ currentOrder.customerID }}</td>
