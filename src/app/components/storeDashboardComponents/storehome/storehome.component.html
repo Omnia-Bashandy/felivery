@@ -35,8 +35,10 @@
               <div class="row no-gutters align-items-center">
                 <div class="col-auto">
                   <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                    {{Deliverd *100/ (+this.Deliverd + this.pendingOrders)}}%      
+
+                    {{ (Deliverd * 100 / (+this.Deliverd + this.pendingOrders)) | number:'1.1-1' }}%
                   </div>
+                  
                 </div>
                 <div class="col">
                   <div class="progress progress-sm " role="progressbar"
@@ -85,23 +87,6 @@
         <h2 class="diplay-1 text-center" style="color:aliceblue">Pending Orders</h2>
         <hr> 
   <div class="row">
-    <div class="col-lg-5 mb-4">
-      <!-- Illustrations -->
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Restuarant Details</h6>
-        </div>
-        <div class="card-body">
-          <p>
-            Restuarant Name : {{restuDetails.name}} ,
-             Restuarant Description : {{restuDetails.description}},
-            Address: {{restuDetails.address}}
-          
-          </p>
-        </div>
-      </div>
-
-    </div>
     <div class="col-xl-6 col-md-6 mb-4">
 
       <div class="table-responsive">

@@ -4,18 +4,15 @@
 <hr class="style-line" />
 <div class="container mb-5">
   <div
-    class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"
-  >
+    class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
     <div class="card stylecard">
       <a routerLink="/store-dashboard/add-items">
         <i class="fa-regular fa-square-plus" style="color: #51331f"></i>
       </a>
     </div>
-
     <div
-      *ngFor="let item of items"
-      class="col d-flex justify-content-center"
-    >
+      *ngFor="let item of items  | paginate: { itemsPerPage: itemperpage, currentPage: p ,totalItems:0}"
+      class="col d-flex justify-content-center">
       <div class="offer-cards">
         <div class="row justify-content-center">
           <div class="col-12 text-center">
@@ -52,8 +49,11 @@
         </div>
       </div>
     </div>
-  </div>
 </div>
+<div class="text-center mt-4 flex justify-center item-center edt">
+    <pagination-controls  previousLabel="Prev" nextLabel="Next" (pageChange)="p = $event"></pagination-controls>
+</div>
+
 
 
 

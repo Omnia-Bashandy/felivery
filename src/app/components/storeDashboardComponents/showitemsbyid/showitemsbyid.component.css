@@ -1,15 +1,26 @@
-table{
-  margin-right: 150px;
+/* table{
   padding: 0;
-}
+} */
 table, th, td {
     border: 1px solid white;
     border-collapse: collapse;
     height: 30px;
+    text-align: center;
   }
   th, td {
     background-color: #d4b696;
     padding: 30px;
   }
-tr:hover {background-color: #D6EEEE;
-height: 30px;}
+tr:hover {
+  background-color: #D6EEEE;
+  height: 30px;}
+  .buton{
+    margin: 50px;
+    padding: 10px;
+    text-decoration: none;
+    background-color: bisque;
+    color: black;
+    border: 1px solid orange;
+    border-radius: 15px;
+    cursor: pointer;
+   }

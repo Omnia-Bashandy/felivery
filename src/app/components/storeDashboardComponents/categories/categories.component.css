@@ -6,25 +6,6 @@
     font-family: 'Libre Baskerville', serif;
   }
   
-
-  /* 
-  .ellipsis {
-      width: 15rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: center;
-  }
-  
-  .card {
-    border: 1px solid rgb(232, 151, 1);
-    background-color: rgb(245, 228, 213);
-  transition: transform 0.5s;
-  }
-  
-  .card:hover {
-  transform: scale(1.18);
-  } */
-  
   .btnn {
     background-color: rgb(233, 107, 34);
     color: rgb(251, 250, 247);
@@ -110,7 +91,7 @@
 }
 .stylecard a{
     margin: auto;
-    font-size: 80px;
+    /* font-size: 60px; */
     cursor: pointer;
  }
 
@@ -122,4 +103,28 @@
   color: black;
   border: 1px solid orange;
   border-radius: 15px;
+  cursor: pointer;
  }
+ .addCat {
+   display: flex;
+   flex-direction: column;
+   background: transparent;
+   border: none;
+  }
+  .addCat input{
+    margin-top: 50px !important;
+    background-color: transparent;
+    border-bottom: 2px solid orange !important;
+    border: none;
+    width: 200px;
+    margin-left: 50px;
+}
+.addCat .buttons button{
+  width: 150px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: bisque;
+  color: black;
+  border: 1px solid orange;
+  border-radius: 15px;
+}

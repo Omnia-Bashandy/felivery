@@ -209,10 +209,12 @@ placeOrder() {
   this.orderService.addOrder(orderData).subscribe(
     (data: any) => {
       console.log('Order placed successfully:', data);
-      console.log(data);
-      this.backupOrderobject = orderData;
-      console.log('Backup order data', this.backupOrderobject);
-      this.route.navigate(['/pendingstatus'], { state: { backupOrderObject: this.backupOrderobject } });
+      console.log(data.id);
+      this.cart.clearCart()
+      localStorage.setItem("cancelledOrderId" , data.id) 
+
+      // console.log('Backup order data', this.backupOrderobject);
+      this.route.navigate(['/pendingstatus'])
     },
     (error: any) => {
       console.log('Error placing order:', error);
