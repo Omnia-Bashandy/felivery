@@ -36,6 +36,7 @@ export class StorehomeComponent {
     private orderservice:OrderService,private servicestore:StoreService,
     private route:ActivatedRoute,private category:CategoriesService,
     private cart:CartService,
+    // private sharedserv = sharedService,
     private orderCancellationService:CanclledordersService) {
       this.servicestore.listen().subscribe((m:any)=>{
         console.log(m);
@@ -54,6 +55,11 @@ export class StorehomeComponent {
     // Get the stored id from the shared service
     this.id = this.sharedService.getId(); 
     console.log(this.id);
+    // if (this.sharedService.getStatus() === 'cancelcustomer') {
+    //   setInterval(this.refresh,50)
+    //   alert(`order canceled `)
+    // }
+    // this.sharedserv.setStatus('cancelcustomer');
     
 
     this.orderservice.getOrdersbyRestID(this.id).subscribe(

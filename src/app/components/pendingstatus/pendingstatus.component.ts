@@ -82,11 +82,6 @@ export class PendingstatusComponent implements OnInit{
 }
 
   cancelPeendingorder(){
-    // this.orderservice.deleteOrder(this.OrderId);
-    // const status = this.sharedserv.setStatus("cancel");
-    // // console.log(this.sharedserv.getStatus());
-    // this.cart.deleteFromCart(this.OrderId);
-    // this.route.navigate(['/restaurants']);
     const backupOrderData = localStorage.getItem('backupOrderdata');
   
     if (backupOrderData) {
