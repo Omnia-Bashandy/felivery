@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { data, param } from 'jquery';
 import { CategoriesService } from 'src/app/Services/categories.service';
+
 import { MenuitemsService } from 'src/app/Services/menuitems.service';
 
 @Component({
@@ -14,7 +16,14 @@ export class ShowitemsbyidComponent {
   // category:any;
   ID:any | undefined 
   item : any 
-  constructor(public route: ActivatedRoute,private Service:CategoriesService, private menu:MenuitemsService) { 
+
+// ...
+
+goBack(): void {
+  this.location.back();
+}
+
+  constructor(private location: Location , public route: ActivatedRoute,private Service:CategoriesService, private menu:MenuitemsService) { 
     }
     ngOnInit() {
       this.ID = this.route.snapshot.params["id"];

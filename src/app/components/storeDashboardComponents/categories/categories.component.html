@@ -7,63 +7,81 @@
   class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3"
 >
 <div class="card stylecard">
-  <a (click)="toggleSection()" style="cursor: pointer;">
+  <a (click)="toggleSection()" *ngIf="!showSection" style="cursor: pointer; font-size: 60px;">
     <i class="fa-regular fa-square-plus" style="color: #51331f;"></i>
   </a>
-</div>
-
-<div *ngIf="showSection">
-  <div class="card stylecard">
-    <form (ngSubmit)="addCategory()">
-      <input type="text" name="categoryName" [(ngModel)]="categoryName" placeholder="Category Name">
-      <button type="submit">Add</button>
-      <button type="button" (click)="cancel()">Cancel</button>
-    </form>
-  </div>
-</div>
-
-
-  <div
-    *ngFor="let category of categories"
-    class="col d-flex justify-content-center"
-  >
-
-    <div class="offer-cards pb-5">
-      <div class="row justify-content-center h-hidding">
-        <div class="col-12 text-center">
-          <h1 class="ff pt-3 pl-2 pr-2">
-            Category Name : {{ category.name }}
-
-          </h1>
+  <div *ngIf="showSection">
+    <div class="card addCat">
+      <form >
+        <input type="text" name="categoryName" #catname [(ngModel)]="categoryName" placeholder="Category Name">
+      </form>
+      <div class="buttons row justify-content-center mt-5">
+        <div class="col-5">
+        <button type="submit" (click)="addItem(catname.value)">Add</button>
         </div>
+        <div class="col-5">
+        <button type="button" (click)="cancel()">Cancel</button>
       </div>
-
-      <!-- buttons crud operations -->
-      <div class="row justify-content-center h-desc buttons mb-5">
-        <div class="col-12 text-center">
-          <div class="row justify-content-center">
-            <div class="col-8">
-              <a  class="bu" routerLink="/store-dashboard/showitemsbyid/{{category.id}}">Show Menu Items</a>
-
-            </div>
-          </div>
-          <div class="row justify-content-center mt-4">
-            <div class="col-8 text-center">
-              
-              <a  class="bu" [routerLink]="['/store-dashboard/updatecategory',category.id]" >Update Category</a>
-            </div>
-            </div>
-            <div class="row justify-content-center mt-4">
-  
-              <div class="col-8 text-center">
-                <a  routerLink="/store-dashboard/delete-items/{{category.id}}" (click)="deleteItem(category.id)" class="bu" >delete</a>
-                
-              </div>
-            </div>
-        
-        </div>
       </div>
     </div>
   </div>
 </div>
-</div>
+
+
+
+<div *ngFor="let category of categories; let index = index" class="col d-flex justify-content-center">
+  <div class="offer-cards pb-5">
+    <div  *ngIf="!showupdate[index]">
+    <div class="row justify-content-center h-hidding">
+      <div class="col-12 text-center">
+        <h1 class="ff pt-3 pl-2 pr-2">
+          Category Name: {{ category.name }}
+        </h1>
+      </div>
+    </div>
+
+    <!-- buttons crud operations -->
+    <div class="row justify-content-center h-desc buttons mb-5">
+      <div class="col-12 text-center">
+        <div class="row justify-content-center">
+          <div class="col-8">
+            <a class="bu" [routerLink]="'/store-dashboard/showitemsbyid/' + category.id">Show Menu Items</a>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+          <div class="col-8 text-center">
+            <a (click)="toggSection(index)" class="bu">Update Category</a>
+          </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+          <div class="col-8 text-center">
+            <a (click)="deleteItem(category.id)" class="bu">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div *ngIf="showupdate[index]">
+  <div class="col-12 text-center">
+    <h5 class="mt-3">
+      Update Category: {{ category.name }}
+    </h5>
+  </div>
+  <div class="card addCat">
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" name="categoryName" #updatedCategoryName placeholder="Category Name">
+      </div>
+    </form>
+    <div class="buttons row justify-content-center mt-5">
+      <div class="col-5">
+        <button type="button" (click)="updateCategory(category.id , updatedCategoryName.value, category.restaurantID)">Update</button>
+      </div>
+      <div class="col-5">
+        <button type="button" (click)="cancelUpdate(index)">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
