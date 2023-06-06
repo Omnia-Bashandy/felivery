@@ -45,7 +45,7 @@ export class UpdateItemsComponent implements OnInit{
 
 
 
-this.categoriees.GetAllCategories().subscribe(
+this.categoriees.getCategoryRestid(this.restid).subscribe(
   (data : any) =>{
     console.log(data);
     this.cats = data;

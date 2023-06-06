@@ -93,9 +93,17 @@ export class PendingstatusComponent implements OnInit{
       const backupOrderObject = JSON.parse(backupOrderData);
       this.orderCancellationService.setCanceledOrderData(backupOrderObject);
     }
-
+    this.orderservice.deleteOrder(this.OrderId).subscribe(
+      (data:any)=>{
+        console.log(data);//all items
+        
+      },
+      (error:any)=>{
+        console.log("There is an error ",error);
+      }
+  )
     this.sharedserv.setStatus('cancelcustomer');
-    alert("Your cancelled sent");
+    alert("Your cancellation sent");
     this.route.navigate(['/'])
 
 }

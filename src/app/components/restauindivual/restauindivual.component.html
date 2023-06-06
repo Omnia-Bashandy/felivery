@@ -25,13 +25,13 @@
 
 <div class="container">
   <div class="row mt-5 mb-3">
-    <h2 class="hidding-offer">Menu Served</h2>
+    <h2 class="hidding-offer" style="color:aliceblue">Menu Served</h2>
     <div *ngFor="let m of menus" class="col-3 d-flex justify-content-center">
         <div class="offer-cards mt-2 mb-2">
           <div class="row justify-content-center">
             <div class="col-12 text-center">
               <img
-              src="assets/Burger.jpg" alt="Image"
+              src={{m.menuItemImg}} alt="Image"
                 class="imgoffer"
               />
             </div>
@@ -61,7 +61,7 @@
           </div>
           <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
             <div class="col-3">
-              <h3>{{m.price}} $</h3>
+              <h3>{{m.price}} LE</h3>
             </div>
             <div class="col-2 mt-2">
               <button  [routerLink]="['/order',m.id]"  class="btnn hvr-bounce-in">Order</button>

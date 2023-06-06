@@ -21,9 +21,11 @@ export class AddcategoryComponent {
   constructor(public myService:CategoriesService , private route:Router , public shared:SharedService){
   }
   id = this.shared.getId()
-
+  refresh(): void {
+    window.location.reload();
+  }
 Addcat(categoryname: string) {
-
+  setInterval(this.refresh,50)
     let newItem={
       name: categoryname,
       restaurantID : this.id

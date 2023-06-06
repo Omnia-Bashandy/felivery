@@ -1,6 +1,27 @@
-.imgoffer {
+
+#h{
+  display: grid;
+  grid-template-columns: auto auto auto ;
+  justify-content: space-evenly;
+} 
+
+
+
+
+
+
+
+ .imgoffer {
   width: 100%;
-  /* height: 180px; */
+  height: 180px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+.bg-img{
+  background-image: url("../../../assets/Pizza.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: aliceblue;
 }
 .tx {
   text-decoration: line-through;
@@ -26,11 +47,14 @@
   text-decoration: none;
 }
 .offer-cards {
-  border: 1px solid rgb(232, 151, 1);
-  width: 400px;
   background-color: rgb(245, 228, 213);
+  border: 1px solid rgb(232, 151, 1);
+  border-radius: 15px;
+transition: transform 0.5s;
 }
-
+.offer-cards:hover {
+transform: scale(1.02);
+}
 .btnn:hover {
   background-color: rgb(58, 24, 5);
   color: rgb(251, 250, 247);
@@ -40,36 +64,7 @@
   padding: 10px 15px 10px 15px;
   border: 1px solid rgb(125, 33, 33);
 }
-
-.bg-trans {
-  backdrop-filter: blur(20px) saturate(105%);
-  -webkit-backdrop-filter: blur(20px) saturate(105%);
-  background-color: rgba(255, 255, 255, 0.42);
-  border: 1px solid rgba(249, 249, 249, 0.3);
-  margin: 0;
-}
-.bg-offer-transpar{
-  backdrop-filter: blur(20px) saturate(105%);
-  -webkit-backdrop-filter: blur(20px) saturate(105%);
-  background-color: rgba(255, 255, 255, 0.42);
-  border: 1px solid rgba(249, 249, 249, 0.3);
-  margin: 0;
-}
 .micons{
   margin: auto;
   width: 150px;
 }
-.offer-card{
-  margin-top: 100px;
-  width: 150px;
-  height: auto;
-  border: 1px solid rgb(232, 151, 1);
-
-  background-color: rgb(245, 228, 213);
-}
-#h{
-  display: grid;
-  grid-template-columns: auto auto auto ;
-  justify-content: space-evenly;
-} 
-
