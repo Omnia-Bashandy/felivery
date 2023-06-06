@@ -35,7 +35,7 @@
               <div class="row no-gutters align-items-center">
                 <div class="col-auto">
                   <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                    {{Deliverd *100/ (+this.Deliverd + this.pendingOrders)}}%          
+                    {{Deliverd *100/ (+this.Deliverd + this.pendingOrders)}}%         
                   </div>
                 </div>
                 <div class="col">
@@ -85,7 +85,25 @@
         <h2 class="diplay-1 text-center">Pending Orders</h2>
         <hr> 
   <div class="row">
+    <div class="col-lg-5 mb-4">
+      <!-- Illustrations -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">Restuarant Details</h6>
+        </div>
+        <div class="card-body">
+          <p>
+            Restuarant Name : {{restuDetails.name}} ,
+             Restuarant Description : {{restuDetails.description}},
+            Address: {{restuDetails.address}}
+          
+          </p>
+        </div>
+      </div>
+
+    </div>
     <div class="col-xl-6 col-md-6 mb-4">
+
       <div class="table-responsive">
         <table class="table text-center">
           <thead>
@@ -137,6 +155,7 @@
       </div>
 
     </div>
+
   </div>
 
 </div>
@@ -147,6 +166,7 @@
       <div class="container-fluied">
         <div class="row justify-content-center">
           <hr>
+
           <h2 class="diplay-1 text-center">Orders Done</h2>
           <hr>       
           <table class="table text-center">
@@ -185,9 +205,13 @@
         <hr />
 
         <div class="row justify-content-center">
-          <h2 class="diplay-1 text-center">Items List</h2>
+
+          <h2 class="diplay-1" style="color:aliceblue">Items List</h2>
+
           <hr>
 
+         
+     
   <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
     <div *ngFor="let i of items" class="row" class="col d-flex justify-content-center">
             <div class="offer-cards pb-5">
@@ -218,7 +242,10 @@
         </div>
         </div>
         <hr />
+        <!-- <div class="row justify-content-center">
+          <h2 class="diplay-1">Offers List</h2>
 
+        </div> -->
       </div>
     </div>
   </div>

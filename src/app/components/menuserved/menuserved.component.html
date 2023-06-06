@@ -9,22 +9,17 @@
             <p class="ff">
               Special Offers From Diffrent Restaurants Please Feel Yourself To
               order anything you want
-
             </p>
-            </div>
-            
+            </div>          
             <div class="row mt-5">
               <p>If You want To Take a look On all restaurants</p>
             <a class="btnn btn hvr-bounce-in" routerLink="/restaurants">View Restaurants</a>
-            </div>
-            
-          </div>
-         
+            </div>         
+          </div>        
         </div>
       </div>
     </div>
   </div>
-
 <div class="container mb-5">
     <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
       <div *ngFor="let i of items" class="col d-flex justify-content-center">
@@ -32,11 +27,11 @@
           <div class="row justify-content-center">
             <div class="col-12 text-center">
               <img
-              src={{i.menuItemImg}} alt="Image"
+              src={{i.menuItemImg}} height="300px" alt="Image"
                 class="imgoffer"
               />
                 <div *ngIf="i.isOffer == true">
-                  <img style="align-self: left; margin-top:-360px ;margin-right: 200px;"  width="100px" src="assets\specialoffer.png" alt="">
+                  <img style=" margin-top:-60px ;margin-right: 215px;"  width="100px" src="assets\specialoffer.png" alt="">
                   <h6 class="tx">{{i.price + 15}} LE</h6>
                 </div>
           </div>

@@ -14,6 +14,7 @@ export class OrderService {
   private DeliveredURL ="https://localhost:44309/api/Store/TotalDeliveredOrders";
   private updateDone ="https://localhost:44309/api/Store/DoneOrder";
 
+
   getAllOrders() {
     return this.myClient.get(this.Base_URL);
   }
@@ -37,6 +38,10 @@ export class OrderService {
     
   }
   private  OrderKey= 'Order';
+
+
+
+
 
   addToOrder(item: any) {
     // Retrieve the Order items from local storage

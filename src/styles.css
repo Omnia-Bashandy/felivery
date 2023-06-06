@@ -3,7 +3,8 @@ body{
     overflow-x: hidden;
 }
 .hi{
-    background-color: #F5F5F5 !important;
+    /* background-color: #000000 !important; */
+    background-image: url('assets/—Pngtree—cartoon black food poster background_1035986.jpg') !important
 }
 @import "node_modules/bootstrap-icons/font/bootstrap-icons";
 @import "node_modules/bootstrap/dist/css/bootstrap.css"
