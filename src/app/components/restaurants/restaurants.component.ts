@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { StoreService } from 'src/app/Services/store.service';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-restaurants',
@@ -13,14 +15,43 @@ import { StoreService } from 'src/app/Services/store.service';
 //   image: Uint8Array;
 // }
 export class RestaurantsComponent {
+
+  //Pagination
+  title = 'pagination';
+  POSTS: any;
+  page: number =1;
+  count: number =0;
+  tableSize: number =12;
+  tableSizes: any =[5,10,15,20];
+
   //Custom Data With image Uint8Array
   Restaurants :any = []
   constructor(public myService:StoreService ){
   }
+
+  onTableDataChange(event:any){
+    this.page = event;
+    this.ngOnInit();
+  }
+
+  onTableSizeChange(event:any) : void{
+    this.tableSize = event.target.value;
+    this.page=1;
+    this.ngOnInit();
+  }
+ 
   ngOnInit(): void {
+
+    
     // console.log(this.myService.getAllUsers());
     this.myService.getAllRestaurants().subscribe({
+      
       next:(data)=>{
+
+        this.POSTS=data;
+        console.log(this.POSTS);
+        console.log("exist");
+
         this.Restaurants = data;
         console.log(this.Restaurants)
       },

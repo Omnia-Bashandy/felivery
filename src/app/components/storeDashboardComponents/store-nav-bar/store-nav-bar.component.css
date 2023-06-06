@@ -1,4 +1,4 @@
-.sidenav {
+/* .sidenav {
   width: 230px;
   overflow-x: hidden;
   text-transform: uppercase;
@@ -9,7 +9,7 @@
   left: 0;
   padding: 20px;
   height: 100vh;
-}
+} */
 
 .sidenav a {
   color: white;
@@ -21,7 +21,7 @@
 }
 
 .margin-buttom {
-  margin-top: 270px;
+  margin-top: 70px;
 }
 
 #sidbarnav {

@@ -1,14 +1,14 @@
-<div class="container-fluied bg-img">
+<div class="container-fluid bg-img">
   <div class="row bg-trans">
-    <div class="container-fluied justify-content-center mb-5 mt-5">
+    <div class="container justify-content-center mb-5 mt-5">
       <div class="row justify-content-center">
-        <div class="col-lg-6 col-12 p-5">
+        <div class="col-lg-6 col-md-8 col-sm-10 col-12 p-5">
           <h1 class="hidding-offer text-white">Add New Item</h1>
-                    <form [formGroup]="addnewitem">
+          <form [formGroup]="addnewitem">
             <div class="mb-3">
               <label for="name" class="form-label">Item Name</label>
               <input
-              #itemnam
+                #itemnam
                 formControlName="itemname"
                 type="text"
                 placeholder="Enter Item Name"
@@ -17,159 +17,81 @@
                 aria-describedby="name"
               />
               <div *ngIf="addnewitem.controls.itemname.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    addnewitem.controls.itemname.errors['minlength'] &&
-                    addnewitem.controls.itemname.touched">
-                  Item Name must be at least 5 characters.
-                </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    addnewitem.controls.itemname.errors['maxlength'] &&
-                    addnewitem.controls.itemname.touched">Item Name can have at most 50 characters.
-                </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    addnewitem.controls.itemname.errors['required'] &&
-                    addnewitem.controls.itemname.touched
-                  ">
-                  Item Name is required.
-                </div>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="discription" class="form-label">Description</label>
-              <input
-              #desc
-                formControlName="desc"
-                type="text"
-                placeholder="Enter discription"
-                class="form-control"
-                id="discription"
-                aria-describedby="discription"
-              />
-              <div *ngIf="addnewitem.controls.desc.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    addnewitem.controls.desc.errors['maxlength'] &&
-                    addnewitem.controls.desc.touched">
-                  Description can have at most 100 characters.
-                </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    addnewitem.controls.desc.errors['required'] &&
-                    addnewitem.controls.desc.touched">
-                  Description is required.
-                </div>
+                <!-- Validation messages -->
               </div>
             </div>
 
             <div class="mb-3">
-              <label for="categoryID" class="control-label" > Category </label>
+              <label for="description" class="form-label">Description</label>
+              <input
+                #desc
+                formControlName="desc"
+                type="text"
+                placeholder="Enter Description"
+                class="form-control"
+                id="description"
+                aria-describedby="description"
+              />
+              <div *ngIf="addnewitem.controls.desc.errors">
+                <!-- Validation messages -->
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="categoryID" class="control-label">Category</label>
               <select
                 #categoryname
                 id="categoryID"
                 formControlName="category"
                 [(ngModel)]="selectedCategoryId"
                 (ngModelChange)="setSelectedCategory()"
-                class="form-control">
+                class="form-control"
+              >
                 <option value="">Select a Category</option>
                 <option *ngFor="let c of cats" [value]="c.id">{{ c.name }}</option>
               </select>
-
               <div *ngIf="addnewitem.controls.category.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    addnewitem.controls.category.errors['required'] &&
-                    addnewitem.controls.category.touched">
-                  Please select a country.
-                </div>
+                <!-- Validation messages -->
               </div>
             </div>
 
             <div class="mb-3">
               <label for="price" class="form-label">Price</label>
               <input
-              #price
+                #price
                 formControlName="price"
                 type="number"
                 placeholder="Enter Price"
                 class="form-control"
-                id="price"/>
+                id="price"
+              />
               <div *ngIf="addnewitem.controls.price.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    addnewitem.controls.price.errors['required'] &&
-                    addnewitem.controls.price.touched">
-                  price is required.
-                </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
-                    addnewitem.controls.price.errors['pattern'] &&
-                    addnewitem.controls.price.touched">
-                  Please enter a valid price number.
-                </div>
+                <!-- Validation messages -->
               </div>
             </div>
 
             <div class="mb-3">
-              <!-- <div class="uploadimg">
-                <img src="../../../assets/Pizza.jpg" class="w-100" /> -->
-                <div class="add text-center">
-                  Upload Image
-                  <input type="file" (change)="onUpload($event)" style="display: none" id="fileInput"/>
-                  <label for="fileInput" class="fa fa-camera" style="font-size: 60px;"></label>
-                </div>                
-              <!-- </div> -->
+              <div class="add text-center">
+                Upload Image
+                <input type="file" (change)="onUpload($event)" style="display: none" id="fileInput" />
+                <label for="fileInput" class="fa fa-camera" style="font-size: 60px;"></label>
+              </div>
             </div>
 
             <button
-            routerLink="/store-dashboard/menuitems"
-            class="btn btn-danger m-3"
-            type="submit"
-          (click)="addNewItem(itemnam.value, price.value)"
-          
-            [disabled]="!addnewitem.valid"
-          >Save</button>
-          
-            <a
               routerLink="/store-dashboard/menuitems"
-              class="btn btn-dark m-3"
-              >Cancel</a
+              class="btn btn-success m-3 w-50"
+              type="submit"
+              (click)="addNewItem(itemnam.value, price.value)"
+              [disabled]="!addnewitem.valid"
             >
+              Save
+            </button>
+
+            <a routerLink="/store-dashboard/menuitems" class="btn btn-danger m-3 w-25">Cancel</a>
           </form>
         </div>
-        <!-- <div class="col-lg-6 p-5">
-          <div class="mb-3">
-            <div class="uploadimg">
-              <img src="../../../assets/Pizza.jpg" class="w-100" />
-              <div class="add">
-                <input type="file" (change)="onUpload($event)"/>
-                <i class="fa fa-camera"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="row justify-content-center mt-5">
-            <div class="col-10 text-center">
-              <div class="row justify-content-center">
-                <div class="col-4">
-                </div>
-                
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
 </div>
-

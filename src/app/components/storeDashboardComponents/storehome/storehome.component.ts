@@ -47,6 +47,7 @@ export class StorehomeComponent {
     refresh(): void {
       window.location.reload();
     }
+    finishedOrders:any;
 
   ngOnInit() {
 
@@ -59,13 +60,19 @@ export class StorehomeComponent {
       (data:any)=>{
             console.log(data);//all orders 
             this.orders=data;
-            console.log(this.orders,"fgdffghfghfghgdfgdfg"); 
+            console.log(this.orders); 
           },
           (error:any)=>{
             console.log("There is an error ",error); 
           }
     )
-
+    //finished orders
+    this.orderservice.getFinishedOrders(this.id).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.finishedOrders = data
+        
+    })
 
     //get menu items by rest id 
     this.servicestore.getItemsbyRestID(this.id).subscribe(
@@ -150,12 +157,20 @@ this.servicestore.getRestaurantById(this.id).subscribe(
     // this.aproveOrderstatus();
     
   }
+
+    
+  
   orderDetails : any;
   selectOrder(currentid:any) {
     this.orderservice.getOrderById(currentid).subscribe(
       (data:any)=>{
         console.log(data.details);
         this.orderDetails = data.details
+        for (let index = 0; index < this.orderDetails.length; index++) {
+          const element = this.orderDetails[index];
+          console.log("item "+element.menuItem.name);
+        }
+        
     })
   }
 

@@ -1,11 +1,14 @@
-
-<div class="container-fluied">
-  <div class="row">
-    <div class="col-2">
-      <app-store-nav-bar></app-store-nav-bar>
+<div class="container-fluid">
+    <!-- Navbar -->
+    <div class="row">
+      <div class="col-12">
+        <app-store-nav-bar></app-store-nav-bar>
+      </div>
     </div>
-    <div class="col-10">
-      <div class="row">
+  
+    <!-- Content -->
+    <div class="row">
+      <div class="col-lg-2 d-none d-lg-block">
         <h2>Most Orders Items</h2>
         <app-offerlist></app-offerlist>
       </div>
@@ -40,14 +43,13 @@
       </div>
     </div>
   </div>
-</div>
 
 <!-- Page Wrapper -->
 <div id="wrapper">
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
       <!-- Main Content -->
-      <div id="content">
+    <div class="col-lg-10 col-12">
           <!-- Begin Page Content -->
           <div class="container-fluid">
               <!-- Page Heading -->
