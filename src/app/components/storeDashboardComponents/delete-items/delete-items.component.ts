@@ -24,7 +24,7 @@ export class DeleteItemsComponent implements OnInit{
                       
                   },
                   error: error => {
-                     
+                  
                       console.error('There was an error!', error);
                   }
               }); 

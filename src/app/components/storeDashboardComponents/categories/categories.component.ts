@@ -12,7 +12,25 @@ import { StoreService } from 'src/app/Services/store.service';
 export class CategoriesComponent {
   categories:any = [];
   id:any = this.shared.getId();
+  showSection: boolean = false;
+  categoryName: string = '';
 
+  toggleSection() {
+    this.showSection = !this.showSection;
+  }
+
+  addCategory() {
+    // Perform the logic to add the category using the categoryName value
+    // Reset the input field and hide the section after adding
+    this.categoryName = '';
+    this.showSection = false;
+  }
+
+  cancel() {
+    // Reset the input field and hide the section without adding
+    this.categoryName = '';
+    this.showSection = false;
+  }
   constructor(public catService :CategoriesService,
     private servicestore: StoreService,
     private shared:SharedService,private router: Router) {}

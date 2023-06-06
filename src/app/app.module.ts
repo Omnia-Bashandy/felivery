@@ -62,6 +62,7 @@ import { OrderstatusComponent } from './components/orderstatus/orderstatus.compo
 import { EditStorImgComponent } from './components/storeDashboardComponents/edit-stor-img/edit-stor-img.component';
 import { DeveloperComponent } from './components/developer/developer.component';
 import { DevelopermessageComponent } from './components/developermessage/developermessage.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -121,7 +122,9 @@ import { DevelopermessageComponent } from './components/developermessage/develop
     FontAwesomeModule,
     DataTablesModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
+    
     // NgxStarRatingModule
   ],
   providers: [],

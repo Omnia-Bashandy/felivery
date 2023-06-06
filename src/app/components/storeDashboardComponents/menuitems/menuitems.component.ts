@@ -33,17 +33,17 @@ export class MenuitemsComponent implements OnInit{
        error:(err)=>{console.log(err)}
      })
     }
-  deleteItem(id: any): void {
-    this.menuservice.getMenuitemById(id).subscribe()
-    this.menuservice.deleteMenuitem(id).subscribe(() => {
-      // alert('Item deleted successfully.');
-      console.log("Deleteeed");
+  // deleteItem(id: any): void {
+  //   this.menuservice.getMenuitemById(id).subscribe()
+  //   this.menuservice.deleteMenuitem(id).subscribe(() => {
+  //     // alert('Item deleted successfully.');
+  //     console.log("Deleteeed");
       
-      this.router.navigate(["/store-dashboard/menuitems"]);
-    }, error => {
-      console.error('Error deleting item:', error);
-    });
-  }
+  //     this.router.navigate(["/store-dashboard/menuitems"]);
+  //   }, error => {
+  //     console.error('Error deleting item:', error);
+  //   });
+  // }
 
   newItem: any = {};
 

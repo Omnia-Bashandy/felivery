@@ -6,12 +6,22 @@
 <div
   class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3"
 >
-
 <div class="card stylecard">
-  <a routerLink="/store-dashboard/addcategory"> 
-      <i class="fa-regular fa-square-plus" style="color: #51331f;"></i>
+  <a (click)="toggleSection()" style="cursor: pointer;">
+    <i class="fa-regular fa-square-plus" style="color: #51331f;"></i>
   </a>
 </div>
+
+<div *ngIf="showSection">
+  <div class="card stylecard">
+    <form (ngSubmit)="addCategory()">
+      <input type="text" name="categoryName" [(ngModel)]="categoryName" placeholder="Category Name">
+      <button type="submit">Add</button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>
+
 
   <div
     *ngFor="let category of categories"
@@ -22,7 +32,7 @@
       <div class="row justify-content-center h-hidding">
         <div class="col-12 text-center">
           <h1 class="ff pt-3 pl-2 pr-2">
-            {{ category.name }}
+            Category Name : {{ category.name }}
 
           </h1>
         </div>
