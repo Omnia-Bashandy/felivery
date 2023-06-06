@@ -34,11 +34,12 @@ import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.
 import { OrderstatusComponent } from './components/orderstatus/orderstatus.component';
 import { PendingstatusComponent } from './components/pendingstatus/pendingstatus.component';
 import { CancelstatusComponent } from './components/cancelstatus/cancelstatus.component';
-import { DeliveredstatusComponent } from './components/deliveredstatus/deliveredstatus.component';
+import { DeliveredstatusComponent } from './components/deliveredstatus/deliveredstatus.componentpala7';
 import { CancelusrstatusComponent } from './components/cancelusrstatus/cancelusrstatus.component';
 import { EditStorImgComponent } from './components/storeDashboardComponents/edit-stor-img/edit-stor-img.component';
 import { DeveloperComponent } from './components/developer/developer.component';
 import { DevelopermessageComponent } from './components/developermessage/developermessage.component';
+import { Deliveredstatus1Component } from './deliveredstatus1/deliveredstatus1.component';
 
 
 
@@ -57,6 +58,7 @@ const routes: Routes = [
   { path: "cart", component: CartComponent },
   { path: "pendingstatus", component: PendingstatusComponent },
   { path: "deliverdstatus", component: DeliveredstatusComponent },
+  { path: "deliverdstatus1", component: Deliveredstatus1Component },
   { path: "cancelstatus", component: CancelstatusComponent },
   { path: "cancelusrstatus", component: CancelusrstatusComponent },
 

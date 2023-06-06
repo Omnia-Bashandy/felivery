@@ -63,6 +63,9 @@ import { EditStorImgComponent } from './components/storeDashboardComponents/edit
 import { DeveloperComponent } from './components/developer/developer.component';
 import { DevelopermessageComponent } from './components/developermessage/developermessage.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { NgbModule,NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { Deliveredstatus1Component } from './deliveredstatus1/deliveredstatus1.component';
+// import { NgbrateusComponent } from './deliveredstatus/ngbrateus.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,7 +114,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     OrderstatusComponent,
     EditStorImgComponent,
     DeveloperComponent,
-    DevelopermessageComponent
+    DevelopermessageComponent,
+    Deliveredstatus1Component,
+    // NgbrateusComponent
 
   ],
   imports: [
@@ -123,7 +128,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     DataTablesModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgbModule,
+    NgbRatingModule
     
     // NgxStarRatingModule
   ],

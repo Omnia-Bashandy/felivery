@@ -9,14 +9,15 @@
               <label for="name" class="form-label">Item Name</label>
               <input
               #itemname
-                formControlName="itemname"
+                formControlName=""
                 type="text"
-                placeholder="Enter Item Name"
+                value={{item.name}}
                 class="form-control"
                 id="name"
                 aria-describedby="name"
                 [value]="item.name"
               />
+           
               <div *ngIf="edititem.controls.itemname.errors">
                 <div
                   class="validateerrorstyle"
@@ -48,6 +49,7 @@
                 #categoryname
                 id="categoryID"
                 formControlName="category"
+                value ={{item.id}}
                 [(ngModel)]="selectedCategoryId"
                 (ngModelChange)="setSelectedCategory()"
                 class="form-control">
@@ -71,8 +73,9 @@
               <label for="price" class="form-label">Price</label>
               <input
               #price
-                formControlName="price"
+                formControlName=""
                 type="text"
+                value="{{item.price}}"
                 placeholder="Enter Price"
                 class="form-control"
                 id="price"/>
@@ -94,6 +97,20 @@
                 </div>
               </div>
             </div>
+
+
+            <!-- <label for="rest" class="form-label">Restaurant Name</label>
+            <input
+            #itemname
+              formControlName=""
+              type="text"
+              
+              class="form-control"
+              id="rest"
+              aria-describedby="rest"
+              [value]="item.restaurant.name"
+            /> -->
+
             <div class="mb-3">
               <div class="add text-center">
                 Upload Image

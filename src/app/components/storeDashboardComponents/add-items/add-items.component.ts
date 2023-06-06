@@ -50,7 +50,7 @@ refresh(): void {
   imgUrl:any;
   addNewItem(itemnam: string, price: any) {
      
-    setInterval(this.refresh,50)
+    setInterval(this.refresh,500)
     const newItem = {
       name: itemnam,
       price: price,

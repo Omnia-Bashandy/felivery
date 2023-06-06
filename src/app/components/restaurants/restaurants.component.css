@@ -27,6 +27,12 @@
   text-overflow: ellipsis;
   width: 18rem;
 }
+ngb-rating{
+  /* background-color: black;
+    color: #FFC107; */
+    font-size: 30px;
+    /* border-radius: 15px; */
+}
 /* 
 
 .card {
