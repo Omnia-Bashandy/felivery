@@ -75,8 +75,8 @@ editItem(itemname: string, price: any) {
     name: itemname,
     categoryID:  this.selectedCategoryId,
     price: price,
-    restaurantID: 1,
-    menuItemImg: "bbbb"
+    restaurantID: this.restid,
+    menuItemImg: this.item.menuItemImg
   };
 
   console.log(updatedItem);
@@ -85,6 +85,7 @@ editItem(itemname: string, price: any) {
     (data) => {
       console.log(data);
       alert("Updated successfully");
+      window.location.reload();
     },
     (error) => {
       console.error(error);

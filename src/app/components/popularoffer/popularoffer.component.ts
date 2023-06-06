@@ -12,30 +12,30 @@ import { StoreService } from 'src/app/Services/store.service';
 export class PopularofferComponent {
   offers:any;
   isoffer:any;
+
    constructor(public offersServ:OffersService , private stor : StoreService) {  
+
    }
    ngOnInit(): void {
   this.offersServ.GetAlloffers().subscribe({
    next:(data:any) => {console.log(data) 
     this.offers =data ;
-    // this.isoffer =this.offers.isOffer
-    // console.log(this.isoffer);
+   
+    
     for (let index = 0; index < this.offers.length; index++) {
       const element = this.offers[index];
       this.isoffer =this.offers.isOffer
       console.log(this.isoffer[index]);
+      
+      console.log(this.offers.restaurantID);
+      
+
+      
     }
   },
    error:(err)=> {console.log(err)}
   })
-   this.stor.getRestaurantById(1).subscribe({
- next:(data:any) =>{
-    console.log(data['name'])
-    // this.restname = data
-    // return `${data}` 
-   }
-  })
-}
+
 restname:any = "unkown rest"
 
 getRestName(id:any): string {
@@ -48,5 +48,6 @@ getRestName(id:any): string {
   })
  return this.restname
 }
+
 
 }
