@@ -19,7 +19,8 @@ export class NavbarComponent {
   islog:boolean = true;
 
 
-status: string = '';
+//status: string = '';
+status: any;
 
 cartItemCount: number|any = 0;
 constructor(public cartService: CartService,private login:LoginService,

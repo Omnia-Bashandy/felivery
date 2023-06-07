@@ -49,18 +49,6 @@ refresh(): void {
   }
   imgUrl:any;
   addNewItem(itemnam: string, price: any) {
-         //  image
- this.myService.uploadImg(this.selectedFile, this.id ,itemnam).subscribe({ 
-  //this.myService.uploadImg( Rname ).subscribe({ 
-    next(data : any) {
-      console.log(data);
-    },error: (err) => {
-      console.log(err);
-      this.imgUrl = err.error["text"]
-      console.log(err.error["text"]);
-      
-    }
-  }) 
     setInterval(this.refresh,500)
     const newItem = {
       name: itemnam,
@@ -68,25 +56,30 @@ refresh(): void {
       categoryID: this.selectedCategoryId,
       restaurantID: this.id,
       menuItemImg : "https://localhost:44309//uploads/common/noimg.png"
-
     };
   
-     
-    if (this.addnewitem.valid) {
-     
-      console.log(newItem);
- this.myService.addmenuitem(newItem).subscribe(
-        (data: any) => {
+  if (this.addnewitem.valid) {
+    console.log(newItem);
+    this.myService.addmenuitem(newItem).subscribe(
+    (data: any) => {
+      console.log(data);
+      console.log(data["restaurant"]["name"]);
+      },
+      (err: any) => {
+        console.log('Error', err);
+      }
+    );  
+    //  image
+    this.myService.uploadImg(this.selectedFile, this.id ,itemnam).subscribe({ 
+      //this.myService.uploadImg( Rname ).subscribe({ 
+        next(data : any) {
           console.log(data);
-          console.log(data["restaurant"]["name"]);
- 
-        },
-        
-        (err: any) => {
-          console.log('Error', err);
+        },error: (err) => {
+          console.log(err);
+          this.imgUrl = err.error["text"]
+          console.log(err.error["text"]);
         }
-
-      );  
+      }) 
     }  
   }
   cats:any = [];

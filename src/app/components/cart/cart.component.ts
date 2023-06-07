@@ -220,7 +220,8 @@ placeOrder() {
       console.log('Error placing order:', error);
     }
   );
-  this.shared.setStatus('pending');
+  //this.shared.setStatus('pending');
+    localStorage.setItem('orderStatus', 'pending');
 }
 
 

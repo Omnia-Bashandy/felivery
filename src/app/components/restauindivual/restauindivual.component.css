@@ -167,3 +167,14 @@ ngb-rating{
   color: rgb(232, 181, 14);
   font-size: 40px;
 }
+
+.back-to-top {
+  position: fixed;
+  bottom: 300px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.back-to-top[hidden] {
+  display: none;
+}
