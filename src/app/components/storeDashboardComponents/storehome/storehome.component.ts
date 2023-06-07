@@ -202,6 +202,7 @@ this.servicestore.getRestaurantById(this.id).subscribe(
       }
     );
     this.sharedService.setStatus('done');
+    //localStorage.setItem('orderStatus', 'done');
 console.log(typeof Oid);
 console.log(+Oid);
 
@@ -224,6 +225,7 @@ this.servicestore.filter('Register click')
       localStorage.setItem('orders', JSON.stringify(updatedOrders));
     }
     this.sharedService.setStatus('cancel');
+    //localStorage.setItem('orderStatus', 'cancel');
     this.cart.deleteFromCart(Oid);
     this.orderservice.deleteOrder(Oid).subscribe(
       (data:any)=>{

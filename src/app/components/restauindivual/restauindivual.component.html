@@ -66,11 +66,10 @@
 </div>
 
 <div class="container">
-  <div class="row mt-5 mb-3">
-
+  <div class="row mt-5 mb-3" *ngIf="cartshowing">
     <h2 class="hidding-offer" style="color:aliceblue">Menu Served</h2>
-    <div *ngFor="let m of menus" class="col-3 d-flex justify-content-center">
-
+    <div class="row">
+      <div *ngFor="let m of menus" class="col-3 d-flex justify-content-center">
         <div class="offer-cards mt-2 mb-2">
           <div class="row justify-content-center">
             <div class="col-12 text-center">
@@ -87,7 +86,6 @@
               </h1>
             </div>
           </div>
-  
           <div class="row justify-content-center h-desc">
             <div class="col-12 text-center">
               <p class="pl-3 pr-3">{{m.description}}</p> 
@@ -103,26 +101,65 @@
             </div>
           </div>
         </div> 
+      </div> 
+    </div> 
+  </div> 
+  <!-- ///// -->
+  <div class="row mt-5 mb-3" *ngIf="!cartshowing">
+    <h2 class="hidding-offer" style="color:aliceblue">Menu Served</h2>
+    <div class="col-7">
+      <div class="row">
+        <div *ngFor="let m of menus" class="col-4 d-flex justify-content-center">
+          <div class="offer-cards mt-2 mb-2">
+            <div class="row justify-content-center">
+              <div class="col-12 text-center">
+                <img
+                  src={{m.menuItemImg}} alt="Image"
+                  class="imgoffer"
+                />
+              </div>
+            </div>
+            <div class="row justify-content-center h-hidding">
+              <div class="col-12 text-center">
+                <h1 class="ff pt-3 pl-2 pr-2">
+                  {{ m.name }}
+                </h1>
+              </div>
+            </div>
+            <div class="row justify-content-center h-desc">
+              <div class="col-12 text-center">
+                <p class="pl-3 pr-3">{{m.description}}</p> 
+              </div>
+            </div>
+            <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
+              <div class="col-3">
+                <h3>{{m.price}} LE</h3>
+              </div>
+              <div class="col-2 mt-2">
+                <!-- <button  [routerLink]="['/order',m.id]"  class="btnn hvr-bounce-in">Order</button> -->
+                <button (click)="addToCart(m.id)" class="btnn hvr-bounce-in">Add To Cart</button>
+              </div>
+            </div>
+          </div> 
       </div>
-
-      
-      <!-- floating cart -->
-
-                 
-    <div class="row justify-content-right cart-modal" 
-          *ngIf="cartshowing === true">
+    </div>
+    <div class="col-1">
+    </div>
+    <div class="col-4">
+      <!-- floating cart -->          
+      <div class="row justify-content-right cart-modal">
         <div class="col-lg-6">
-    <div class="row bg-blak">
+      <div class="row bg-blak">
       <div class="col-8">
         <h3 class="text-white"> CART DETAILS </h3>
       </div>
       <div class="col-3 close-btn">
         <i class="fa-regular fa-rectangle-xmark"
-        (click)="close()"></i></div>
-    </div>
-    <hr>
-    <!-- content from order -->
-    <div class="row p-3 mt-1 mb-1 card-cart"  *ngFor="let o of orders">
+        (click)="showcart()"></i></div>
+      </div>
+      <hr>
+      <!-- content from order -->
+      <div class="row p-3 mt-1 mb-1 card-cart"  *ngFor="let o of orders">
       <div class="col-4">
         <img src={{o.menuItemID.menuItemImg}} class="w-75 h-75" alt="">
       </div>
@@ -132,18 +169,27 @@
       <div class="col-4">
         <h5 > {{ o.menuItemID.price * o.quantity }}$</h5>
       </div>
-    </div>
-   
-    <hr>
-    <div class="row p-3 mt-3">
-      <div class="col-7"></div>
-      <div class="col-3 mt-3">
-        <button class="btnn" routerLink="/cart">Order
-            <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
-        </button>
       </div>
-    </div>
+      
+      <hr>
+      <div class="row p-3 mt-3">
+        <div class="col-1"></div>
+        <div class="col-3 mt-3">
+          <button class="btnn" (click)="Clear()">Clear
+            <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+          </button>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-3 mt-3">
+          <button class="btnn" routerLink="/cart">Order
+              <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
+          </button>
+        </div>
+        <div class="col-1"></div>
+      </div>
         </div>
       </div>
-    </div>
+        </div>
   </div>
+  </div>
+  <button (click)="showcart()" class="btnn back-to-top" [hidden]="!cartshowing" [hidden]="isAtTop">Cart</button>

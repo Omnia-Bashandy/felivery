@@ -93,7 +93,7 @@
         <table class="table text-center">
           <thead>
             <tr style="color:aliceblue">
-              <th>Order ID</th>
+              <th>Order Number</th>
               <th>Address</th>
               <th>Total Price</th>
               <th>Customer ID</th>
@@ -157,15 +157,15 @@
           <table class="table text-center">
             <thead>
               <tr style="color:aliceblue">
-                <th>Order ID</th>
+                <th>Order Number</th>
                 <th>Address</th>
                 <th>Total Price</th>
                 <th>Customer Id</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let currentOrder of finishedOrders" style="color:aliceblue">
-                <td>{{ currentOrder.id }}</td>
+              <tr *ngFor="let currentOrder of finishedOrders; let i = index" style="color:aliceblue">
+                <td>{{ i + 1 }}</td>
                 <td>{{ currentOrder.address }}</td>
                 <td>{{ currentOrder.totalPrice }} LE</td>
                 <td>{{ currentOrder.customerID }}</td>

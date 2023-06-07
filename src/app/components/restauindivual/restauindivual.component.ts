@@ -1,5 +1,5 @@
 
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuitemsService } from 'src/app/Services/menuitems.service';
 import { SharedService } from 'src/app/Services/shared.service';
@@ -19,7 +19,6 @@ export class RestauindivualComponent implements OnInit {
   restaurant: any;
   menus: any[] = [];
 
-
   // order 
   Item: any | undefined;
   items: any = [];
@@ -28,7 +27,6 @@ export class RestauindivualComponent implements OnInit {
   quantity: number = 1;
   order: any;
   savedItems: any[] = [];
-
 
   @ViewChild('paymentRef', {static: true}) paymentRef!: ElementRef;
   backupOrderobject:any; //object that sends into store home if customer press cancel button in pending page
@@ -46,30 +44,6 @@ export class RestauindivualComponent implements OnInit {
 
   storeid:any = this.shared.getId();
 
-  rateInput = new FormControl(0);
-  // ratingValue:any;
-  Finalrating: any;
-  // totalRatings:any;
-  // numOfRaters:any;
-  getRating(){
-    console.log(this.rateInput.value);
-   
-  }
-  // rate() {
-  //   const rate = this.rateInput.value;
-  //   this.storeService.rateStore(this.storeid, rate).subscribe(
-  //     (response: any) => {
-  //       console.log(response);
-  //       this.totalRatings = response.totalRatings;
-  //       this.numOfRaters = response.numOfRaters;
-  //       console.log(this.totalRatings);
-  //       alert(`rating saved successfully with total ratings: ${this.totalRatings} and number of raters: ${this.numOfRaters}`);
-  //       this.ratingSubmitted = true;
-  //     },
-  //     error => {
-  //       console.error(error);
-  //     }
-  //   );
   
   
   selectedRating: any;
@@ -84,6 +58,8 @@ onRateChange(rating: number) {
 ratingSubmitted:any
 orders:any
   ngOnInit(): void {
+
+
     this.route.params.subscribe(params => {
       this.storeID = params['id'];
   
@@ -97,8 +73,6 @@ orders:any
         }
       );
     });
-//rating 
-// this.storeService.get
 
     // Get items by restID
     this.storeService.getItemsbyRestID(this.storeID).subscribe(
@@ -132,20 +106,21 @@ orders:any
         }).render(this.paymentRef.nativeElement);
       }
       
-      
       this.savedItems = this.cartService.getCartItems();
     }
     
     // Floating cart
-    cartshowing = false;
+    cartshowing = true;
     
-    showcart() {
-    this.cartshowing = true;
+  showcart() {
+    if (this.cartshowing) {
+      this.cartshowing = false;
     }
-
-  close() {
-    this.cartshowing = false;
+    else{
+      this.cartshowing = true;
+    }
   }
+
 
   // Quantity 
   incrementQuantity() {
@@ -158,10 +133,18 @@ orders:any
     }
   }
 
+  initial_value:any = null;
+  Clear(){
+    this.cartService.clearCart();
+    localStorage.setItem("RestCartId", this.initial_value);
+   
+      window.location.reload();
+  }
+
   addToCart(MID:any) {
     // this.route.params.subscribe(params => {
     //   const itemId = params['id'];
-      // console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",MID);
+      console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",MID);
       console.log(MID);
       
       this.menuitemsService.getMenuitemById(MID).subscribe(
@@ -207,7 +190,7 @@ orders:any
           this.cartService.addToCart(this.order);
           // setInterval(this.refresh,50)
           alert(`${this.order.menuItemID.name} added successfully.`);
-          this.showcart();
+          setInterval(this.refresh,50)
           // this.router.navigate(['/cart']);
         }
       }
@@ -216,4 +199,15 @@ orders:any
   refresh(): void {
       window.location.reload();
   }
+  isAtTop = true;
+    @HostListener('window:scroll')
+    onWindowScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      if (scrollTop === 0) {
+        this.isAtTop = true;
+      } else {
+        // Otherwise, set isAtTop to false
+        this.isAtTop = false;
+      }
+    }
 }
