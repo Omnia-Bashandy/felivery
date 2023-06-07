@@ -119,3 +119,7 @@ transform: scale(1.02);
 .h-btn{
   margin-top: 7px;
 }
+
+.clr{
+  color: white !important; 
+}

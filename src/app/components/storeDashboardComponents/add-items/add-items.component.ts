@@ -70,16 +70,18 @@ refresh(): void {
       }
     );  
     //  image
-    this.myService.uploadImg(this.selectedFile, this.id ,itemnam).subscribe({ 
-      //this.myService.uploadImg( Rname ).subscribe({ 
-        next(data : any) {
-          console.log(data);
-        },error: (err) => {
-          console.log(err);
-          this.imgUrl = err.error["text"]
-          console.log(err.error["text"]);
-        }
-      }) 
+    setTimeout(() => {      
+      this.myService.uploadImg(this.selectedFile, this.id ,itemnam).subscribe({ 
+        //this.myService.uploadImg( Rname ).subscribe({ 
+          next(data : any) {
+            console.log(data);
+          },error: (err) => {
+            console.log(err);
+            this.imgUrl = err.error["text"]
+            console.log(err.error["text"]);
+          }
+        }) 
+    }, 100);
     }  
   }
   cats:any = [];

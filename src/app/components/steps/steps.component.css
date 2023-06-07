@@ -38,3 +38,65 @@ p {
 fa-icon{
 font-size: 50px;
 }  
+
+/* section */
+.section{
+  width: 100%;
+  height: auto;
+}
+
+/* .section section .item-one{
+  animation-name: backInDown;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+
+.section section .item-two{
+  animation-name: backInUp;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+
+.section section .item-three{
+  animation-name: backInDown;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+
+.section section .item-four{
+  animation-name:backInUp;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+} */
+
+.section section{
+  width: 1100px;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.section section .items{
+  width: 250px;
+  height: auto;
+  text-align: center;
+}
+
+.section .icono{
+  margin-top: 24px;
+  font-size: 150px;
+  color: rgb(1, 1, 37)
+}
+
+.section section .items h2 {
+  margin-top: 24px;
+}
+
+.section section .items .design {
+  text-decoration: none;
+  color:  rgb(50, 177, 205);
+}
