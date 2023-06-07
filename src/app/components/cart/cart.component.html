@@ -85,31 +85,16 @@
           <div #paymentRef></div>
           <hr> 
           <div class="icon-container">
-            <!-- <a href=""><i class="fa-brands fa-cc-paypal" 
-              style="color: #f06f05; font-size:50px"></i> 
-            </a>-->
-            
-            <!-- <a href=""><i class="fa-solid fa-money-bills" 
-            style="color: #eaeaeb;font-size:50px"></i>
-          </a> -->
           <label for="delv" > Cash On Delivery &nbsp; </label>
           <img width="60px" src="assets\cash-on-delivery.png"> &nbsp;
           <input type="checkbox" id="delv"> 
           </div>
           <hr> 
-          <!-- <label for="cname">Name on Card</label>
-          <input type="text" id="cname" name="cardname" placeholder="ana folan l folany">
-          <label for="ccnum">Credit card number</label>
-          <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-          -->
             <label style="color: orange;">Please Enter your address before checkout</label>
             <select  class="btn btn-secondary dropdown-toggle w-25" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
               <option> Giza </option>
               <option> Cairo </option>
             </select>
-        
-            
-            
             <input type="text" [(ngModel)]="address" [formControl] = "addresss" placeholder="Ex: 23 saad st. ..etc" style="color: #ffff;">         
             <div *ngIf = "addresss.errors " >
               <div class= "validateerrorstyle" *ngIf = "addresss.errors['maxlength'] && addresss.touched" > Address can have at most 12 characters.</div>

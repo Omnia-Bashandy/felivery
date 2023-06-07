@@ -7,5 +7,4 @@ import { Router } from '@angular/router';
   styleUrls: ["./developer.component.css"],
 })
 export class DeveloperComponent {
-  // constructor(public router: Router){};
 }

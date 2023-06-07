@@ -15,12 +15,6 @@ export class LoginService {
     return this.http.post(this.loginUrl, credentials);
   }
 
-  // logout
-
-  // logout(){
-  //   // return !this.login;
-  //   localStorage.removeItem('token');
-  // }
   private _listeners = new Subject<any>();
   listen(): Observable<any>{
     return this._listeners.asObservable();

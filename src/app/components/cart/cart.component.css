@@ -15,8 +15,6 @@
   font-family: 'Libre Baskerville', serif;
 }
 .bg-img {
-  /* background-image: url("../../../../assets/Pizza.jpg"); */
-  /* background-image: url("../../../assets/Burger.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
 }

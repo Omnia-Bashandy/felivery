@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { CategoryComponent } from './components/pastry/category.component';
 import { OffersComponent } from './components/offers/offers.component';
-import { PartnersComponent } from './components/partners/partners.component';
 import { RestaurantsComponent } from './components/restaurants/restaurants.component';
 import { GroceriesComponent } from './components/groceries/groceries.component';
 import { ErrorComponent } from './components/error/error.component';
@@ -26,20 +25,17 @@ import { DeleteItemsComponent } from './components/storeDashboardComponents/dele
 import { PendingComponent } from './components/storeDashboardComponents/pending/pending.component';
 import { MenuservedComponent } from './components/menuserved/menuserved.component';
 import { CartComponent } from './components/cart/cart.component';
-import { TryadditemComponent } from './components/tryadditem/tryadditem.component';
 import { ShowitemsbyidComponent } from './components/storeDashboardComponents/showitemsbyid/showitemsbyid.component';
 import { AddcategoryComponent } from './components/storeDashboardComponents/addcategory/addcategory.component';
 import { UpdatecategoryComponent } from './components/storeDashboardComponents/updatecategory/updatecategory.component';
-import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.component';
-import { OrderstatusComponent } from './components/orderstatus/orderstatus.component';
 import { PendingstatusComponent } from './components/pendingstatus/pendingstatus.component';
 import { CancelstatusComponent } from './components/cancelstatus/cancelstatus.component';
-import { DeliveredstatusComponent } from './components/deliveredstatus/deliveredstatus.componentpala7';
 import { CancelusrstatusComponent } from './components/cancelusrstatus/cancelusrstatus.component';
 import { EditStorImgComponent } from './components/storeDashboardComponents/edit-stor-img/edit-stor-img.component';
 import { DeveloperComponent } from './components/developer/developer.component';
 import { DevelopermessageComponent } from './components/developermessage/developermessage.component';
 import { Deliveredstatus1Component } from './deliveredstatus1/deliveredstatus1.component';
+import { RegestrationComponent } from './components/regestration/regestration.component';
 
 
 
@@ -49,7 +45,7 @@ const routes: Routes = [
   { path: "offers", component: OffersComponent },
   { path: "groceries", component: GroceriesComponent },
   { path: "restaurants", component: RestaurantsComponent },
-  { path: "Partners", component: PartnersComponent },
+  { path: "Partners", component: RegestrationComponent },
   { path: "developer", component: DeveloperComponent },
   { path: "developermessage", component:DevelopermessageComponent },
   { path: "offerlist", component: OfferlistComponent },
@@ -57,7 +53,6 @@ const routes: Routes = [
   { path: "menuserved", component: MenuservedComponent },
   { path: "cart", component: CartComponent },
   { path: "pendingstatus", component: PendingstatusComponent },
-  { path: "deliverdstatus", component: DeliveredstatusComponent },
   { path: "deliverdstatus1", component: Deliveredstatus1Component },
   { path: "cancelstatus", component: CancelstatusComponent },
   { path: "cancelusrstatus", component: CancelusrstatusComponent },
@@ -71,8 +66,6 @@ const routes: Routes = [
       { path: "edit-store", component: EditStoreComponent },
       { path: "add-items", component: AddItemsComponent },
       { path: "delete-store", component: DeleteStoreComponent },
-      // { path: 'login', component: LoginComponent },
-
       { path: "categories", component: CategoriesComponent },
       { path: "menuitems", component: MenuitemsComponent },
       { path: "storeoffers", component: StoreoffersComponent },
@@ -93,12 +86,8 @@ const routes: Routes = [
   { path: "restauindivual/:id", component: RestauindivualComponent },
   { path: "registercustomer", component: RegistercustomerComponent },
   { path: "pending", component: PendingComponent },
-  { path: "confirm-order", component: ConfirmOrderComponent },
-  { path: "orderstatus", component: OrderstatusComponent },
   { path: "**", component: ErrorComponent },
 ];
-
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -5,8 +5,6 @@ import { MenuservedComponent } from '../menuserved/menuserved.component';
 import { data, param } from 'jquery';
 import { SharedService } from 'src/app/Services/shared.service';
 import { CartService } from 'src/app/Services/cart.service';
-// import { error } from 'jquery';
-
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -33,8 +31,6 @@ export class OrderComponent  implements OnInit{
     , private shared:SharedService , 
     public router:Router , public cartService:CartService) {}
 
-      // fetch item by id -> route to order page -done
-      // fetch resturant id -> shared 
   ngOnInit() {
       this.menuService.GetAllmenuserved().subscribe((data)=>this.items=data);
       this.itemId = this.route.params.subscribe(params => {
@@ -95,7 +91,7 @@ addToCart() {
           restaurantID: restaurantID
         },
         quantity: this.quantity
-        // add payment data mn aya 
+        // add payment data 
       };
       this.cartService.addToCart(this.order);
       alert(`${this.order.menuItemID.name} added successfully.`);

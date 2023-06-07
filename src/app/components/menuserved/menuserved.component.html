@@ -1,39 +1,36 @@
-
 <div class="container-fluied bg-img mb-3 font">
-    <div class="row bg-trans">
-      <div class="container justify-content-center mb-3">
-        <div class="row heightt ">
-          <div class="col-lg-6 col-12 p-5">
-            <div class="row mt-3">
-              <h1 class="hidding-offer">Menu served here</h1>
+  <div class="row bg-trans">
+    <div class="container justify-content-center mb-3">
+      <div class="row heightt ">
+        <div class="col-lg-6 col-12 p-5">
+          <div class="row mt-3">
+            <h1 class="hidding-offer">Menu served here</h1>
             <p class="ff">
               Special Offers From Diffrent Restaurants Please Feel Yourself To
               order anything you want
             </p>
-            </div>          
-            <div class="row mt-5">
-              <p>If You want To Take a look On all restaurants</p>
+          </div>
+          <div class="row mt-5">
+            <p>If You want To Take a look On all restaurants</p>
             <a class="btnn btn hvr-bounce-in" routerLink="/restaurants">View Restaurants</a>
-            </div>         
-          </div>        
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 <div class="container mb-5">
-    <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-      <div *ngFor="let i of items | paginate: { itemsPerPage: itemperpage, currentPage: p ,totalItems:0}" class="col d-flex justify-content-center">
-        <div class="offer-cards mt-2 mb-2">
-          <div class="row justify-content-center">
-            <div class="col-12 text-center">
-              <img
-              src={{i.menuItemImg}} height="300px" alt="Image"
-                class="imgoffer"
-              />
-                <div *ngIf="i.isOffer == true">
-                  <img style=" margin-top:-60px ;margin-right: 215px;"  width="100px" src="assets\specialoffer.png" alt="">
-                  <h6 class="tx">{{i.price + 15}} LE</h6>
-                </div>
+  <div class="row justify-content-center row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+    <div *ngFor="let i of items | paginate: { itemsPerPage: itemperpage, currentPage: p ,totalItems:0}"
+      class="col d-flex justify-content-center">
+      <div class="offer-cards mt-2 mb-2">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <img src={{i.menuItemImg}} height="300px" alt="Image" class="imgoffer" />
+            <div *ngIf="i.isOffer == true">
+              <img style=" margin-top:-60px ;margin-right: 215px;" width="100px" src="assets\specialoffer.png" alt="">
+              <h6 class="tx">{{i.price + 15}} LE</h6>
+            </div>
           </div>
           <div class="row justify-content-center h-hidding">
             <div class="col-12 text-center">
@@ -53,27 +50,23 @@
             <div class="col-12 text-center">
               <p class="pl-3 pr-3">{{i.description}}</p>
             </div>
-            
+
           </div>
-         
-        
+
+
           <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
             <div class="col-6">
               <h3>{{i.price}} LE</h3>
             </div>
-            
+
             <div class="col-2 mt-2">
-              <!-- <button  routerLink="/order/{{i.id}}"  class="btnn hvr-bounce-in">Order</button> -->
-              <button  [routerLink]="['/order',i.id]"  class="btnn hvr-bounce-in">Order</button>
-              <!-- <button  [routerLink]="['/delete-items',i.id]" (click)="deleteItem(i.id)"  class="btnn hvr-bounce-in">delete</button> -->
-              <!-- <button  routerLink="/order/{{i.id}}"  (click)="goToItemDetails(i.id)" class="btnn hvr-bounce-in">Order</button> -->
+              <button [routerLink]="['/order',i.id]" class="btnn hvr-bounce-in">Order</button>
             </div>
           </div>
-        </div> 
+        </div>
       </div>
     </div>
   </div>
   <div class="text-center mt-4 flex justify-center item-center edt">
-    <pagination-controls  previousLabel="Prev" nextLabel="Next" (pageChange)="p = $event"></pagination-controls>
-</div>
-  <!-- hello  -->
+    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="p = $event"></pagination-controls>
+  </div>

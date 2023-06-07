@@ -9,18 +9,17 @@
                 <h1 class="text-capitalize fontheader">
                   {{Item?.name}} <i class="fa-solid"></i>
                 </h1>
-                <!-- <p class="ff">{{item.description}}</p> -->
                 <p class="ff">Category: {{Item.category.name}}</p>
 
                 <p class="ff">Price : {{Item.price}} LE</p>
-               
+
               </div>
               <div>
                 <button (click)="decrementQuantity()">-</button>
                 <input type="number" [(ngModel)]="quantity" />
                 <button (click)="incrementQuantity()">+</button>
               </div>
-              
+
               <div class="row mt-3">
                 <input (click)="addToCart()" type="button" value="Add To Cart" class="btnn" />
               </div>
@@ -28,7 +27,7 @@
               <div class="row mt-2 icons ml-4">
                 <div class="col-3">
                   <i class="fa-brands fa-facebook ml-1"></i>
-                  
+
                 </div>
                 <div class="col-3">
                   <i class="fa-brands fa-instagram ml-1"></i>
@@ -36,25 +35,11 @@
               </div>
             </div>
             <div class="col-md-7 col-12">
-              <!-- <div class="row m-4">
-                <div class="col-12">
-                  <img src="../../../assets/Burger.jpg" class="img-order" />
-                </div>
-              </div> -->
               <div class="col-12 text-center">
-                <img width="200px"
-                  src={{Item.restaurant.storeImg}}
-                  height="300px"
-                  class="imgoffer"
-                  alt=""
-                />
+                <img width="200px" src={{Item.restaurant.storeImg}} height="300px" class="imgoffer" alt="" />
               </div>
               <div class="row justify-content-center">
-                <a
-                  (click)="toggleVisibility()"
-                  id="details-btn"
-                  class="d-none d-lg-block"
-                  >Show Restaurants Details
+                <a (click)="toggleVisibility()" id="details-btn" class="d-none d-lg-block">Show Restaurants Details
                   <i class="fa-solid fa-arrow-right"></i>
                 </a>
               </div>
@@ -62,97 +47,83 @@
               <!-- list of items -->
               <div class="row mt-2 container">
                 <div class="col-1 margin-arrow">
-                  <a
-                    class="btn mb-3"
-                    href="#carouselExampleIndicators2"
-                    role="button"
-                    data-slide="next"
-                  >
+                  <a class="btn mb-3" href="#carouselExampleIndicators2" role="button" data-slide="next">
                     <i class="fa-solid fa-angle-left"></i>
                   </a>
                 </div>
                 <div class="col-11">
-                  <div
-                    id="carouselExampleIndicators2"
-                    class="carousel slide"
-                    data-ride="carousel"
-                  >
-                  <div class="carousel-inner">
-                    <div class="carousel-item" *ngFor="let item of items; let i = index" [class.active]="i === 0">
-                      <!-- Existing code for each item in the carousel -->
-                      <div class="row">
-                        <div class="col-md-8 mb-3">
-                          <div class="offer-cards mt-1">
-                            <div class="col-12 text-center">
-                              <img
-                                src={{Item.menuItemImg}}
-                                class="imgoffer"
-                                alt=""
-                              />
-                            </div>
-                            <div class="row">
+                  <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item" *ngFor="let item of items; let i = index" [class.active]="i === 0">
+                        <!-- Existing code for each item in the carousel -->
+                        <div class="row">
+                          <div class="col-md-8 mb-3">
+                            <div class="offer-cards mt-1">
                               <div class="col-12 text-center">
-                                <h1 class="ff pt-3 pl-2 pr-2">
-                                  {{item.name}}
-                                  {{item.category.name}}
-                                </h1>
+                                <img src={{Item.menuItemImg}} class="imgoffer" alt="" />
                               </div>
-                            </div>
-                            <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
-                              <div class="col-5">
-                                <h3>{{item.price}} LE</h3>
+                              <div class="row">
+                                <div class="col-12 text-center">
+                                  <h1 class="ff pt-3 pl-2 pr-2">
+                                    {{item.name}}
+                                    {{item.category.name}}
+                                  </h1>
+                                </div>
                               </div>
-                              <div class="col-6">
-                                <h6 class="tx"></h6>
+                              <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
+                                <div class="col-5">
+                                  <h3>{{item.price}} LE</h3>
+                                </div>
+                                <div class="col-6">
+                                  <h6 class="tx"></h6>
+                                </div>
                               </div>
-                            </div>
-                            <div class="row justify-content-center">
-                              <div class="col-12 mt-2">
-                                <button  [routerLink]="['/order/',item.id]"  class="btnn hvr-bounce-in">Order</button>
+                              <div class="row justify-content-center">
+                                <div class="col-12 mt-2">
+                                  <button [routerLink]="['/order/',item.id]" class="btnn hvr-bounce-in">Order</button>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="carousel-inner">
-                    <div class="carousel-item" *ngFor="let item of items; let i = index" >
-                      <!-- Existing code for each item in the carousel -->
-                      <div class="row">
-                        <div class="col-md-8 mb-3">
-                          <div class="offer-cards mt-1">
-                            <div class="row">
-                              <div class="col-12 text-center">
-                                <img src="../../../assets/Burger.jpg" class="imgoffer" alt="" />
+                    <div class="carousel-inner">
+                      <div class="carousel-item" *ngFor="let item of items; let i = index">
+                        <!-- Existing code for each item in the carousel -->
+                        <div class="row">
+                          <div class="col-md-8 mb-3">
+                            <div class="offer-cards mt-1">
+                              <div class="row">
+                                <div class="col-12 text-center">
+                                  <img src="../../../assets/Burger.jpg" class="imgoffer" alt="" />
+                                </div>
                               </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-12 text-center">
-                                <h1 class="ff pt-3 pl-2 pr-2">
-                                  {{item.name}}
-                                  {{item.category.name}}
-                                </h1>
+                              <div class="row">
+                                <div class="col-12 text-center">
+                                  <h1 class="ff pt-3 pl-2 pr-2">
+                                    {{item.name}}
+                                    {{item.category.name}}
+                                  </h1>
+                                </div>
                               </div>
-                            </div>
-                            <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
-                              <div class="col-5">
-                                <h3>{{item.price}}$</h3>
+                              <div class="row justify-content-center mt-2 mr-1 mb-1 pl-3 pr-3">
+                                <div class="col-5">
+                                  <h3>{{item.price}}LE</h3>
+                                </div>
+
                               </div>
-                           
-                            </div>
-                            <div class="row justify-content-center">
-                              <div class="col-12 mt-2">
-                                <button  [routerLink]="['/order/',item.id]"  class="btnn hvr-bounce-in">Order </button>
+                              <div class="row justify-content-center">
+                                <div class="col-12 mt-2">
+                                  <button [routerLink]="['/order/',item.id]" class="btnn hvr-bounce-in">Order </button>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  
                   </div>
                 </div>
               </div>
@@ -164,22 +135,11 @@
             <div class="col-12">
               <div class="row p-5">
                 <h3 class="fontheader">{{Item.restaurant.name}}</h3>
-                <img
-                [src]="Item.restaurant.storeImg || 'assets/Burger.jpg'"
-                  class="w-100 h-100"
-                  alt=""
-                  srcset=""
-                />
+                <img [src]="Item.restaurant.storeImg || 'assets/Burger.jpg'" class="w-100 h-100" alt="" srcset="" />
                 <p>
                   {{Item.restaurant.description}}
                 </p>
-
-                <a
-                  routerLink="/restaurants"
-                  role="button"
-                  value="View All Restuarants"
-                  class="btnn"
-                >
+                <a routerLink="/restaurants" role="button" value="View All Restuarants" class="btnn">
                   View All Restuarants
                 </a>
               </div>

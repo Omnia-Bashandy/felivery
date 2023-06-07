@@ -21,24 +21,11 @@ export class AppComponent implements OnInit {
     // Simulate loading delay
     setTimeout(() => {
       this.isLoading = false;
-    }, 1000); // Adjust the delay time as needed
+    }, 1000); // Adjust the delay time 
 
-    // // Retrieve token from local storage
-    // const token = this.loginService.getToken();
-
-    // if (token) {
-    //   // Set the token in the cookie
-    //   this.loginService.setToken(token);
-    // }
   }
 
   isDashboardRoute(): boolean {
     return this.router.url.startsWith('/store-dashboard');
   }
 }
-
-
-//   const body = { title: 'Angular PUT Request Example' };
-//   this.http.put<any>('https://jsonplaceholder.typicode.com/posts/1', body)
-//       .subscribe(data => this.title = data.id);
-// }

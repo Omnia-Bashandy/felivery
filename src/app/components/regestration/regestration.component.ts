@@ -11,10 +11,6 @@ import {faEye , faEyeSlash  } from '@fortawesome/free-solid-svg-icons';
 })
 export class RegestrationComponent {
 
-//image**********************
-  // ondileSelected(event:any){
-  //   this.selectedFile = event.target.files[0];
-  // }
   selectedFile: FormData | undefined ;
 
   onUpload(event: any){
@@ -38,9 +34,6 @@ export class RegestrationComponent {
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
-  
-  // reactive forms
-  // const phoneNumberPattern = /^(\+\d{1,3}[- ]?)?\d{10}$/;
   validationsRegister = new FormGroup({
     username: new FormControl("",[Validators.min(8),Validators.max(12),Validators.required]),
     address: new FormControl("",[Validators.max(12),Validators.required]),
@@ -51,8 +44,6 @@ export class RegestrationComponent {
     imgupload:new FormControl(""),
   })
   constructor(public myService:StoreService , private router: Router){
-
-    // console.log(myService.getAllRestaurants.length);
   }
   refresh(): void {
     window.location.reload();
@@ -90,7 +81,6 @@ imgUrl:any;
 
            //image
       this.myService.uploadImg(this.selectedFile, Rname ).subscribe({ 
-        //this.myService.uploadImg( Rname ).subscribe({ 
           next(data : any) {
             console.log(data);
           },error: (err) => {

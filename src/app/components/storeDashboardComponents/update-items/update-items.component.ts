@@ -13,9 +13,6 @@ import { SharedService } from 'src/app/Services/shared.service';
 
 
 export class UpdateItemsComponent implements OnInit{
-  // editIitem:any;
-  // id:any;
-  
   item:any
   iditem:any
   restid:any =this.storeservice.getId();
@@ -28,7 +25,6 @@ export class UpdateItemsComponent implements OnInit{
     price: new FormControl("", [Validators.required, Validators.pattern(/^\d+(\.\d{1,2,3})?$/)]),
     rname: new FormControl(""),
     itemImg: new FormControl("")
-    // desc: new FormControl("", [Validators.required, Validators.maxLength(100)]),
   });
   
   arritems:any
@@ -68,7 +64,7 @@ this.categoriees.getCategoryRestid(this.restid).subscribe(
  setSelectedCategory() {
    console.log(this.selectedCategoryId); // Output the selected category ID
  }
-
+image:any = false;
 editItem(itemname: string, price: any) {
   const updatedItem = {
     id: this.iditem,
@@ -84,37 +80,39 @@ editItem(itemname: string, price: any) {
   this.menuService.updateMenuitem(updatedItem).subscribe(
     (data) => {
       console.log(data);
-      alert("Updated successfully");
-      window.location.reload();
+      this.image = true;
     },
     (error) => {
       console.error(error);
       alert("Failed to update item");
     }
-  );
-   //  image
-   this.menuService.uploadImg(this.selectedFile, this.restid ,itemname).subscribe({ 
-    //this.myService.uploadImg( Rname ).subscribe({ 
-      next(data : any) {
-        console.log(data);
-      },error: (err) => {
-        console.log(err);
-        // this.imgUrl = err.error["text"]
-        console.log(err.error["text"]);
-        
+    );
+    //  image
+    setTimeout(() => {      
+      if (this.image == true) {
+        this.menuService.uploadImg(this.selectedFile, this.restid ,itemname).subscribe({ 
+          next(data : any) {
+            console.log(data);
+          },error: (err) => {
+            console.log(err);
+            console.log(err.error["text"]);
+            alert("Updated successfully");
+            window.location.reload();
+            
+          }
+        })
       }
-    })
+    }, 100);
+
 }
 selectedFile: FormData | undefined ;
 
   onUpload(event: any){
     if(event.target.files.length > 0) {
       const file = event.target.files[0];
-      //if(event.target.files.length == 1 && (file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg')) {
-      if(file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg') {
+            if(file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg') {
         const formData = new FormData();
         formData.append('file',file);
-        //this.selectedFile = file;
         this.selectedFile = formData;
       } else {
         alert('Please select an Image in either .jpg, .jpeg, or .png forms!');

@@ -38,11 +38,6 @@ export class OrderService {
     
   }
   private  OrderKey= 'Order';
-
-
-
-
-
   addToOrder(item: any) {
     // Retrieve the Order items from local storage
     const OrderItems = this.getOrderItems();

@@ -4,46 +4,28 @@
       <div class="row justify-content-center">
         <div class="col-lg-6 col-12 p-5">
           <h1 class="hidding-offer text-white">Welcome Again Hungry Man!</h1>
-          <form [formGroup]="validlogin" >
+          <form [formGroup]="validlogin">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label"
-                >Email address</label
-              >
-              <input
-              #email
-                formControlName="email"
-                type="email"
-                placeholder="Enter Your Email address"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-              />
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input #email formControlName="email" type="email" placeholder="Enter Your Email address"
+                class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
               <div *ngIf="validlogin.controls.email.errors">
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
+                <div class="validateerrorstyle" *ngIf="
                     validlogin.controls.email.errors['email'] &&
                     validlogin.controls.email.touched
-                  "
-                >
+                  ">
                   Please enter a valid email.
                 </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
+                <div class="validateerrorstyle" *ngIf="
                     validlogin.controls.email.errors['required'] &&
                     validlogin.controls.email.touched
-                  "
-                >
+                  ">
                   Email is required.
                 </div>
-                <div
-                  class="validateerrorstyle"
-                  *ngIf="
+                <div class="validateerrorstyle" *ngIf="
                     validlogin.controls.email.errors['emailTaken'] &&
                     validlogin.controls.email.touched
-                  "
-                >
+                  ">
                   This email is already taken.
                 </div>
               </div>
@@ -52,36 +34,32 @@
             <div class="mb-3">
               <label for="Password" class="form-label">Password</label>
               <div class="input-group">
-                <input
-                  #password
-                  formControlName="password"
-                  [type]="passwordVisible ? 'text' : 'password'"
-                  placeholder="********"
-                  class="form-control"
-                  id="Password"
-                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$"
-/>
+                <input #password formControlName="password" [type]="passwordVisible ? 'text' : 'password'"
+                  placeholder="********" class="form-control" id="Password"
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$" />
 
                 <div class="input-group-append">
-                  <button
-                    class="btn btn-outline-secondary"
-                    type="button"
-                    (click)="togglePasswordVisibility()"
-                    title="{{ passwordVisible ? 'Hide' : 'Show' }}"
-                  >
+                  <button class="btn btn-outline-secondary" type="button" (click)="togglePasswordVisibility()"
+                    title="{{ passwordVisible ? 'Hide' : 'Show' }}">
                     <fa-icon [icon]="passwordVisible ? eyeSlash : eye"></fa-icon>
                   </button>
                 </div>
               </div>
               <div *ngIf="validlogin.controls.password.errors">
-                <div class="validateerrorstyle"  *ngIf="validlogin.controls.password.errors['min'] && validlogin.controls.password.touched">Password must have at least 8 characters.</div>
-                <div class="validateerrorstyle" *ngIf="validlogin.controls.password.errors['pattern'] && validlogin.controls.password.touched">Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.</div>
-                <div class="validateerrorstyle" *ngIf="validlogin.controls.password.errors['required'] && validlogin.controls.password.touched">Password is required.</div>
+                <div class="validateerrorstyle"
+                  *ngIf="validlogin.controls.password.errors['min'] && validlogin.controls.password.touched">Password
+                  must have at least 8 characters.</div>
+                <div class="validateerrorstyle"
+                  *ngIf="validlogin.controls.password.errors['pattern'] && validlogin.controls.password.touched">
+                  Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special
+                  character.</div>
+                <div class="validateerrorstyle"
+                  *ngIf="validlogin.controls.password.errors['required'] && validlogin.controls.password.touched">
+                  Password is required.</div>
               </div>
             </div>
-
-            <!-- <input type="submit" class="btnn"  value="Login" (click)="login(email.value , password.value)"> -->
-            <button type="submit" class="btnn"  value="Login" (click)="login(email.value , password.value)">Login</button>
+            <button type="submit" class="btnn" value="Login"
+              (click)="login(email.value , password.value)">Login</button>
           </form>
         </div>
       </div>

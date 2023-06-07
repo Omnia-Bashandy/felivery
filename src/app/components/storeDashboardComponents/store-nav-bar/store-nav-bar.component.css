@@ -1,16 +1,3 @@
-/* .sidenav {
-  width: 230px;
-  overflow-x: hidden;
-  text-transform: uppercase;
-  font-family: 'Abril Fatface', serif;
-  background-color: #f3650e;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 20px;
-  height: 100vh;
-} */
-
 .sidenav a {
   color: white;
   text-decoration: none;

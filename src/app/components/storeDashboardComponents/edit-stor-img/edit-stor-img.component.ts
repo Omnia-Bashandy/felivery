@@ -18,11 +18,10 @@ export class EditStorImgComponent {
   onUpload(event: any ){
     if(event.target.files.length > 0) {
       const file = event.target.files[0];
-      //if(event.target.files.length == 1 && (file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg')) {
-      if(file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg') {
+            if(file.type == 'image/png' || file.type == 'image/jpeg' || file.type == 'image/jpg') {
         const formData = new FormData();
         formData.append('file',file);
-        //this.selectedFile = file;
+        
         this.selectedFile = formData;
       } else {
         alert('Please select an Image in either .jpg, .jpeg, or .png forms!');
@@ -57,12 +56,10 @@ export class EditStorImgComponent {
     console.log(this.Rname);
     
     this.myService.uploadImg(this.selectedFile, this.Rname ).subscribe({ 
-      //this.myService.uploadImg( Rname ).subscribe({ 
-        next(data : any) {
-          console.log(data);
-        },error: (err) => {
-          console.log(err);
-          // this.imgUrl = err.error["text"]
+      next(data : any) {
+        console.log(data);
+      },error: (err) => {
+        console.log(err);
           console.log(err.error["text"]);
           this.route.navigate(['/store-dashboard/edit-store'])
         }

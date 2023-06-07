@@ -28,9 +28,7 @@ export class StoresettingComponent {
               this.sharedService.setName(this.restaurantData.name);
             },
             error:(err)=>{console.log(err)},
-            // complete:()=>{}
     })
-    // console.log(this.restaurantData);
   }
   
   

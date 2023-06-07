@@ -17,9 +17,6 @@ export class StoreService {
   private img_url = "https://localhost:44309/api/Store/uploadImage";
   private rate_url = "https://localhost:44309/api/Store/SetRating";
   
-  //uploadImg(img:any , name:any){
-    //return this.myClient.post(this.img_url,img ,name);
-  //}
   uploadImg(img:any ,storeName:any){
     return this.myClient.post(`${this.img_url}/${storeName}`,img);
   }

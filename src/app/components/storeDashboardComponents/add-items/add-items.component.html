@@ -7,15 +7,8 @@
           <form [formGroup]="addnewitem">
             <div class="mb-3">
               <label for="name" class="form-label">Item Name</label>
-              <input
-                #itemnam
-                formControlName="itemname"
-                type="text"
-                placeholder="Enter Item Name"
-                class="form-control"
-                id="name"
-                aria-describedby="name"
-              />
+              <input #itemnam formControlName="itemname" type="text" placeholder="Enter Item Name" class="form-control"
+                id="name" aria-describedby="name" />
               <div *ngIf="addnewitem.controls.itemname.errors">
                 <!-- Validation messages -->
               </div>
@@ -23,15 +16,8 @@
 
             <div class="mb-3">
               <label for="description" class="form-label">Description</label>
-              <input
-                #desc
-                formControlName="desc"
-                type="text"
-                placeholder="Enter Description"
-                class="form-control"
-                id="description"
-                aria-describedby="description"
-              />
+              <input #desc formControlName="desc" type="text" placeholder="Enter Description" class="form-control"
+                id="description" aria-describedby="description" />
               <div *ngIf="addnewitem.controls.desc.errors">
                 <!-- Validation messages -->
               </div>
@@ -39,14 +25,8 @@
 
             <div class="mb-3">
               <label for="categoryID" class="control-label">Category</label>
-              <select
-                #categoryname
-                id="categoryID"
-                formControlName="category"
-                [(ngModel)]="selectedCategoryId"
-                (ngModelChange)="setSelectedCategory()"
-                class="form-control"
-              >
+              <select #categoryname id="categoryID" formControlName="category" [(ngModel)]="selectedCategoryId"
+                (ngModelChange)="setSelectedCategory()" class="form-control">
                 <option value="">Select a Category</option>
                 <option *ngFor="let c of cats" [value]="c.id">{{ c.name }}</option>
               </select>
@@ -57,14 +37,8 @@
 
             <div class="mb-3">
               <label for="price" class="form-label">Price</label>
-              <input
-                #price
-                formControlName="price"
-                type="number"
-                placeholder="Enter Price"
-                class="form-control"
-                id="price"
-              />
+              <input #price formControlName="price" type="number" placeholder="Enter Price" class="form-control"
+                id="price" />
               <div *ngIf="addnewitem.controls.price.errors">
                 <!-- Validation messages -->
               </div>
@@ -78,13 +52,8 @@
               </div>
             </div>
 
-            <button
-              routerLink="/store-dashboard/menuitems"
-              class="btn btn-success m-3 w-50"
-              type="submit"
-              (click)="addNewItem(itemnam.value, price.value)"
-              [disabled]="!addnewitem.valid"
-            >
+            <button routerLink="/store-dashboard/menuitems" class="btn btn-success m-3 w-50" type="submit"
+              (click)="addNewItem(itemnam.value, price.value)" [disabled]="!addnewitem.valid">
               Save
             </button>
 

@@ -24,24 +24,6 @@ ngb-rating{
     font-size: 90px;
     border-radius: 15px;
 }
-/* 
-
-.ellipsis {
-    width: 15rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
-}
-
-.card {
-  border: 1px solid rgb(232, 151, 1);
-  background-color: rgb(245, 228, 213);
-transition: transform 0.5s;
-}
-
-.card:hover {
-transform: scale(1.18);
-} */
 
 .btnn {
   background-color: rgb(233, 107, 34);
@@ -131,11 +113,9 @@ transform: scale(1.02);
   height: 100%;
   margin: 5px;
   background-color: rgb(255, 255, 255);
-  /* top: 150px; */
   left: 1000px;
   bottom: 3px;
   right: 30px;
-  /* background-color: rgba(255, 255, 255, 0.47); */
   border-radius: 12px;
   border: 1px solid rgba(234, 130, 12);
 }

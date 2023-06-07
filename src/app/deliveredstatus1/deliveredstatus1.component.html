@@ -1,39 +1,34 @@
-
 <div class="container height">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <!-- Approved div -->
-        <div class="row" >
-          <div class="col-6 mt-5 p-5">
-            <div class="row">
-              <h1 class="hidding-offer" style="color:aliceblue">
-                Waahhoo Your Order is coming soon
-              </h1>
-          <div style="color:aliceblue"> 
-              <h2 >How would you rate this service</h2>
-             <div *ngIf="disabled==false" >
-              <ngb-rating [max]="5" [formControl]="ratingcontrol" (click)="GetRating()" (click)="getdisabletrue()" style="font-size: 30px; color: yellow;" ></ngb-rating>
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <!-- Approved div -->
+      <div class="row">
+        <div class="col-6 mt-5 p-5">
+          <div class="row">
+            <h1 class="hidding-offer" style="color:aliceblue">
+              Waahhoo Your Order is coming soon
+            </h1>
+            <div style="color:aliceblue">
+              <h2>How would you rate this service</h2>
+              <div *ngIf="disabled==false">
+                <ngb-rating [max]="5" [formControl]="ratingcontrol" (click)="GetRating()" (click)="getdisabletrue()"
+                  style="font-size: 30px; color: yellow;"></ngb-rating>
               </div>
-              <div *ngIf="disabled==true" >
-                <div class="row justify-content-center"  >
-
-                    <!-- <ngb-rating [max]="5" [rate]="ratingvalue" [readonly]="true "style="font-size: 30px; color: yellow;"  ></ngb-rating> -->
-                    <!-- <h2>Rating from {{id.numOfRaters}} users</h2> -->
-                    <h1> 7abibi tsslam </h1>
-                 </div>
+              <div *ngIf="disabled==true">
+                <div class="row justify-content-center">
+                  <h1> Thank you for your rating </h1>
                 </div>
-            
+              </div>
             </div>
             <a href="/" class="btn btn-success">Go Home</a>
-            </div>
           </div>
-          <div class="col-6">
-            <div class="row">
-              <img src="/assets/order.png" alt="" />
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <img src="/assets/order.png" alt="" />
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

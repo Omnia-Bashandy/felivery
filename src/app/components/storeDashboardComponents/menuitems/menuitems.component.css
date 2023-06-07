@@ -9,59 +9,6 @@
 .edt {
     color: aliceblue !important;
   }
-
-/* ::ng-deep{
-  .ngx-pagination{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
-
-.ngx-pagination li{
-  width: 35px;
-  height: 35px;
-  border-radius: 50% !important ;
-  background-color: #f8f8f8;
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-
-  &.small-screen{
-    display: none !important;
-  }
-  &.pagination-previous,
-  &.pagination-next{
-    a,span{;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      overflow: hidden;
-      color: #f8f8f8;
-    }
-  }
-  }
-} */
-
-
-  /* 
-  .ellipsis {
-      width: 15rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: center;
-  }
-  
-  .card {
-    border: 1px solid rgb(232, 151, 1);
-    background-color: rgb(245, 228, 213);
-  transition: transform 0.5s;
-  }
-  
-  .card:hover {
-  transform: scale(1.18);
-  } */
   
   .btnn {
     background-color: rgb(233, 107, 34);

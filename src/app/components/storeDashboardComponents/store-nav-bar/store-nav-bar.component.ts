@@ -19,12 +19,6 @@ export class StoreNavBarComponent {
   bars = faBars
   activeLink: string = 'storehome';
   resId: any;
-  // TheStore: any = this.store.getRestaurantById(this.id).subscribe(
-  //   (data) => {
-  //     this.resId = data
-  //   }
-  // )
-  // StoreImg: string = this.TheStore.storeImg;
 constructor(public route:Router, private shared:SharedService, private store:StoreService){}
   ngOnInit(): void {
     this.store.getRestaurantById(this.id).subscribe(
@@ -40,9 +34,9 @@ constructor(public route:Router, private shared:SharedService, private store:Sto
 
     this.isActive('storehome'); // Evaluate the active state of the 'storehome' link when the component initializes
   console.log("aaaaaaaaaaaaaaaaaaaaaaaaa");
-  console.log(this.id);
-  console.log(this.resId);
-  console.log(this.resId.name);
+  // console.log(this.id);
+  // console.log(this.resId);
+  // console.log(this.resId.name);
   }
   
   isActive(link: string): boolean {
@@ -56,7 +50,6 @@ constructor(public route:Router, private shared:SharedService, private store:Sto
     window.location.reload();
   }
   LogOut(){
-    // localStorage.removeItem("token")
     this.route.navigate(['/login'])
     setInterval(this.refresh,50)
   }

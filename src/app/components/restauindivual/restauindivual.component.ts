@@ -137,13 +137,10 @@ orders:any
   Clear(){
     this.cartService.clearCart();
     localStorage.setItem("RestCartId", this.initial_value);
-   
       window.location.reload();
   }
 
   addToCart(MID:any) {
-    // this.route.params.subscribe(params => {
-    //   const itemId = params['id'];
       console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",MID);
       console.log(MID);
       
@@ -174,7 +171,6 @@ orders:any
         if (existingItemIndex !== -1) {
           alert('Item is already in the cart.');
           this.showcart();
-          // this.router.navigate(['/cart']);
         } else {
           this.order = {
             menuItemID: {
@@ -188,10 +184,8 @@ orders:any
             quantity: this.quantity
           };
           this.cartService.addToCart(this.order);
-          // setInterval(this.refresh,50)
           alert(`${this.order.menuItemID.name} added successfully.`);
           setInterval(this.refresh,50)
-          // this.router.navigate(['/cart']);
         }
       }
     }

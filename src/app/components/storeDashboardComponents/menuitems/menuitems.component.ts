@@ -13,13 +13,6 @@ export class MenuitemsComponent implements OnInit {
   
   p: number = 1;
   itemperpage:number = 7;
-  // totalproducts :number = 0;
-
-  // page: number = 1;
-  // count: number = 0;
-  // tableSize: number = 12;
-  // tableSizes: any = [5, 10, 15, 20];
-
   items: any = [];
 
   data: any = [];
@@ -32,16 +25,6 @@ export class MenuitemsComponent implements OnInit {
   ) {}
   id: any = this.shared.getId();
 
-  // onTableDataChange(event: any) {
-  //   this.page = event;
-  //   this.ngOnInit();
-  // }
-
-  // onTableSizeChange(event: any): void {
-  //   this.tableSize = event.target.value;
-  //   this.page = 1;
-  //   this.ngOnInit();
-  // }
   ngOnInit(): void {
     this.menuservice.GetAllmenuserved().subscribe({
       next: (data) => {
@@ -59,18 +42,6 @@ export class MenuitemsComponent implements OnInit {
       },
     });
   }
-  // deleteItem(id: any): void {
-  //   this.menuservice.getMenuitemById(id).subscribe()
-  //   this.menuservice.deleteMenuitem(id).subscribe(() => {
-  //     // alert('Item deleted successfully.');
-  //     console.log("Deleteeed");
-
-  //     this.router.navigate(["/store-dashboard/menuitems"]);
-  //   }, error => {
-  //     console.error('Error deleting item:', error);
-  //   });
-  // }
-
   newItem: any = {};
 
   addItem(): void {

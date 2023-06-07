@@ -55,27 +55,5 @@ editcat = new FormGroup(
       }
     );
   }
-  
-
-  // updateee 
-  // updateCategory(categoryname: string){ 
-  //   let  Updatedcategory ={
-  //     id:+this.category.id,
-  //     name: categoryname,
-  //   }
-  //   this.catService.updateCategory(Updatedcategory).subscribe(
-  //         () => {
-  //                 // data = Updatedcategory;
-  //                 // console.log(data);
-  //                   console.log(typeof(this.id));
-  //                   this.category.name = categoryname;  
-  //                   alert(`${categoryname} added successfully`);
-  //               },
-  //                 (err: any) => {
-  //                   console.log('Error', err);
-  //               }
-  //   );
-  // }
-
 
 }

@@ -18,7 +18,7 @@ export class Deliveredstatus1Component implements OnInit {
   
   ratingcontrol=new FormControl(0);
   Cart:any;
-  id:any;
+  id = localStorage.getItem("RaterestId")
   ratingvalue :any;
   disabled:any =false;
 
@@ -29,20 +29,18 @@ export class Deliveredstatus1Component implements OnInit {
     this.Cart = this.cart.getCartItems();
     console.log(this.Cart[0].menuItemID.restaurantID);
     console.log(this.Cart[0]);
-    this.id= this.Cart[0].menuItemID.restaurantID
     this.GetRating()
     console.log(this.ratingcontrol.value);
   }
 
   GetRating(){
+    console.log(this.id);
+    console.log(this.ratingcontrol.value);
+    
     this.storeService.SetRate(this.id, this.ratingcontrol.value).subscribe(
       (data: any) => {
         this.ratingvalue = this.ratingcontrol.value
-  // console.log(this.ratingcontrol.value);
-  
-
   },
-  
       (error: any) => {
         console.log("There is an error", error); 
       }
@@ -50,7 +48,6 @@ export class Deliveredstatus1Component implements OnInit {
     }
     getdisabletrue(){
       this.disabled =true
-
     }
 
 }

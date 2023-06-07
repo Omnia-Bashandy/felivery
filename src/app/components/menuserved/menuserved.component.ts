@@ -14,7 +14,6 @@ export class MenuservedComponent implements OnInit {
 
   constructor(public menuservice: MenuitemsService, private router: Router) {}
   ngOnInit(): void {
-    // console.log(this.menuservice.GetAllmenuserved);
     this.menuservice.GetAllmenuserved().subscribe({
       next: (data) => {
         (this.items = data), console.log(this.items);
@@ -23,7 +22,6 @@ export class MenuservedComponent implements OnInit {
           if (this.items[index].isOffer === true) {
             console.log(this.items[index].isOffer);
           }
-          // console.log(this.items[index].isOffer);
         }
       },
       error: (err) => {

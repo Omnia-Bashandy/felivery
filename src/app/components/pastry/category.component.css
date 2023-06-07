@@ -8,8 +8,6 @@
     background-image: url("../../../assets/donuts.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
-    /* background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,63,9,1) 53%, rgb(122, 65, 8) 100%); */
   }
 
   .height-img{

@@ -30,19 +30,6 @@ export class RegistercustomerComponent {
     address: new FormControl("",[Validators.max(12),Validators.required]),
   })
   AdduserCustomer(username: string, email: string, password: string, mobile: string, address: string) {
-    
-// {
-//   "model": {
-//     "username": "Ober",
-//     "email": "Ober@Ober.com",
-//     "password": "Ober@123"
-//   },
-//   "customer": {
-//     "customerName": "Ober",
-//     "address": "string",
-//     "mobileNumber": 44166666
-//   }
-// }
     const userData = {
       "model":{
         username: username,
@@ -54,16 +41,13 @@ export class RegistercustomerComponent {
             address: address,
             mobileNumber: mobile
           }
-      // mobileN
     };
     console.log(userData);
-    
-    // setInterval(this.refresh,5000)
     this.http.Register(userData).subscribe({
       next: (data: any) => {
         console.log(data);
-        const token = data["token"]; // Accessing the "id" property
-        console.log(token); // Check the value of id
+        const token = data["token"]; // Accessing the "token" property
+        console.log(token); // Check the value of token
         localStorage.setItem('token',token)
         alert(`Welcome in Felivery`);
         this.route.navigate(['/login'])
@@ -72,10 +56,8 @@ export class RegistercustomerComponent {
       error: (err) => {
         console.log(err);
         alert(`${err.error}`)
-        // Handle login error
       },
       });
     }
-  // },token
   }
 

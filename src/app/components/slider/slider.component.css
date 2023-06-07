@@ -5,8 +5,6 @@
 .slide{
     border: 1px solid black;
     border-radius: 5px;
-    /* margin-top: 10px; */
-    /* z-index: 0; */
     }
 .overlay {
     position: absolute;

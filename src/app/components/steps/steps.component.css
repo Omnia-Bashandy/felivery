@@ -45,30 +45,6 @@ font-size: 50px;
   height: auto;
 }
 
-/* .section section .item-one{
-  animation-name: backInDown;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-}
-
-.section section .item-two{
-  animation-name: backInUp;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-}
-
-.section section .item-three{
-  animation-name: backInDown;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-}
-
-.section section .item-four{
-  animation-name:backInUp;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-} */
-
 .section section{
   width: 1100px;
   height: auto;

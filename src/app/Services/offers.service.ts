@@ -13,9 +13,5 @@ export class OffersService {
  GetAlloffers(){
   return this.client.get(this.offersURL);
  }
-//  GetofferbyID(id:any){
-//   return this.client.get(`${this.offersURL}/${id}`)
-//  }
- 
 
 }

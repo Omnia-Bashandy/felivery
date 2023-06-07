@@ -21,25 +21,6 @@
     background-color: rgba(255, 255, 255, 0.42);
     border: 1px solid rgba(249, 249, 249, 0.3);
   }
-  /* 
-  
-  .ellipsis {
-      width: 15rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: center;
-  }
-  
-  .card {
-    border: 1px solid rgb(232, 151, 1);
-    background-color: rgb(245, 228, 213);
-  transition: transform 0.5s;
-  }
-  
-  .card:hover {
-  transform: scale(1.18);
-  } */
-  
   .btnn {
     background-color: rgb(233, 107, 34);
     color: rgb(251, 250, 247);

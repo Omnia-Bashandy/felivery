@@ -54,13 +54,7 @@ export class StorehomeComponent {
 
     // Get the stored id from the shared service
     this.id = this.sharedService.getId(); 
-    console.log(this.id);
-    // if (this.sharedService.getStatus() === 'cancelcustomer') {
-    //   setInterval(this.refresh,50)
-    //   alert(`order canceled `)
-    // }
-    // this.sharedserv.setStatus('cancelcustomer');
-    
+    console.log(this.id)
 
     this.orderservice.getOrdersbyRestID(this.id).subscribe(
       (data:any)=>{
@@ -73,12 +67,19 @@ export class StorehomeComponent {
           }
     )
     //finished orders
-    this.orderservice.getFinishedOrders(this.id).subscribe(
-      (data:any)=>{
+    this.orderservice.getFinishedOrders(this.id).subscribe({
+      next:(data:any)=>{
         console.log(data);
+        console.log(this.id);
         this.finishedOrders = data
+        console.log(this.finishedOrders);
         
-    })
+    },
+    error(err) {
+        console.log(err);
+        
+    },
+  })
 
     //get menu items by rest id 
     this.servicestore.getItemsbyRestID(this.id).subscribe(
@@ -86,7 +87,6 @@ export class StorehomeComponent {
             console.log(data);//all items
             this.items=data;
               
-
           },
           (error:any)=>{
             console.log("There is an error ",error); 

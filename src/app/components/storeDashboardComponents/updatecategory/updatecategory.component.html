@@ -1,94 +1,54 @@
 <div class="container-fluied bg-img">
-    <div class="row bg-trans">
-      <div class="container-fluied justify-content-center mb-5 mt-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 col-12 p-5">
-            <h1 class="hidding-offer text-white">Update Category</h1>
-            <form [formGroup]="editcat" (ngSubmit)="updateCategory(categoryname.value)">
-                <!-- category name -->
-              <div class="mb-3">
-                <label for="name" class="form-label">category Name</label>
-                <input
-                #categoryname
-                  formControlName="categoryname"
-                  type="text"
-                  placeholder="Enter category Name"
-                  class="form-control"
-                  id="name"
-                  aria-describedby="name"
-                />
-                <div *ngIf="editcat.controls.categoryname.errors">
-                  <div
-                    class="validateerrorstyle"
-                    *ngIf="
+  <div class="row bg-trans">
+    <div class="container-fluied justify-content-center mb-5 mt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-12 p-5">
+          <h1 class="hidding-offer text-white">Update Category</h1>
+          <form [formGroup]="editcat" (ngSubmit)="updateCategory(categoryname.value)">
+            <!-- category name -->
+            <div class="mb-3">
+              <label for="name" class="form-label">category Name</label>
+              <input #categoryname formControlName="categoryname" type="text" placeholder="Enter category Name"
+                class="form-control" id="name" aria-describedby="name" />
+              <div *ngIf="editcat.controls.categoryname.errors">
+                <div class="validateerrorstyle" *ngIf="
                       editcat.controls.categoryname.errors['minlength'] &&
                       editcat.controls.categoryname.touched">
-                    category Name must be at least 5 characters.
-                  </div>
-                  <div
-                    class="validateerrorstyle"
-                    *ngIf="
+                  category Name must be at least 5 characters.
+                </div>
+                <div class="validateerrorstyle" *ngIf="
                       editcat.controls.categoryname.errors['maxlength'] &&
                       editcat.controls.categoryname.touched">category name can have at most 50 characters.
-                  </div>
-                  <div
-                    class="validateerrorstyle"
-                    *ngIf="
+                </div>
+                <div class="validateerrorstyle" *ngIf="
                       editcat.controls.categoryname.errors['required'] &&
                       editcat.controls.categoryname.touched
                     ">
-                    category name is required.
+                  category name is required.
+                </div>
+              </div>
+            </div>
+            <!-- description -->
+            <div class="mb-3">
+              <label for="discription" class="form-label">Discription</label>
+              <input formControlName="desc" type="text" placeholder="Enter discription" class="form-control"
+                id="discription" aria-describedby="discription" />
+            </div>
+            <div class="row justify-content-center mt-5">
+              <div class="col-10 text-center">
+                <div class="row justify-content-center">
+                  <div class="col-4">
+                    <button type="submit" class="btn btn-dark">update</button>
+                  </div>
+                  <div class="col-2">
+                    <a routerLink="/store-dashboard/categories" class="btn btn-dark">Cancel</a>
                   </div>
                 </div>
               </div>
-              <!-- description -->
-              <div class="mb-3">
-                <label for="discription" class="form-label">Discription</label>
-                <input
-                  formControlName="desc"
-                  type="text"
-                  placeholder="Enter discription"
-                  class="form-control"
-                  id="discription"
-                  aria-describedby="discription"
-                />
-              </div>
-
-              <!-- menu items -->
-              <!-- <div class="mb-3">
-                <label for="menuitems" class="form-label">Select Menu Item</label>
-                <input
-                  formControlName="menuitems"
-                  type="text"
-                  placeholder="Enter menuitems"
-                  class="form-control"
-                  id="menuitems"
-                  aria-describedby="menuitems"
-                />
-          
-              </div> -->
-  
-              <div class="row justify-content-center mt-5">
-                <div class="col-10 text-center">
-                  <div class="row justify-content-center">
-                    <div class="col-4">
-                      <button type="submit" class="btn btn-dark">update</button>
-  
-                    </div>
-                    <div class="col-2">
-                      <a
-                        routerLink="/store-dashboard/categories"
-                        class="btn btn-dark"
-                        >Cancel</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

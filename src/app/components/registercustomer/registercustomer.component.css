@@ -86,14 +86,7 @@ transform: scale(1.02);
   margin-bottom: 5px;
 
 }
-
-/* .font{
-  font-family: 'Bebas Neue', sans-serif;
-font-family: 'Shadows Into Light', cursive;
-} */
-
 .font{
-  /* font-family: 'Abril Fatface', serif; */
   font-size: 40px;
 }
 textarea{

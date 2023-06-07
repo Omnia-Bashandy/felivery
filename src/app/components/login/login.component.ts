@@ -17,18 +17,14 @@ export class LoginComponent {
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
- // const phoneNumberPattern = /^(\+\d{1,3}[- ]?)?\d{10}$/;
  validlogin= new FormGroup({
   username: new FormControl("",[Validators.min(8),Validators.max(12),Validators.required]),
   email:new FormControl("",[Validators.email,Validators.required]),
   password:new FormControl("",[Validators.min(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/),Validators.required]),
 
 })
-constructor(public myService:LoginService ,public sharedService :SharedService , public router : Router){
-    // this.myService.listen().subscribe((m:any)=>{
-    //   console.log(m); 
-    // })
-};
+constructor(public myService:LoginService ,public sharedService :SharedService , public router : Router){};
+
 refresh(): void {
   window.location.reload();
 }
@@ -37,18 +33,13 @@ refresh(): void {
 ngOnInit(): void {
 }
 login(email: any, password: any) {
-  console.log("hiii");
-
-  // if (this.validlogin.valid) {
+  
     const credentials = {
       email: email,
       password: password
       
     };
-    
-    //  this.myService.filter('Register click')
-  
-  //  var x = window.location.reload();
+    console.log("hiii");
     this.myService.login(credentials).subscribe({
       next: (data: any) => {
         console.log(data);
@@ -57,7 +48,7 @@ login(email: any, password: any) {
         const logToken = data["token"]; // Accessing the "token" property
         const name = data["username"]; // Accessing the "username" property
         localStorage.setItem("token",logToken)
-     
+    
         if (role == "PendingStore") {
           this.router.navigate(['/pending']); 
         }else if(role == "Customer"){
@@ -69,19 +60,13 @@ login(email: any, password: any) {
           this.sharedService.setId(id);
         }
         setInterval(this.refresh,50)
-      //  this.refresh()
       },
       error: (err) => {
         console.log(err);
         alert(`${err.error}`)
-        // Handle login error
       },
     });
-
-
-    // console.log(this.validlogin.value);
-  
   }
   
-}
+  }
 

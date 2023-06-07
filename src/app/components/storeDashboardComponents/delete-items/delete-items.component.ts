@@ -53,13 +53,4 @@ export class DeleteItemsComponent implements OnInit{
       
       console.log(this.id)
     }
-
-    // deleteItem(id: any): void {
-    //   this.menuService.deleteMenuitem(id).subscribe(() => {
-    //     console.log('Item deleted successfully.');
-    //   }, error => {
-    //     console.error('Error deleting item:', error);
-    //   });
-    // }
-    
 }

@@ -6,10 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  // refresh(): void {
-  //   window.location.reload();
-  // }
-  // ngOnInit(): void {
-  //   this.refresh
-  // }
 }

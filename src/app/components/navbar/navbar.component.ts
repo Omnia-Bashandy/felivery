@@ -17,9 +17,6 @@ export class NavbarComponent {
   showDashboardLinks = false;
   showDropdown: boolean = false; // Add showDropdown property
   islog:boolean = true;
-
-
-//status: string = '';
 status: any;
 
 cartItemCount: number|any = 0;

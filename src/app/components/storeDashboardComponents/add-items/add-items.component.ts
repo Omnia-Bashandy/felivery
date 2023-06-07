@@ -1,8 +1,6 @@
 import { Component  } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { data } from 'jquery';
 import { CategoriesService } from 'src/app/Services/categories.service';
-// import { Router } from '@angular/router';
 import { MenuitemsService } from 'src/app/Services/menuitems.service';
 import { SharedService } from 'src/app/Services/shared.service';
 
@@ -55,26 +53,30 @@ refresh(): void {
       price: price,
       categoryID: this.selectedCategoryId,
       restaurantID: this.id,
-      menuItemImg : "https://localhost:44309//uploads/common/noimg.png"
+      menuItemImg : this.imgUrl || "https://localhost:44309//uploads/common/noimg.png"
     };
   
   if (this.addnewitem.valid) {
-    console.log(newItem);
+
     this.myService.addmenuitem(newItem).subscribe(
     (data: any) => {
       console.log(data);
       console.log(data["restaurant"]["name"]);
+      console.log("message 2");
+
       },
       (err: any) => {
         console.log('Error', err);
       }
     );  
+
     //  image
-    setTimeout(() => {      
+    setTimeout(() => {   
       this.myService.uploadImg(this.selectedFile, this.id ,itemnam).subscribe({ 
         //this.myService.uploadImg( Rname ).subscribe({ 
           next(data : any) {
             console.log(data);
+            console.log("message 1");
           },error: (err) => {
             console.log(err);
             this.imgUrl = err.error["text"]

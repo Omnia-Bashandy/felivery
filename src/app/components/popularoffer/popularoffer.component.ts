@@ -33,21 +33,9 @@ export class PopularofferComponent {
       
     }
   },
-   error:(err)=> {console.log(err)}
+    error:(err)=> {console.log(err)}
   })
-   }
-restname:any = "unkown rest"
-
-getRestName(id:any): string {
-  this.stor.getRestaurantById(id).subscribe({
-    next:(data:any) =>{
-       this.restname = data['name']
-//     this.restname = data
-//     return `${data}` 
-   }
-  })
- return this.restname
-}
+  }
 
 
 }
