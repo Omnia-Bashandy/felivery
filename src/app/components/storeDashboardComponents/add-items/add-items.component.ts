@@ -49,17 +49,7 @@ refresh(): void {
   }
   imgUrl:any;
   addNewItem(itemnam: string, price: any) {
-     
-    setInterval(this.refresh,500)
-    const newItem = {
-      name: itemnam,
-      price: price,
-      categoryID: this.selectedCategoryId,
-      restaurantID: this.id,
-      menuItemImg : "https://localhost:44309//uploads/common/noimg.png"
-
-    };
-      //  image
+         //  image
  this.myService.uploadImg(this.selectedFile, this.id ,itemnam).subscribe({ 
   //this.myService.uploadImg( Rname ).subscribe({ 
     next(data : any) {
@@ -71,6 +61,16 @@ refresh(): void {
       
     }
   }) 
+    setInterval(this.refresh,500)
+    const newItem = {
+      name: itemnam,
+      price: price,
+      categoryID: this.selectedCategoryId,
+      restaurantID: this.id,
+      menuItemImg : "https://localhost:44309//uploads/common/noimg.png"
+
+    };
+  
      
     if (this.addnewitem.valid) {
      
