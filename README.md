@@ -1,7 +1,3 @@
-Here's an improved version of the README file for your Felivery project:
-
----
-
 # Felivery Project
 
 Welcome to the **Felivery Project**! This project is a web application developed using Angular, aimed at streamlining the delivery process for customers and delivery personnel. Below you’ll find instructions and information on how to set up, build, and run the project, along with some additional resources for further assistance.
@@ -93,7 +89,3 @@ We welcome contributions to the Felivery Project! To contribute:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
----
-
-This version of the README file is more detailed, providing context for the project, clear instructions for setting up and running the application, and resources for further help.
